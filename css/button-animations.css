@@ -1,0 +1,47 @@
+/* Elegant Button Hover */
+.btn-outline-primary {
+    position: relative;
+    color: #a63c06;
+    border: 1px solid #a63c06;
+    background: transparent;
+    padding: 10px 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline-primary:hover {
+    color: white;
+    border-color: #a63c06;
+    box-shadow: 0 4px 12px rgba(166, 60, 6, 0.1);
+}
+
+.btn-outline-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #a63c06;
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.btn-outline-primary:hover::before {
+    width: 100%;
+}
+
+/* For the main CTA button */
+.hero-wrap .btn-outline-primary {
+    border-width: 2px;
+    padding: 12px 35px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.hero-wrap .btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
