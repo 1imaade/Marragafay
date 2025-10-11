@@ -31,6 +31,44 @@
     <link rel="stylesheet" href="css/button-animations.css">
     <link rel="stylesheet" href="css/activity-grid.css">
     <link rel="stylesheet" href="css/luxury-activities.css">
+
+    <!-- Back-to-Top Button Styles -->
+    <style>
+      /* Back-to-Top Button Styling */
+      #backToTopBtn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        background-color: #bc6c25;
+        color: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      #backToTopBtn:hover {
+        background-color: #a05a1e;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        #backToTopBtn {
+          width: 48px;
+          height: 48px;
+          bottom: 20px;
+          right: 20px;
+        }
+      }
+    </style>
   </head>
   <body class="home">
     
@@ -97,50 +135,58 @@
     <!-- Luxury Hotel Homepage Sections -->
     <!-- =========================================== -->
 
-    <!-- 1. About Section - Who Are We -->
-    <!-- Large, image-left, text-right description block with subtle animation -->
-    <section class="luxury-about-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 120px 0;">
+    <!-- 1. About Section - Who Are We - Luxury Modern Redesign -->
+    <!-- Fully responsive: Image left, text right on desktop; stacked on mobile -->
+    <!-- Clean, minimal design with #bc6c25 accent color for luxury theme -->
+    <section class="luxury-about-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 80px 0; height: 100%;">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-            <div class="luxury-image-container mb-4 mb-lg-0" style="position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-              <!-- Updated image path to use existing hotel image -->
-              <img src="images/hotel-1.jpg" alt="Luxury Hotel Interior" class="img-fluid w-100" style="height: 500px; object-fit: cover;">
-              <div class="luxury-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(139, 69, 19, 0.1), rgba(218, 165, 32, 0.1));"></div>
+          <!-- Image Container - Left on desktop, stacks first on mobile -->
+          <div class="col-lg-6 order-lg-1 order-1" data-aos="fade-right" data-aos-duration="1000">
+            <div class="luxury-image-container" style="position: relative; overflow: hidden; border-radius: 10px;">
+              <!-- Updated image path to use existing hotel image - Simple styling with object-fit cover -->
+              <img src="images/hotel-1.jpg" alt="Luxury Hotel Interior" class="img-fluid w-100" style="height: 400px; object-fit: cover; max-width: 100%;">
             </div>
           </div>
-          <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-            <div class="luxury-content pl-lg-5">
-              <h2 class="luxury-section-title mb-4" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: #2c3e50; letter-spacing: -0.02em;">
+          <!-- Content Container - Right on desktop, stacks second on mobile -->
+          <div class="col-lg-6 order-lg-2 order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div class="luxury-content" style="padding-left: 0;">
+              <!-- Section Title - Large, elegant heading with #bc6c25 accent -->
+              <h2 class="luxury-section-title mb-4" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: #bc6c25; letter-spacing: -0.02em;">
                 Who We Are
               </h2>
-              <p class="luxury-lead-text mb-4" style="font-size: 1.2rem; color: #6c757d; line-height: 1.8; font-weight: 300;">
+              <!-- Description - Dark gray body text, limited to 2 lines before break -->
+              <p class="luxury-lead-text mb-4" style="font-size: 1.1rem; color: #495057; line-height: 1.8; font-weight: 400;">
                 Nestled in the heart of Morocco's mystical landscape, we are more than just a destination—we are curators of extraordinary experiences. For over two decades, our luxury desert retreat has welcomed discerning travelers seeking authentic Moroccan hospitality blended with contemporary elegance.
               </p>
-              <p class="luxury-description mb-4" style="font-size: 1.1rem; color: #495057; line-height: 1.7;">
+              <!-- Additional Description - Continues the narrative -->
+              <p class="luxury-description mb-4" style="font-size: 1rem; color: #6c757d; line-height: 1.7;">
                 Our story began with a vision to share the timeless beauty of the Agafay Desert while providing unparalleled service and comfort. Today, we continue this legacy, offering bespoke experiences that honor Moroccan traditions while embracing modern luxury.
               </p>
+              <!-- Features/Callouts - Luxury hotel-inspired with #bc6c25 circles and white icons -->
               <div class="luxury-highlights mt-4">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="luxury-highlight-item d-flex align-items-center mb-3">
-                      <div class="luxury-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                      <!-- Gold circle with #bc6c25 background for icons -->
+                      <div class="luxury-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: #bc6c25; display: flex; align-items: center; justify-content: center;">
                         <i class="icon-star" style="color: white; font-size: 1.2rem;"></i>
                       </div>
                       <div>
-                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50;">20+ Years Excellence</h6>
-                        <small style="color: #6c757d;">Award-winning service</small>
+                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50; font-size: 1rem;">20+ Years Excellence</h6>
+                        <small style="color: #6c757d; font-size: 0.85rem;">Award-winning service</small>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="luxury-highlight-item d-flex align-items-center mb-3">
-                      <div class="luxury-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                      <!-- Matching gold circle for consistency -->
+                      <div class="luxury-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: #bc6c25; display: flex; align-items: center; justify-content: center;">
                         <i class="icon-map-o" style="color: white; font-size: 1.2rem;"></i>
                       </div>
                       <div>
-                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50;">Prime Location</h6>
-                        <small style="color: #6c757d;">30 min from Marrakech</small>
+                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50; font-size: 1rem;">Prime Location</h6>
+                        <small style="color: #6c757d; font-size: 0.85rem;">30 min from Marrakech</small>
                       </div>
                     </div>
                   </div>
@@ -802,5 +848,39 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/mobile-menu.js"></script>
+
+  <!-- Back-to-Top Button HTML -->
+  <button id="backToTopBtn" aria-label="Scroll to top" style="display: none;">
+    <span style="font-size: 24px; font-weight: bold;">↑</span>
+  </button>
+
+  <!-- Back-to-Top Button JS -->
+  <script>
+    // Back-to-Top Button Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTopBtn = document.getElementById('backToTopBtn');
+
+      // Show/hide button based on scroll position
+      window.addEventListener('scroll', function() {
+        if (window.scrollY >= 300) {
+          backToTopBtn.style.opacity = '1';
+          backToTopBtn.style.display = 'flex';
+        } else {
+          backToTopBtn.style.opacity = '0';
+          setTimeout(() => {
+            backToTopBtn.style.display = 'none';
+          }, 300);
+        }
+      });
+
+      // Smooth scroll to top on click
+      backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
   </body>
 </html>
