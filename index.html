@@ -7,6 +7,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -27,8 +28,9 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mobile-menu.css">
-    <link rel="stylesheet" href="css/mobile-menu.css">
     <link rel="stylesheet" href="css/button-animations.css">
+    <link rel="stylesheet" href="css/activity-grid.css">
+    <link rel="stylesheet" href="css/luxury-activities.css">
   </head>
   <body class="home">
     
@@ -54,11 +56,14 @@
 
 	      <div class="collapse navbar-collapse">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="activities.html" class="nav-link">Activities</a></li>
+	          <li class="nav-item"><a href="packs.html" class="nav-link">Packs</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="places.html" class="nav-link">Places</a></li>
+	          <li class="nav-item"><a href="reviews.html" class="nav-link">Reviews</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="#" class="btn41-43 btn-42">Booking</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -89,571 +94,210 @@
       </div>
     </div>
 
-    <section class="ftco-section bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="intro ftco-animate">
-                        <h3><span>01</span> Adventure & Thrills</h3>
-                        <p>Experience unique thrills with our full-hour quad biking tours and 30-minute camel rides across the Agafay dunes.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="intro ftco-animate">
-                        <h3><span>02</span> Authentic Experience</h3>
-                        <p>Enjoy a luxury Moroccan dinner under the stars, featuring authentic tagine, live music, and a fire show that reflects our rich culture.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="intro ftco-animate">
-                        <h3><span>03</span> Easy & Safe Escape</h3>
-                        <p>Located just 30 minutes from Marrakech, we handle your round-trip transport, making your safety our absolute top priority.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Luxury Hotel Homepage Sections -->
+    <!-- =========================================== -->
 
-    <section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">See our latest vacation ideas</h2>
+    <!-- 1. About Section - Who Are We -->
+    <!-- Large, image-left, text-right description block with subtle animation -->
+    <section class="luxury-about-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 120px 0;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+            <div class="luxury-image-container mb-4 mb-lg-0" style="position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+              <!-- Updated image path to use existing hotel image -->
+              <img src="images/hotel-1.jpg" alt="Luxury Hotel Interior" class="img-fluid w-100" style="height: 500px; object-fit: cover;">
+              <div class="luxury-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(139, 69, 19, 0.1), rgba(218, 165, 32, 0.1));"></div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div class="luxury-content pl-lg-5">
+              <h2 class="luxury-section-title mb-4" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: #2c3e50; letter-spacing: -0.02em;">
+                Who We Are
+              </h2>
+              <p class="luxury-lead-text mb-4" style="font-size: 1.2rem; color: #6c757d; line-height: 1.8; font-weight: 300;">
+                Nestled in the heart of Morocco's mystical landscape, we are more than just a destination—we are curators of extraordinary experiences. For over two decades, our luxury desert retreat has welcomed discerning travelers seeking authentic Moroccan hospitality blended with contemporary elegance.
+              </p>
+              <p class="luxury-description mb-4" style="font-size: 1.1rem; color: #495057; line-height: 1.7;">
+                Our story began with a vision to share the timeless beauty of the Agafay Desert while providing unparalleled service and comfort. Today, we continue this legacy, offering bespoke experiences that honor Moroccan traditions while embracing modern luxury.
+              </p>
+              <div class="luxury-highlights mt-4">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="luxury-highlight-item d-flex align-items-center mb-3">
+                      <div class="luxury-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-star" style="color: white; font-size: 1.2rem;"></i>
+                      </div>
+                      <div>
+                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50;">20+ Years Excellence</h6>
+                        <small style="color: #6c757d;">Award-winning service</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="luxury-highlight-item d-flex align-items-center mb-3">
+                      <div class="luxury-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-map-o" style="color: white; font-size: 1.2rem;"></i>
+                      </div>
+                      <div>
+                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50;">Prime Location</h6>
+                        <small style="color: #6c757d;">30 min from Marrakech</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 2. Packages Section - Our Best Packages -->
+    <!-- Horizontal cards with luxury styling -->
+    <section class="luxury-packages-section py-5" style="background: #ffffff; padding: 120px 0;">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="luxury-section-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; color: #2c3e50; letter-spacing: -0.02em;">
+              Our Best Packages
+            </h2>
+            <p class="luxury-subtitle" style="font-size: 1.1rem; color: #6c757d; font-weight: 300;">
+              Carefully curated experiences designed for every discerning traveler
+            </p>
+          </div>
+        </div>
+
         <div class="row">
-        	<div class="col-md-4 ftco-animate">
-        		<a href="#" class="destination-entry img" style="background-image: url(images/rav-1.jpeg);">
-        			<div class="text text-center">
-        				<h3>Beachfront Scape</h3>
-        			</div>
-        		</a>
-        	</div>
-        	<div class="col-md-4 ftco-animate">
-        		<a href="#" class="destination-entry img" style="background-image: url(images/rav-2.jpg);">
-        			<div class="text text-center">
-        				<h3>Group Holidays</h3>
-        			</div>
-        		</a>
-        	</div>
-        	<div class="col-md-4 ftco-animate">
-        		<a href="#" class="destination-entry img" style="background-image: url(images/rav-3.jpg);">
-        			<div class="text text-center">
-        				<h3>City Breaks</h3>
-        			</div>
-        		</a>
-        	</div>
-        </div>
-    	</div>
-    </section>
-		
-		<section class="ftco-about d-md-flex">
-    	<div class="one-half img" style="background-image: url(images/bes.jpg);"></div>
-    	<div class="one-half ftco-animate">
-        <div class="heading-section ftco-animate ">
-          <h2 class="mb-4">The Best Travel Agency</h2>
-        </div>
-        <div>
-  				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-  			</div>
-    	</div>
-    </section>
-
-    <section class="ftco-section services-section bg-light">
-      <div class="container">
-        <div class="row d-flex">
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block">
-              <div class="icon"><span class="flaticon-yatch"></span></div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Special Activities</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block">
-              <div class="icon"><span class="flaticon-around"></span></div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Travel Arrangements</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block">
-              <div class="icon"><span class="flaticon-compass"></span></div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Private Guide</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block">
-              <div class="icon"><span class="flaticon-map-of-roads"></span></div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Location Manager</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="ftco-section">
-    	<div class="container">
-				<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Most Popular Destination</h2>
-          </div>
-        </div>    		
-    	</div>
-    	<div class="container-fluid">
-    		<div class="row">
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/q-1.jpeg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">Quad Biking</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price">$25</span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<p class="days"><span>2 days 3 nights</span></p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-    							<span class="ml-auto"><a href="#">Discover</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination d-md-flex flex-column-reverse">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/ca-1.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">Camel Rides</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price">$5</span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<p class="days"><span>2 days 3 nights</span></p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o">show</i> </span> 
-    							<span class="ml-auto"><a href="#">Discover</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/d.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">Dinner</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price">$14</span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<p class="days"><span>2 days 3 nights</span></p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-    							<span class="ml-auto"><a href="#">Discover</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination d-md-flex flex-column-reverse">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/sh-1.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">Show</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price">Free</span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<p class="days"><span>2 days 3 nights</span></p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-    							<span class="ml-auto"><a href="#">Discover</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-    	<div class="container">
-    		<div class="row justify-content-center">
-    			<div class="col-md-10">
-		    		<div class="row">
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="100000">0</strong>
-		                <span>Happy Customers</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="40000">0</strong>
-		                <span>Destination Places</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="87000">0</strong>
-		                <span>Hotels</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="56400">0</strong>
-		                <span>Restaurant</span>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-	        </div>
-        </div>
-    	</div>
-    </section>
-
-
-    <section class="ftco-section">
-    	<div class="container">
-				<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4"><strong>Popular</strong> Hotels</h2>
-          </div>
-        </div>    		
-    	</div>
-    	<div class="container-fluid">
-    		<div class="row">
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-1.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">New Orleans, Hotel</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price per-price">$40<br><small>/night</small></span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
-    							<span class="ml-auto"><a href="#">Book Now</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination d-md-flex flex-column-reverse">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-2.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">New Orleans, Hotel</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price per-price">$40<br><small>/night</small></span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
-    							<span class="ml-auto"><a href="#">Book Now</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-3.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">New Orleans, Hotel</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price per-price">$40<br><small>/night</small></span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
-    							<span class="ml-auto"><a href="#">Book Now</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination d-md-flex flex-column-reverse">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-4.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">New Orleans, Hotel</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price per-price">$40<br><small>/night</small></span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
-    							<span class="ml-auto"><a href="#">Book Now</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg ftco-animate">
-    				<div class="destination">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-5.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<div class="d-flex">
-    							<div class="one">
-		    						<h3><a href="#">New Orleans, Hotel</a></h3>
-		    						<p class="rate">
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star"></i>
-		    							<i class="icon-star-o"></i>
-		    							<span>8 Rating</span>
-		    						</p>
-	    						</div>
-	    						<div class="two">
-	    							<span class="price per-price">$40<br><small>/night</small></span>
-    							</div>
-    						</div>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
-    							<span class="ml-auto"><a href="#">Book Now</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-4">Our satisfied customer says</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Marketing Manager</span>
-                  </div>
+          <!-- Classic Package -->
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="luxury-package-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+              <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
+                <!-- Updated image path to use existing hotel image -->
+                <img src="images/hotel-2.jpg" alt="Classic Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                <div class="package-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));"></div>
+                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">
+                  Most Popular
                 </div>
               </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
+              <div class="package-content p-4">
+                <h4 class="package-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; font-weight: 500;">
+                  Classic Desert Experience
+                </h4>
+                <p class="package-description mb-3" style="color: #6c757d; font-size: 0.95rem; line-height: 1.6;">
+                  Perfect introduction to luxury desert living with premium accommodations and curated activities.
+                </p>
+                <div class="package-features mb-4">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Quad biking adventure</span>
                   </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Interface Designer</span>
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Camel trek experience</span>
                   </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">UI Designer</span>
+                  <div class="d-flex align-items-center">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Traditional Moroccan dinner</span>
                   </div>
                 </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
+                <div class="package-footer d-flex justify-content-between align-items-center">
+                  <div class="package-price">
+                    <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">$299</span>
+                    <small style="color: #6c757d; margin-left: 5px;">/person</small>
                   </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Web Developer</span>
-                  </div>
+                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
+                    Book Now
+                  </a>
                 </div>
               </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
+            </div>
+          </div>
+
+          <!-- Premium Package -->
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="luxury-package-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+              <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
+                <!-- Updated image path to use existing hotel image -->
+                <img src="images/hotel-3.jpg" alt="Premium Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                <div class="package-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));"></div>
+                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #2c3e50, #34495e); color: white; padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">
+                  Premium
+                </div>
+              </div>
+              <div class="package-content p-4">
+                <h4 class="package-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; font-weight: 500;">
+                  Luxury Desert Retreat
+                </h4>
+                <p class="package-description mb-3" style="color: #6c757d; font-size: 0.95rem; line-height: 1.6;">
+                  Ultimate luxury experience with private accommodations and exclusive personalized services.
+                </p>
+                <div class="package-features mb-4">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Private luxury tent</span>
                   </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">System Analyst</span>
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Personal butler service</span>
                   </div>
+                  <div class="d-flex align-items-center">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Gourmet dining experience</span>
+                  </div>
+                </div>
+                <div class="package-footer d-flex justify-content-between align-items-center">
+                  <div class="package-price">
+                    <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">$599</span>
+                    <small style="color: #6c757d; margin-left: 5px;">/person</small>
+                  </div>
+                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIP Package -->
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="luxury-package-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+              <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
+                <!-- Updated image path to use existing hotel image -->
+                <img src="images/hotel-4.jpg" alt="VIP Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                <div class="package-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));"></div>
+                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">
+                  VIP Experience
+                </div>
+              </div>
+              <div class="package-content p-4">
+                <h4 class="package-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; font-weight: 500;">
+                  Royal Desert Experience
+                </h4>
+                <p class="package-description mb-3" style="color: #6c757d; font-size: 0.95rem; line-height: 1.6;">
+                  The pinnacle of luxury desert hospitality with exclusive amenities and personalized service.
+                </p>
+                <div class="package-features mb-4">
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Private luxury villa</span>
+                  </div>
+                  <div class="d-flex align-items-center mb-2">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Helicopter transfers</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                    <span style="font-size: 0.9rem; color: #495057;">Exclusive desert activities</span>
+                  </div>
+                </div>
+                <div class="package-footer d-flex justify-content-between align-items-center">
+                  <div class="package-price">
+                    <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">$999</span>
+                    <small style="color: #6c757d; margin-left: 5px;">/person</small>
+                  </div>
+                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
+                    Book Now
+                  </a>
                 </div>
               </div>
             </div>
@@ -662,193 +306,401 @@
       </div>
     </section>
 
-    <section class="ftco-section">
-    	<div class="container">
-				<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Recommended Restaurants</h2>
-          </div>
-        </div>    		
-    		<div class="row">
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="destination">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-1.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<h3><a href="#">Luxury Restaurant</a></h3>
-    						<p class="rate">
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star-o"></i>
-    							<span>8 Rating</span>
-    						</p>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-    							<span class="ml-auto"><a href="#">Discover</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="destination d-md-flex flex-column-reverse">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-2.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<h3><a href="#">Luxury Restaurant</a></h3>
-    						<p class="rate">
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star-o"></i>
-    							<span>8 Rating</span>
-    						</p>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-    							<span class="ml-auto"><a href="#">Book Now</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="destination">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-3.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<h3><a href="#">Luxury Restaurant</a></h3>
-    						<p class="rate">
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star-o"></i>
-    							<span>8 Rating</span>
-    						</p>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-    							<span class="ml-auto"><a href="#">Book Now</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="destination d-md-flex flex-column-reverse">
-    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-4.jpg);">
-    						<div class="icon d-flex justify-content-center align-items-center">
-    							<span class="icon-link"></span>
-    						</div>
-    					</a>
-    					<div class="text p-3">
-    						<h3><a href="#">Luxury Restaurant</a></h3>
-    						<p class="rate">
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star"></i>
-    							<i class="icon-star-o"></i>
-    							<span>8 Rating</span>
-    						</p>
-    						<p>Far far away, behind the word mountains, far from the countries</p>
-    						<hr>
-    						<p class="bottom-area d-flex">
-    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-    							<span class="ml-auto"><a href="#">Book Now</a></span>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-    <section class="ftco-section bg-light">
+    <!-- Luxury Activities Section - Pixel Perfect Grid -->
+    <!-- NO GAPS, Square Corners, 8px Inner Padding -->
+    <section class="luxury-activities-grid-section">
       <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2><strong>Tips</strong> &amp; Articles</h2>
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="luxury-section-title mb-3">
+              Luxury Activities
+            </h2>
+            <p class="luxury-subtitle">
+              Discover our exclusive collection of premium desert experiences
+            </p>
           </div>
         </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-              </a>
-              <div class="text">
-              	<span class="tag">Tips, Travel</span>
-                <h3 class="heading mt-3"><a href="#">8 Best homestay in Philippines that you don't miss out</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">October 3, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
+
+        <!-- Grid with NO GAPS between cards -->
+        <div class="activities-grid-container">
+          <!-- Activity 1: Dromadaire Agafay Marrakech -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="activity-grid-card">
+              <img src="images/destination-1.jpg" alt="Dromadaire Agafay Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <!-- Price Tag - Top Right, Flush -->
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">À partir de</span>
+                <span class="activity-grid-price-amount">200 DH</span>
+              </div>
+
+              <!-- Activity Info - Bottom Left -->
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Dromadaire Agafay Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Réserver Maintenant</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-              </a>
-              <div class="text">
-              	<span class="tag">Culture</span>
-                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">October 3, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
+
+          <!-- Activity 2: Quad Agafay -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="activity-grid-card">
+              <img src="images/destination-2.jpg" alt="Quad Agafay">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">À partir de</span>
+                <span class="activity-grid-price-amount">250 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Quad Agafay</h4>
+                <a href="#" class="activity-grid-btn">Réserver Maintenant</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-              </a>
-              <div class="text">
-              	<span class="tag">Tips, Travel</span>
-                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">October 3, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
+
+          <!-- Activity 3: Buggy Agafay Marrakech -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="activity-grid-card">
+              <img src="images/destination-3.jpg" alt="Buggy Agafay Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">À partir de</span>
+                <span class="activity-grid-price-amount">850 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Buggy Agafay Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Réserver Maintenant</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity 4: Balade Cheval Agafay Marrakech -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="activity-grid-card">
+              <img src="images/destination-4.jpg" alt="Balade Cheval Agafay Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">À partir de</span>
+                <span class="activity-grid-price-amount">550 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Balade Cheval Agafay Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Réserver Maintenant</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity 5: Randonné Velo Agafay Marrakech -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="activity-grid-card">
+              <img src="images/destination-5.jpg" alt="Randonné Velo Agafay Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">À partir de</span>
+                <span class="activity-grid-price-amount">300 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Randonné Velo Agafay Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Réserver Maintenant</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity 6: Dîner Spectacle Agafay Marrakech -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="activity-grid-card">
+              <img src="images/destination-6.jpg" alt="Dîner Spectacle Agafay Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">À partir de</span>
+                <span class="activity-grid-price-amount">300 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Dîner Spectacle Agafay Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Réserver Maintenant</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-		
-		<section class="ftco-section-parallax">
-      <div class="parallax-img d-flex align-items-center">
-        <div class="container">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-              <h2>Subcribe to our Newsletter</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-              <div class="row d-flex justify-content-center mt-5">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
+
+    <!-- 4. Why Choose Us Section - Advantages -->
+    <!-- Image-based cards matching the activities section design -->
+    <section class="luxury-advantages-section py-5" style="background: #ffffff; padding: 120px 0;">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="luxury-section-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; color: #2c3e50; letter-spacing: -0.02em;">
+              Why Choose Us
+            </h2>
+            <p class="luxury-subtitle" style="font-size: 1.1rem; color: #6c757d; font-weight: 300;">
+              Experience the pinnacle of luxury desert hospitality
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Advantage 1: Exclusive Privacy -->
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="luxury-advantage-card" style="position: relative; height: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+              <img src="images/hotel-1.jpg" alt="Exclusive Privacy" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              <div class="advantage-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));"></div>
+
+              <!-- Advantage Info -->
+              <div class="advantage-info" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; color: white;">
+                <h4 class="advantage-title" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 500; margin: 0 0 10px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                  Exclusive Privacy
+                </h4>
+                <p class="advantage-description" style="font-size: 0.9rem; line-height: 1.5; margin: 0; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                  Private luxury accommodations ensuring complete seclusion and tranquility in the heart of the desert.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advantage 2: Award-Winning Service -->
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="luxury-advantage-card" style="position: relative; height: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+              <img src="images/hotel-2.jpg" alt="Award-Winning Service" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              <div class="advantage-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));"></div>
+
+              <!-- Advantage Info -->
+              <div class="advantage-info" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; color: white;">
+                <h4 class="advantage-title" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 500; margin: 0 0 10px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                  Award-Winning Service
+                </h4>
+                <p class="advantage-description" style="font-size: 0.9rem; line-height: 1.5; margin: 0; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                  Recognized globally for exceptional hospitality and personalized service that exceeds expectations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advantage 3: Premium Amenities -->
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="luxury-advantage-card" style="position: relative; height: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+              <img src="images/hotel-3.jpg" alt="Premium Amenities" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              <div class="advantage-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));"></div>
+
+              <!-- Advantage Info -->
+              <div class="advantage-info" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; color: white;">
+                <h4 class="advantage-title" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 500; margin: 0 0 10px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                  Premium Amenities
+                </h4>
+                <p class="advantage-description" style="font-size: 0.9rem; line-height: 1.5; margin: 0; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                  World-class facilities and amenities designed for the most discerning luxury travelers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advantage 4: Authentic Experiences -->
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <div class="luxury-advantage-card" style="position: relative; height: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+              <img src="images/hotel-4.jpg" alt="Authentic Experiences" class="img-fluid w-100 h-100" style="object-fit: cover;">
+              <div class="advantage-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));"></div>
+
+              <!-- Advantage Info -->
+              <div class="advantage-info" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; color: white;">
+                <h4 class="advantage-title" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 500; margin: 0 0 10px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                  Authentic Experiences
+                </h4>
+                <p class="advantage-description" style="font-size: 0.9rem; line-height: 1.5; margin: 0; opacity: 0.9; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                  Genuine Moroccan culture and traditions presented with contemporary luxury and sophistication.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- 6. Testimonials/Reviews Section -->
+    <!-- Slider/stack of customer quotes with luxury styling -->
+    <section class="luxury-testimonials-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 120px 0;">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="luxury-section-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 400; color: #2c3e50; letter-spacing: -0.02em;">
+              Guest Experiences
+            </h2>
+            <p class="luxury-subtitle" style="font-size: 1.1rem; color: #6c757d; font-weight: 300;">
+              What our distinguished guests say about their luxury desert retreat
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+              <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+              </div>
+              <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                "An absolutely magical experience that exceeded all expectations. The attention to detail and personalized service made our stay truly unforgettable. The desert comes alive at night in ways I never imagined possible."
+              </p>
+              <div class="testimonial-rating mb-3">
+                <div class="d-flex">
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                </div>
+              </div>
+              <div class="testimonial-author">
+                <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                  Sarah Mitchell
+                </h6>
+                <small class="author-location" style="color: #6c757d;">London, UK</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+              <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+              </div>
+              <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                "The perfect blend of luxury and adventure. Every moment was crafted with precision and care. The staff anticipated our every need, and the desert setting provided a breathtaking backdrop for our celebration."
+              </p>
+              <div class="testimonial-rating mb-3">
+                <div class="d-flex">
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                </div>
+              </div>
+              <div class="testimonial-author">
+                <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                  James Richardson
+                </h6>
+                <small class="author-location" style="color: #6c757d;">New York, USA</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+              <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+              </div>
+              <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                "A transformative experience that touched our souls. The authenticity of the Moroccan culture combined with world-class luxury created memories that will last a lifetime. Simply extraordinary."
+              </p>
+              <div class="testimonial-rating mb-3">
+                <div class="d-flex">
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                </div>
+              </div>
+              <div class="testimonial-author">
+                <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                  Elena Rodriguez
+                </h6>
+                <small class="author-location" style="color: #6c757d;">Madrid, Spain</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Contact/Booking Form Section -->
+    <!-- Minimal, elegant booking form -->
+    <section class="luxury-booking-section py-5" style="background: #ffffff; padding: 120px 0;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+            <div class="luxury-booking-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 30px; padding: 60px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+              <div class="row align-items-center">
+                <div class="col-lg-6">
+                  <h3 class="booking-title mb-4" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #2c3e50; font-weight: 400;">
+                    Begin Your Journey
+                  </h3>
+                  <p class="booking-description mb-4" style="font-size: 1.1rem; color: #6c757d; line-height: 1.7;">
+                    Ready to experience the luxury of the Agafay Desert? Our concierge team is here to craft your perfect desert retreat.
+                  </p>
+                  <div class="booking-contact-info">
+                    <div class="d-flex align-items-center mb-3">
+                      <div class="contact-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-phone" style="color: white; font-size: 1.2rem;"></i>
+                      </div>
+                      <div>
+                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50;">+212 524 123 456</h6>
+                        <small style="color: #6c757d;">24/7 Concierge</small>
+                      </div>
                     </div>
+                    <div class="d-flex align-items-center">
+                      <div class="contact-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-envelope" style="color: white; font-size: 1.2rem;"></i>
+                      </div>
+                      <div>
+                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50;">reservations@luxurydesert.com</h6>
+                        <small style="color: #6c757d;">Instant Response</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <form class="luxury-booking-form">
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control luxury-input" placeholder="First Name" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control luxury-input" placeholder="Last Name" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <input type="email" class="form-control luxury-input" placeholder="Email Address" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <input type="tel" class="form-control luxury-input" placeholder="Phone Number" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <select class="form-control luxury-input" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;">
+                          <option value="">Select Package</option>
+                          <option value="classic">Classic Experience</option>
+                          <option value="premium">Premium Experience</option>
+                          <option value="vip">VIP Experience</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <input type="number" class="form-control luxury-input" placeholder="Number of Guests" min="1" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
+                      </div>
+                    </div>
+                    <div class="form-group mb-4">
+                      <textarea class="form-control luxury-input" rows="4" placeholder="Special Requests or Questions" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" class="btn luxury-cta-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 18px 40px; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);">
+                      Reserve Your Experience
+                    </button>
                   </form>
                 </div>
               </div>
@@ -857,6 +709,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Spacer for visual separation -->
+    <div style="height: 80px; background: #f8f9fa;"></div>
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">

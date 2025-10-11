@@ -1,0 +1,164 @@
+/* Luxury Activities Section - Pixel Perfect Grid */
+.luxury-activities-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 120px 0;
+}
+
+.luxury-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #2c3e50;
+  letter-spacing: -0.02em;
+}
+
+.luxury-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-weight: 300;
+}
+
+/* Grid with NO GAPS - 3 columns × 2 rows */
+.luxury-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0; /* NO GAPS between cards */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each card with 8px padding (creates white border effect) */
+.luxury-activity-card {
+  position: relative;
+  height: 400px;
+  padding: 8px;
+  background: white;
+  border-radius: 0; /* Sharp corners */
+  overflow: hidden;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0; /* Sharp corners */
+}
+
+/* Background image - full bleed */
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+}
+
+/* Dark overlay for readability */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+}
+
+/* Price tag - Top Right, flush with edge */
+.activity-price {
+  position: absolute;
+  top: 8px;
+  right: 0; /* Flush with right edge */
+  background: #a48858; /* Gold/brown color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0; /* Sharp corners */
+  z-index: 20;
+}
+
+.activity-price strong {
+  font-size: 1.3rem;
+  display: block;
+  line-height: 1.2;
+}
+
+/* Activity info - Bottom Left */
+.activity-info {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  color: white;
+  z-index: 10;
+}
+
+.activity-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Booking button - Gold/brown with white text */
+.activity-btn {
+  display: inline-block;
+  background: #a48858; /* Gold/brown color */
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 0; /* Sharp corners */
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.activity-btn:hover {
+  background: #8b7040;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .luxury-activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .luxury-activities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .luxury-activity-card {
+    height: 350px;
+  }
+  
+  .luxury-section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-activity-card {
+    height: 300px;
+  }
+  
+  .activity-title {
+    font-size: 1.2rem;
+  }
+  
+  .activity-btn {
+    font-size: 0.8rem;
+    padding: 8px 18px;
+  }
+}
