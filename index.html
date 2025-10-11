@@ -75,6 +75,149 @@
         }
       }
     </style>
+
+    <!-- Additional Mobile Fix for Hero Headline -->
+    <style>
+      /* Global fix to prevent horizontal overflow on entire page */
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important; /* Prevent horizontal scroll */
+        width: 100% !important;
+        max-width: 100vw !important;
+      }
+
+      /* Hero Section - Full Width Fix for Mobile and Desktop */
+      .hero-wrap {
+        width: 100vw !important; /* Full viewport width */
+        max-width: 100vw !important; /* Prevent exceeding viewport */
+        margin: 0 !important; /* Remove any margins */
+        padding: 0 !important; /* Remove any padding */
+        overflow-x: hidden !important; /* Hide horizontal overflow */
+        box-sizing: border-box !important; /* Include padding in width calculation */
+        position: relative !important;
+      }
+
+      /* Hero background slider - ensure no overflow */
+      .hero-wrap .hero-bg-slider,
+      .hero-wrap .owl-carousel {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+      }
+
+      /* Hero slider background images */
+      .hero-wrap .slider-bg {
+        width: 100% !important;
+        max-width: 100% !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      /* Container inside hero - prevent overflow */
+      .hero-wrap .container {
+        max-width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Row inside hero - prevent negative margins causing overflow */
+      .hero-wrap .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Media Query for Mobile Responsiveness - Hero Headline and Button */
+      @media (max-width: 768px) {
+        /* Additional mobile-specific fixes */
+        .hero-wrap {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        /* Container on mobile - tighter padding */
+        .hero-wrap .container {
+          padding-left: 10px !important;
+          padding-right: 10px !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        /* Ensure slider text container is full width on mobile */
+        .hero-wrap .slider-text {
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 0 10px !important; /* Minimal padding to prevent edge cutoff */
+          margin: 0 !important;
+        }
+
+        /* Make content column full width on mobile */
+        .hero-wrap .slider-text .col-12,
+        .hero-wrap .slider-text [class*="col-"] {
+          max-width: 100% !important;
+          flex: 0 0 100% !important;
+          padding: 0 10px !important;
+          margin: 0 !important;
+        }
+
+        /* Target the hero section h1 element and override inline styles */
+        .hero-wrap .slider-text h1 {
+          font-size: 1.8rem !important; /* Smaller font size for mobile to prevent cutoff */
+          line-height: 1.3 !important; /* Tighter line height for better fit */
+          word-break: break-word; /* Allows text to wrap if needed */
+          hyphens: auto; /* Adds hyphens for better wrapping on long words */
+          text-align: center !important; /* Center align for better mobile readability */
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+          margin-bottom: 1rem !important;
+          padding: 0 5px !important; /* Minimal padding to prevent text touching edges */
+          max-width: 100% !important;
+          overflow: visible !important;
+          width: 100% !important;
+        }
+
+        /* Fix for the paragraph text below headline */
+        .hero-wrap .slider-text p {
+          font-size: 1rem !important;
+          text-align: center !important;
+          padding: 0 10px !important;
+          margin-bottom: 1.5rem !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        /* Fix for Hero Button on Mobile - More specific selector */
+        .hero-wrap .slider-text .btn.btn-outline-primary {
+          font-size: 0.9rem !important; /* Smaller font for mobile */
+          padding: 10px 20px !important; /* Reduced padding to prevent overflow */
+          width: auto !important;
+          max-width: 90% !important; /* Prevent button from being too wide */
+          display: inline-block !important;
+          margin: 0 auto !important;
+          border-radius: 25px !important;
+          min-width: 200px !important;
+        }
+
+        /* Additional fix for the span inside h1 */
+        .hero-wrap .slider-text h1 span {
+          display: inline !important;
+          word-break: break-word !important;
+          overflow: visible !important;
+        }
+
+        /* Fix the row container on mobile */
+        .hero-wrap .row.slider-text {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          padding: 0 !important;
+        }
+      }
+    </style>
   </head>
   <body class="home" style="overflow-x: hidden; /* Prevent horizontal scrolling issues */">
     
