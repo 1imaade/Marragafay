@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Eczar:wght@400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -74,6 +74,72 @@
           bottom: 20px;
           right: 20px;
         }
+      }
+
+      /* Mobile responsiveness for section titles - Adjust size while keeping style */
+      @media (max-width: 768px) {
+        .luxury-section-title {
+          font-size: 2.5rem; /* Smaller on mobile for readability, but still elegant */
+          margin-bottom: 1rem; /* Reduced margin on mobile */
+          /* All other styles (font-family, weight, color, etc.) remain the same */
+        }
+      }
+
+      /* Overpass font class for future use */
+      .overpass-uniquifier {
+        font-family: "Overpass", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: normal; /* Default weight, can be adjusted */
+        font-style: normal;
+      }
+
+      /* Open Sans font class for future use */
+      .open-sans-uniquifier {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: normal; /* Default weight, can be adjusted */
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+
+      /* Eczar font class for future use */
+      .eczar-uniquifier {
+        font-family: "Eczar", serif;
+        font-optical-sizing: auto;
+        font-weight: normal; /* Default weight, can be adjusted */
+        font-style: normal;
+      }
+
+      /* Global font application - Override Bootstrap and theme styles */
+      /* Headings (h1-h6) use Overpass for modern, clean look, except luxury section titles */
+      h1:not(.luxury-section-title), h2:not(.luxury-section-title), h3:not(.luxury-section-title), h4:not(.luxury-section-title), h5:not(.luxury-section-title), h6:not(.luxury-section-title) {
+        font-family: "Overpass", sans-serif !important;
+      }
+
+      /* Body text, paragraphs, links, and all other content use Overpass, then Open Sans, Eczar, EB Garamond fallbacks */
+      body, p, a, div, span, li, td, th, label, input, textarea, select, button, .navbar, .footer, .card, .btn {
+        font-family: "Overpass", "Open Sans", "Eczar", "EB Garamond", sans-serif !important;
+      }
+
+      /* Semi-transparent black overlay for sections with background images */
+      /* Adds a dark overlay above background images for better text readability */
+      /* Adjust opacity in rgba(0,0,0,0.45) as needed */
+      .section-with-bg {
+        position: relative; /* Required for absolute positioning of overlay */
+      }
+
+      .section-with-bg::before {
+        content: ''; /* Required for pseudo-element */
+        position: absolute; /* Position above background but below content */
+        inset: 0; /* Covers full area (top, right, bottom, left) */
+        background: rgba(0, 0, 0, 0.45); /* Semi-transparent black overlay */
+        z-index: 1; /* Below content but above background */
+        pointer-events: none; /* Allows clicks to pass through to content */
+      }
+
+      .section-with-bg > * {
+        position: relative; /* Ensures content is above overlay */
+        z-index: 2; /* Higher than overlay z-index */
       }
     </style>
 
@@ -224,7 +290,7 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Marragafy.</a>
+	          <a class="navbar-brand" href="index.html"><img src="images/logo-trensparent.png" alt="Marragafy" style="width: 80px; height: auto;"></a>
 	      
 	      <!-- Moved language switcher here -->
 	      <div class="mobile-language-switcher">
@@ -258,7 +324,7 @@
 	  </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap js-fullheight">
+    <div class="hero-wrap js-fullheight section-with-bg">
       <!-- Hero Section - Fixed for Mobile Responsiveness -->
       <!-- Full viewport height with background slider, no overlay for visibility -->
       <!-- Content centered on all devices, navigation never blocks hero -->
@@ -271,7 +337,6 @@
         <div class="slider-bg" style="background-image: url('images/slide4.jpg');"></div>
       </div>
       <!-- Removed overlay div to prevent darkening/covering content on mobile -->
-      <div class="overlay"></div>
       <!-- Hero Content Container - Full width on mobile, centered -->
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
@@ -923,7 +988,7 @@
     <!-- Spacer for visual separation -->
     <div style="height: 80px; background: #f8f9fa;"></div>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <footer class="ftco-footer ftco-bg-dark ftco-section" style="background-color: #132a13 !important;">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
