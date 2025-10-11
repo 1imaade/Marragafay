@@ -32,47 +32,53 @@
     <link rel="stylesheet" href="css/activity-grid.css">
     <link rel="stylesheet" href="css/luxury-activities.css">
 
-    <!-- Back-to-Top Button Styles -->
+    <!-- Luxury Back-to-Top Button Styles -->
     <style>
-      /* Back-to-Top Button Styling */
+      /* Luxury Back-to-Top Button Styles - Fixed z-index and positioning */
       #backToTopBtn {
         position: fixed;
         bottom: 24px;
         right: 24px;
-        width: 56px;
-        height: 56px;
-        background-color: #bc6c25;
-        color: rgba(255, 255, 255, 0.8);
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #bc6c25, #d4af37);
+        color: rgba(255, 255, 255, 0.9);
         border: none;
-        border-radius: 8px;
+        border-radius: 50%;
         cursor: pointer;
-        z-index: 1000;
+        z-index: 9999; /* High z-index to ensure visibility above all content */
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transition: all 0.4s ease;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 20px rgba(188, 108, 37, 0.3), 0 4px 8px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
       }
 
       #backToTopBtn:hover {
-        background-color: #a05a1e;
-        transform: translateY(-2px);
+        background: linear-gradient(135deg, #d4af37, #f4e19c);
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 12px 30px rgba(188, 108, 37, 0.5), 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      #backToTopBtn:active {
+        transform: translateY(-2px) scale(0.98);
       }
 
       @media (max-width: 768px) {
         #backToTopBtn {
-          width: 48px;
-          height: 48px;
+          width: 50px;
+          height: 50px;
           bottom: 20px;
           right: 20px;
         }
       }
     </style>
   </head>
-  <body class="home">
+  <body class="home" style="overflow-x: hidden; /* Prevent horizontal scrolling issues */">
     
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="position: relative; z-index: 100; /* Ensure navigation doesn't overlay content */">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Marragafy.</a>
 	      
@@ -109,20 +115,33 @@
     <!-- END nav -->
     
     <div class="hero-wrap js-fullheight">
-      <!-- Background Slider -->
+      <!-- Hero Section - Fixed for Mobile Responsiveness -->
+      <!-- Full viewport height with background slider, no overlay for visibility -->
+      <!-- Content centered on all devices, navigation never blocks hero -->
+      <!-- Comments added for future styling adjustments -->
+      <!-- Background Slider - Full background images for all screens -->
       <div class="hero-bg-slider owl-carousel">
-          <div class="slider-bg" style="background-image: url('images/slide1.jpg');"></div>
-          <div class="slider-bg" style="background-image: url('images/slide2.jpg');"></div>
-          <div class="slider-bg" style="background-image: url('images/slide3.jpg');"></div>
-          <div class="slider-bg" style="background-image: url('images/slide4.jpg');"></div>
+        <div class="slider-bg" style="background-image: url('images/slide1.jpg');"></div>
+        <div class="slider-bg" style="background-image: url('images/slide2.jpg');"></div>
+        <div class="slider-bg" style="background-image: url('images/slide3.jpg');"></div>
+        <div class="slider-bg" style="background-image: url('images/slide4.jpg');"></div>
       </div>
-      <div class="overlay"></div>
+      <!-- Removed overlay div to prevent darkening/covering content on mobile -->
+      <!-- Hero Content Container - Full width on mobile, centered -->
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-          <div class="col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Ride the Dunes,<br> Savor <span style="color: #ff4757; text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);">Morocco</span> </h1>
-            <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Unforgettable Agafay Desert experiences just 30 minutes from Marrakech</p>
-            <a href="packages.html" class="btn btn-outline-primary py-3 px-4" style="border: 2px solid #fff; color: #fff; background: transparent; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease;"
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <!-- Content Column - Full width (col-12) on mobile for centering, readable text -->
+          <div class="col-12 col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
+            <!-- Headline - Large, readable on all devices with text shadow for visibility -->
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="font-size: 2.5rem; line-height: 1.2; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Added text shadow for readability over background */">
+              Ride the Dunes,<br> Savor <span style="color: #ff4757; text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);">Morocco</span>
+            </h1>
+            <!-- Description - Proportional sizing, centered on mobile -->
+            <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="font-size: 1.1rem; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Text shadow for visibility */ line-height: 1.6;">
+              Unforgettable Agafay Desert experiences just 30 minutes from Marrakech
+            </p>
+            <!-- Button - Visible, proportional, no interference from navigation -->
+            <a href="packages.html" class="btn btn-outline-primary py-3 px-4" style="border: 2px solid #fff; color: #fff; background: transparent; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; font-size: 1rem; padding: 12px 24px; /* Adjusted for mobile visibility */"
                onmouseover="this.style.background='rgba(255,255,255,0.1)';"
                onmouseout="this.style.background='transparent';">
               Explore Our Packages
@@ -849,9 +868,13 @@
   <script src="js/main.js"></script>
   <script src="js/mobile-menu.js"></script>
 
-  <!-- Back-to-Top Button HTML -->
+  <!-- Luxury Back-to-Top Button -->
   <button id="backToTopBtn" aria-label="Scroll to top" style="display: none;">
-    <span style="font-size: 24px; font-weight: bold;">↑</span>
+    <!-- Custom SVG Arrow for Luxury Feel -->
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L8 6H16L12 2Z" fill="rgba(255, 255, 255, 0.9)"/>
+      <path d="M12 6V22" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2" stroke-linecap="round"/>
+    </svg>
   </button>
 
   <!-- Back-to-Top Button JS -->
