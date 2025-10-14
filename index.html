@@ -33,6 +33,10 @@
     <link rel="stylesheet" href="css/activity-grid.css">
     <link rel="stylesheet" href="css/luxury-activities.css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/main-logo.jpg">
+    <link rel="shortcut icon" href="images/main-logo.jpg">
+
     <!-- Luxury Back-to-Top Button Styles -->
     <style>
       /* Luxury Back-to-Top Button Styles - Fixed z-index and positioning */
@@ -115,11 +119,101 @@
       h1:not(.luxury-section-title), h2:not(.luxury-section-title), h3:not(.luxury-section-title), h4:not(.luxury-section-title), h5:not(.luxury-section-title), h6:not(.luxury-section-title) {
         font-family: "Overpass", sans-serif !important;
       }
-
-      /* Body text, paragraphs, links, and all other content use Overpass, then Open Sans, Eczar, EB Garamond fallbacks */
       body, p, a, div, span, li, td, th, label, input, textarea, select, button, .navbar, .footer, .card, .btn {
         font-family: "Overpass", "Open Sans", "Eczar", "EB Garamond", sans-serif !important;
       }
+
+      /* Testimonials Slider Styles */
+      .testimonials-slider-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 60px;
+        box-sizing: border-box;
+        background: transparent !important;
+        border: none !important;
+      }
+
+      .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #d4af37, #b8860b);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .slider-arrow:hover {
+        background: linear-gradient(45deg, #b8860b, #d4af37);
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+      }
+
+      .slider-arrow-left {
+        left: 0;
+      }
+
+      .slider-arrow-right {
+        right: 0;
+      }
+
+      .testimonials-slider {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 0 !important; /* Remove border radius for seamless integration */
+        background: transparent !important;
+      }
+
+      .testimonials-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        gap: 0;
+        background: transparent !important;
+      }
+
+      .testimonial-card-wrapper {
+        min-width: 33.333%;
+        padding: 0 15px;
+        box-sizing: border-box;
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+        .testimonials-slider-container {
+          padding: 0 50px;
+        }
+
+        .testimonial-card-wrapper {
+          min-width: 100%;
+          padding: 0 10px;
+        }
+
+        .slider-arrow {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+      }
+
+      /* Hide arrows on very small screens if needed */
+      @media (max-width: 480px) {
+        .testimonials-slider-container {
+          padding: 0 40px;
+        }
+      }
+
     </style>
 
     <!-- Additional Mobile Fix for Hero Headline -->
@@ -840,7 +934,7 @@
 
     <!-- 5. Gallery Section - 3x3 Image Grid -->
     <!-- Responsive image gallery with luxury card design from Activities section -->
-    <section class="luxury-gallery-section py-5" style="background: #ffffff; padding: 120px 0;">
+    <section class="luxury-gallery-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 120px 0;">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -854,7 +948,7 @@
         </div>
 
         <!-- 3x3 Responsive Image Grid - Using CSS Grid for perfect alignment -->
-        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto;">
+        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 0; max-width: 1200px; margin: 0 auto;">
           <!-- Image 1 -->
           <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
             <img src="images/hotel-1.jpg" alt="Gallery Image 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
@@ -900,7 +994,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
-            gap: 20px;
+            gap: 0;
             max-width: 1200px;
             margin: 0 auto;
           }
@@ -910,6 +1004,7 @@
             .gallery-grid {
               grid-template-columns: repeat(2, 1fr);
               grid-template-rows: repeat(5, 1fr); /* Adjust rows for stacking */
+              gap: 0;
             }
           }
 
@@ -918,6 +1013,10 @@
             .gallery-grid {
               grid-template-columns: 1fr;
               grid-template-rows: repeat(9, 1fr); /* One per image */
+              gap: 0;
+            }
+            .gallery-card {
+              padding: 4px; /* Reduce padding for mobile */
             }
           }
 
@@ -928,6 +1027,7 @@
             overflow: hidden;
             border-radius: 0;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 4px;
           }
 
           .gallery-card img {
@@ -965,80 +1065,362 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-            <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
-              <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
-                <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
-              </div>
-              <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
-                "An absolutely magical experience that exceeded all expectations. The attention to detail and personalized service made our stay truly unforgettable. The desert comes alive at night in ways I never imagined possible."
-              </p>
-              <div class="testimonial-rating mb-3">
-                <div class="d-flex">
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+          <div class="col-12">
+            <!-- Slider Container -->
+            <div class="testimonials-slider-container">
+              <!-- Left Arrow -->
+              <button class="slider-arrow slider-arrow-left" aria-label="Previous testimonials">
+                <i class="icon-chevron-left"></i>
+              </button>
+
+              <!-- Testimonials Slider -->
+              <div class="testimonials-slider">
+                <div class="testimonials-track">
+                  <!-- Testimonial Card 1 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "An absolutely magical experience that exceeded all expectations. The attention to detail and personalized service made our stay truly unforgettable. The desert comes alive at night in ways I never imagined possible."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          Sarah Mitchell
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">London, UK</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Testimonial Card 2 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "The perfect blend of luxury and adventure. Every moment was crafted with precision and care. The staff anticipated our every need, and the desert setting provided a breathtaking backdrop for our celebration."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          James Richardson
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">New York, USA</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Testimonial Card 3 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "A transformative experience that touched our souls. The authenticity of the Moroccan culture combined with world-class luxury created memories that will last a lifetime. Simply extraordinary."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          Elena Rodriguez
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">Madrid, Spain</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Testimonial Card 4 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "Exceptional service and breathtaking views. Every detail was perfect, from the luxurious accommodations to the authentic cultural experiences. This desert retreat exceeded our wildest dreams."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          Michael Chen
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">Singapore</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Testimonial Card 5 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "A once-in-a-lifetime experience that we'll treasure forever. The combination of luxury and cultural authenticity was seamless. The desert landscape provided the perfect backdrop for our romantic getaway."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          Amélie Dubois
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">Paris, France</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Testimonial Card 6 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "Outstanding hospitality and attention to detail. The luxury accommodations and desert activities were perfectly balanced. We felt completely pampered while experiencing authentic Moroccan culture."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          David Thompson
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">Sydney, Australia</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Testimonial Card 7 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "Magnificent desert resort with impeccable service. The luxury amenities and cultural experiences were beyond compare. Every aspect of our stay was carefully curated for an unforgettable experience."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          Isabella Rossi
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">Rome, Italy</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Testimonial Card 8 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "Luxury redefined in the heart of the desert. The personalized service and attention to detail made our anniversary celebration truly special. We can't wait to return for another magical experience."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          Henrik Johansson
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">Stockholm, Sweden</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Testimonial Card 9 -->
+                  <div class="testimonial-card-wrapper">
+                    <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
+                      <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
+                        <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
+                      </div>
+                      <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
+                        "An extraordinary blend of luxury and adventure. The desert setting provided a stunning backdrop while the impeccable service ensured every moment was perfect. Highly recommend this hidden gem."
+                      </p>
+                      <div class="testimonial-rating mb-3">
+                        <div class="d-flex">
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                          <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+                        </div>
+                      </div>
+                      <div class="testimonial-author">
+                        <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
+                          Sofia Papadopoulos
+                        </h6>
+                        <small class="author-location" style="color: #6c757d;">Athens, Greece</small>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="testimonial-author">
-                <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
-                  Sarah Mitchell
-                </h6>
-                <small class="author-location" style="color: #6c757d;">London, UK</small>
-              </div>
+
+              <!-- Right Arrow -->
+              <button class="slider-arrow slider-arrow-right" aria-label="Next testimonials">
+                <i class="icon-chevron-right"></i>
+              </button>
             </div>
           </div>
-
-          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
-              <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
-                <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
-              </div>
-              <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
-                "The perfect blend of luxury and adventure. Every moment was crafted with precision and care. The staff anticipated our every need, and the desert setting provided a breathtaking backdrop for our celebration."
-              </p>
-              <div class="testimonial-rating mb-3">
-                <div class="d-flex">
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                </div>
-              </div>
-              <div class="testimonial-author">
-                <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
-                  James Richardson
-                </h6>
-                <small class="author-location" style="color: #6c757d;">New York, USA</small>
-              </div>
-            </div>
+        </div>
+      </div>
+    <!-- 7. Luxury FAQ Section -->
+    <!-- Frequently Asked Questions with elegant accordion design -->
+    <section class="luxury-faq-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 120px 0;">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="luxury-section-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: #bc6c25; letter-spacing: -0.02em;">
+              Frequently Asked Questions
+            </h2>
+            <p class="luxury-subtitle" style="font-size: 1.1rem; color: #6c757d; font-weight: 300;">
+              Everything you need to know about our luxury desert experiences
+            </p>
           </div>
+        </div>
 
-          <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-            <div class="luxury-testimonial-card" style="background: #ffffff; border-radius: 20px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); position: relative; height: 100%;">
-              <div class="testimonial-quote-icon mb-4" style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
-                <i class="icon-quote-left" style="font-size: 1.5rem; color: white;"></i>
-              </div>
-              <p class="testimonial-text mb-4" style="font-size: 1rem; color: #495057; line-height: 1.7; font-style: italic;">
-                "A transformative experience that touched our souls. The authenticity of the Moroccan culture combined with world-class luxury created memories that will last a lifetime. Simply extraordinary."
-              </p>
-              <div class="testimonial-rating mb-3">
-                <div class="d-flex">
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
-                  <i class="icon-star" style="color: #d4af37; margin-right: 5px;"></i>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <!-- FAQ Accordion -->
+            <div class="luxury-faq-accordion" id="faqAccordion">
+              <!-- Question 1 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="luxury-faq-header" id="faqHeading1" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    What is included in the luxury desert experience?
+                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse1" class="collapse" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Our luxury desert experience includes private accommodations, gourmet meals prepared by our chef, personalized activities such as camel rides or quad biking, and 24/7 concierge service. All packages are customizable to meet your specific preferences.
+                  </div>
                 </div>
               </div>
-              <div class="testimonial-author">
-                <h6 class="author-name mb-1" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; margin: 0;">
-                  Elena Rodriguez
-                </h6>
-                <small class="author-location" style="color: #6c757d;">Madrid, Spain</small>
+
+              <!-- Question 2 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="luxury-faq-header" id="faqHeading2" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    How do I book a stay at Marragafay?
+                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    You can book directly through our website using the booking form, or contact our concierge team via phone or email for personalized assistance. We recommend booking in advance to secure your preferred dates.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 3 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="luxury-faq-header" id="faqHeading3" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    What should I bring for my desert stay?
+                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse3" class="collapse" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    We provide all essentials including linens, toiletries, and appropriate clothing for desert activities. However, we recommend bringing sunscreen, comfortable walking shoes, and any personal medications. Our team can also arrange for special items upon request.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 4 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="luxury-faq-header" id="faqHeading4" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    Is the desert safe for families with children?
+                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse4" class="collapse" aria-labelledby="faqHeading4" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Absolutely. Our resort is family-friendly with supervised activities and child-safe environments. We offer tailored experiences for all ages, ensuring a memorable and secure stay for families.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 5 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="luxury-faq-header" id="faqHeading5" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    Can I customize my experience?
+                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse5" class="collapse" aria-labelledby="faqHeading5" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Yes, every experience is fully customizable. Our concierge team works with you to tailor activities, meals, and accommodations to your preferences, ensuring a unique and personal luxury desert retreat.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1046,8 +1428,8 @@
       </div>
     </section>
 
-    <!-- 7. Contact/Booking Form Section -->
-    <!-- Minimal, elegant booking form -->
+
+    <!-- 8. Contact/Booking Form Section -->
     <section class="luxury-booking-section py-5" style="background: #ffffff; padding: 120px 0;">
       <div class="container">
         <div class="row justify-content-center">
@@ -1257,6 +1639,138 @@
           behavior: 'smooth'
         });
       });
+    });
+  </script>
+
+  <!-- Testimonials Slider JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sliderContainer = document.querySelector('.testimonials-slider-container');
+      const slider = document.querySelector('.testimonials-slider');
+      const track = document.querySelector('.testimonials-track');
+      const cards = document.querySelectorAll('.testimonial-card-wrapper');
+      const leftArrow = document.querySelector('.slider-arrow-left');
+      const rightArrow = document.querySelector('.slider-arrow-right');
+
+      if (!sliderContainer || !slider || !track || !leftArrow || !rightArrow) {
+        console.warn('Testimonials slider elements not found');
+        return;
+      }
+
+      let currentIndex = 0;
+      const totalCards = cards.length;
+      let cardsToShow = 3; // Default for desktop
+      let cardWidth = 0;
+
+      function updateCardsToShow() {
+        if (window.innerWidth <= 768) {
+          cardsToShow = 1; // Mobile: 1 card
+        } else {
+          cardsToShow = 3; // Desktop: 3 cards
+        }
+
+        // Calculate the actual width of a single card wrapper (including padding)
+        if (cards.length > 0) {
+          const firstCard = cards[0];
+          const cardStyles = window.getComputedStyle(firstCard);
+          const cardPaddingLeft = parseFloat(cardStyles.paddingLeft) || 0;
+          const cardPaddingRight = parseFloat(cardStyles.paddingRight) || 0;
+
+          // For desktop, cards are 33.333% width + padding
+          // For mobile, cards are 100% width + padding
+          if (window.innerWidth <= 768) {
+            // Mobile: card width is 100% + padding
+            cardWidth = firstCard.offsetWidth; // This includes padding
+          } else {
+            // Desktop: card width is 33.333% of container + padding
+            cardWidth = firstCard.offsetWidth; // This includes padding
+          }
+        }
+
+        updateSlider();
+      }
+
+      function updateSlider() {
+        const maxIndex = Math.max(0, totalCards - cardsToShow);
+        currentIndex = Math.min(currentIndex, maxIndex);
+
+        // Move by exactly one card width per step
+        const moveDistance = currentIndex * cardWidth;
+        track.style.transform = `translateX(-${moveDistance}px)`;
+
+        // Update arrow states
+        leftArrow.style.opacity = currentIndex === 0 ? '0.5' : '1';
+        rightArrow.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+
+        leftArrow.disabled = currentIndex === 0;
+        rightArrow.disabled = currentIndex >= maxIndex;
+      }
+
+      function nextSlide() {
+        const maxIndex = Math.max(0, totalCards - cardsToShow);
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateSlider();
+        }
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      }
+
+      // Event listeners
+      rightArrow.addEventListener('click', nextSlide);
+      leftArrow.addEventListener('click', prevSlide);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+        }
+      });
+
+      // Touch/swipe support for mobile - improved with proper distance calculation
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+
+      slider.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      });
+
+      slider.addEventListener('touchmove', function(e) {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+      });
+
+      slider.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        isDragging = false;
+
+        const diffX = startX - currentX;
+        const threshold = cardWidth * 0.3; // 30% of card width as threshold
+
+        if (Math.abs(diffX) > threshold) {
+          if (diffX > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      });
+
+      // Initialize
+      updateCardsToShow();
+      window.addEventListener('resize', updateCardsToShow);
+
+      // Auto-advance (optional - uncomment if desired)
+      // setInterval(nextSlide, 5000);
     });
   </script>
   </body>
