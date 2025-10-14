@@ -838,8 +838,116 @@
       </div>
     </section>
 
+    <!-- 5. Gallery Section - 3x3 Image Grid -->
+    <!-- Responsive image gallery with luxury card design from Activities section -->
+    <section class="luxury-gallery-section py-5" style="background: #ffffff; padding: 120px 0;">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="luxury-section-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: #bc6c25; letter-spacing: -0.02em;">
+              Gallery
+            </h2>
+            <p class="luxury-subtitle" style="font-size: 1.1rem; color: #6c757d; font-weight: 300;">
+              Explore our stunning collection of desert moments and luxury experiences
+            </p>
+          </div>
+        </div>
 
+        <!-- 3x3 Responsive Image Grid - Using CSS Grid for perfect alignment -->
+        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto;">
+          <!-- Image 1 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/hotel-1.jpg" alt="Gallery Image 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+          <!-- Image 2 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/hotel-2.jpg" alt="Gallery Image 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+          <!-- Image 3 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/hotel-3.jpg" alt="Gallery Image 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+          <!-- Image 4 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/hotel-4.jpg" alt="Gallery Image 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+          <!-- Image 5 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/destination-1.jpg" alt="Gallery Image 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+          <!-- Image 6 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/destination-2.jpg" alt="Gallery Image 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+          <!-- Image 7 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/destination-3.jpg" alt="Gallery Image 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+          <!-- Image 8 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/destination-4.jpg" alt="Gallery Image 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+          <!-- Image 9 -->
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            <img src="images/destination-5.jpg" alt="Gallery Image 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+          </div>
+        </div>
 
+        <!-- Responsive Media Queries for Gallery Grid -->
+        <style>
+          /* Default 3x3 grid for desktop */
+          .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+
+          /* Tablet: 2 columns */
+          @media (max-width: 900px) {
+            .gallery-grid {
+              grid-template-columns: repeat(2, 1fr);
+              grid-template-rows: repeat(5, 1fr); /* Adjust rows for stacking */
+            }
+          }
+
+          /* Mobile: 1 column */
+          @media (max-width: 600px) {
+            .gallery-grid {
+              grid-template-columns: 1fr;
+              grid-template-rows: repeat(9, 1fr); /* One per image */
+            }
+          }
+
+          /* Ensure cards are square and flush */
+          .gallery-card {
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+          }
+
+          .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+          }
+        </style>
+
+        <!-- Centered Button - Same style as Booking button -->
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-4 col-md-6 col-12 text-center">
+            <a href="reviews.html" class="btn luxury-gallery-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
+              Go to Reviews
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- 6. Testimonials/Reviews Section -->
     <!-- Slider/stack of customer quotes with luxury styling -->
