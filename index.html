@@ -214,9 +214,12 @@
         }
       }
 
-    </style>
+      /* Icon Animation on Expand/Collapse */
+      .luxury-faq-accordion .collapse.show .faq-toggle-icon {
+        transform: rotate(180deg);
+      }
 
-    <!-- Additional Mobile Fix for Hero Headline -->
+    </style>
     <style>
       /* Global fix to prevent horizontal overflow on entire page */
       html, body {
@@ -497,14 +500,16 @@
     <!-- 1. About Section - Who Are We - Luxury Modern Redesign -->
     <!-- Fully responsive: Image left, text right on desktop; stacked on mobile -->
     <!-- Clean, minimal design with #bc6c25 accent color for luxury theme -->
-    <section class="luxury-about-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 80px 0; height: 100%;">
+    <section class="luxury-about-section py-5" style="background: rgba(188, 108, 37, 0.1); padding: 80px 0; height: 100%;">
       <div class="container">
         <div class="row align-items-center">
           <!-- Image Container - Left on desktop, stacks first on mobile -->
           <div class="col-lg-6 order-lg-1 order-1" data-aos="fade-right" data-aos-duration="1000">
-            <div class="luxury-image-container" style="position: relative; overflow: hidden; border-radius: 10px;">
-              <!-- Updated image path to use existing hotel image - Simple styling with object-fit cover -->
-              <img src="images/hotel-1.jpg" alt="Luxury Hotel Interior" class="img-fluid w-100" style="height: 400px; object-fit: cover; max-width: 100%;">
+            <div class="activity-grid-card-wrapper">
+              <div class="activity-grid-card" style="padding: 5px; border-radius: 0; overflow: hidden;">
+                <!-- Updated image path to use existing hotel image - Simple styling with object-fit cover -->
+                <img src="images/hotel-1.jpg" alt="Luxury Hotel Interior" class="img-fluid w-100" style="height: 400px; object-fit: cover; max-width: 100%; border-radius: 0;">
+              </div>
             </div>
           </div>
           <!-- Content Container - Right on desktop, stacks second on mobile -->
@@ -713,7 +718,7 @@
 
     <!-- Luxury Activities Section - Pixel Perfect Grid -->
     <!-- NO GAPS, Square Corners, 8px Inner Padding -->
-    <section class="luxury-activities-grid-section">
+    <section class="luxury-activities-grid-section" style="background: rgba(188, 108, 37, 0.1);">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -934,7 +939,7 @@
 
     <!-- 5. Gallery Section - 3x3 Image Grid -->
     <!-- Responsive image gallery with luxury card design from Activities section -->
-    <section class="luxury-gallery-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 120px 0;">
+    <section class="luxury-gallery-section py-5" style="background: rgba(188, 108, 37, 0.1); padding: 120px 0;">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -1331,12 +1336,12 @@
       </div>
     <!-- 7. Luxury FAQ Section -->
     <!-- Frequently Asked Questions with elegant accordion design -->
-    <section class="luxury-faq-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 120px 0;">
+    <section class="luxury-faq-section py-5" style="background: rgba(188, 108, 37, 0.1); padding: 120px 0;">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
             <h2 class="luxury-section-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: #bc6c25; letter-spacing: -0.02em;">
-              Frequently Asked Questions
+              FAQ
             </h2>
             <p class="luxury-subtitle" style="font-size: 1.1rem; color: #6c757d; font-weight: 300;">
               Everything you need to know about our luxury desert experiences
@@ -1351,29 +1356,14 @@
               <!-- Question 1 -->
               <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                 <div class="luxury-faq-header" id="faqHeading1" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
-                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
-                    What is included in the luxury desert experience?
-                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    Why Morocco?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
                   </h5>
                 </div>
                 <div id="faqCollapse1" class="collapse" aria-labelledby="faqHeading1" data-parent="#faqAccordion">
-                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
-                    Our luxury desert experience includes private accommodations, gourmet meals prepared by our chef, personalized activities such as camel rides or quad biking, and 24/7 concierge service. All packages are customizable to meet your specific preferences.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Question 2 -->
-              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <div class="luxury-faq-header" id="faqHeading2" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
-                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
-                    How do I book a stay at Marragafay?
-                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
-                  </h5>
-                </div>
-                <div id="faqCollapse2" class="collapse" aria-labelledby="faqHeading2" data-parent="#faqAccordion">
-                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
-                    You can book directly through our website using the booking form, or contact our concierge team via phone or email for personalized assistance. We recommend booking in advance to secure your preferred dates.
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Morocco offers a unique blend of culture, adventure, and luxury, making it an ideal destination for travelers. Agafay Desert, just 30 minutes from Marrakech, provides an authentic desert experience with stunning landscapes, camel rides, and traditional Berber hospitality—perfect for those seeking an escape without venturing far from the city.
                   </div>
                 </div>
               </div>
@@ -1381,44 +1371,150 @@
               <!-- Question 3 -->
               <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                 <div class="luxury-faq-header" id="faqHeading3" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
-                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
-                    What should I bring for my desert stay?
-                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    Is drinking tap water in Morocco safe?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
                   </h5>
                 </div>
                 <div id="faqCollapse3" class="collapse" aria-labelledby="faqHeading3" data-parent="#faqAccordion">
-                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
-                    We provide all essentials including linens, toiletries, and appropriate clothing for desert activities. However, we recommend bringing sunscreen, comfortable walking shoes, and any personal medications. Our team can also arrange for special items upon request.
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Drinking water directly from a tap in Morocco isn't a good idea. However, the Moroccan authorities are concerned about the pollution caused by plastic from bottled water, and many hotels have filtered water for guests which is considered safe to drink.
                   </div>
                 </div>
               </div>
+             
 
               <!-- Question 4 -->
               <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                 <div class="luxury-faq-header" id="faqHeading4" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
-                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
-                    Is the desert safe for families with children?
-                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    Visa Requirement?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
                   </h5>
                 </div>
                 <div id="faqCollapse4" class="collapse" aria-labelledby="faqHeading4" data-parent="#faqAccordion">
-                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
-                    Absolutely. Our resort is family-friendly with supervised activities and child-safe environments. We offer tailored experiences for all ages, ensuring a memorable and secure stay for families.
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Most travellers who want to visit Morocco can do so without applying for a visa if your trip will not exceed three months. However, is it essential that all travellers arrive with a passport that is valid for at least six months from the time you enter Morocco?
                   </div>
                 </div>
               </div>
 
-              <!-- Question 5 -->
-              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <div class="luxury-faq-header" id="faqHeading5" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
-                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
-                    Can I customize my experience?
-                    <i class="icon-plus" style="color: #d4af37; font-size: 1.2rem; transition: transform 0.3s ease;"></i>
+              <!-- Question 6 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="luxury-faq-header" id="faqHeading6" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    Can I drink or buy alcohol in Morocco?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
                   </h5>
                 </div>
-                <div id="faqCollapse5" class="collapse" aria-labelledby="faqHeading5" data-parent="#faqAccordion">
-                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
-                    Yes, every experience is fully customizable. Our concierge team works with you to tailor activities, meals, and accommodations to your preferences, ensuring a unique and personal luxury desert retreat.
+                <div id="faqCollapse6" class="collapse" aria-labelledby="faqHeading6" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Although a predominantly Muslim country, Morocco is not dry. Alcohol is available in restaurants, liquor stores, bars, supermarkets, clubs, hotels and discos. Some Moroccans enjoy a drink although it is disapproved in public places. … Driving under the influence of alcohol is illegal even if you drank just one beer.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 7 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="luxury-faq-header" id="faqHeading7" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse7" aria-expanded="false" aria-controls="faqCollapse7">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    What can women wear in Morocco?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse7" class="collapse" aria-labelledby="faqHeading7" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    In terms of clothing, maxi or midi dresses with sleeves (or at least with the shoulders covered) are perfect, as well as loose trousers and t-shirts. Try to avoid low necklines or anything too figure-hugging, as you might gain some unwanted attention out on the streets.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 8 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="luxury-faq-header" id="faqHeading8" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse8" aria-expanded="false" aria-controls="faqCollapse8">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    The level of risk - Is Morocco safe to visit?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse8" class="collapse" aria-labelledby="faqHeading8" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    According to the 2019 Travel Risk Map, Morocco is the only country to have a low-risk level in North Africa. Algeria and Tunisia are medium risks, while Egypt is high risk.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 9 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="luxury-faq-header" id="faqHeading9" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse9" aria-expanded="false" aria-controls="faqCollapse9">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    What is the difference in price between private and group shared desert tour?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse9" class="collapse" aria-labelledby="faqHeading9" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Shared tours price is fixed no matter how many people join the tour. Private tours price depends on how many people traveling in your party. The more you are the less expensive you are.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 10 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="luxury-faq-header" id="faqHeading10" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse10" aria-expanded="false" aria-controls="faqCollapse10">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    Can we bring luggage on the desert tour?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse10" class="collapse" aria-labelledby="faqHeading10" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Yes, you can bring your luggage on our Agafay desert tours. We recommend packing a small backpack for essentials during activities like camel rides. The rest of your luggage can be stored securely in your vehicle or at our lodge for safekeeping.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 11 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="luxury-faq-header" id="faqHeading11" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse11" aria-expanded="false" aria-controls="faqCollapse11">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    Can I customize my private tour in Morocco?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse11" class="collapse" aria-labelledby="faqHeading11" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Yes, you can! Contact us and we will assist you to make your own tour in Morocco.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 12 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="luxury-faq-header" id="faqHeading12" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse12" aria-expanded="false" aria-controls="faqCollapse12">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    How do I cancel a purchased tour?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse12" class="collapse" aria-labelledby="faqHeading12" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Let me know as soon as possible that you cancel the tour! If you cancel the tour in the morning of departure, we cannot return your money.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Question 13 -->
+              <div class="luxury-faq-item mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="luxury-faq-header" id="faqHeading13" style="background: #ffffff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease;" data-toggle="collapse" data-target="#faqCollapse13" aria-expanded="false" aria-controls="faqCollapse13">
+                  <h5 class="luxury-faq-question mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; font-weight: 500; display: flex; align-items: center; justify-content: space-between;">
+                    How do I cancel a purchased tour?
+                    <i class="icon-chevron-down faq-toggle-icon" style="color: #d4af37; font-size: 1rem; transition: transform 0.3s ease;"></i>
+                  </h5>
+                </div>
+                <div id="faqCollapse13" class="collapse" aria-labelledby="faqHeading13" data-parent="#faqAccordion">
+                  <div class="luxury-faq-body" style="background: #ffffff; border-radius: 0 0 15px 15px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 1px solid #e9ecef; color: #6c757d; line-height: 1.7;">
+                    Let me know as soon as possible that you cancel the tour! If you cancel the tour in the morning of departure, we cannot return your money.
                   </div>
                 </div>
               </div>
