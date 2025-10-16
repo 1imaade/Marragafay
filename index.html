@@ -1043,16 +1043,194 @@
           }
         </style>
 
+        <!-- Gallery Lightbox Styles -->
+        <style>
+          /* Lightbox modal: Fixed position, no scrolling, luxury transitions */
+          .gallery-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            overflow: hidden; /* Prevent any scrolling */
+          }
+
+          /* Overlay: Semi-transparent black, high z-index, flexbox centering */
+          .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75); /* Semi-transparent black for luxury dimming */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+          }
+
+          /* Container: Fixed centering with transform, max dimensions, flexbox */
+          .lightbox-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Perfect vertical and horizontal centering */
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000; /* Above overlay */
+          }
+
+          /* Close button: Top-right, high z-index, luxury styling */
+          .lightbox-close {
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #333;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10001; /* Always on top */
+          }
+
+          .lightbox-close:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1); /* Luxury hover effect */
+          }
+
+          /* Navigation arrows: Semi-transparent, luxury styling */
+          .lightbox-prev,
+          .lightbox-next {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10000;
+          }
+
+          .lightbox-prev:hover,
+          .lightbox-next:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+          }
+
+          .lightbox-prev {
+            left: -60px;
+          }
+
+          .lightbox-next {
+            right: -60px;
+          }
+
+          /* Image: Contain fit, no scrollbars, smooth transitions */
+          .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Scales down if larger than viewport, maintains aspect ratio */
+            border-radius: 0; /* Always square corners */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease; /* Smooth scaling */
+          }
+
+          /* Mobile responsive adjustments: Apply only for screens up to 600px wide */
+          @media (max-width: 600px) {
+            /* Darker semi-transparent black overlay for mobile */
+            .lightbox-overlay {
+              background: rgba(0, 0, 0, 0.85); /* Darker for better contrast on mobile */
+            }
+
+            /* Increase image size: At least 80vw width, adjust height for best fit */
+            .lightbox-container {
+              max-width: 80vw; /* Target at least 80vw width */
+              max-height: 85vh; /* Adjust height for best fit while maintaining aspect ratio */
+            }
+
+            /* Smaller, less dominant arrows: 36px diameter, lighter shadow */
+            .lightbox-prev,
+            .lightbox-next {
+              width: 36px; /* Smaller diameter */
+              height: 36px;
+              font-size: 1.2rem; /* Proportionally smaller */
+              box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Lighter shadow for less dominance */
+            }
+
+            .lightbox-prev {
+              left: -45px; /* Adjust position for smaller size */
+            }
+
+            .lightbox-next {
+              right: -45px;
+            }
+
+            /* Center image and arrows perfectly with minimal gap */
+            .lightbox-container {
+              gap: 10px; /* Minimal gap between elements */
+            }
+
+            /* Prevent vertical scrolling inside modal: Limit image to fit visible area */
+            .lightbox-image {
+              max-height: 100%; /* Ensure no overflow, scales to fit */
+            }
+
+            /* Close button adjustments for mobile */
+            .lightbox-close {
+              top: -45px;
+              right: -45px;
+              width: 36px;
+              height: 36px;
+              font-size: 1.2rem;
+            }
+          }
+        </style>
+
         <!-- Centered Button - Same style as Booking button -->
         <div class="row justify-content-center mt-5">
           <div class="col-lg-4 col-md-6 col-12 text-center">
             <a href="reviews.html" class="btn luxury-gallery-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
-              Go to Reviews
+              View All Reviews
             </a>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Gallery Lightbox Modal -->
+    <!-- Comments for customization: Update the images array below to match your gallery images -->
+    <div id="galleryLightbox" class="gallery-lightbox" style="display: none;">
+      <!-- Background overlay: Semi-transparent black, high z-index, prevents scrolling behind -->
+      <div class="lightbox-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; overflow: hidden;"></div>
+      
+      <!-- Modal content: Above overlay, centered image, no scrolling inside -->
+      <div class="lightbox-container" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; z-index: 10000;">
+        <!-- Close button: Top-right, always visible and accessible -->
+        <button class="lightbox-close" style="position: absolute; top: -60px; right: -60px; background: rgba(255, 255, 255, 0.9); border: none; color: #333; font-size: 2rem; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 10001;">&times;</button>
+        
+        <!-- Previous arrow button -->
+        <button class="lightbox-prev" style="position: absolute; left: -60px; background: rgba(255, 255, 255, 0.2); border: none; color: white; font-size: 2rem; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; transition: background 0.3s ease;">&#8249;</button>
+        
+        <!-- Main image: Centered, scales down if too large, no scrollbars -->
+        <img class="lightbox-image" src="" alt="" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s ease;">
+        
+        <!-- Next arrow button -->
+        <button class="lightbox-next" style="position: absolute; right: -60px; background: rgba(255, 255, 255, 0.2); border: none; color: white; font-size: 2rem; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; transition: background 0.3s ease;">&#8250;</button>
+      </div>
+    </div>
 
     <!-- 6. Testimonials/Reviews Section -->
     <!-- Slider/stack of customer quotes with luxury styling -->
@@ -1867,6 +2045,124 @@
 
       // Auto-advance (optional - uncomment if desired)
       // setInterval(nextSlide, 5000);
+    });
+  </script>
+
+  <!-- Gallery Lightbox JavaScript -->
+  <!-- Comments for customization: Update the images array below to match your gallery images -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Array of gallery image sources - customize as needed
+      const images = [
+        'images/hotel-1.jpg',
+        'images/hotel-2.jpg',
+        'images/hotel-3.jpg',
+        'images/hotel-4.jpg',
+        'images/destination-1.jpg',
+        'images/destination-2.jpg',
+        'images/destination-3.jpg',
+        'images/destination-4.jpg',
+        'images/destination-5.jpg'
+      ];
+
+      let currentIndex = 0;
+      const lightbox = document.getElementById('galleryLightbox');
+      const overlay = document.querySelector('.lightbox-overlay');
+      const lightboxImage = document.querySelector('.lightbox-image');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const prevBtn = document.querySelector('.lightbox-prev');
+      const nextBtn = document.querySelector('.lightbox-next');
+
+      // Get all gallery images and add click listeners
+      const galleryImages = document.querySelectorAll('.gallery-card img');
+      galleryImages.forEach((img, index) => {
+        img.addEventListener('click', function() {
+          currentIndex = index;
+          openLightbox();
+        });
+      });
+
+      // Function to open lightbox with fade-in transition and prevent body scroll
+      function openLightbox() {
+        lightboxImage.src = images[currentIndex];
+        lightbox.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+        setTimeout(() => {
+          overlay.style.opacity = '1';
+          lightboxImage.style.transform = 'scale(1)'; // Smooth scale-in for luxury effect
+        }, 10);
+      }
+
+      // Function to close lightbox with fade-out transition and re-enable body scroll
+      function closeLightbox() {
+        overlay.style.opacity = '0';
+        lightboxImage.style.transform = 'scale(0.95)'; // Slight scale-out for luxury effect
+        setTimeout(() => {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }, 300);
+      }
+
+      // Close button event
+      closeBtn.addEventListener('click', closeLightbox);
+
+      // Click overlay to close
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          closeLightbox();
+        }
+      });
+
+      // Next image function
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        lightboxImage.src = images[currentIndex];
+      }
+
+      // Previous image function
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        lightboxImage.src = images[currentIndex];
+      }
+
+      // Arrow button events
+      nextBtn.addEventListener('click', nextImage);
+      prevBtn.addEventListener('click', prevImage);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (lightbox.style.display === 'block') {
+          if (e.key === 'ArrowRight') {
+            nextImage();
+          } else if (e.key === 'ArrowLeft') {
+            prevImage();
+          } else if (e.key === 'Escape') {
+            closeLightbox();
+          }
+        }
+      });
+
+      // Touch/swipe support for mobile - comments for customization: Adjust threshold if needed
+      let startX = 0;
+      let endX = 0;
+
+      lightboxImage.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+      });
+
+      lightboxImage.addEventListener('touchend', function(e) {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        const threshold = 50; // Minimum swipe distance - customize as needed
+
+        if (Math.abs(diff) > threshold) {
+          if (diff > 0) {
+            nextImage(); // Swipe left for next
+          } else {
+            prevImage(); // Swipe right for previous
+          }
+        }
+      });
     });
   </script>
   </body>
