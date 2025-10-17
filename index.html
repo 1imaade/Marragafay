@@ -456,43 +456,67 @@
 	  </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap js-fullheight">
-      <!-- Hero Section - Fixed for Mobile Responsiveness -->
-      <!-- Full viewport height with background slider, no overlay for visibility -->
-      <!-- Content centered on all devices, navigation never blocks hero -->
-      <!-- Comments added for future styling adjustments -->
-      <!-- Background Slider - Full background images for all screens -->
-      <div class="hero-bg-slider owl-carousel">
-        <div class="slider-bg" style="background-image: url('images/slide1.jpg');"></div>
-        <div class="slider-bg" style="background-image: url('images/slide2.jpg');"></div>
-        <div class="slider-bg" style="background-image: url('images/slide3.jpg');"></div>
-        <div class="slider-bg" style="background-image: url('images/slide4.jpg');"></div>
-      </div>
-      <!-- Removed overlay div to prevent darkening/covering content on mobile -->
-      <div class="overlay"></div>
-      <!-- Hero Content Container - Full width on mobile, centered -->
+    <!-- Hero/Banner Section - Simple & Clean -->
+    <!-- Full viewport height with background image and centered content -->
+    <div class="hero-wrap js-fullheight" id="home" style="position: relative; height: 100vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/slide1.jpg'); background-size: cover; background-position: center; background-attachment: fixed; display: flex; align-items: center; justify-content: center;">
+      <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.2);"></div>
+
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-          <!-- Content Column - Full width (col-12) on mobile for centering, readable text -->
-          <div class="col-12 col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
-            <!-- Headline - Large, readable on all devices with text shadow for visibility -->
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="font-size: 2.5rem; line-height: 1.2; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Added text shadow for readability over background */">
-              Ride the Dunes,<br> Savor <span style="color: #ff4757; text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);">Morocco</span>
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+          <div class="col-12 col-md-9 ftco-animate text-center" data-scrollax="properties: { translateY: '70%' }">
+            <!-- Main Headline -->
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="font-size: 3.5rem; line-height: 1.2; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); font-weight: 300;">
+              AGAFAY DESERT<br>
+              <span style="color: #cfbda5; font-weight: 400;">EXPERIENCE</span>
             </h1>
-            <!-- Description - Proportional sizing, centered on mobile -->
-            <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="font-size: 1.1rem; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Text shadow for visibility */ line-height: 1.6;">
-              Unforgettable Agafay Desert experiences just 30 minutes from Marrakech
+
+            <!-- Subtitle -->
+            <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="font-size: 1.2rem; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5); line-height: 1.6;">
+              Discover the authentic essence of the Moroccan desert in a setting of exceptional luxury
             </p>
-            <!-- Button - Visible, proportional, no interference from navigation -->
-            <a href="packages.html" class="btn btn-outline-primary py-3 px-4" style="border: 2px solid #fff; color: #fff; background: transparent; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; font-size: 1rem; padding: 12px 24px; /* Adjusted for mobile visibility */"
+
+            <!-- CTA Button -->
+            <a href="#packages" class="btn btn-outline-primary py-3 px-4" style="border: 2px solid #fff; color: #fff; background: transparent; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; font-size: 1rem; padding: 12px 24px;"
                onmouseover="this.style.background='rgba(255,255,255,0.1)';"
                onmouseout="this.style.background='transparent';">
-              Explore Our Packages
+              DISCOVER OUR PACKAGES
             </a>
           </div>
         </div>
       </div>
+
+      <!-- Scroll Indicator - Keep the modern design -->
+      <div class="scroll-indicator" style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); text-align: center;">
+        <div class="scroll-line" style="width: 2px; height: 60px; background: linear-gradient(to bottom, #cfbda5, transparent); margin: 0 auto 10px;"></div>
+        <a href="#packages" style="color: #cfbda5; font-size: 0.9rem; text-decoration: none; font-family: 'Overpass', sans-serif; text-transform: uppercase; letter-spacing: 1px;">
+          Discover More
+        </a>
+      </div>
     </div>
+
+    <!-- Simple Hero Styles -->
+    <style>
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-wrap h1 {
+          font-size: 2.5rem !important;
+        }
+
+        .hero-wrap p {
+          font-size: 1.1rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-wrap h1 {
+          font-size: 2rem !important;
+        }
+
+        .hero-wrap p {
+          font-size: 1rem !important;
+        }
+      }
+    </style>
 
     <!-- Luxury Hotel Homepage Sections -->
     <!-- =========================================== -->
