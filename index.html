@@ -581,10 +581,10 @@
         </div>
 
         <div class="row">
-          <!-- Classic Package -->
+          <!-- Classic Package - Clickable card that opens modal on click -->
           <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
             <!-- Card with square corners (border-radius: 0) for modern, clean design -->
-            <div class="luxury-package-card" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+            <div class="luxury-package-card clickable-card" data-package="classic" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; cursor: pointer;">
               <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
                 <!-- Updated image path to use existing hotel image -->
                 <img src="images/hotel-2.jpg" alt="Classic Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
@@ -629,9 +629,9 @@
             </div>
           </div>
 
-          <!-- Premium Package -->
+          <!-- Premium Package - Clickable card that opens modal on click -->
           <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <div class="luxury-package-card" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+            <div class="luxury-package-card clickable-card" data-package="premium" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; cursor: pointer;">
               <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
                 <!-- Updated image path to use existing hotel image -->
                 <img src="images/hotel-3.jpg" alt="Premium Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
@@ -674,9 +674,9 @@
             </div>
           </div>
 
-          <!-- VIP Package -->
+          <!-- VIP Package - Clickable card that opens modal on click -->
           <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-            <div class="luxury-package-card" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+            <div class="luxury-package-card clickable-card" data-package="vip" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; cursor: pointer;">
               <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
                 <!-- Updated image path to use existing hotel image -->
                 <img src="images/hotel-4.jpg" alt="VIP Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
@@ -1874,9 +1874,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
 
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+           
           </div>
         </div>
       </div>
@@ -2211,5 +2209,567 @@
       });
     });
   </script>
+
+  <!-- Package Details Modal - Luxury popup for package information and booking -->
+  <!-- Comments for customization: Modal styling matches luxury theme with gold accents and clean design -->
+  <div id="packageModal" class="package-modal" style="display: none;">
+    <!-- Modal overlay - Semi-transparent black background that covers entire viewport -->
+    <div class="modal-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; overflow: hidden;"></div>
+
+    <!-- Modal container - Centered with luxury styling and responsive design -->
+    <div class="modal-container" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 90vw; max-height: 90vh; width: 900px; background: #ffffff; border-radius: 0; box-shadow: 0 20px 60px rgba(0,0,0,0.3); z-index: 10000; opacity: 0; transition: all 0.3s ease; overflow-y: auto;">
+
+      <!-- Modal Header - Clean header with close button -->
+      <div class="modal-header" style="position: relative; padding: 30px 40px 20px; background: linear-gradient(135deg, #bc6c25, #d4af37); color: white;">
+        <!-- Close button - Large X icon in top-right corner -->
+        <button class="modal-close" style="position: absolute; top: 20px; right: 25px; background: rgba(255, 255, 255, 0.2); border: none; color: white; font-size: 2rem; width: 50px; height: 50px; border-radius: 0; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;">
+          &times;
+        </button>
+        <!-- Package badge in modal header -->
+        <div class="modal-badge" style="display: inline-block; background: rgba(255, 255, 255, 0.2); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.9rem; font-weight: 600; margin-bottom: 15px;">
+          Package Details
+        </div>
+      </div>
+
+      <!-- Modal Body - Main content area with two-column layout on desktop -->
+      <div class="modal-body" style="padding: 0;">
+        <!-- Left Column - Image and basic info -->
+        <div class="modal-left" style="float: left; width: 45%; padding: 40px; background: #f8f9fa; min-height: 500px;">
+          <!-- Large cover image -->
+          <div class="modal-image-container" style="margin-bottom: 30px;">
+            <img class="modal-cover-image" src="" alt="" style="width: 100%; height: 250px; object-fit: cover; border-radius: 0;">
+          </div>
+
+          <!-- Package title and description -->
+          <h2 class="modal-title" style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #2c3e50; margin-bottom: 20px; font-weight: 500;"></h2>
+          <p class="modal-description" style="color: #6c757d; font-size: 1rem; line-height: 1.7; margin-bottom: 30px;"></p>
+
+          <!-- Price display -->
+          <div class="modal-price" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 20px; border-radius: 0; margin-bottom: 30px; text-align: center;">
+            <div class="price-amount" style="font-size: 2.5rem; font-weight: 700; margin-bottom: 5px;"></div>
+            <div class="price-label" style="font-size: 1rem; opacity: 0.9;"></div>
+          </div>
+
+          <!-- Contact options - Always visible for easy access -->
+          <div class="contact-options" style="border-top: 2px solid #e9ecef; padding-top: 25px;">
+            <h4 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">Contact Us</h4>
+
+            <!-- WhatsApp contact -->
+            <a href="https://wa.me/212612345678?text=Hello! I'm interested in booking a package." target="_blank" class="contact-btn whatsapp-btn" style="display: block; background: #25D366; color: white; padding: 12px 20px; border-radius: 0; text-decoration: none; margin-bottom: 10px; font-weight: 600; transition: all 0.3s ease;">
+              <i class="icon-whatsapp" style="margin-right: 10px;"></i> WhatsApp: +212 612 345 678
+            </a>
+
+            <!-- Phone contact -->
+            <a href="tel:+212612345678" class="contact-btn phone-btn" style="display: block; background: #bc6c25; color: white; padding: 12px 20px; border-radius: 0; text-decoration: none; margin-bottom: 10px; font-weight: 600; transition: all 0.3s ease;">
+              <i class="icon-phone" style="margin-right: 10px;"></i> Call: +212 612 345 678
+            </a>
+
+            <!-- Email contact -->
+            <a href="mailto:info@marragafay.com?subject=Package Booking Inquiry" class="contact-btn email-btn" style="display: block; background: #6c757d; color: white; padding: 12px 20px; border-radius: 0; text-decoration: none; margin-bottom: 15px; font-weight: 600; transition: all 0.3s ease;">
+              <i class="icon-envelope" style="margin-right: 10px;"></i> Email: info@marragafay.com
+            </a>
+
+            <!-- Live chat option -->
+            <button class="contact-btn chat-btn" style="display: block; width: 100%; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 12px 20px; border: none; border-radius: 0; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+              <i class="icon-chat" style="margin-right: 10px;"></i> Start Live Chat
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column - Inclusions and booking form -->
+        <div class="modal-right" style="float: right; width: 55%; padding: 40px; background: #ffffff; min-height: 500px;">
+
+          <!-- Package inclusions -->
+          <div class="inclusions-section" style="margin-bottom: 40px;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; margin-bottom: 25px; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">What's Included</h3>
+            <ul class="inclusions-list" style="list-style: none; padding: 0; margin: 0;"></ul>
+          </div>
+
+          <!-- Booking form section -->
+          <div class="booking-section">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; margin-bottom: 25px; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">Book This Package</h3>
+
+            <!-- Booking form -->
+            <form class="booking-form" style="background: #f8f9fa; padding: 25px; border-radius: 0; border: 2px solid #e9ecef;">
+
+              <!-- Name field -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="bookingName" style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">Full Name *</label>
+                <input type="text" id="bookingName" name="name" required style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 0; font-size: 1rem; background: #ffffff; transition: border-color 0.3s ease;" placeholder="Enter your full name">
+              </div>
+
+              <!-- Email field -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="bookingEmail" style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">Email Address *</label>
+                <input type="email" id="bookingEmail" name="email" required style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 0; font-size: 1rem; background: #ffffff; transition: border-color 0.3s ease;" placeholder="your.email@example.com">
+              </div>
+
+              <!-- WhatsApp/Phone field -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="bookingPhone" style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">WhatsApp/Phone Number *</label>
+                <input type="tel" id="bookingPhone" name="phone" required style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 0; font-size: 1rem; background: #ffffff; transition: border-color 0.3s ease;" placeholder="+212 612 345 678">
+              </div>
+
+              <!-- Date field -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="bookingDate" style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">Preferred Date *</label>
+                <input type="date" id="bookingDate" name="date" required style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 0; font-size: 1rem; background: #ffffff; transition: border-color 0.3s ease;">
+              </div>
+
+              <!-- Group size field -->
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="bookingGroupSize" style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">Group Size *</label>
+                <select id="bookingGroupSize" name="groupSize" required style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 0; font-size: 1rem; background: #ffffff; transition: border-color 0.3s ease;">
+                  <option value="">Select group size</option>
+                  <option value="1">1 Person</option>
+                  <option value="2">2 People</option>
+                  <option value="3-4">3-4 People</option>
+                  <option value="5-8">5-8 People</option>
+                  <option value="9-12">9-12 People</option>
+                  <option value="13+">13+ People (Contact for quote)</option>
+                </select>
+              </div>
+
+              <!-- Special requests field -->
+              <div class="form-group" style="margin-bottom: 25px;">
+                <label for="bookingRequests" style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">Special Requests (Optional)</label>
+                <textarea id="bookingRequests" name="requests" rows="4" style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 0; font-size: 1rem; background: #ffffff; transition: border-color 0.3s ease; resize: vertical;" placeholder="Any special requirements, dietary needs, or custom arrangements..."></textarea>
+              </div>
+
+              <!-- Form buttons -->
+              <div class="form-buttons" style="text-align: center;">
+                <button type="submit" class="btn-submit" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 15px 40px; border-radius: 0; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-right: 10px;">
+                  <i class="icon-calendar" style="margin-right: 8px;"></i> Book Now
+                </button>
+                <button type="button" class="btn-cancel" style="background: #6c757d; color: white; border: none; padding: 15px 30px; border-radius: 0; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Clear floats -->
+        <div style="clear: both;"></div>
+      </div>
+    </div>
   </body>
 </html>
+
+<!-- Additional CSS for Modal Enhancements -->
+<!-- Comments for customization: Additional styles for spinner animation and enhanced responsive behavior -->
+<style>
+/* Spinner animation for loading states */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enhanced modal responsiveness */
+@media (max-width: 768px) {
+  .modal-container {
+    width: 95vw !important;
+    max-height: 95vh !important;
+    margin: 2.5vh auto !important;
+    transform: none !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .modal-header {
+    padding: 20px 25px 15px !important;
+  }
+
+  .modal-left, .modal-right {
+    width: 100% !important;
+    float: none !important;
+    padding: 25px !important;
+  }
+
+  .modal-title {
+    font-size: 1.8rem !important;
+  }
+
+  .modal-price {
+    padding: 15px !important;
+  }
+
+  .price-amount {
+    font-size: 2rem !important;
+  }
+
+  .inclusions-list li {
+    margin-bottom: 8px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 12px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .btn-submit,
+  .btn-cancel {
+    padding: 12px 25px !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-header {
+    padding: 15px 20px 10px !important;
+  }
+
+  .modal-left, .modal-right {
+    padding: 20px !important;
+  }
+
+  .modal-title {
+    font-size: 1.6rem !important;
+  }
+
+  .modal-cover-image {
+    height: 200px !important;
+  }
+
+  .contact-btn {
+    padding: 10px 15px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .form-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .btn-submit,
+  .btn-cancel {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* Hover effects for clickable cards */
+.clickable-card {
+  transition: all 0.3s ease !important;
+}
+
+.clickable-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+}
+
+/* Enhanced form styling */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #d4af37 !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1) !important;
+}
+
+/* Contact buttons hover effects */
+.contact-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+}
+
+/* Modal backdrop blur effect (optional enhancement) */
+.modal-overlay {
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+}
+</style>
+
+<!-- JavaScript for Package Modal Interactions -->
+<!-- Comments for customization: Handles modal opening, closing, form submission, and responsive behavior -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Package data - easily customizable for future changes
+  const packageData = {
+    classic: {
+      title: 'Classic Desert Experience',
+      description: 'Perfect introduction to luxury desert living with premium accommodations and curated activities. Experience the magic of the Agafay Desert with our signature package that combines adventure and relaxation in perfect harmony.',
+      image: 'images/hotel-2.jpg',
+      price: '$299',
+      priceLabel: '/person',
+      inclusions: [
+        'Quad biking adventure through the desert dunes',
+        'Traditional camel trek experience',
+        'Authentic Moroccan dinner under the stars',
+        'Luxury desert camp accommodation',
+        'Professional guide and photography',
+        'Airport transfers from Marrakech'
+      ]
+    },
+    premium: {
+      title: 'Luxury Desert Retreat',
+      description: 'Ultimate luxury experience with private accommodations and exclusive personalized services. Indulge in unparalleled comfort while discovering the mystical beauty of the Moroccan desert landscape.',
+      image: 'images/hotel-3.jpg',
+      price: '$599',
+      priceLabel: '/person',
+      inclusions: [
+        'Private luxury tent with en-suite facilities',
+        'Personal butler service throughout your stay',
+        'Gourmet dining experience with Moroccan cuisine',
+        'Exclusive desert activities and cultural tours',
+        'Premium spa treatments and wellness sessions',
+        'VIP transfers and concierge service'
+      ]
+    },
+    vip: {
+      title: 'Royal Desert Experience',
+      description: 'The pinnacle of luxury desert hospitality with exclusive amenities and personalized service. Experience the ultimate in desert luxury with bespoke experiences tailored to your every desire.',
+      image: 'images/hotel-4.jpg',
+      price: '$999',
+      priceLabel: '/person',
+      inclusions: [
+        'Private luxury villa with panoramic desert views',
+        'Helicopter transfers for scenic arrival',
+        'Exclusive desert activities and private tours',
+        'Personal chef and sommelier service',
+        'Premium spa and wellness treatments',
+        '24/7 dedicated concierge and security'
+      ]
+    }
+  };
+
+  // Modal elements
+  const modal = document.getElementById('packageModal');
+  const modalOverlay = modal.querySelector('.modal-overlay');
+  const modalContainer = modal.querySelector('.modal-container');
+  const modalClose = modal.querySelector('.modal-close');
+  const modalTitle = modal.querySelector('.modal-title');
+  const modalDescription = modal.querySelector('.modal-description');
+  const modalCoverImage = modal.querySelector('.modal-cover-image');
+  const modalPriceAmount = modal.querySelector('.price-amount');
+  const modalPriceLabel = modal.querySelector('.price-label');
+  const inclusionsList = modal.querySelector('.inclusions-list');
+
+  // Form elements
+  const bookingForm = modal.querySelector('.booking-form');
+  const formButtons = modal.querySelector('.form-buttons');
+
+  // Clickable cards
+  const clickableCards = document.querySelectorAll('.clickable-card');
+
+  // Current package being viewed
+  let currentPackage = null;
+
+  // Open modal function
+  function openModal(packageType) {
+    currentPackage = packageType;
+    const data = packageData[packageType];
+
+    if (data) {
+      // Populate modal content
+      modalTitle.textContent = data.title;
+      modalDescription.textContent = data.description;
+      modalCoverImage.src = data.image;
+      modalCoverImage.alt = data.title;
+      modalPriceAmount.textContent = data.price;
+      modalPriceLabel.textContent = data.priceLabel;
+
+      // Populate inclusions list
+      inclusionsList.innerHTML = '';
+      data.inclusions.forEach(inclusion => {
+        const li = document.createElement('li');
+        li.innerHTML = `<i class="icon-check" style="color: #d4af37; margin-right: 10px;"></i>${inclusion}`;
+        inclusionsList.appendChild(li);
+      });
+
+      // Show modal with animation
+      modal.style.display = 'block';
+      setTimeout(() => {
+        modalOverlay.style.opacity = '1';
+        modalContainer.style.opacity = '1';
+        modalContainer.style.transform = 'translate(-50%, -50%) scale(1)';
+      }, 10);
+
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  // Close modal function
+  function closeModal() {
+    modalOverlay.style.opacity = '0';
+    modalContainer.style.opacity = '0';
+    modalContainer.style.transform = 'translate(-50%, -50%) scale(0.9)';
+
+    setTimeout(() => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+      currentPackage = null;
+    }, 300);
+  }
+
+  // Add click event listeners to cards
+  clickableCards.forEach(card => {
+    card.addEventListener('click', function() {
+      const packageType = this.getAttribute('data-package');
+      openModal(packageType);
+    });
+  });
+
+  // Close modal event listeners
+  modalClose.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', closeModal);
+
+  // Prevent modal close when clicking inside modal content
+  modalContainer.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+
+  // Form submission handling
+  bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get form data
+    const formData = new FormData(this);
+    const bookingInfo = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      date: formData.get('date'),
+      groupSize: formData.get('groupSize'),
+      requests: formData.get('requests'),
+      package: currentPackage
+    };
+
+    // Basic validation
+    if (!bookingInfo.name || !bookingInfo.email || !bookingInfo.phone || !bookingInfo.date || !bookingInfo.groupSize) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Simulate booking submission (replace with actual API call)
+    console.log('Booking submitted:', bookingInfo);
+
+    // Show success message
+    alert(`Thank you for your interest in our ${packageData[currentPackage].title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
+
+    // Close modal and reset form
+    closeModal();
+    this.reset();
+  });
+
+  // Cancel button functionality
+  const cancelBtn = modal.querySelector('.btn-cancel');
+  cancelBtn.addEventListener('click', function() {
+    if (confirm('Are you sure you want to cancel? Any information entered will be lost.')) {
+      closeModal();
+      bookingForm.reset();
+    }
+  });
+
+  // Escape key to close modal
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+
+  // Responsive modal handling
+  function handleResponsiveModal() {
+    if (window.innerWidth <= 768) {
+      // Mobile responsive adjustments
+      modalContainer.style.width = '95vw';
+      modalContainer.style.maxHeight = '95vh';
+
+      // Stack columns vertically on mobile
+      const modalLeft = modal.querySelector('.modal-left');
+      const modalRight = modal.querySelector('.modal-right');
+
+      if (modalLeft && modalRight) {
+        modalLeft.style.width = '100%';
+        modalLeft.style.float = 'none';
+        modalRight.style.width = '100%';
+        modalRight.style.float = 'none';
+      }
+    } else {
+      // Desktop layout
+      modalContainer.style.width = '900px';
+      modalContainer.style.maxHeight = '90vh';
+
+      const modalLeft = modal.querySelector('.modal-left');
+      const modalRight = modal.querySelector('.modal-right');
+
+      if (modalLeft && modalRight) {
+        modalLeft.style.width = '45%';
+        modalLeft.style.float = 'left';
+        modalRight.style.width = '55%';
+        modalRight.style.float = 'right';
+      }
+    }
+  }
+
+  // Initial responsive setup
+  handleResponsiveModal();
+
+  // Responsive modal on window resize
+  window.addEventListener('resize', handleResponsiveModal);
+
+  // Add loading states for better UX
+  function showLoadingState() {
+    const submitBtn = modal.querySelector('.btn-submit');
+    if (submitBtn) {
+      submitBtn.innerHTML = '<i class="icon-spinner" style="margin-right: 8px; animation: spin 1s linear infinite;"></i> Processing...';
+      submitBtn.disabled = true;
+    }
+  }
+
+  function hideLoadingState() {
+    const submitBtn = modal.querySelector('.btn-submit');
+    if (submitBtn) {
+      submitBtn.innerHTML = '<i class="icon-calendar" style="margin-right: 8px;"></i> Book Now';
+      submitBtn.disabled = false;
+    }
+  }
+
+  // Contact button handlers (placeholders for future implementation)
+  const whatsappBtn = modal.querySelector('.whatsapp-btn');
+  const phoneBtn = modal.querySelector('.phone-btn');
+  const emailBtn = modal.querySelector('.email-btn');
+  const chatBtn = modal.querySelector('.chat-btn');
+
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      // WhatsApp integration would go here
+      console.log('WhatsApp contact initiated');
+    });
+  }
+
+  if (chatBtn) {
+    chatBtn.addEventListener('click', function() {
+      // Live chat integration would go here
+      console.log('Live chat initiated');
+    });
+  }
+
+  // Form validation enhancement
+  const requiredFields = bookingForm.querySelectorAll('input[required], select[required]');
+  requiredFields.forEach(field => {
+    field.addEventListener('blur', function() {
+      if (this.value.trim() === '') {
+        this.style.borderColor = '#dc3545';
+      } else {
+        this.style.borderColor = '#28a745';
+      }
+    });
+
+    field.addEventListener('focus', function() {
+      this.style.borderColor = '#ddd';
+    });
+  });
+
+  // Console log for debugging (remove in production)
+  console.log('Package modal system initialized successfully');
+});
+</script>
