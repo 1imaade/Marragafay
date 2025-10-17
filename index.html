@@ -563,7 +563,10 @@
     </section>
 
     <!-- 2. Packages Section - Our Best Packages -->
-    <!-- Horizontal cards with luxury styling -->
+    <!-- Horizontal cards with luxury styling - SQUARE CORNERS DESIGN -->
+    <!-- All cards, buttons, and badges use border-radius: 0 for perfectly square corners -->
+    <!-- Badge labels ("Most Popular", "Premium", "VIP Experience") are kept visible with square corners -->
+    <!-- Comments added for future designer reference and easy customization -->
     <section class="luxury-packages-section py-5" style="background: #ffffff; padding: 120px 0;">
       <div class="container">
         <div class="row justify-content-center mb-5">
@@ -580,12 +583,14 @@
         <div class="row">
           <!-- Classic Package -->
           <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-            <div class="luxury-package-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+            <!-- Card with square corners (border-radius: 0) for modern, clean design -->
+            <div class="luxury-package-card" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
               <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
                 <!-- Updated image path to use existing hotel image -->
                 <img src="images/hotel-2.jpg" alt="Classic Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
                 <div class="package-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));"></div>
-                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">
+                <!-- Badge visible with square corners for clean design -->
+                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
                   Most Popular
                 </div>
               </div>
@@ -615,7 +620,8 @@
                     <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">$299</span>
                     <small style="color: #6c757d; margin-left: 5px;">/person</small>
                   </div>
-                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
+                  <!-- Book Now button with square corners (border-radius: 0) for consistent design -->
+                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
                     Book Now
                   </a>
                 </div>
@@ -625,12 +631,12 @@
 
           <!-- Premium Package -->
           <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <div class="luxury-package-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+            <div class="luxury-package-card" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
               <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
                 <!-- Updated image path to use existing hotel image -->
                 <img src="images/hotel-3.jpg" alt="Premium Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
                 <div class="package-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));"></div>
-                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #2c3e50, #34495e); color: white; padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">
+                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #2c3e50, #34495e); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
                   Premium
                 </div>
               </div>
@@ -660,7 +666,7 @@
                     <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">$599</span>
                     <small style="color: #6c757d; margin-left: 5px;">/person</small>
                   </div>
-                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
+                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
                     Book Now
                   </a>
                 </div>
@@ -670,12 +676,12 @@
 
           <!-- VIP Package -->
           <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-            <div class="luxury-package-card" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
+            <div class="luxury-package-card" style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%;">
               <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
                 <!-- Updated image path to use existing hotel image -->
                 <img src="images/hotel-4.jpg" alt="VIP Package" class="img-fluid w-100 h-100" style="object-fit: cover;">
                 <div class="package-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));"></div>
-                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">
+                <div class="package-badge" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
                   VIP Experience
                 </div>
               </div>
@@ -705,7 +711,7 @@
                     <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">$999</span>
                     <small style="color: #6c757d; margin-left: 5px;">/person</small>
                   </div>
-                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
+                  <a href="packs.html" class="btn luxury-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
                     Book Now
                   </a>
                 </div>
@@ -1149,52 +1155,71 @@
           }
 
           /* Mobile responsive adjustments: Apply only for screens up to 600px wide */
+          /* Comments for future tweaks: Adjust image width (e.g., to 90vw), arrow sizes, or positions below */
           @media (max-width: 600px) {
             /* Darker semi-transparent black overlay for mobile */
             .lightbox-overlay {
               background: rgba(0, 0, 0, 0.85); /* Darker for better contrast on mobile */
             }
 
-            /* Increase image size: At least 80vw width, adjust height for best fit */
+            /* Increase image size: 90vw width, responsive, no border-radius */
+            /* Tweak: Change max-width to adjust image size (e.g., 95vw for even larger) */
             .lightbox-container {
-              max-width: 80vw; /* Target at least 80vw width */
-              max-height: 85vh; /* Adjust height for best fit while maintaining aspect ratio */
+              max-width: 90vw; /* Increased from 85vw for bigger image */
+              max-height: 90vh; /* Adjust height for best fit */
             }
 
-            /* Smaller, less dominant arrows: 36px diameter, lighter shadow */
+            /* Image: Always centered, no border-radius */
+            .lightbox-image {
+              width: 90vw; /* Increased from 85vw for bigger image - tweak if needed */
+              height: auto; /* Maintain aspect ratio */
+              max-height: 90vh; /* Limit to viewport height - adjust for taller images */
+              object-fit: contain;
+              border-radius: 0; /* No rounding - set to 5px if desired */
+              margin: 0 auto; /* Horizontal centering */
+            }
+
+            /* Arrows: Inside image boundaries, smaller, vertically centered */
+            /* Tweak: Adjust left/right (e.g., 20px) or size (e.g., 36px) for positioning */
             .lightbox-prev,
             .lightbox-next {
-              width: 36px; /* Smaller diameter */
-              height: 36px;
-              font-size: 1.2rem; /* Proportionally smaller */
-              box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Lighter shadow for less dominance */
+              position: absolute; /* Absolute within container */
+              top: 50%; /* Vertically centered */
+              transform: translateY(-50%); /* Perfect vertical centering */
+              width: 32px; /* Smaller diameter - increase to 36px if too small */
+              height: 32px;
+              font-size: 1rem; /* Proportionally smaller - adjust if needed */
+              background: rgba(0, 0, 0, 0.6); /* Semi-transparent for visibility */
+              border: 2px solid rgba(255, 255, 255, 0.8); /* Luxury border - change color if desired */
+              box-shadow: 0 2px 6px rgba(0,0,0,0.4); /* Light shadow - increase for more prominence */
+              z-index: 10002; /* Above image */
             }
 
             .lightbox-prev {
-              left: -45px; /* Adjust position for smaller size */
+              left: 16px; /* 16-24px from left edge - tweak for positioning */
             }
 
             .lightbox-next {
-              right: -45px;
+              right: 16px; /* 16-24px from right edge - tweak for positioning */
             }
 
-            /* Center image and arrows perfectly with minimal gap */
-            .lightbox-container {
-              gap: 10px; /* Minimal gap between elements */
-            }
-
-            /* Prevent vertical scrolling inside modal: Limit image to fit visible area */
-            .lightbox-image {
-              max-height: 100%; /* Ensure no overflow, scales to fit */
-            }
-
-            /* Close button adjustments for mobile */
+            /* Close button: Top-right, outside image area */
+            /* Tweak: Adjust top/right or size for better accessibility */
             .lightbox-close {
               top: -45px;
               right: -45px;
               width: 36px;
               height: 36px;
               font-size: 1.2rem;
+              z-index: 10003; /* Above everything */
+            }
+
+            /* Ensure perfect centering and no gaps */
+            .lightbox-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative; /* For absolute arrows */
             }
           }
         </style>
@@ -1703,87 +1728,91 @@
     </section>
 
 
-    <!-- 8. Contact/Booking Form Section -->
-    <section class="luxury-booking-section py-5" style="background: #ffffff; padding: 120px 0;">
+    <!-- 8. Contact Form Section for Agency -->
+    <section class="luxury-contact-section py-5" style="background: #ffffff; padding: 120px 0;">
       <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="luxury-section-title mb-3" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: #bc6c25; letter-spacing: -0.02em;">
+              Contact Us
+            </h2>
+            <p class="luxury-subtitle" style="font-size: 1.1rem; color: #6c757d; font-weight: 300;">
+              Get in touch with our luxury desert agency for personalized experiences and expert advice.
+            </p>
+          </div>
+        </div>
+
         <div class="row justify-content-center">
-          <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
-            <div class="luxury-booking-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 30px; padding: 60px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-              <div class="row align-items-center">
-                <div class="col-lg-6">
-                  <h3 class="booking-title mb-4" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #2c3e50; font-weight: 400;">
-                    Begin Your Journey
-                  </h3>
-                  <p class="booking-description mb-4" style="font-size: 1.1rem; color: #6c757d; line-height: 1.7;">
-                    Ready to experience the luxury of the Agafay Desert? Our concierge team is here to craft your perfect desert retreat.
-                  </p>
-                  <div class="booking-contact-info">
-                    <div class="d-flex align-items-center mb-3">
-                      <div class="contact-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
-                        <i class="icon-phone" style="color: white; font-size: 1.2rem;"></i>
-                      </div>
-                      <div>
-                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50;">+212 524 123 456</h6>
-                        <small style="color: #6c757d;">24/7 Concierge</small>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="contact-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #d4af37, #b8860b); display: flex; align-items: center; justify-content: center;">
-                        <i class="icon-envelope" style="color: white; font-size: 1.2rem;"></i>
-                      </div>
-                      <div>
-                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50;">reservations@luxurydesert.com</h6>
-                        <small style="color: #6c757d;">Instant Response</small>
-                      </div>
-                    </div>
+          <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="luxury-contact-container" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 0; padding: 60px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+              <form class="luxury-contact-form">
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control luxury-input" placeholder="Your Name" style="border: 2px solid #e9ecef; border-radius: 0; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <input type="email" class="form-control luxury-input" placeholder="Email Address" style="border: 2px solid #e9ecef; border-radius: 0; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" required>
                   </div>
                 </div>
-
-                <div class="col-lg-6">
-                  <form class="luxury-booking-form">
-                    <div class="form-row">
-                      <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control luxury-input" placeholder="First Name" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control luxury-input" placeholder="Last Name" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="col-md-6 mb-3">
-                        <input type="email" class="form-control luxury-input" placeholder="Email Address" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <input type="tel" class="form-control luxury-input" placeholder="Phone Number" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="col-md-6 mb-3">
-                        <select class="form-control luxury-input" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;">
-                          <option value="">Select Package</option>
-                          <option value="classic">Classic Experience</option>
-                          <option value="premium">Premium Experience</option>
-                          <option value="vip">VIP Experience</option>
-                        </select>
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <input type="number" class="form-control luxury-input" placeholder="Number of Guests" min="1" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease;" required>
-                      </div>
-                    </div>
-                    <div class="form-group mb-4">
-                      <textarea class="form-control luxury-input" rows="4" placeholder="Special Requests or Questions" style="border: 2px solid #e9ecef; border-radius: 10px; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease; resize: vertical;"></textarea>
-                    </div>
-                    <button type="submit" class="btn luxury-cta-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 18px 40px; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);">
-                      Reserve Your Experience
-                    </button>
-                  </form>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <input type="tel" class="form-control luxury-input" placeholder="Phone Number" style="border: 2px solid #e9ecef; border-radius: 0; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <select class="form-control luxury-input" style="border: 2px solid #e9ecef; border-radius: 0; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                      <option value="">Inquiry Type</option>
+                      <option value="booking">Booking Inquiry</option>
+                      <option value="info">General Information</option>
+                      <option value="support">Support</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
+                <div class="form-group mb-4">
+                  <textarea class="form-control luxury-input" rows="5" placeholder="Your Message" style="border: 2px solid #e9ecef; border-radius: 0; padding: 15px; font-size: 1rem; background: #ffffff; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); resize: vertical;"></textarea>
+                </div>
+                <button type="submit" class="btn luxury-cta-btn" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 18px 40px; border-radius: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);">
+                  Send Message
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Spacer for visual separation -->
+    <div style="height: 80px; background: #f8f9fa;"></div>
+
+    <!-- Contact Form Mobile Styles -->
+    <style>
+      /* Mobile responsiveness for contact form */
+      @media (max-width: 768px) {
+        .luxury-contact-container {
+          padding: 40px 20px; /* Reduce padding for mobile */
+        }
+
+        .luxury-contact-form .form-row .col-md-6 {
+          flex: 0 0 100%; /* Make form fields full width on mobile */
+          max-width: 100%;
+        }
+
+        .luxury-contact-form .form-control {
+          font-size: 1rem; /* Slightly larger font for mobile */
+          padding: 20px; /* Increase padding for touch */
+        }
+
+        .luxury-contact-form .btn {
+          padding: 20px 50px; /* Larger button for mobile */
+          font-size: 1.2rem; /* Bigger font for mobile */
+          width: 100%; /* Full width button on mobile */
+          border-radius: 0; /* No border radius */
+        }
+
+        .luxury-contact-form .form-group {
+          margin-bottom: 1.5rem; /* More spacing between fields */
+        }
+      }
+    </style>
 
     <!-- Spacer for visual separation -->
     <div style="height: 80px; background: #f8f9fa;"></div>
@@ -2052,6 +2081,8 @@
   <!-- Comments for customization: Update the images array below to match your gallery images -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      console.log('Lightbox JS loaded'); // Debug log
+
       // Array of gallery image sources - customize as needed
       const images = [
         'images/hotel-1.jpg',
@@ -2073,10 +2104,23 @@
       const prevBtn = document.querySelector('.lightbox-prev');
       const nextBtn = document.querySelector('.lightbox-next');
 
+      if (!lightbox || !overlay || !lightboxImage || !closeBtn || !prevBtn || !nextBtn) {
+        console.error('Lightbox elements not found!');
+        return;
+      }
+
+      console.log('Lightbox elements found'); // Debug log
+
       // Get all gallery images and add click listeners
       const galleryImages = document.querySelectorAll('.gallery-card img');
+      if (galleryImages.length === 0) {
+        console.error('No gallery images found!');
+        return;
+      }
+
       galleryImages.forEach((img, index) => {
         img.addEventListener('click', function() {
+          console.log('Image clicked, index:', index); // Debug log
           currentIndex = index;
           openLightbox();
         });
@@ -2084,6 +2128,7 @@
 
       // Function to open lightbox with fade-in transition and prevent body scroll
       function openLightbox() {
+        console.log('Opening lightbox'); // Debug log
         lightboxImage.src = images[currentIndex];
         lightbox.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
@@ -2095,6 +2140,7 @@
 
       // Function to close lightbox with fade-out transition and re-enable body scroll
       function closeLightbox() {
+        console.log('Closing lightbox'); // Debug log
         overlay.style.opacity = '0';
         lightboxImage.style.transform = 'scale(0.95)'; // Slight scale-out for luxury effect
         setTimeout(() => {
