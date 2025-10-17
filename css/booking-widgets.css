@@ -5,20 +5,22 @@
 
 /* ========================================= */
 /* PART 1: MAIN SEARCH WIDGET (Home Page Hero) */
+/* LUXURY MINIMALIST DESIGN - SQUARE CORNERS */
 /* ========================================= */
 
 .main-search-widget {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 20px 25px;
-  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
-  margin-top: 25px;
-  max-width: 900px;
+  border-radius: 0;
+  padding: 22px 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  margin-top: 350px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   z-index: 10;
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .main-search-widget h3 {
@@ -32,69 +34,82 @@
 
 .main-search-form {
   display: flex;
-  gap: 12px;
+  gap: 0;
   align-items: flex-end;
   flex-wrap: wrap;
+  border-left: 1px solid rgba(224, 224, 224, 0.5);
 }
 
 .main-search-form .form-group {
   flex: 1;
   min-width: 200px;
   margin-bottom: 0;
+  padding: 12px 18px;
+  border-right: 1px solid rgba(224, 224, 224, 0.5);
+  position: relative;
+}
+
+.main-search-form .form-group:last-of-type {
+  border-right: none;
 }
 
 .main-search-form label {
   display: block;
   font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 8px;
-  font-size: 0.95rem;
+  color: #6c757d;
+  margin-bottom: 6px;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.2px;
+  text-align: left;
 }
 
 .main-search-form select,
 .main-search-form input[type="text"],
 .main-search-form input[type="number"] {
   width: 100%;
-  padding: 10px 14px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 0;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: #fff;
-  color: #333;
+  background: transparent;
+  color: #2c3e50;
+  font-weight: 500;
 }
 
 .main-search-form select:focus,
 .main-search-form input[type="text"]:focus,
 .main-search-form input[type="number"]:focus {
   outline: none;
-  border-color: #d4af37;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.03);
 }
 
 .main-search-form .btn-search {
   flex: 0 0 auto;
-  min-width: 180px;
-  padding: 10px 20px;
-  background: linear-gradient(45deg, #bc6c25, #d4af37);
+  min-width: 170px;
+  padding: 16px 26px;
+  background: linear-gradient(135deg, #bc6c25 0%, #d4af37 100%);
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1.05rem;
+  border-radius: 0;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.3);
+  box-shadow: 0 2px 8px rgba(188, 108, 37, 0.25);
+  margin-left: 8px;
+  margin-top: 25px;
 }
 
 .main-search-form .btn-search:hover {
-  background: linear-gradient(45deg, #d4af37, #bc6c25);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+  background: linear-gradient(135deg, #d4af37 0%, #bc6c25 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.35);
 }
 
 .main-search-form .btn-search:active {
@@ -114,7 +129,7 @@
 /* Mobile Responsive - Main Widget */
 @media (max-width: 768px) {
   .main-search-widget {
-    padding: 25px 20px;
+    padding: 20px 16px;
     margin-top: 30px;
   }
 
@@ -125,17 +140,27 @@
 
   .main-search-form {
     flex-direction: column;
-    gap: 15px;
+    gap: 0;
+    border-left: none;
   }
 
   .main-search-form .form-group {
     min-width: 100%;
     width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+    padding: 12px 10px;
+  }
+
+  .main-search-form .form-group:last-child {
+    border-bottom: none;
   }
 
   .main-search-form .btn-search {
     width: 100%;
     min-width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
   }
 }
 
@@ -344,18 +369,25 @@
   }
 }
 
-/* ========================================= */
-/* GUEST COUNTER STYLES */
-/* ========================================= */
+/* Form group containing guest counter needs relative positioning for popup */
+.main-search-form .form-group.guest-counter-container {
+  position: relative;
+}
+
+/* Fallback for browsers that don't support :has() */
+.main-search-form .form-group {
+  position: relative;
+}
 
 .guest-counter {
   position: relative;
   width: 100%;
-  padding: 14px 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  background: #fff;
-  color: #333;
+  padding: 8px 10px;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 0;
+  background: transparent;
+  color: #2c3e50;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -364,25 +396,25 @@
 }
 
 .guest-counter:hover {
-  border-color: #d4af37;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.03);
 }
 
 .guest-counter:focus {
   outline: none;
-  border-color: #d4af37;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.03);
 }
 
 .guest-display {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #2c3e50;
 }
 
 .guest-counter i {
-  color: #d4af37;
-  font-size: 1.2rem;
+  color: #6c757d;
+  font-size: 0.9rem;
   transition: transform 0.3s ease;
 }
 
@@ -393,17 +425,18 @@
 /* Guest Popup Styles */
 .guest-popup {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 5px);
   left: 0;
-  right: 0;
+  width: 100%;
+  max-width: 280px;
   background: #fff;
-  border: 2px solid #d4af37;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid #d4af37;
+  border-radius: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   display: none;
   margin-top: 5px;
-  padding: 20px;
+  padding: 15px 12px;
 }
 
 .guest-popup.show {
@@ -411,7 +444,7 @@
 }
 
 .guest-counter-item {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .guest-counter-item:last-child {
@@ -421,55 +454,56 @@
 .guest-counter-item label {
   display: block;
   font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
+  color: #6c757d;
+  margin-bottom: 8px;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.2px;
 }
 
 .counter-controls {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   justify-content: center;
 }
 
 .counter-btn {
-  width: 35px;
-  height: 35px;
-  border: 2px solid #d4af37;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #2c3e50;
   background: #fff;
-  color: #d4af37;
-  border-radius: 50%;
+  color: #2c3e50;
+  border-radius: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .counter-btn:hover {
-  background: #d4af37;
+  background: #2c3e50;
   color: #fff;
   transform: scale(1.05);
 }
 
 .counter-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.3;
   cursor: not-allowed;
   transform: none;
 }
 
 .counter-input {
-  width: 60px;
+  width: 45px;
   text-align: center;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 6px 8px;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #2c3e50;
   background: #fff;
@@ -477,8 +511,8 @@
 
 .counter-input:focus {
   outline: none;
-  border-color: #d4af37;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.03);
 }
 
 /* Mobile Responsive */
@@ -489,23 +523,29 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 350px;
+    max-width: 280px;
     z-index: 2000;
   }
 
   .counter-controls {
-    gap: 10px;
+    gap: 8px;
   }
 
   .counter-btn {
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
   }
 
   .counter-input {
-    width: 50px;
-    padding: 6px 10px;
+    width: 40px;
+    padding: 5px 7px;
+    font-size: 0.85rem;
+  }
+
+  .guest-counter-item label {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
   }
 }
 
