@@ -145,19 +145,27 @@
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+				// Add menu-scrolled class for menu icon color change
+				if ( !$('body').hasClass('menu-scrolled') ) {
+					$('body').addClass('menu-scrolled');
+				}
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
+				// Remove menu-scrolled class when back to top
+				if ( $('body').hasClass('menu-scrolled') ) {
+					$('body').removeClass('menu-scrolled');
+				}
+			}
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+					navbar.addClass('awake');
 				}
-				
+
 				if(sd.length > 0) {
 					sd.addClass('sleep');
 				}

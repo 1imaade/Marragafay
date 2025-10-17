@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mobile-menu.css">
     <link rel="stylesheet" href="css/button-animations.css">
+    <link rel="stylesheet" href="css/booking-widgets.css">
   </head>
   <body>
     
@@ -81,6 +82,9 @@
 
     <section class="ftco-section">
       <div class="container">
+        <div class="row">
+          <!-- Main Content -->
+          <div class="col-lg-8">
         <!-- Starter Pack -->
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -127,6 +131,43 @@
           <div class="col-md-12">
             <p>Premium Pack content will be added here.</p>
           </div>
+        </div>
+          </div>
+          <!-- END Main Content -->
+
+          <!-- Sidebar with Quick Booking Widget -->
+          <div class="col-lg-4">
+            <div class="quick-booking-widget" data-aos="fade-left" data-aos-duration="1000">
+              <h4>Quick Booking</h4>
+              <div class="promo-badge">
+                ⭐ Book Now & Save 10%
+              </div>
+              <form id="quickBookingForm" class="quick-booking-form">
+                <div class="form-group">
+                  <label for="quickBookingDate">Select Date</label>
+                  <input type="text" id="quickBookingDate" name="quickBookingDate" class="form-control" placeholder="Choose date" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="quickNumAdults">Adults</label>
+                  <input type="number" id="quickNumAdults" name="quickNumAdults" class="form-control" placeholder="1" min="1" max="50" value="1">
+                </div>
+                <div class="form-group">
+                  <label for="quickNumChildren">Children (under 12)</label>
+                  <input type="number" id="quickNumChildren" name="quickNumChildren" class="form-control" placeholder="0" min="0" max="50" value="0">
+                </div>
+                <button type="submit" class="btn-book">Book Now</button>
+              </form>
+              <ul class="features-list">
+                <li><i class="icon-check"></i> Free Cancellation</li>
+                <li><i class="icon-check"></i> Instant Confirmation</li>
+                <li><i class="icon-check"></i> Best Price Guarantee</li>
+              </ul>
+              <div class="security-note">
+                <i class="icon-shield"></i> Secure Payment
+              </div>
+            </div>
+          </div>
+          <!-- END Sidebar -->
         </div>
       </div>
     </section>
@@ -212,5 +253,6 @@
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
     <script src="js/mobile-menu.js"></script>
+    <script src="js/booking-widgets.js"></script>
   </body>
 </html>

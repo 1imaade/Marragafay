@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/button-animations.css">
     <link rel="stylesheet" href="css/activity-grid.css">
     <link rel="stylesheet" href="css/luxury-activities.css">
+    <link rel="stylesheet" href="css/booking-widgets.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="images/main-logo.jpg">
@@ -476,11 +477,57 @@
             </p>
 
             <!-- CTA Button -->
-            <a href="#packages" class="btn btn-outline-primary py-3 px-4" style="border: 2px solid #fff; color: #fff; background: transparent; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; font-size: 1rem; padding: 12px 24px;"
+            <a href="#packages" class="btn btn-outline-primary py-3 px-4" style="border: 2px solid #fff; color: #fff; background: transparent; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; font-size: 1rem; padding: 12px 24px; border-radius: 0;"
                onmouseover="this.style.background='rgba(255,255,255,0.1)';"
                onmouseout="this.style.background='transparent';">
               DISCOVER OUR PACKAGES
             </a>
+
+            <!-- Main Search Widget -->
+            <div class="main-search-widget" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+              <form id="mainSearchForm" class="main-search-form">
+                <div class="form-group">
+                  <label for="activityType">Activity Type</label>
+                  <select id="activityType" name="activityType" class="form-control">
+                    <option value="">Select Activity</option>
+                    <option value="desert-tour">Desert Tour (Full Day)</option>
+                    <option value="overnight-camp">Overnight Camp</option>
+                    <option value="quad-biking">Quad Biking Only</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="bookingDate">Select Date</label>
+                  <input type="text" id="bookingDate" name="bookingDate" class="form-control" placeholder="Choose date" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="numGuests">Number of Guests</label>
+                  <div class="guest-counter" id="numGuests" name="numGuests">
+                    <span class="guest-display">1 Guest</span>
+                    <i class="icon-chevron-down"></i>
+                  </div>
+                  <!-- Hidden popup for guest selection -->
+                  <div class="guest-popup" id="guestPopup">
+                    <div class="guest-counter-item">
+                      <label>Adults</label>
+                      <div class="counter-controls">
+                        <button type="button" class="counter-btn minus" data-target="adults">-</button>
+                        <input type="number" class="counter-input" id="adultsCount" value="1" min="1" max="50" readonly>
+                        <button type="button" class="counter-btn plus" data-target="adults">+</button>
+                      </div>
+                    </div>
+                    <div class="guest-counter-item">
+                      <label>Children (under 12)</label>
+                      <div class="counter-controls">
+                        <button type="button" class="counter-btn minus" data-target="children">-</button>
+                        <input type="number" class="counter-input" id="childrenCount" value="0" min="0" max="50" readonly>
+                        <button type="button" class="counter-btn plus" data-target="children">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn-search">Search Packages</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -496,6 +543,25 @@
 
     <!-- Simple Hero Styles -->
     <style>
+      /* Mobile Menu Icon Color Changes - Smooth transition on navbar scroll */
+      /* Default state: White menu icon for dark navbar background */
+      .navbar-toggler .icon-menu {
+        color: #fff;
+        transition: color 0.3s ease;
+      }
+
+      /* Scrolled state: Dark menu icon for white navbar background */
+      .menu-scrolled .navbar-toggler .icon-menu {
+        color: #222;
+      }
+
+      /* Ensure smooth transition and perfect visibility */
+      .navbar-toggler {
+        border: none;
+        background: transparent;
+        outline: none;
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         .hero-wrap h1 {
@@ -504,6 +570,10 @@
 
         .hero-wrap p {
           font-size: 1.1rem !important;
+        }
+
+        .hero-wrap .btn {
+          border-radius: 0 !important;
         }
       }
 
@@ -514,6 +584,15 @@
 
         .hero-wrap p {
           font-size: 1rem !important;
+        }
+
+        .hero-wrap .btn,
+        .hero-wrap .btn-outline-primary,
+        .hero-wrap a.btn {
+          border-radius: 0 !important;
+          font-size: 0.9rem !important;
+          padding: 10px 20px !important;
+          letter-spacing: 0.5px !important;
         }
       }
     </style>
@@ -1928,6 +2007,7 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/mobile-menu.js"></script>
+  <script src="js/booking-widgets.js"></script>
 
   <!-- Luxury Back-to-Top Button -->
   <button id="backToTopBtn" aria-label="Scroll to top" style="display: none;">

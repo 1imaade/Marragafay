@@ -1,0 +1,534 @@
+/* =========================================== */
+/* BOOKING WIDGETS STYLESHEET */
+/* Two distinct booking forms for the travel website */
+/* =========================================== */
+
+/* ========================================= */
+/* PART 1: MAIN SEARCH WIDGET (Home Page Hero) */
+/* ========================================= */
+
+.main-search-widget {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
+  margin-top: 25px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.main-search-widget h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #bc6c25;
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.main-search-form {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.main-search-form .form-group {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 0;
+}
+
+.main-search-form label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.main-search-form select,
+.main-search-form input[type="text"],
+.main-search-form input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #333;
+}
+
+.main-search-form select:focus,
+.main-search-form input[type="text"]:focus,
+.main-search-form input[type="number"]:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.main-search-form .btn-search {
+  flex: 0 0 auto;
+  min-width: 180px;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #bc6c25, #d4af37);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.3);
+}
+
+.main-search-form .btn-search:hover {
+  background: linear-gradient(45deg, #d4af37, #bc6c25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+}
+
+.main-search-form .btn-search:active {
+  transform: translateY(0);
+}
+
+/* Icon styling for form fields */
+.main-search-form .form-group i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d4af37;
+  pointer-events: none;
+}
+
+/* Mobile Responsive - Main Widget */
+@media (max-width: 768px) {
+  .main-search-widget {
+    padding: 25px 20px;
+    margin-top: 30px;
+  }
+
+  .main-search-widget h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .main-search-form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .main-search-form .form-group {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .main-search-form .btn-search {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+/* ========================================= */
+/* PART 2: QUICK BOOKING WIDGET (Packs & Activities Pages) */
+/* ========================================= */
+
+.quick-booking-widget {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 10px;
+  padding: 30px 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 100px;
+  z-index: 100;
+  border: 2px solid #d4af37;
+}
+
+.quick-booking-widget h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #bc6c25;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 15px;
+}
+
+.quick-booking-widget .promo-badge {
+  background: linear-gradient(45deg, #d4af37, #b8860b);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.quick-booking-form .form-group {
+  margin-bottom: 20px;
+}
+
+.quick-booking-form label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-booking-form input[type="text"],
+.quick-booking-form input[type="number"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #333;
+}
+
+.quick-booking-form input[type="text"]:focus,
+.quick-booking-form input[type="number"]:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.quick-booking-form .btn-book {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(45deg, #bc6c25, #d4af37);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.3);
+  margin-top: 10px;
+}
+
+.quick-booking-form .btn-book:hover {
+  background: linear-gradient(45deg, #d4af37, #bc6c25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+}
+
+.quick-booking-form .btn-book:active {
+  transform: translateY(0);
+}
+
+.quick-booking-widget .security-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.quick-booking-widget .security-note i {
+  color: #28a745;
+  margin-right: 5px;
+}
+
+/* Features list in quick booking */
+.quick-booking-widget .features-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.quick-booking-widget .features-list li {
+  padding: 8px 0;
+  color: #495057;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.quick-booking-widget .features-list li i {
+  color: #d4af37;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+/* Mobile Responsive - Quick Widget */
+@media (max-width: 991px) {
+  .quick-booking-widget {
+    position: relative;
+    top: 0;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quick-booking-widget {
+    padding: 25px 20px;
+  }
+
+  .quick-booking-widget h4 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ========================================= */
+/* FORM VALIDATION STYLES */
+/* ========================================= */
+
+.form-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none;
+}
+
+.form-group.has-error input,
+.form-group.has-error select {
+  border-color: #dc3545;
+}
+
+.form-group.has-error .form-error {
+  display: block;
+}
+
+/* ========================================= */
+/* LOADING STATE */
+/* ========================================= */
+
+.btn-search.loading,
+.btn-book.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn-search.loading::after,
+.btn-book.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================= */
+/* GUEST COUNTER STYLES */
+/* ========================================= */
+
+.guest-counter {
+  position: relative;
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guest-counter:hover {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.guest-counter:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.guest-display {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.guest-counter i {
+  color: #d4af37;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.guest-counter.active i {
+  transform: rotate(180deg);
+}
+
+/* Guest Popup Styles */
+.guest-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  display: none;
+  margin-top: 5px;
+  padding: 20px;
+}
+
+.guest-popup.show {
+  display: block;
+}
+
+.guest-counter-item {
+  margin-bottom: 20px;
+}
+
+.guest-counter-item:last-child {
+  margin-bottom: 0;
+}
+
+.guest-counter-item label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.counter-btn {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #d4af37;
+  background: #fff;
+  color: #d4af37;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.counter-btn:hover {
+  background: #d4af37;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.counter-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.counter-input {
+  width: 60px;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  background: #fff;
+}
+
+.counter-input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .guest-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 350px;
+    z-index: 2000;
+  }
+
+  .counter-controls {
+    gap: 10px;
+  }
+
+  .counter-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .counter-input {
+    width: 50px;
+    padding: 6px 10px;
+  }
+}
+
+/* ========================================= */
+/* DATEPICKER CUSTOMIZATION */
+/* ========================================= */
+
+.datepicker {
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.datepicker table tr td.active.active,
+.datepicker table tr td.selected.active {
+  background: linear-gradient(45deg, #bc6c25, #d4af37);
+  border-color: #bc6c25;
+}
+
+.datepicker table tr td.today {
+  background: #f8f9fa;
+  color: #bc6c25;
+}
+
+.datepicker table tr td.today:hover {
+  background: #e9ecef;
+}
