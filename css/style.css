@@ -31,6 +31,15 @@
   --font-family-sans-serif: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
+/* ========================================= */
+/* GLOBAL SECTION BACKGROUND COLOR */
+/* Applies unified background to all main content sections */
+/* Excludes: first section (hero/banner), pre-footer, and footer */
+/* ========================================= */
+section:not(:first-of-type):not(.pre-footer):not(.footer) {
+  background: #fcfbf7 !important;
+}
+
 *,
 *::before,
 *::after {
@@ -3377,8 +3386,13 @@ input[type="button"].btn-block {
 .tab-content > .active {
   display: block; }
 
+/* ========================================= */
+/* NAVBAR Z-INDEX FIX - Always stay above all content */
+/* ========================================= */
 .navbar {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 100 !important; /* Navbar always on top */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
