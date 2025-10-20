@@ -1,8 +1,4 @@
-/*!
- * Bootstrap v4.1.0 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+
  */
 :root {
   --blue: #007bff;
@@ -1698,7 +1694,13 @@ pre {
     outline: 0;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(120, 213, 239, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(120, 213, 239, 0.25); }
-  .form-control::-webkit-input-placeholder {
+  /* Hide mobile language switcher on mobile devices */
+  @media (max-width: 768px) {
+    .mobile-language-switcher {
+      display: none !important;
+    }
+  }
+  .form-control::-ms-input-placeholder {
     color: #6c757d;
     opacity: 1; }
   .form-control:-ms-input-placeholder {
@@ -1710,9 +1712,33 @@ pre {
   .form-control::placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control:disabled, .form-control[readonly] {
-    background-color: #e9ecef;
-    opacity: 1; }
+  /* Custom styles for booking button in navbar */
+.booking-btn {
+    background-color: #eece9d; 
+    color: #FFFFFF; 
+    border: 2px solid #eece9d; 
+    margin-left: 50px;
+    padding: 30px 10px; 
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 400 !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.booking-btn:hover {
+    background-color: transparent; 
+    color: #eece9d !important;
+    border: 2px solid #eece9d;
+}
+
+/* Hide booking button in navbar menu on mobile devices only */
+@media (max-width: 768px) {
+  .booking-btn {
+    display: none !important;
+  }
+}
 
 select.form-control:not([size]):not([multiple]) {
   height: calc(2.25rem + 2px); }
@@ -7435,7 +7461,7 @@ h1, h2, h3, h4, h5,
     font-weight: 400;
     opacity: 1 !important; }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
-      color: #fff; }
+      color: #eece9d; }
   .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
     border: none;
     background: #fff;
