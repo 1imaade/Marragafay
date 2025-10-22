@@ -665,70 +665,277 @@
     <!-- Luxury Hotel Homepage Sections -->
     <!-- =========================================== -->
 
-    <!-- 1. About Section - Who Are We - Luxury Modern Redesign -->
-    <!-- Fully responsive: Image left, text right on desktop; stacked on mobile -->
-    <!-- Clean, minimal design with #bc6c25 accent color for luxury theme -->
-    <section class="luxury-about-section py-5" style="background: rgba(188, 108, 37, 0.1); padding: 80px 0; height: 100%;">
+    <!-- ========================================= -->
+    <!-- HERO/ABOUT SECTION - TWO COLUMN LAYOUT -->
+    <!-- ========================================= -->
+    <!-- CUSTOMIZATION GUIDE:
+         - Image: Replace src in <img> tag with your Agafay landscape image
+         - Pre-title: Edit "WHO ARE WE?" text (line with hero-pretitle class)
+         - Main Title: Edit "AGAFAY DESERT MARRAKECH" text
+         - Subtitle: Edit subtitle text below divider
+         - Description: Edit paragraph content
+         - Button: Edit "Book Now" text and href link
+         - Colors: Gold #bc6c25, Deep Blue #1a365d, Muted Gray #6b7280
+         - Spacing: Adjust padding/margin values for tighter/looser layout
+    -->
+    <section class="hero-about-section" style="background: #ffffff; padding: 100px 0; overflow: hidden;">
       <div class="container">
         <div class="row align-items-center">
-          <!-- Image Container - Left on desktop, stacks first on mobile -->
-          <div class="col-lg-6 order-lg-1 order-1" data-aos="fade-right" data-aos-duration="1000">
-            <div class="activity-grid-card-wrapper">
-              <div class="activity-grid-card" style="padding: 5px; border-radius: 0; overflow: hidden;">
-                <!-- Updated image path to use existing hotel image - Simple styling with object-fit cover -->
-                <img src="images/hotel-1.jpg" alt="Luxury Hotel Interior" class="img-fluid w-100" style="height: 400px; object-fit: cover; max-width: 100%; border-radius: 0;">
+          
+          <!-- LEFT COLUMN: Grid Gallery -->
+          <!-- CSS GRID GALLERY - 2x2 Layout with Feature Image -->
+          <!-- CUSTOMIZATION GUIDE:
+               - Replace image sources in each <img> tag below
+               - Feature image (top-left) spans 2 rows for emphasis
+               - Grid adjusts: 2 columns on desktop, 1 column on mobile (<700px)
+               - All images: object-fit cover, sharp square corners, depth shadow
+               - To adjust grid spans: modify grid-row values in inline styles
+          -->
+          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+            <div class="hero-grid-gallery" style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px; height: 550px;">
+              
+              <!-- FEATURE IMAGE: Top-Left (Spans 2 rows) -->
+              <!-- SLOT IMAGE 1: Replace src with your main feature image -->
+              <div style="grid-column: 1; grid-row: 1 / 3; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
+                <img 
+                  src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=1000&fit=crop" 
+                  alt="Camel trekking in Agafay Desert with reflection" 
+                  style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.05)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                >
               </div>
+              
+              <!-- STANDARD IMAGE: Top-Right -->
+              <!-- SLOT IMAGE 2: Replace src with your second image -->
+              <div style="grid-column: 2; grid-row: 1; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
+                <img 
+                  src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=600&h=400&fit=crop" 
+                  alt="Historic fortress in Morocco" 
+                  style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.05)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                >
+              </div>
+              
+              <!-- SQUARE IMAGE: Bottom-Right -->
+              <!-- SLOT IMAGE 3: Replace src with your third image -->
+              <div style="grid-column: 2; grid-row: 2; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
+                <img 
+                  src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&h=400&fit=crop" 
+                  alt="Quad biking adventure in Agafay Desert" 
+                  style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.05)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                >
+              </div>
+              
             </div>
           </div>
-          <!-- Content Container - Right on desktop, stacks second on mobile -->
-          <div class="col-lg-6 order-lg-2 order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-            <div class="luxury-content" style="padding-left: 0;">
-              <!-- Section Title - Large, elegant heading with #bc6c25 accent -->
-              <h2 class="luxury-section-title mb-4" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: #bc6c25; letter-spacing: -0.02em;">
-                Who We Are
+          
+          <!-- RIGHT COLUMN: Content Block -->
+          <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div class="hero-content-block" style="padding-left: 40px;">
+              
+              <!-- Small Gold Pre-Title -->
+              <!-- SLOT: Edit "WHO ARE WE?" text -->
+              <p class="hero-pretitle" style="font-size: 0.85rem; font-weight: 600; color: #bc6c25; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
+                WHO ARE WE?
+              </p>
+              
+              <!-- Large Bold Section Title -->
+              <!-- SLOT: Edit "AGAFAY DESERT MARRAKECH" text -->
+              <h2 class="hero-main-title" style="font-family: 'Inter', sans-serif; font-size: 3.2rem; font-weight: 800; color: #1a365d; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; letter-spacing: -0.5px;">
+                AGAFAY DESERT<br>MARRAKECH
               </h2>
-              <!-- Description - Dark gray body text, limited to 2 lines before break -->
-              <p class="luxury-lead-text mb-4" style="font-size: 1.1rem; color: #495057; line-height: 1.8; font-weight: 400;">
-                Nestled in the heart of Morocco's mystical landscape, we are more than just a destination—we are curators of extraordinary experiences. For over two decades, our luxury desert retreat has welcomed discerning travelers seeking authentic Moroccan hospitality blended with contemporary elegance.
-              </p>
-              <!-- Additional Description - Continues the narrative -->
-              <p class="luxury-description mb-4" style="font-size: 1rem; color: #6c757d; line-height: 1.7;">
-                Our story began with a vision to share the timeless beauty of the Agafay Desert while providing unparalleled service and comfort. Today, we continue this legacy, offering bespoke experiences that honor Moroccan traditions while embracing modern luxury.
-              </p>
-              <!-- Features/Callouts - Luxury hotel-inspired with #bc6c25 circles and white icons -->
-              <div class="luxury-highlights mt-4">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="luxury-highlight-item d-flex align-items-center mb-3">
-                      <!-- Gold circle with #bc6c25 background for icons -->
-                      <div class="luxury-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: #bc6c25; display: flex; align-items: center; justify-content: center;">
-                        <i class="icon-star" style="color: white; font-size: 1.2rem;"></i>
-                      </div>
-                      <div>
-                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50; font-size: 1rem;">20+ Years Excellence</h6>
-                        <small style="color: #6c757d; font-size: 0.85rem;">Award-winning service</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="luxury-highlight-item d-flex align-items-center mb-3">
-                      <!-- Matching gold circle for consistency -->
-                      <div class="luxury-icon mr-3" style="width: 50px; height: 50px; border-radius: 50%; background: #bc6c25; display: flex; align-items: center; justify-content: center;">
-                        <i class="icon-map-o" style="color: white; font-size: 1.2rem;"></i>
-                      </div>
-                      <div>
-                        <h6 style="margin: 0; font-weight: 600; color: #2c3e50; font-size: 1rem;">Prime Location</h6>
-                        <small style="color: #6c757d; font-size: 0.85rem;">30 min from Marrakech</small>
-                      </div>
-                    </div>
-                  </div>
+              
+              <!-- Gold Horizontal Divider with Icon and Dots -->
+              <!-- CUSTOMIZATION: Adjust gap, dot size, or change SVG icon -->
+              <div class="hero-divider" style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px;">
+                <!-- Left Dots -->
+                <div style="display: flex; gap: 6px;">
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
                 </div>
+                
+                <!-- Center Icon (24px SVG) -->
+                <!-- SLOT: Replace SVG path to change icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#bc6c25" style="flex-shrink: 0;">
+                  <path d="M12 2C13.1 2 14 2.9 14 4C14 4.5 13.8 5 13.5 5.4L15 10H21C21.6 10 22 10.4 22 11C22 11.3 21.9 11.5 21.7 11.7L17 20C16.7 20.6 16.1 21 15.5 21H8C7.4 21 7 20.6 7 20V11C7 10.7 7.1 10.5 7.3 10.3L11.6 5.5C11.2 5.1 11 4.6 11 4C11 2.9 11.9 2 12 2Z"/>
+                </svg>
+                
+                <!-- Right Dots -->
+                <div style="display: flex; gap: 6px;">
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                </div>
+                
+                <!-- Gold Line Extension -->
+                <div style="flex: 1; height: 2px; background: #bc6c25;"></div>
               </div>
+              
+              <!-- Bold Subtitle -->
+              <!-- SLOT: Edit subtitle text -->
+              <h3 class="hero-subtitle" style="font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 700; color: #2c3e50; margin-bottom: 20px; line-height: 1.3;">
+                Come and live a unique and authentic experience out of time
+              </h3>
+              
+              <!-- Description Paragraph -->
+              <!-- SLOT: Edit description text -->
+              <p class="hero-description" style="font-family: 'Open Sans', sans-serif; font-size: 1.05rem; color: #6b7280; line-height: 1.8; margin-bottom: 32px; font-weight: 400;">
+                The Agafay desert is a rocky desert located near the city of Marrakech, in Morocco. It is known for its wild beauty and epic landscapes, as well as its dry and arid climate. The Agafay desert is a popular destination for tourists and adventurers, who come to practice activities such as camel rides and buggy rides. You can also discover a variety of plants and animals, such as cacti, acacias and gazelles. The Agafay desert is easily accessible from Marrakech, where you'll find numerous modes of transport to get there.
+              </p>
+              
+              <!-- Gold "Book Now" Button -->
+              <!-- SLOT: Edit button text and href link -->
+              <!-- CUSTOMIZATION: Adjust padding, font-size, border-radius -->
+              <a 
+                href="booking.html" 
+                class="hero-cta-button" 
+                style="display: inline-block; background: #bc6c25; color: white; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 16px 40px; border-radius: 4px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);"
+                onmouseover="this.style.background='#d4af37'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(188, 108, 37, 0.4)';"
+                onmouseout="this.style.background='#bc6c25'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(188, 108, 37, 0.3)';"
+              >
+                Book Now
+              </a>
+              
             </div>
           </div>
+          
         </div>
       </div>
     </section>
+    
+    <!-- Responsive Styles for Hero/About Section -->
+    <!-- GRID ISOLATION & MOBILE LOCK: Layout preserved across all screen sizes -->
+    <style>
+      /* ========================================= */
+      /* GRID LAYOUT PRESERVATION SYSTEM */
+      /* ========================================= */
+      /* DESIGN PRINCIPLE: Maintain identical grid structure and content alignment */
+      /* across all devices - no collapse, no centering, no layout changes */
+      
+      /* Base responsive adjustments - CONTENT ALIGNMENT LOCKED */
+      @media (max-width: 991px) {
+        .hero-about-section {
+          padding: 60px 0 !important;
+        }
+        
+        /* MOBILE LOCK: Keep content left-aligned, never center */
+        .hero-content-block {
+          padding-left: 20px !important;
+          text-align: left !important;
+        }
+        
+        .hero-main-title {
+          font-size: 2.5rem !important;
+          text-align: left !important;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.2rem !important;
+          text-align: left !important;
+        }
+        
+        .hero-description {
+          font-size: 1rem !important;
+          text-align: left !important;
+        }
+        
+        /* DIVIDER LOCK: Keep left-aligned, never center */
+        .hero-divider {
+          justify-content: flex-start !important;
+        }
+        
+        /* BUTTON LOCK: Keep left-aligned, never center */
+        .hero-cta-button {
+          display: inline-block !important;
+          margin: 0 !important;
+        }
+      }
+      
+      /* ========================================= */
+      /* GRID PRESERVATION: Mobile maintains exact same structure */
+      /* ========================================= */
+      /* CRITICAL: Grid layout NEVER collapses - maintains 2x2 structure */
+      @media (max-width: 700px) {
+        /* GRID ISOLATION: Force identical grid structure on mobile */
+        .hero-grid-gallery {
+          display: grid !important;
+          grid-template-columns: 1fr 1fr !important;
+          grid-template-rows: 1fr 1fr !important;
+          gap: 12px !important;
+          height: 400px !important;
+        }
+        
+        /* SPAN PRESERVATION: Feature image keeps its 2-row span */
+        .hero-grid-gallery > div:first-child {
+          grid-column: 1 !important;
+          grid-row: 1 / 3 !important;
+        }
+        
+        /* POSITION LOCK: Other images maintain exact grid positions */
+        .hero-grid-gallery > div:nth-child(2) {
+          grid-column: 2 !important;
+          grid-row: 1 !important;
+        }
+        
+        .hero-grid-gallery > div:nth-child(3) {
+          grid-column: 2 !important;
+          grid-row: 2 !important;
+        }
+        
+        /* CONTENT ALIGNMENT LOCK: All content stays left-aligned */
+        .hero-content-block {
+          padding-left: 15px !important;
+          text-align: left !important;
+          align-items: flex-start !important;
+        }
+        
+        .hero-pretitle,
+        .hero-main-title,
+        .hero-subtitle,
+        .hero-description {
+          text-align: left !important;
+        }
+        
+        .hero-divider {
+          justify-content: flex-start !important;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .hero-main-title {
+          font-size: 2rem !important;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.1rem !important;
+        }
+        
+        .hero-image-wrapper img {
+          height: 350px !important;
+          min-height: 300px !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .hero-main-title {
+          font-size: 1.75rem !important;
+        }
+        
+        .hero-pretitle {
+          font-size: 0.75rem !important;
+        }
+        
+        .hero-cta-button {
+          padding: 14px 32px !important;
+          font-size: 0.9rem !important;
+        }
+      }
+    </style>
 
     <!-- 2. Packages Section - Our Best Packages -->
     <!-- Horizontal cards with luxury styling - SQUARE CORNERS DESIGN -->
