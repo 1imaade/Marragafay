@@ -29,46 +29,57 @@
     <link rel="stylesheet" href="css/hero-title-fix.css">
     <link rel="stylesheet" href="css/mobile-menu.css">
     <link rel="stylesheet" href="css/button-animations.css">
-    <link rel="stylesheet" href="css/mobile-menu.css">
+    
+    <!-- Swiper CSS for Testimonials -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Testimonials CSS -->
+    <link rel="stylesheet" href="css/testimonials.css">
+    
+    <!-- Why Choose Section CSS -->
+    <link rel="stylesheet" href="css/why-choose-section.css">
+    
+    <!-- Section Titles CSS -->
+    <link rel="stylesheet" href="css/section-titles.css">
     </head>
   <body>
     
 	  
-      
+      <!-- Desktop navbar design and logic copied from homepage for global consistency -->
       <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-          <a class="navbar-brand" href="index.html"><img src="images/logo-trensparent.png" alt="Marragafy" style="width: 80px; height: auto;"></a>
-          
-          <!-- Moved language switcher here -->
-          <div class="mobile-language-switcher">
-            <a href="#" class="language-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="icon-globe"></i> <span>EN</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
-              <a class="dropdown-item lang-option" href="#" data-lang="en">English</a>
-              <a class="dropdown-item lang-option" href="#" data-lang="fr">Français</a>
-              <a class="dropdown-item lang-option" href="#" data-lang="ar" dir="rtl">العربية</a>
-            </div>
-          </div>
-          
-          <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
-            <span class="icon-menu"></span>
-          </button>
+	    <div class="container">
+	          <a class="navbar-brand" href="index.html"><img src="images/logo-trensparent.png" alt="Marragafy" style="width: 80px; height: auto;"></a>
+	      
+	      <!-- Moved language switcher here -->
+	      <div class="mobile-language-switcher">
+	        <a href="#" class="language-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          <i class="icon-globe"></i> <span>EN</span>
+	        </a>
+	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+	          <a class="dropdown-item lang-option" href="#" data-lang="en">English</a>
+	          <a class="dropdown-item lang-option" href="#" data-lang="fr">Français</a>
+	          <a class="dropdown-item lang-option" href="#" data-lang="ar" dir="rtl">العربية</a>
+	        </div>
+	      </div>
+	      
+	      <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+	        <span class="icon-menu"></span>
+	      </button>
 
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="activities.html" class="nav-link">Activities</a></li>
-              <li class="nav-item"><a href="packs.html" class="nav-link">Packs</a></li>
-              <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="reviews.html" class="nav-link">Reviews</a></li>
-              <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-              <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-              <li class="nav-item"><a href="#" class="nav-link booking-btn">Booking</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+	      <div class="collapse navbar-collapse">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="activities.html" class="nav-link">Activities</a></li>
+	          <li class="nav-item"><a href="packs.html" class="nav-link">Packs</a></li>
+	          <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="reviews.html" class="nav-link">Reviews</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="#" class="nav-link booking-btn">Booking</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
     <!-- END nav -->
     
     <div class="hero-wrap js-fullheight">
@@ -90,29 +101,335 @@
       </div>
     </div>
 
-    <section class="ftco-section">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-4">
-    				<div class="intro">
-    					<h3><span>01</span> Travel</h3>
-    					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="intro">
-    					<h3><span>02</span> Experience</h3>
-    					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="intro">
-    					<h3><span>03</span> Relax</h3>
-    					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
+    <!-- ========================================= -->
+    <!-- All middle content removed—only hero, counter, subscribe, and footer remain -->
+    <!-- ========================================= -->
+
+    <!-- 1:1 section copy from homepage. Do not edit here unless homepage also updated. -->
+    <!-- WHO ARE WE Section - Two Column Layout -->
+    <section class="hero-about-section" style="background: #ffffff; padding: 100px 0; overflow: hidden;">
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <!-- LEFT COLUMN: Grid Gallery -->
+          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+            <div class="hero-grid-gallery" style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px; height: 550px;">
+              
+              <!-- Feature Image: Top-Left (Spans 2 rows) -->
+              <div style="grid-column: 1; grid-row: 1 / 3; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
+                <img 
+                  src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=1000&fit=crop" 
+                  alt="Camel trekking in Agafay Desert" 
+                  style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.05)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                >
+              </div>
+              
+              <!-- Image: Top-Right -->
+              <div style="grid-column: 2; grid-row: 1; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
+                <img 
+                  src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=600&h=400&fit=crop" 
+                  alt="Historic fortress in Morocco" 
+                  style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.05)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                >
+              </div>
+              
+              <!-- Image: Bottom-Right -->
+              <div style="grid-column: 2; grid-row: 2; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
+                <img 
+                  src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&h=400&fit=crop" 
+                  alt="Quad biking adventure in Agafay Desert" 
+                  style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.05)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                >
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- RIGHT COLUMN: Content Block -->
+          <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div class="hero-content-block" style="padding-left: 40px;">
+              
+              <!-- Small Gold Pre-Title -->
+              <p class="hero-pretitle" style="font-size: 0.85rem; font-weight: 600; color: #bc6c25; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
+                WHO ARE WE?
+              </p>
+              
+              <!-- Large Bold Section Title -->
+              <h2 class="hero-main-title" style="font-family: 'Inter', sans-serif; font-size: 3.2rem; font-weight: 800; color: #1a365d; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; letter-spacing: -0.5px;">
+                AGAFAY DESERT<br>MARRAKECH
+              </h2>
+              
+              <!-- Gold Horizontal Divider with Icon and Dots -->
+              <div class="hero-divider" style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px;">
+                <!-- Left Dots -->
+                <div style="display: flex; gap: 6px;">
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                </div>
+                
+                <!-- Center Icon -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#bc6c25" style="flex-shrink: 0;">
+                  <path d="M12 2C13.1 2 14 2.9 14 4C14 4.5 13.8 5 13.5 5.4L15 10H21C21.6 10 22 10.4 22 11C22 11.3 21.9 11.5 21.7 11.7L17 20C16.7 20.6 16.1 21 15.5 21H8C7.4 21 7 20.6 7 20V11C7 10.7 7.1 10.5 7.3 10.3L11.6 5.5C11.2 5.1 11 4.6 11 4C11 2.9 11.9 2 12 2Z"/>
+                </svg>
+                
+                <!-- Right Dots -->
+                <div style="display: flex; gap: 6px;">
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                  <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
+                </div>
+                
+                <!-- Gold Line Extension -->
+                <div style="flex: 1; height: 2px; background: #bc6c25;"></div>
+              </div>
+              
+              <!-- Bold Subtitle -->
+              <h3 class="hero-subtitle" style="font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 700; color: #2c3e50; margin-bottom: 20px; line-height: 1.3;">
+                Come and live a unique and authentic experience out of time
+              </h3>
+              
+              <!-- Description Paragraph -->
+              <p class="hero-description" style="font-family: 'Open Sans', sans-serif; font-size: 1.05rem; color: #6b7280; line-height: 1.8; margin-bottom: 32px; font-weight: 400;">
+                The Agafay desert is a rocky desert located near the city of Marrakech, in Morocco. It is known for its wild beauty and epic landscapes, as well as its dry and arid climate. The Agafay desert is a popular destination for tourists and adventurers, who come to practice activities such as camel rides and buggy rides. You can also discover a variety of plants and animals, such as cacti, acacias and gazelles. The Agafay desert is easily accessible from Marrakech, where you'll find numerous modes of transport to get there.
+              </p>
+              
+              <!-- Gold "Book Now" Button -->
+              <a 
+                href="booking.html" 
+                class="hero-cta-button" 
+                style="display: inline-block; background: #bc6c25; color: white; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 16px 40px; border-radius: 4px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);"
+                onmouseover="this.style.background='#d4af37'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(188, 108, 37, 0.4)';"
+                onmouseout="this.style.background='#bc6c25'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(188, 108, 37, 0.3)';"
+              >
+                Book Now
+              </a>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 1:1 section copy from homepage. Do not edit here unless homepage also updated. -->
+    <!-- WHY CHOOSE AGAFAY MARRAKECH Section -->
+    <section class="why-choose-section">
+      <div class="why-choose-container">
+        
+        <!-- Two-column grid layout -->
+        <div class="why-choose-grid">
+          
+          <!-- LEFT COLUMN: Image Collage -->
+          <div class="why-choose-images">
+            
+            <!-- Gold overlay badge -->
+            <div class="why-choose-badge">
+              <h2 class="why-choose-badge-text">Why Choose Agafay Marrakech</h2>
+            </div>
+            
+            <!-- Image 1: Desert adventure -->
+            <div class="why-choose-image why-choose-image-1">
+              <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&h=600&fit=crop" alt="Desert adventure with 4x4 vehicle" loading="lazy">
+            </div>
+            
+            <!-- Image 2: Luxury camp setup -->
+            <div class="why-choose-image why-choose-image-2">
+              <img src="https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=800&h=600&fit=crop" alt="Luxury desert camp dining setup" loading="lazy">
+            </div>
+            
+            <!-- Image 3: Camel sunset -->
+            <div class="why-choose-image why-choose-image-3">
+              <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop" alt="Camel trekking at sunset" loading="lazy">
+            </div>
+            
+          </div>
+          
+          <!-- RIGHT COLUMN: Content -->
+          <div class="why-choose-content">
+            
+            <!-- Gold subtitle -->
+            <p class="why-choose-subtitle">Agafay Marrakech Desert</p>
+            
+            <!-- Main title -->
+            <h2 class="why-choose-title">Your Perfect Place To Discover Agafay</h2>
+            
+            <!-- Decorative separator with dots and icon -->
+            <div class="why-choose-separator">
+              <div class="why-choose-dots">
+                <span class="why-choose-dot"></span>
+                <span class="why-choose-dot"></span>
+                <span class="why-choose-dot"></span>
+                <span class="why-choose-dot"></span>
+              </div>
+              <svg class="why-choose-icon" role="img" aria-label="Desert icon" viewBox="0 0 24 24">
+                <path d="M12 2C13.1 2 14 2.9 14 4C14 4.5 13.8 5 13.5 5.4L15 10H21C21.6 10 22 10.4 22 11C22 11.3 21.9 11.5 21.7 11.7L17 20C16.7 20.6 16.1 21 15.5 21H8C7.4 21 7 20.6 7 20V11C7 10.7 7.1 10.5 7.3 10.3L11.6 5.5C11.2 5.1 11 4.6 11 4C11 2.9 11.9 2 12 2Z"/>
+              </svg>
+              <div class="why-choose-dots">
+                <span class="why-choose-dot"></span>
+                <span class="why-choose-dot"></span>
+                <span class="why-choose-dot"></span>
+                <span class="why-choose-dot"></span>
+              </div>
+            </div>
+            
+            <!-- Description paragraphs -->
+            <p class="why-choose-description">
+              The Agafay Desert is known for its wild beauty and 
+              epic landscapes. Its sand dunes, rocks and hills 
+              offer a unique and impressive setting. The 
+              Agafay Desert is also rich in biodiversity, with a variety of 
+              plants and animals that live there, such as cacti, trees and 
+              gazelles.
+            </p>
+            
+            <p class="why-choose-description">
+              The brightness and warmth of the desert, as well as the 
+              coolness of the night, also contribute to its beauty. The 
+              Agafay Desert is an ideal destination for those seeking to 
+              recharge and reconnect with nature.
+            </p>
+            
+            <!-- Advantage Cards -->
+            <div class="why-choose-cards">
+              
+              <!-- Card 1: Best Price Quality -->
+              <div class="why-choose-card">
+                <div class="why-choose-card-icon">
+                  <svg role="img" aria-label="Best price icon" viewBox="0 0 24 24">
+                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 6.5V7.5C15 8.3 14.3 9 13.5 9S12 8.3 12 7.5V6.5L6 7V9C6 10.7 7.3 12 9 12H15C16.7 12 18 10.7 18 9H21ZM12 13.5C11.2 13.5 10.5 14.2 10.5 15S11.2 16.5 12 16.5 13.5 15.8 13.5 15 12.8 13.5 12 13.5ZM12 18C9.8 18 8 19.8 8 22H16C16 19.8 14.2 18 12 18Z"/>
+                  </svg>
+                </div>
+                <div class="why-choose-card-content">
+                  <h3 class="why-choose-card-title">Best Price Quality</h3>
+                  <p class="why-choose-card-description">The best rates for quality service</p>
+                </div>
+              </div>
+              
+              <!-- Card 2: Best Destination -->
+              <div class="why-choose-card">
+                <div class="why-choose-card-icon">
+                  <svg role="img" aria-label="Best destination icon" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5Z"/>
+                  </svg>
+                </div>
+                <div class="why-choose-card-content">
+                  <h3 class="why-choose-card-title">Best Destination</h3>
+                  <p class="why-choose-card-description">A beautiful destination in Marrakech to discover</p>
+                </div>
+              </div>
+              
+              <!-- Card 3: Personalized Service -->
+              <div class="why-choose-card">
+                <div class="why-choose-card-icon">
+                  <svg role="img" aria-label="Personalized service icon" viewBox="0 0 24 24">
+                    <path d="M16 11C17.66 11 18.99 9.66 18.99 8S17.66 5 16 5 13 6.34 13 8 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8S9.66 5 8 5 5 6.34 5 8 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z"/>
+                  </svg>
+                </div>
+                <div class="why-choose-card-content">
+                  <h3 class="why-choose-card-title">Personalized Service</h3>
+                  <p class="why-choose-card-description">Enjoy personalized service like never before</p>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- 1:1 section copy from homepage. Do not edit here unless homepage also updated. -->
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="testimonials-container">
+        
+        <!-- Testimonials Section Title -->
+        <div class="section-title-block">
+          <p class="section-subtitle">Testimonials From Our Clients</p>
+          <h2 class="section-main-title">What Our Clients Say</h2>
+        </div>
+
+        <!-- Testimonials Slider -->
+        <div class="testimonials-navigation">
+          <div class="testimonials-swiper swiper" 
+               role="region" 
+               aria-label="Client testimonials carousel"
+               tabindex="0">
+            
+            <!-- Swiper Wrapper -->
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="testimonial-quote">"</div>
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
+                       alt="Sylvie Bontijnck" class="testimonial-avatar">
+                  <div class="testimonial-review">
+                    "Unique and magnificent place that you absolutely must discover. A more than perfect dinner and warm welcome..."
+                  </div>
+                  <div class="testimonial-rating">
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </div>
+                  <div class="testimonial-client">
+                    <div class="testimonial-name">Sylvie Bontijnck</div>
+                    <div class="testimonial-location">Belgium</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="testimonial-quote">"</div>
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                       alt="Gab de Solages" class="testimonial-avatar">
+                  <div class="testimonial-review">
+                    "What an experience! Breathtaking food and quality service..."
+                  </div>
+                  <div class="testimonial-rating">
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </div>
+                  <div class="testimonial-client">
+                    <div class="testimonial-name">Gab de Solages</div>
+                    <div class="testimonial-location">France</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next" 
+                 role="button" 
+                 aria-label="Next testimonial"
+                 tabindex="0"></div>
+            <div class="swiper-button-prev" 
+                 role="button" 
+                 aria-label="Previous testimonial"
+                 tabindex="0"></div>
+
+            <!-- Pagination Dots -->
+            <div class="swiper-pagination" 
+                 role="tablist" 
+                 aria-label="Testimonial pagination"></div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
@@ -156,148 +473,6 @@
 	        </div>
         </div>
     	</div>
-    </section>
-		
-		<section class="ftco-about d-md-flex">
-    	<div class="one-half img" style="background-image: url(images/about.jpg);"></div>
-    	<div class="one-half ftco-animate">
-        <div class="heading-section ftco-animate ">
-          <h2 class="mb-4">The Best Travel Agency</h2>
-        </div>
-        <div>
-  				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-  			</div>
-    	</div>
-    </section>
-
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-4">Our satisfied customer says</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Marketing Manager</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Interface Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">UI Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Web Developer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">System Analyst</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section services-section bg-light">
-      <div class="container">
-        <div class="row d-flex">
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block">
-              <div class="icon"><span class="flaticon-yatch"></span></div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Special Activities</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block">
-              <div class="icon"><span class="flaticon-around"></span></div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Travel Arrangements</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block">
-              <div class="icon"><span class="flaticon-compass"></span></div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Private Guide</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block">
-              <div class="icon"><span class="flaticon-map-of-roads"></span></div>
-              <div class="media-body">
-                <h3 class="heading mb-3">Location Manager</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ========================================= -->
@@ -416,6 +591,12 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/mobile-menu.js"></script>
+  
+  <!-- Swiper JS for Testimonials -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <!-- Testimonials JS -->
+  <script src="js/testimonials.js"></script>
     
   </body>
 </html>

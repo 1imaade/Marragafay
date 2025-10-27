@@ -79,11 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Open mobile menu
   function openMobileMenu() {
     document.body.classList.add('menu-open');
+    document.body.classList.add('no-scroll'); // Prevent scrolling
     mobileMenuOverlay.classList.add('active');
     mobileMenuToggle.setAttribute('aria-expanded', 'true');
-    
-    // Prevent background scrolling
-    document.body.style.overflow = 'hidden';
     
     // Change the menu icon to close icon
     const menuIcon = mobileMenuToggle.querySelector('.icon-menu');
@@ -96,11 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Close mobile menu
   function closeMobileMenu() {
     document.body.classList.remove('menu-open');
+    document.body.classList.remove('no-scroll'); // Re-enable scrolling
     mobileMenuOverlay.classList.remove('active');
     mobileMenuToggle.setAttribute('aria-expanded', 'false');
-    
-    // Re-enable background scrolling
-    document.body.style.overflow = '';
     
     // Change the close icon back to menu icon
     const closeIcon = mobileMenuToggle.querySelector('.icon-close');

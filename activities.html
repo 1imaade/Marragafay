@@ -30,45 +30,52 @@
     <link rel="stylesheet" href="css/mobile-menu.css">
     <link rel="stylesheet" href="css/button-animations.css">
     <link rel="stylesheet" href="css/booking-widgets.css">
+    
+    <!-- Activity Grid CSS -->
+    <link rel="stylesheet" href="css/activity-grid.css">
+    <link rel="stylesheet" href="css/luxury-activities.css">
+    
+    <!-- Section Titles CSS -->
+    <link rel="stylesheet" href="css/section-titles.css">
     </head>
   <body>
     
 	  
-      
+      <!-- Desktop navbar design and logic copied from homepage for global consistency -->
       <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-          <a class="navbar-brand" href="index.html"><img src="images/logo-trensparent.png" alt="Marragafy" style="width: 80px; height: auto;"></a>
-          
-          <!-- Moved language switcher here -->
-          <div class="mobile-language-switcher">
-            <a href="#" class="language-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="icon-globe"></i> <span>EN</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
-              <a class="dropdown-item lang-option" href="#" data-lang="en">English</a>
-              <a class="dropdown-item lang-option" href="#" data-lang="fr">Français</a>
-              <a class="dropdown-item lang-option" href="#" data-lang="ar" dir="rtl">العربية</a>
-            </div>
-          </div>
-          
-          <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
-            <span class="icon-menu"></span>
-          </button>
+	    <div class="container">
+	          <a class="navbar-brand" href="index.html"><img src="images/logo-trensparent.png" alt="Marragafy" style="width: 80px; height: auto;"></a>
+	      
+	      <!-- Moved language switcher here -->
+	      <div class="mobile-language-switcher">
+	        <a href="#" class="language-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          <i class="icon-globe"></i> <span>EN</span>
+	        </a>
+	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+	          <a class="dropdown-item lang-option" href="#" data-lang="en">English</a>
+	          <a class="dropdown-item lang-option" href="#" data-lang="fr">Français</a>
+	          <a class="dropdown-item lang-option" href="#" data-lang="ar" dir="rtl">العربية</a>
+	        </div>
+	      </div>
+	      
+	      <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+	        <span class="icon-menu"></span>
+	      </button>
 
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-              <li class="nav-item active"><a href="activities.html" class="nav-link">Activities</a></li>
-              <li class="nav-item"><a href="packs.html" class="nav-link">Packs</a></li>
-              <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="reviews.html" class="nav-link">Reviews</a></li>
-              <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-              <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-              <li class="nav-item"><a href="#" class="nav-link booking-btn">Booking</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+	      <div class="collapse navbar-collapse">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="activities.html" class="nav-link">Activities</a></li>
+	          <li class="nav-item"><a href="packs.html" class="nav-link">Packs</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="reviews.html" class="nav-link">Reviews</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="#" class="nav-link booking-btn">Booking</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
     <!-- END nav -->
     
     <div class="hero-wrap js-fullheight">
@@ -90,268 +97,139 @@
       </div>
     </div>
 		
-		<section class="ftco-section">
+    <!-- ========================================= -->
+    <!-- Middle content removed, only hero, newsletter, and footer sections remain -->
+    <!-- ========================================= -->
+		
+    <!-- 1:1 section copy from homepage. Do not edit here unless homepage also updated. -->
+    <!-- Luxury Activities Section - Pixel Perfect Grid -->
+    <!-- NO GAPS, Square Corners, 8px Inner Padding -->
+    <section class="luxury-activities-grid-section" style="background: rgba(188, 108, 37, 0.1);">
       <div class="container">
-        <div class="row">
-        	<div class="col-lg-3 sidebar order-md-last ftco-animate">
-            <!-- Quick Booking Widget -->
-            <div class="quick-booking-widget" data-aos="fade-left" data-aos-duration="1000">
-              <h4>Quick Booking</h4>
-              <div class="promo-badge">
-                ⭐ Book Now & Save 10%
+        <!-- Activities Section Title - Two-line luxury format -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-title-block">
+              <p class="section-subtitle">Activities in Agafay</p>
+              <h2 class="section-main-title">Our Best Activities</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid with NO GAPS between cards -->
+        <div class="activities-grid-container">
+          <!-- Activity 1: Dromadaire Agafay Marrakech - Clickable card that opens modal on click -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="activity-grid-card clickable-activity-card" data-activity="dromadaire" style="cursor: pointer;">
+              <img src="images/destination-1.jpg" alt="Agafay Camel Ride Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <!-- Price Tag - Top Right, Flush -->
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">From</span>
+                <span class="activity-grid-price-amount">200 DH</span>
               </div>
-              <form id="quickBookingForm" class="quick-booking-form">
-                <div class="form-group">
-                  <label for="quickBookingDate">Select Date</label>
-                  <input type="text" id="quickBookingDate" name="quickBookingDate" class="form-control" placeholder="Choose date" readonly>
-                </div>
-                <div class="form-group">
-                  <label for="quickNumAdults">Adults</label>
-                  <input type="number" id="quickNumAdults" name="quickNumAdults" class="form-control" placeholder="1" min="1" max="50" value="1">
-                </div>
-                <div class="form-group">
-                  <label for="quickNumChildren">Children (under 12)</label>
-                  <input type="number" id="quickNumChildren" name="quickNumChildren" class="form-control" placeholder="0" min="0" max="50" value="0">
-                </div>
-                <button type="submit" class="btn-book">Book Now</button>
-              </form>
-              <ul class="features-list">
-                <li><i class="icon-check"></i> Free Cancellation</li>
-                <li><i class="icon-check"></i> Instant Confirmation</li>
-                <li><i class="icon-check"></i> Best Price Guarantee</li>
-              </ul>
-              <div class="security-note">
-                <i class="icon-shield"></i> Secure Payment
+
+              <!-- Activity Info - Bottom Left -->
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Agafay Camel Ride Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Book Now</a>
               </div>
             </div>
-            <!-- END Quick Booking Widget -->
-          </div><!-- END-->
-          <div class="col-lg-9">
-          	<div class="row">
-          		<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-		    							<span class="icon-link"></span>
-		    						</div>
-		    					</a>
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
-			    						</div>
-			    						<div class="two">
-			    							<span class="price">$200</span>
-		    							</div>
-		    						</div>
-		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
-		    						</p>
-		    					</div>
-		    				</div>
-		    			</div>
-		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-4.jpg);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-		    							<span class="icon-link"></span>
-		    						</div>
-		    					</a>
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
-			    						</div>
-			    						<div class="two">
-			    							<span class="price">$200</span>
-		    							</div>
-		    						</div>
-		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
-		    						</p>
-		    					</div>
-		    				</div>
-		    			</div>
-		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-		    							<span class="icon-link"></span>
-		    						</div>
-		    					</a>
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
-			    						</div>
-			    						<div class="two">
-			    							<span class="price">$200</span>
-		    							</div>
-		    						</div>
-		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
-		    						</p>
-		    					</div>
-		    				</div>
-		    			</div>
-		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-2.jpg);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-		    							<span class="icon-link"></span>
-		    						</div>
-		    					</a>
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
-			    						</div>
-			    						<div class="two">
-			    							<span class="price">$200</span>
-		    							</div>
-		    						</div>
-		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
-		    						</p>
-		    					</div>
-		    				</div>
-		    			</div>
-		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-5.jpg);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-		    							<span class="icon-link"></span>
-		    						</div>
-		    					</a>
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
-			    						</div>
-			    						<div class="two">
-			    							<span class="price">$200</span>
-		    							</div>
-		    						</div>
-		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
-		    						</p>
-		    					</div>
-		    				</div>
-		    			</div>
-		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-6.jpg);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-		    							<span class="icon-link"></span>
-		    						</div>
-		    					</a>
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
-			    						</div>
-			    						<div class="two">
-			    							<span class="price">$200</span>
-		    							</div>
-		    						</div>
-		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
-		    						</p>
-		    					</div>
-		    				</div>
-		    			</div>
-          	</div>
-          	<div class="row mt-5">
-		          <div class="col text-center">
-		            <div class="block-27">
-		              <ul>
-		                <li><a href="#">&lt;</a></li>
-		                <li class="active"><span>1</span></li>
-		                <li><a href="#">2</a></li>
-		                <li><a href="#">3</a></li>
-		                <li><a href="#">4</a></li>
-		                <li><a href="#">5</a></li>
-		                <li><a href="#">&gt;</a></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>
-          </div> <!-- .col-md-8 -->
+          </div>
+
+          <!-- Activity 2: Quad Agafay - Clickable card that opens modal on click -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="activity-grid-card clickable-activity-card" data-activity="quad" style="cursor: pointer;">
+              <img src="images/destination-2.jpg" alt="Quad Agafay">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">From</span>
+                <span class="activity-grid-price-amount">250 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Agafay Quad Biking</h4>
+                <a href="#" class="activity-grid-btn">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity 3: Buggy Agafay Marrakech - Clickable card that opens modal on click -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="activity-grid-card clickable-activity-card" data-activity="buggy" style="cursor: pointer;">
+              <img src="images/destination-3.jpg" alt="Agafay Buggy Adventure Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">From</span>
+                <span class="activity-grid-price-amount">850 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Agafay Buggy Adventure Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity 4: Balade Cheval Agafay Marrakech - Clickable card that opens modal on click -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="activity-grid-card clickable-activity-card" data-activity="cheval" style="cursor: pointer;">
+              <img src="images/destination-4.jpg" alt="Agafay Horse Riding Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">From</span>
+                <span class="activity-grid-price-amount">550 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Agafay Horse Riding Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity 5: Randonné Velo Agafay Marrakech - Clickable card that opens modal on click -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="activity-grid-card clickable-activity-card" data-activity="velo" style="cursor: pointer;">
+              <img src="images/destination-5.jpg" alt="Agafay Bike Tour Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">From</span>
+                <span class="activity-grid-price-amount">300 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Agafay Bike Tour Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Book Now</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity 6: Dîner Spectacle Agafay Marrakech - Clickable card that opens modal on click -->
+          <div class="activity-grid-card-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="activity-grid-card clickable-activity-card" data-activity="diner" style="cursor: pointer;">
+              <img src="images/destination-6.jpg" alt="Agafay Dinner Show Marrakech">
+              <div class="activity-grid-overlay"></div>
+
+              <div class="activity-grid-price">
+                <span class="activity-grid-price-label">From</span>
+                <span class="activity-grid-price-amount">300 DH</span>
+              </div>
+
+              <div class="activity-grid-info">
+                <h4 class="activity-grid-title">Agafay Dinner Show Marrakech</h4>
+                <a href="#" class="activity-grid-btn">Book Now</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section> <!-- .section -->
+    </section>
 
     <!-- ========================================= -->
     <!-- SHARED NEWSLETTER COMPONENT -->

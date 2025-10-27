@@ -136,6 +136,16 @@ body.menu-open {
   height: 100%;
 }
 
+/* Robust scroll prevention for mobile menu */
+body.no-scroll {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  top: 0;
+  left: 0;
+}
+
 /* Hide default navbar collapse on mobile */
 @media (max-width: 991.98px) {
   .navbar-collapse {

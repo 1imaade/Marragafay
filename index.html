@@ -380,61 +380,7 @@
           margin: 0 !important;
         }
 
-        /* Reduce navbar height and ensure vertical centering on mobile */
-        /* Smaller navbar height (48px) for mobile devices */
-        /* Adjust interior elements for perfect vertical alignment */
-        /* No clipping or overflow, all content centered and on single line */
-        /* Comment added for easy adjustment */
-        .home .ftco_navbar {
-          height: 70px !important;
-          min-height: 70px !important;
-          padding-top: 0 !important;
-          padding-bottom: 0 !important;
-          align-items: center !important; /* Vertical centering for flex items */
-        }
-
-        /* Adjust navbar brand (logo) for mobile */
-        .home .ftco_navbar .navbar-brand {
-          padding-top: 0 !important;
-          padding-bottom: 0 !important;
-          height: 58px !important;
-          display: flex !important;
-          align-items: center !important;
-        }
-
-        /* Reduce logo size for mobile to fit within bar */
-        .home .ftco_navbar .navbar-brand img {
-          width: 85px !important; /* Smaller logo width for mobile */
-          height: 80px !important;
-          max-height: 80px !important; /* Max height to prevent overflow */
-        }
-
-        /* Adjust navbar toggler for mobile */
-        .home .ftco_navbar .navbar-toggler {
-          padding-top: 0 !important;
-          padding-bottom: 0 !important;
-          height: 48px !important;
-          width: 48px !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-        }
-
-        /* Adjust nav links for mobile */
-        .home .ftco_navbar .nav-link {
-          padding-top: 0 !important;
-          padding-bottom: 0 !important;
-          height: 48px !important;
-          line-height: 48px !important;
-          font-size: 15px !important; /* Smaller font for mobile */
-          display: flex !important;
-          align-items: center !important;
-        }
-
-        /* Ensure mobile menu is properly aligned */
-        .home .ftco_navbar .navbar-collapse {
-          align-items: center !important;
-        }
+        /* Mobile navbar styling - same as activities page */
 
         /* Make content column full width on mobile */
         .hero-wrap .slider-text .col-12,
@@ -1018,25 +964,52 @@
       }
       
       /* ========================================= */
-      /* HERO ARROWS - HOVER VISIBILITY CONTROL */
+      /* HERO ARROWS - SMOOTH SLIDE-IN ANIMATION */
       /* ========================================= */
-      /* BEHAVIOR: Arrows hidden by default, visible only on hero section hover */
-      /* This keeps the initial UI clean and uncluttered */
-      /* Arrows fade in smoothly (0.3s) when user hovers over hero area */
-      /* pointer-events: none prevents interaction when hidden */
-      /* Keyboard focus also triggers visibility via :focus-within */
+      /* BEHAVIOR: Arrows slide in from sides with fade on hero section hover */
+      /* 
+      /* DEFAULT STATE (No Hover):
+      /*   - opacity: 0 (invisible)
+      /*   - pointer-events: none (not clickable)
+      /*   - Left arrow: translateX(-40px) - positioned 40px left of normal spot
+      /*   - Right arrow: translateX(40px) - positioned 40px right of normal spot
+      /*   - Both maintain vertical centering with translateY(-50%)
+      /*
+      /* ON HOVER (.hero-section:hover):
+      /*   - opacity: 1 (fade in)
+      /*   - pointer-events: all (clickable)
+      /*   - Both arrows: translateX(0) - slide to normal position
+      /*   - Smooth transition: 0.4s ease-in-out for both opacity and transform
+      /*
+      /* ON HOVER END:
+      /*   - Arrows fade out and slide back to off-screen positions
+      /*   - Same smooth 0.4s ease-in-out transition in reverse
+      /*
+      /* PRESERVED: Colors, sizes, borders, backgrounds, hover effects remain unchanged
+      /* ========================================= */
       
       .hero-nav-arrow {
         opacity: 0 !important;
         pointer-events: none !important;
-        transition: opacity 0.3s ease-in-out !important;
+        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out !important;
       }
       
-      /* Show arrows on hero section hover or keyboard focus */
+      /* Left arrow - slides in from left (starts 40px left of center) */
+      .hero-nav-left {
+        transform: translateY(-50%) translateX(-40px) !important;
+      }
+      
+      /* Right arrow - slides in from right (starts 40px right of center) */
+      .hero-nav-right {
+        transform: translateY(-50%) translateX(40px) !important;
+      }
+      
+      /* Show arrows on hero section hover or keyboard focus - slide to center with fade in */
       .hero-section:hover .hero-nav-arrow,
       .hero-section:focus-within .hero-nav-arrow {
         opacity: 0.85 !important;
         pointer-events: all !important;
+        transform: translateY(-50%) translateX(0) !important; /* Slide to normal centered position */
       }
       
       /* Smooth entrance animations */
@@ -1176,27 +1149,37 @@
         white-space: normal;
       }
 
-      /* Mobile Menu Icon Color Changes - Smooth transition on navbar scroll */
-      /* Default state: White menu icon for dark navbar background */
-      .navbar-toggler .icon-menu {
-        color: #fff;
-        transition: color 0.3s ease;
-      }
-
-      /* Scrolled state: Dark menu icon for white navbar background */
-      .menu-scrolled .navbar-toggler .icon-menu {
-        color: #222;
-      }
-
-      /* Ensure smooth transition and perfect visibility */
-      .navbar-toggler {
-        border: none;
-        background: transparent;
-        outline: none;
-      }
+      /* Mobile menu uses shared mobile-menu.css - same as activities page */
 
       /* Responsive Design */
       @media (max-width: 768px) {
+        /* Slimmer navbar for homepage mobile version only */
+        .home .ftco_navbar,
+        .home #ftco-navbar {
+          min-height: 60px !important;
+          padding-top: 5px !important;
+          padding-bottom: 5px !important;
+        }
+
+        /* Scale logo proportionally for slimmer navbar */
+        .home .ftco_navbar .navbar-brand img {
+          height: 70px !important;
+          max-height: 70px !important;
+          width: auto !important;
+        }
+
+        /* Adjust hamburger menu icon for slimmer navbar */
+        .home .ftco_navbar .navbar-toggler {
+          padding: 8px !important;
+          font-size: 22px !important;
+        }
+
+        /* Keep language switcher aligned */
+        .home .mobile-language-switcher {
+          display: flex;
+          align-items: center;
+        }
+
         .hero-wrap h1 {
           font-size: 2.5rem !important;
         }

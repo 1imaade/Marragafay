@@ -22,42 +22,53 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mobile-menu.css">
     <link rel="stylesheet" href="css/button-animations.css">
+    
+    <!-- Swiper CSS for Testimonials -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Testimonials CSS -->
+    <link rel="stylesheet" href="css/testimonials.css">
+    
+    <!-- Section Titles CSS -->
+    <link rel="stylesheet" href="css/section-titles.css">
   </head>
   <body>
     
+    <!-- Desktop navbar design and logic copied from homepage for global consistency -->
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-      <div class="container">
-          <a class="navbar-brand" href="index.html"><img src="images/logo-trensparent.png" alt="Marragafy" style="width: 80px; height: auto;"></a>
-        
-        <!-- Language Switcher -->
-        <div class="mobile-language-switcher">
-          <a href="#" class="language-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="icon-globe"></i> <span>EN</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
-            <a class="dropdown-item lang-option" href="#" data-lang="en">English</a>
-            <a class="dropdown-item lang-option" href="#" data-lang="fr">Français</a>
-            <a class="dropdown-item lang-option" href="#" data-lang="ar" dir="rtl">العربية</a>
-          </div>
-        </div>
-        <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
-          <span class="icon-menu"></span>
-        </button>
+	    <div class="container">
+	          <a class="navbar-brand" href="index.html"><img src="images/logo-trensparent.png" alt="Marragafy" style="width: 80px; height: auto;"></a>
+	      
+	      <!-- Moved language switcher here -->
+	      <div class="mobile-language-switcher">
+	        <a href="#" class="language-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          <i class="icon-globe"></i> <span>EN</span>
+	        </a>
+	        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+	          <a class="dropdown-item lang-option" href="#" data-lang="en">English</a>
+	          <a class="dropdown-item lang-option" href="#" data-lang="fr">Français</a>
+	          <a class="dropdown-item lang-option" href="#" data-lang="ar" dir="rtl">العربية</a>
+	        </div>
+	      </div>
+	      
+	      <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+	        <span class="icon-menu"></span>
+	      </button>
 
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="activities.html" class="nav-link">Activities</a></li>
-              <li class="nav-item"><a href="packs.html" class="nav-link">Packs</a></li>
-              <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-              <li class="nav-item active"><a href="reviews.html" class="nav-link">Reviews</a></li>
-              <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-              <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-              <li class="nav-item"><a href="#" class="nav-link booking-btn">Booking</a></li>
-            </ul>
-        </div>
-      </div>
-    </nav>
+	      <div class="collapse navbar-collapse">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="activities.html" class="nav-link">Activities</a></li>
+	          <li class="nav-item"><a href="packs.html" class="nav-link">Packs</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item active"><a href="reviews.html" class="nav-link">Reviews</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="#" class="nav-link booking-btn">Booking</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
     <!-- END nav -->
     
     <div class="hero-wrap js-fullheight">
@@ -126,6 +137,236 @@
                 <div class="text-center">
                   <p>Have you visited Marragafay? We'd love to hear about your experience!</p>
                   <a href="#write-review" class="btn btn-primary">Write a Review</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1:1 section copy from homepage. Do not edit here unless homepage also updated. -->
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="testimonials-container">
+        
+        <!-- Testimonials Section Title -->
+        <div class="section-title-block">
+          <p class="section-subtitle">Testimonials From Our Clients</p>
+          <h2 class="section-main-title">What Our Clients Say</h2>
+        </div>
+
+        <!-- Testimonials Slider -->
+        <div class="testimonials-navigation">
+          <div class="testimonials-swiper swiper" 
+               role="region" 
+               aria-label="Client testimonials carousel"
+               tabindex="0">
+            
+            <!-- Swiper Wrapper -->
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="testimonial-quote">"</div>
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
+                       alt="Sylvie Bontijnck" class="testimonial-avatar">
+                  <div class="testimonial-review">
+                    "Unique and magnificent place that you absolutely must discover. A more than perfect dinner and warm welcome..."
+                  </div>
+                  <div class="testimonial-rating">
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </div>
+                  <div class="testimonial-client">
+                    <div class="testimonial-name">Sylvie Bontijnck</div>
+                    <div class="testimonial-location">Belgium</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="testimonial-quote">"</div>
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                       alt="Gab de Solages" class="testimonial-avatar">
+                  <div class="testimonial-review">
+                    "What an experience! Breathtaking food and quality service..."
+                  </div>
+                  <div class="testimonial-rating">
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </div>
+                  <div class="testimonial-client">
+                    <div class="testimonial-name">Gab de Solages</div>
+                    <div class="testimonial-location">France</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next" 
+                 role="button" 
+                 aria-label="Next testimonial"
+                 tabindex="0"></div>
+            <div class="swiper-button-prev" 
+                 role="button" 
+                 aria-label="Previous testimonial"
+                 tabindex="0"></div>
+
+            <!-- Pagination Dots -->
+            <div class="swiper-pagination" 
+                 role="tablist" 
+                 aria-label="Testimonial pagination"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 1:1 section copy from homepage. Do not edit here unless homepage also updated. -->
+    <!-- GALLERY SECTION -->
+    <section class="luxury-gallery-section py-5" style="background: rgba(188, 108, 37, 0.1); padding: 120px 0;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-title-block">
+              <p class="section-subtitle">Gallery</p>
+              <h2 class="section-main-title">Gallery of Unforgettable Memories</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; max-width: 1200px; margin: 0 auto;">
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/hotel-1.jpg" alt="Gallery 1" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/hotel-2.jpg" alt="Gallery 2" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/hotel-3.jpg" alt="Gallery 3" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/hotel-4.jpg" alt="Gallery 4" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/destination-1.jpg" alt="Gallery 5" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/destination-2.jpg" alt="Gallery 6" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/destination-3.jpg" alt="Gallery 7" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/destination-4.jpg" alt="Gallery 8" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div class="gallery-card" style="width: 100%; aspect-ratio: 1/1; overflow: hidden; padding: 4px;">
+            <img src="images/destination-5.jpg" alt="Gallery 9" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+
+        <style>
+          @media (max-width: 900px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          }
+          @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: 1fr !important; }
+          }
+        </style>
+      </div>
+    </section>
+
+    <!-- 1:1 section copy from homepage. Do not edit here unless homepage also updated. -->
+    <!-- FAQ SECTION -->
+    <section class="luxury-faq-section py-5" style="background: rgba(188, 108, 37, 0.1); padding: 120px 0;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-title-block">
+              <p class="section-subtitle">FAQ</p>
+              <h2 class="section-main-title">Everything About The Agafay Experience</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="luxury-faq-accordion" id="faqAccordion">
+              <div class="luxury-faq-item mb-4" data-aos="fade-up">
+                <div class="luxury-faq-header" style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer;" data-toggle="collapse" data-target="#faq1">
+                  <h5 class="mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; display: flex; justify-content: space-between;">
+                    Why Morocco?
+                    <i class="icon-chevron-down" style="color: #d4af37;"></i>
+                  </h5>
+                </div>
+                <div id="faq1" class="collapse" data-parent="#faqAccordion">
+                  <div style="background: #fff; border-radius: 0 0 15px 15px; padding: 15px; border-top: 1px solid #e9ecef; color: #6c757d;">
+                    Morocco offers a unique blend of culture, adventure, and luxury. Agafay Desert provides an authentic desert experience just 30 minutes from Marrakech.
+                  </div>
+                </div>
+              </div>
+
+              <div class="luxury-faq-item mb-4" data-aos="fade-up">
+                <div class="luxury-faq-header" style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer;" data-toggle="collapse" data-target="#faq2">
+                  <h5 class="mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; display: flex; justify-content: space-between;">
+                    Is drinking tap water safe?
+                    <i class="icon-chevron-down" style="color: #d4af37;"></i>
+                  </h5>
+                </div>
+                <div id="faq2" class="collapse" data-parent="#faqAccordion">
+                  <div style="background: #fff; border-radius: 0 0 15px 15px; padding: 15px; border-top: 1px solid #e9ecef; color: #6c757d;">
+                    Bottled water is recommended. Many hotels have filtered water for guests which is safe to drink.
+                  </div>
+                </div>
+              </div>
+
+              <div class="luxury-faq-item mb-4" data-aos="fade-up">
+                <div class="luxury-faq-header" style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer;" data-toggle="collapse" data-target="#faq3">
+                  <h5 class="mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; display: flex; justify-content: space-between;">
+                    Visa requirements?
+                    <i class="icon-chevron-down" style="color: #d4af37;"></i>
+                  </h5>
+                </div>
+                <div id="faq3" class="collapse" data-parent="#faqAccordion">
+                  <div style="background: #fff; border-radius: 0 0 15px 15px; padding: 15px; border-top: 1px solid #e9ecef; color: #6c757d;">
+                    Most travelers can visit Morocco without a visa for up to 3 months. Passport must be valid for 6 months from entry.
+                  </div>
+                </div>
+              </div>
+
+              <div class="luxury-faq-item mb-4" data-aos="fade-up">
+                <div class="luxury-faq-header" style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer;" data-toggle="collapse" data-target="#faq4">
+                  <h5 class="mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; display: flex; justify-content: space-between;">
+                    Can I customize my tour?
+                    <i class="icon-chevron-down" style="color: #d4af37;"></i>
+                  </h5>
+                </div>
+                <div id="faq4" class="collapse" data-parent="#faqAccordion">
+                  <div style="background: #fff; border-radius: 0 0 15px 15px; padding: 15px; border-top: 1px solid #e9ecef; color: #6c757d;">
+                    Yes! Contact us and we will assist you to create your perfect tour in Morocco.
+                  </div>
+                </div>
+              </div>
+
+              <div class="luxury-faq-item mb-4" data-aos="fade-up">
+                <div class="luxury-faq-header" style="background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); cursor: pointer;" data-toggle="collapse" data-target="#faq5">
+                  <h5 class="mb-0" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2c3e50; display: flex; justify-content: space-between;">
+                    Is Morocco safe to visit?
+                    <i class="icon-chevron-down" style="color: #d4af37;"></i>
+                  </h5>
+                </div>
+                <div id="faq5" class="collapse" data-parent="#faqAccordion">
+                  <div style="background: #fff; border-radius: 0 0 15px 15px; padding: 15px; border-top: 1px solid #e9ecef; color: #6c757d;">
+                    According to the 2019 Travel Risk Map, Morocco is the only country with low-risk level in North Africa.
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,5 +486,11 @@
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
     <script src="js/mobile-menu.js"></script>
+    
+    <!-- Swiper JS for Testimonials -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Testimonials JS -->
+    <script src="js/testimonials.js"></script>
   </body>
 </html>

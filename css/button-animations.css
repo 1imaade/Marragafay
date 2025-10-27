@@ -94,3 +94,39 @@
 .btn-42:active {
   top: 2px;
 }
+
+/* ========================================= */
+/* NAVBAR BOOKING BUTTON - Gold Theme */
+/* ========================================= */
+/* Applied to all pages for global consistency */
+.navbar .nav-link.booking-btn {
+  background: #bc6c25 !important;
+  color: #fff !important;
+  border: 1.5px solid #bc6c25 !important;
+  border-radius: 0 !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease !important;
+  display: inline-block !important;
+}
+
+.navbar .nav-link.booking-btn:hover {
+  background: #d4af37 !important;
+  border-color: #d4af37 !important;
+  color: #fff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar .nav-link.booking-btn {
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar .nav-link.booking-btn {
+    padding: 10px 15px !important;
+    font-size: 0.9rem !important;
+  }
+}
