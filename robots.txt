@@ -1,0 +1,25 @@
+# Robots.txt - Control bot crawling to reduce Edge Requests
+# Remove these restrictions when ready for production
+
+User-agent: *
+# Allow all pages (change to Disallow: / for complete blocking during development)
+Allow: /
+
+# Block specific bots that don't respect rate limits
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap (update when you create one)
+# Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl-delay to reduce request frequency (in seconds)
+Crawl-delay: 10

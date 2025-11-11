@@ -1,0 +1,37 @@
+# Vercel Ignore - Files not to deploy (reduces deployment size and requests)
+
+# Development files
+.vscode/
+.DS_Store
+*.md
+prepros-6.config
+
+# Documentation
+BOOKING_WIDGETS_IMPLEMENTATION.md
+CARD_UNIFICATION_SUMMARY.md
+FINAL_VERIFICATION_1TO1_COPIES.md
+GALLERY_HOVER_FIX_SUMMARY.md
+GALLERY_INTEGRATION_SUMMARY.md
+GALLERY_POPUP_FIX_SUMMARY.md
+GALLERY_SETUP_GUIDE.md
+HOMEPAGE_SECTIONS_REUSE_SUMMARY.md
+PROJECT_COMPLETE_FINAL_SUMMARY.md
+REVIEWS_PAGE_COMPLETE.md
+SECTIONS_COPY_COMPLETE.md
+SECTIONS_FIXED.md
+SECTION_TITLES_GUIDE.md
+TASK_COMPLETE_SUMMARY.md
+TESTIMONIALS_SETUP.md
+WHY_CHOOSE_SETUP.md
+EDGE_REQUESTS_DEBUGGING_GUIDE.md
+
+# SCSS source files (only deploy compiled CSS)
+scss/
+
+# Git
+.git/
+.gitignore
+
+# Duplicate/backup folders
+Marragafay/
+Admine Dashboard/

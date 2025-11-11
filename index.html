@@ -2991,6 +2991,176 @@
   <!-- Testimonials JS -->
   <script src="js/testimonials.js"></script>
 
+  <!-- ========================================
+       REQUEST MONITORING & DEBUGGING SYSTEM
+       ======================================== -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // ========================================
+      // CONFIGURATION
+      // ========================================
+      const DEBUG_MODE = true; // Set to false in production
+      const LOG_TO_CONSOLE = true;
+      const LOG_TO_SERVER = false; // Set true to send logs to your backend
+      const SERVER_LOG_ENDPOINT = '/api/log-requests'; // Your logging endpoint
+      
+      // Request counter
+      const requestStats = {
+        total: 0,
+        byType: {},
+        byDomain: {},
+        timeline: []
+      };
+      
+      // ========================================
+      // INTERCEPT FETCH REQUESTS
+      // ========================================
+      const originalFetch = window.fetch;
+      window.fetch = function(...args) {
+        const url = args[0];
+        logRequest('FETCH', url);
+        return originalFetch.apply(this, args);
+      };
+      
+      // ========================================
+      // INTERCEPT XMLHttpRequest
+      // ========================================
+      const originalOpen = XMLHttpRequest.prototype.open;
+      XMLHttpRequest.prototype.open = function(method, url) {
+        logRequest('XHR', url, method);
+        return originalOpen.apply(this, arguments);
+      };
+      
+      // ========================================
+      // LOG REQUEST FUNCTION
+      // ========================================
+      function logRequest(type, url, method = 'GET') {
+        requestStats.total++;
+        
+        // Parse URL
+        let domain = 'internal';
+        try {
+          const urlObj = new URL(url, window.location.origin);
+          domain = urlObj.hostname;
+        } catch(e) {
+          // Relative URL
+        }
+        
+        // Update stats
+        requestStats.byType[type] = (requestStats.byType[type] || 0) + 1;
+        requestStats.byDomain[domain] = (requestStats.byDomain[domain] || 0) + 1;
+        
+        const entry = {
+          timestamp: new Date().toISOString(),
+          type,
+          method,
+          url,
+          domain,
+          userAgent: navigator.userAgent,
+          page: window.location.pathname
+        };
+        
+        requestStats.timeline.push(entry);
+        
+        // Log to console
+        if (DEBUG_MODE && LOG_TO_CONSOLE) {
+          console.log(`[REQUEST ${requestStats.total}] ${type} ${method} ${url}`);
+        }
+        
+        // Send to server (optional)
+        if (LOG_TO_SERVER) {
+          navigator.sendBeacon(SERVER_LOG_ENDPOINT, JSON.stringify(entry));
+        }
+      }
+      
+      // ========================================
+      // MONITOR INTERVALS & TIMEOUTS
+      // ========================================
+      const activeIntervals = [];
+      const activeTimeouts = [];
+      
+      const originalSetInterval = window.setInterval;
+      window.setInterval = function(callback, delay) {
+        const id = originalSetInterval.apply(this, arguments);
+        activeIntervals.push({
+          id,
+          delay,
+          stack: new Error().stack,
+          created: Date.now()
+        });
+        if (DEBUG_MODE && LOG_TO_CONSOLE) {
+          console.warn(`[INTERVAL CREATED] ID: ${id}, Delay: ${delay}ms`);
+        }
+        return id;
+      };
+      
+      const originalSetTimeout = window.setTimeout;
+      window.setTimeout = function(callback, delay) {
+        const id = originalSetTimeout.apply(this, arguments);
+        activeTimeouts.push({
+          id,
+          delay,
+          stack: new Error().stack,
+          created: Date.now()
+        });
+        return id;
+      };
+      
+      // ========================================
+      // GLOBAL DEBUG FUNCTIONS
+      // ========================================
+      window.debugRequests = {
+        getStats: () => requestStats,
+        getIntervals: () => activeIntervals,
+        getTimeouts: () => activeTimeouts,
+        printSummary: () => {
+          console.log('\n=== REQUEST SUMMARY ===');
+          console.log(`Total Requests: ${requestStats.total}`);
+          console.log('\nBy Type:', requestStats.byType);
+          console.log('\nBy Domain:', requestStats.byDomain);
+          console.log('\nActive Intervals:', activeIntervals.length);
+          console.log('\nActive Timeouts:', activeTimeouts.length);
+          console.log('\nRecent Requests (last 10):');
+          console.table(requestStats.timeline.slice(-10));
+        },
+        reset: () => {
+          requestStats.total = 0;
+          requestStats.byType = {};
+          requestStats.byDomain = {};
+          requestStats.timeline = [];
+          console.log('Stats reset');
+        },
+        exportLogs: () => {
+          const blob = new Blob([JSON.stringify(requestStats, null, 2)], {type: 'application/json'});
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `request-logs-${Date.now()}.json`;
+          a.click();
+        }
+      };
+      
+      // ========================================
+      // AUTO-REPORT ON PAGE UNLOAD
+      // ========================================
+      window.addEventListener('beforeunload', () => {
+        if (DEBUG_MODE && requestStats.total > 50) {
+          console.warn(`⚠️ HIGH REQUEST COUNT: ${requestStats.total} requests made on this page`);
+          console.log('Top domains:', Object.entries(requestStats.byDomain).sort((a,b) => b[1] - a[1]).slice(0, 5));
+        }
+      });
+      
+      // Print initial message
+      if (DEBUG_MODE && LOG_TO_CONSOLE) {
+        console.log('%c🔍 Request Monitoring Active', 'color: #4CAF50; font-weight: bold; font-size: 14px;');
+        console.log('Use window.debugRequests.printSummary() to see stats');
+        console.log('Use window.debugRequests.exportLogs() to download logs');
+      }
+    })();
+  </script>
+
   <!-- Luxury Back-to-Top Button -->
   <button id="backToTopBtn" aria-label="Scroll to top" style="display: none;">
     <!-- Custom SVG Arrow for Luxury Feel -->

@@ -1,23 +1,29 @@
+// ========================================
+// GOOGLE MAPS - OPTIMIZED VERSION
+// ========================================
+// CRITICAL FIX: Removed geocoding API calls that were triggering on every page load
+// Now using cached coordinates to prevent excessive API requests
 
 var google;
 
 function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-    // var myLatlng = new google.maps.LatLng(40.71751, -73.990922);
-    var myLatlng = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
-    // 39.399872
-    // -8.224454
+    // ========================================
+    // CACHED COORDINATES - NO API CALLS
+    // ========================================
+    // Pre-cached coordinates to avoid geocoding API calls
+    // Update these coordinates for your actual location
     
+    // Agafay Desert approximate coordinates (Morocco)
+    // Change these to your actual business location
+    var agafayLocation = new google.maps.LatLng(31.3728, -8.0208); // Agafay Desert, Morocco
+    
+    // Map configuration
     var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
-        zoom: 7,
-
-        // The latitude and longitude to center the map (always required)
-        center: myLatlng,
-
-        // How you would like to style the map. 
+        zoom: 12, // Adjusted zoom for desert area
+        center: agafayLocation,
         scrollwheel: false,
+        
+        // Luxury map styling
         styles: [
             {
                 "featureType": "administrative.country",
@@ -27,36 +33,84 @@ function init() {
                         "visibility": "simplified"
                     },
                     {
-                        "hue": "#ff0000"
+                        "hue": "#d4af37" // Gold theme
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#f5f5f5"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                        "visibility": "on"
                     }
                 ]
             }
         ]
     };
 
-    
-
-    // Get the HTML DOM element that will contain your map 
-    // We are using a div with id="map" seen below in the <body>
+    // Check if map element exists before initializing
     var mapElement = document.getElementById('map');
+    
+    if (!mapElement) {
+        console.warn('Google Maps: Map container not found. Skipping initialization.');
+        return;
+    }
 
-    // Create the Google Map using out element and options defined above
+    // Create the Google Map
     var map = new google.maps.Map(mapElement, mapOptions);
     
-    var addresses = ['New York'];
+    // ========================================
+    // STATIC MARKERS - NO GEOCODING API CALLS
+    // ========================================
+    // Define your locations with pre-calculated coordinates
+    var locations = [
+        {
+            name: 'Agafay Desert Camp',
+            lat: 31.3728,
+            lng: -8.0208,
+            icon: 'images/loc.png'
+        }
+        // Add more locations here if needed:
+        // {
+        //   name: 'Location 2',
+        //   lat: 31.xxxx,
+        //   lng: -8.xxxx,
+        //   icon: 'images/loc.png'
+        // }
+    ];
 
-    for (var x = 0; x < addresses.length; x++) {
-        $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
-            var p = data.results[0].geometry.location
-            var latlng = new google.maps.LatLng(p.lat, p.lng);
-            new google.maps.Marker({
-                position: latlng,
-                map: map,
-                icon: 'images/loc.png'
-            });
-
+    // Create markers without API calls
+    locations.forEach(function(location) {
+        var latlng = new google.maps.LatLng(location.lat, location.lng);
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            icon: location.icon,
+            title: location.name,
+            animation: google.maps.Animation.DROP // Add drop animation
         });
-    }
-    
+        
+        // Optional: Add click listener for marker
+        marker.addListener('click', function() {
+            // You can add info window here if needed
+            console.log('Marker clicked:', location.name);
+        });
+    });
 }
-google.maps.event.addDomListener(window, 'load', init);
+
+// Initialize map when DOM is ready
+if (typeof google !== 'undefined' && google.maps) {
+    google.maps.event.addDomListener(window, 'load', init);
+} else {
+    console.warn('Google Maps API not loaded');
+}
