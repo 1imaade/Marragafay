@@ -312,11 +312,140 @@
 
       /* Mobile Adjustments */
       @media (max-width: 768px) {
-        .pack-title { font-size: 2.2rem; }
-        .highlights-row { gap: 10px; }
-        .inclusions-grid { grid-template-columns: 1fr; }
-        .masonry-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-        .masonry-item:first-child { grid-row: span 1; height: 250px; }
+        .pack-detail-container {
+          display: flex;
+          flex-direction: column;
+          padding: 0 15px;
+          margin-top: 20px;
+          margin-bottom: 100px; /* Extra space for bottom bar */
+        }
+
+        .pack-sidebar {
+          order: 1; /* Show booking form at the bottom */
+          width: 100%;
+        }
+        
+        .booking-card {
+          /* Hide full booking card on mobile initially if we want, or just unstick it */
+          position: relative;
+          top: 0;
+          box-shadow: none;
+          border: 1px solid #eee;
+          padding: 20px;
+          margin-top: 30px;
+        }
+        
+        /* Typography Scaling */
+        .pack-title { 
+          font-size: 2rem; 
+          margin-bottom: 15px;
+        }
+        
+        .section-title {
+          font-size: 1.75rem;
+          margin-top: 40px;
+          margin-bottom: 20px;
+        }
+
+        /* Timeline Adjustments */
+        .timeline-container {
+          padding-left: 20px;
+          margin: 30px 0;
+        }
+        
+        .timeline-line {
+          left: 10px;
+        }
+        
+        .timeline-icon {
+          width: 28px;
+          height: 28px;
+          left: -34px;
+          /* Ensure icon stays visible and doesn't get cut off */
+        }
+        
+        .timeline-content {
+          padding-left: 10px; /* Give text some breathing room */
+        }
+
+        .timeline-content h4 {
+          font-size: 1.2rem;
+        }
+
+        /* Gallery - Horizontal Snap Scroll */
+        .masonry-grid {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 15px;
+          padding-bottom: 15px; /* Space for scrollbar */
+          /* Hide scrollbar for cleaner look */
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
+        
+        .masonry-grid::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .masonry-item {
+          flex: 0 0 85%; /* Show 85% of image to encourage scrolling */
+          height: 250px;
+          scroll-snap-align: center;
+        }
+        
+        .masonry-item:first-child {
+          height: 250px; /* Reset height override */
+        }
+
+        /* Mobile Sticky Bottom Bar */
+        .mobile-bottom-bar {
+          display: flex !important;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background: white;
+          z-index: 1000;
+          padding: 15px 20px;
+          box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+          align-items: center;
+          justify-content: space-between;
+          border-top: 1px solid #eee;
+        }
+
+        .mobile-price {
+          font-family: "EB Garamond", serif;
+          font-size: 1.8rem;
+          color: var(--color-gold);
+          font-weight: 700;
+          line-height: 1;
+        }
+
+        .mobile-price span {
+          font-size: 0.8rem;
+          color: #718096;
+          font-family: "Open Sans", sans-serif;
+          font-weight: 400;
+          display: block;
+        }
+
+        .btn-mobile-book {
+          background: var(--color-dark);
+          color: white;
+          padding: 12px 25px;
+          border-radius: 50px; /* Pill shape for mobile */
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          border: none;
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Hide Mobile Bar on Desktop */
+      .mobile-bottom-bar {
+        display: none;
       }
     </style>
   </head>
@@ -496,7 +625,7 @@
       </div>
       
       <!-- RIGHT COLUMN (35%) - Sticky Booking Card -->
-      <div class="pack-sidebar">
+      <div class="pack-sidebar" id="booking-section">
         <div class="booking-card">
           
           <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
@@ -567,6 +696,17 @@
         </div>
       </div>
       
+    </div>
+
+    <!-- Mobile Sticky Bottom Bar -->
+    <div class="mobile-bottom-bar">
+      <div class="mobile-price">
+        400 DH
+        <span>per person</span>
+      </div>
+      <button onclick="document.getElementById('booking-section').scrollIntoView({behavior: 'smooth'})" class="btn-mobile-book">
+        Book Now
+      </button>
     </div>
 
     <!-- Footer -->
