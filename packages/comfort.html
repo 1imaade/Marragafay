@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comfort Pack - Agafay Desert | Marragafay</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/animate.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../images/main-logo.jpg">
+</head>
+<body>
+  
+  <div id="page-root"></div>
+
+  <!-- Scripts -->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/main.js"></script>
+  
+  <!-- Master Template -->
+  <script src="../js/TourPageTemplate.js"></script>
+  
+  <script>
+    TourPageTemplate.render({
+      title: "Comfort Desert Pack",
+      subTitle: "Comfort Pack",
+      price: "550 DH",
+      description: "Upgrade your desert adventure with our Comfort Pack. Enjoy enhanced amenities, a more spacious tent for relaxing, and a premium dinner menu.",
+      heroImage: "../images/slide2.jpg",
+      rating: "4.9",
+      reviews: "150+",
+      
+      highlights: [
+        { icon: "clock", text: "6 Hours" },
+        { icon: "mapPin", text: "Agafay Desert" },
+        { icon: "bus", text: "Shared Transfer" },
+        { icon: "check", text: "Dinner Included" }
+      ],
+      
+      timeline: [
+        { title: "Pickup", text: "Comfortable minibus transfer from Marrakech center.", icon: "bus" },
+        { title: "Arrival & Tea", text: "Welcome mint tea and Moroccan pastries.", icon: "star" },
+        { title: "Activity Choice", text: "Choose between Quad Biking (1h) or Camel Ride (1h).", icon: "clock" },
+        { title: "Sunset Dinner", text: "3-course traditional dinner with campfire ambiance.", icon: "check" }
+      ],
+      
+      included: [
+        "Round-trip Transfer",
+        "1 Hour Activity (Quad/Camel)",
+        "3-Course Dinner",
+        "Welcome Tea",
+        "Safety Equipment"
+      ],
+      
+      notIncluded: "Drinks not mentioned, Personal expenses",
+      
+      gallery: [
+        "../images/slide2.jpg",
+        "../images/destination-2.jpg",
+        "../images/destination-5.jpg"
+      ]
+    }, 'page-root');
+  </script>
+</body>
+</html>

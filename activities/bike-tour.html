@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bike Tour - Agafay Desert | Marragafay</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/animate.css">
+  <link rel="icon" href="../images/main-logo.jpg">
+</head>
+<body>
+  <div id="page-root"></div>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/TourPageTemplate.js"></script>
+  <script>
+    TourPageTemplate.render({
+      title: "Desert E-Bike Tour",
+      subTitle: "Activity",
+      price: "300 DH",
+      description: "Pedal through the lunar landscape with our assisted electric mountain bikes. Cover more ground with less effort and enjoy the silence of the desert.",
+      heroImage: "../images/destination-5.jpg",
+      rating: "4.7",
+      reviews: "60+",
+      highlights: [
+        { icon: "clock", text: "2 Hours" },
+        { icon: "check", text: "E-Bikes" },
+        { icon: "mapPin", text: "Canyon Views" },
+        { icon: "user", text: "Sporty" }
+      ],
+      timeline: [
+        { title: "Bike Fit", text: "Adjusting seat height and testing electric assist.", icon: "check" },
+        { title: "Canyon Trail", text: "Ride along the edge of dry riverbeds and canyons.", icon: "mapPin" },
+        { title: "Hill Climb", text: "Effortlessly ascend viewpoints with e-boost.", icon: "star" },
+        { title: "Descent", text: "Fun downhill sections returning to camp.", icon: "clock" }
+      ],
+      included: [
+        "Electric Mountain Bike",
+        "Helmet",
+        "Cycling Guide",
+        "Water Bottle",
+        "Energy Snack"
+      ],
+      notIncluded: "Hotel Transfer (Optional), Tips",
+      gallery: ["../images/destination-5.jpg", "../images/slide3.jpg"]
+    }, 'page-root');
+  </script>
+</body>
+</html>

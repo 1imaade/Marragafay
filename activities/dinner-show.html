@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dinner Show - Agafay Desert | Marragafay</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="../css/animate.css">
+  <link rel="icon" href="../images/main-logo.jpg">
+</head>
+<body>
+  <div id="page-root"></div>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/TourPageTemplate.js"></script>
+  <script>
+    TourPageTemplate.render({
+      title: "Magical Dinner Show",
+      subTitle: "Evening",
+      price: "300 DH",
+      description: "An unforgettable evening under the stars. Enjoy a traditional Moroccan feast accompanied by live Gnaoua music, belly dancing, and a spectacular fire show.",
+      heroImage: "../images/destination-6.jpg",
+      rating: "4.9",
+      reviews: "500+",
+      highlights: [
+        { icon: "clock", text: "4 Hours" },
+        { icon: "star", text: "Live Show" },
+        { icon: "check", text: "3-Course Meal" },
+        { icon: "user", text: "Campfire" }
+      ],
+      timeline: [
+        { title: "Welcome", text: "Arrive at sunset for mint tea and pastries.", icon: "star" },
+        { title: "Starters", text: "Traditional Moroccan salads and soup.", icon: "check" },
+        { title: "Main Event", text: "Tajine or Couscous served while musicians perform.", icon: "clock" },
+        { title: "Finale", text: "Fire eater show and dessert under the stars.", icon: "star" }
+      ],
+      included: [
+        "3-Course Dinner",
+        "Welcome Drink",
+        "Live Entertainment",
+        "Campfire Access",
+        "Mineral Water"
+      ],
+      notIncluded: "Hotel Transfer (Optional), Soft Drinks/Alcohol, Tips",
+      gallery: ["../images/destination-6.jpg", "../images/hotel-3.jpg"]
+    }, 'page-root');
+  </script>
+</body>
+</html>
