@@ -38,414 +38,285 @@
         color: rgba(0, 0, 0, 0.7);
       }
       
-      /* Package Content Wrapper */
-      .package-content-wrapper {
-        max-width: 1200px;
-        margin: 60px auto;
-        padding: 0 15px;
+      /* Luxury Design System */
+      :root {
+        --color-gold: #bc6c25;
+        --color-gold-light: #d4af37;
+        --color-dark: #1a365d;
+        --color-text: #4a5568;
+        --color-bg-light: #f8f9fa;
+        --color-white: #ffffff;
+        --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+        --shadow-hover: 0 20px 50px -10px rgba(0,0,0,0.12);
+        --radius-xl: 16px;
+        --radius-lg: 12px;
       }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        color: var(--color-text);
+        background-color: #fcfcfc;
+      }
+
+      /* Typography */
+      .font-serif { font-family: "EB Garamond", serif; }
+      .font-sans { font-family: "Open Sans", sans-serif; }
       
-      /* Two-Column Layout */
+      .text-gold { color: var(--color-gold); }
+      .text-dark { color: var(--color-dark); }
+
+      /* Layout */
       .pack-detail-container {
-        max-width: 1200px;
-        margin: 60px auto;
-        padding: 0 15px;
-        display: flex;
-        gap: 30px;
-        align-items: flex-start;
+        max-width: 1280px;
+        margin: 40px auto 80px;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 65% 35%;
+        gap: 40px;
+        align-items: start;
       }
-      
-      .pack-main-content {
-        flex: 1;
-        min-width: 0;
-      }
-      
-      .pack-sidebar {
-        width: 350px;
-        flex-shrink: 0;
-      }
-      
-      .sidebar-sticky {
-        position: sticky;
-        top: 100px;
-      }
-      
-      /* Responsive Typography - Matching Homepage Breakpoints */
+
       @media (max-width: 991px) {
         .pack-detail-container {
-          flex-direction: column;
+          grid-template-columns: 1fr;
         }
         .pack-sidebar {
-          width: 100%;
-          order: -1;
-        }
-        
-        .pack-title {
-          font-size: 2.5rem;
-        }
-        
-        .pack-subtitle {
-          font-size: 1.2rem;
-        }
-        
-        .content-section h3 {
-          font-size: 1.25rem;
+          order: -1; /* Show booking on top on mobile? Maybe below is better for UX on mobile. keeping default for now */
+          order: 1; 
         }
       }
-      
-      @media (max-width: 768px) {
-        .pack-title {
-          font-size: 2rem;
-          letter-spacing: -0.3px;
-        }
-        
-        .pack-subtitle {
-          font-size: 1.1rem;
-        }
-        
-        .content-section h3 {
-          font-size: 1.15rem;
-        }
-        
-        .content-section p,
-        .content-section li {
-          font-size: 1rem;
-        }
-        
-        .section-tab {
-          font-size: 0.75rem;
-          letter-spacing: 2px;
-          padding: 8px 20px;
-        }
+
+      /* Left Column Content */
+      .pack-header {
+        margin-bottom: 40px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 30px;
       }
-      
-      @media (max-width: 480px) {
-        .pack-title {
-          font-size: 1.75rem;
-        }
-        
-        .pack-subtitle {
-          font-size: 1rem;
-        }
-        
-        .content-section h3 {
-          font-size: 1.1rem;
-        }
-        
-        .content-section p,
-        .content-section li {
-          font-size: 0.95rem;
-        }
-      }
-      
-      /* Section Styles - Matching "WHO ARE WE?" Typography */
-      .pack-title {
-        font-family: 'Inter', sans-serif;
-        font-size: 3.2rem;
-        font-weight: 800;
-        color: #1a365d;
-        line-height: 1.1;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        letter-spacing: -0.5px;
-      }
-      
-      .pack-subtitle {
-        font-family: 'Inter', sans-serif;
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: #2c3e50;
-        line-height: 1.3;
-        margin-bottom: 20px;
-      }
-      
-      .content-section h3 {
-        font-family: 'Inter', sans-serif;
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: #2c3e50;
-        line-height: 1.3;
-        margin-bottom: 20px;
-      }
-      
-      .content-section p,
-      .content-section li {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.05rem;
-        color: #6b7280;
-        line-height: 1.8;
-        font-weight: 400;
-      }
-      
-      .programme-content h4 {
-        font-family: 'Inter', sans-serif;
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: #2c3e50;
-        line-height: 1.3;
-        margin-bottom: 10px;
-      }
-      
-      .programme-content p {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.05rem;
-        color: #6b7280;
-        line-height: 1.8;
-        font-weight: 400;
-      }
-      
-      .section-tab {
-        display: inline-block;
-        background: #fff;
-        border: 2px solid #c9a961;
-        color: #bc6c25;
-        padding: 10px 25px;
-        font-family: 'Inter', sans-serif;
+
+      .rating-badge {
+        display: inline-flex;
+        align-items: center;
+        background: #fff8e1;
+        color: #b7860b;
+        padding: 6px 12px;
+        border-radius: 20px;
         font-weight: 600;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 2.5px;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+
+      .pack-title {
+        font-family: "EB Garamond", serif;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        color: var(--color-dark);
+        margin-bottom: 20px;
+      }
+
+      .highlights-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 25px;
+      }
+
+      .highlight-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        color: var(--color-text);
+        background: white;
+        padding: 8px 16px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+      }
+
+      .section-title {
+        font-family: "EB Garamond", serif;
+        font-size: 2rem;
+        color: var(--color-dark);
         margin-bottom: 25px;
+        margin-top: 50px;
       }
-      
-      .icon-list li {
-        padding: 8px 0 8px 30px;
+
+      /* Visual Timeline */
+      .timeline-container {
         position: relative;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.05rem;
-        color: #6b7280;
-        line-height: 1.8;
-        font-weight: 400;
+        padding-left: 30px;
+        margin: 40px 0;
       }
-      
-      .icon-list li:before {
-        content: "●";
+
+      .timeline-line {
         position: absolute;
-        left: 0;
-        top: 8px;
-        color: #c9a961;
-        font-size: 1.4rem;
-        line-height: 1;
+        left: 15px;
+        top: 10px;
+        bottom: 10px;
+        width: 2px;
+        background: #e2e8f0;
       }
-      
-      .programme-badge {
-        width: 80px;
-        height: 80px;
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 40px;
+      }
+
+      .timeline-icon {
+        position: absolute;
+        left: -45px;
+        top: 0;
+        width: 32px;
+        height: 32px;
+        background: var(--color-gold);
         border-radius: 50%;
-        background: linear-gradient(135deg, #c9a961, #b8860b);
-        color: white;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        flex-shrink: 0;
-        padding: 10px;
-        text-align: center;
-        line-height: 1.2;
-      }
-      
-      .price-box {
-        background: linear-gradient(135deg, #c9a961, #b8860b);
         color: white;
+        z-index: 2;
+        box-shadow: 0 0 0 5px #fff;
+      }
+
+      .timeline-content h4 {
+        font-family: "EB Garamond", serif;
+        font-size: 1.4rem;
+        color: var(--color-dark);
+        margin-bottom: 5px;
+      }
+
+      /* Inclusions Grid */
+      .inclusions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        background: #f8fafc;
         padding: 30px;
-        text-align: center;
-        margin-bottom: 20px;
+        border-radius: var(--radius-lg);
+        border: 1px solid #edf2f7;
+      }
+
+      .check-list li, .cross-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 1rem;
+      }
+
+      .check-list li svg { color: var(--color-gold); }
+      .cross-list li svg { color: #a0aec0; }
+
+      /* Masonry Gallery */
+      .masonry-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 200px);
+        gap: 15px;
       }
       
-      .price-box h3 {
-        font-family: 'Inter', sans-serif;
+      .masonry-item {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        transition: transform 0.3s ease;
+      }
+      
+      .masonry-item:first-child {
+        grid-row: span 2;
+        height: 100%;
+      }
+
+      /* Sticky Booking Card */
+      .booking-card {
+        position: sticky;
+        top: 120px;
+        background: white;
+        padding: 30px;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-soft);
+        border: 1px solid rgba(0,0,0,0.04);
+        transition: box-shadow 0.3s ease;
+      }
+
+      .booking-card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+
+      .price-tag {
+        font-family: "EB Garamond", serif;
+        font-size: 2.5rem;
+        color: var(--color-gold);
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .price-sub {
         font-size: 0.9rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 15px;
-        opacity: 0.9;
+        color: #718096;
       }
-      
-      .price-box .price-note {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 0.85rem;
-        opacity: 0.9;
-        line-height: 1.4;
-      }
-      
-      .price-amount {
-        font-family: 'Inter', sans-serif;
-        font-size: 3rem;
-        font-weight: 800;
-        letter-spacing: -1px;
-      }
-      
-      .price-box p {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-      
-      .whatsapp-cta-box {
-        background: linear-gradient(135deg, #25D366, #128C7E);
-        color: white;
-        padding: 30px;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      .whatsapp-cta-box h4 {
-        font-family: 'Inter', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-      }
-      
-      .whatsapp-cta-box p {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        opacity: 0.95;
-        margin-bottom: 20px;
-      }
-      
-      .btn-whatsapp {
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      
-      .other-services-box {
-        background: #2c3e50;
-        color: white;
-        padding: 30px;
-      }
-      
-      .other-services-box h4 {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 10px;
-        opacity: 0.7;
-      }
-      
-      .other-services-box h3 {
-        font-family: 'Inter', sans-serif;
-        font-size: 1.3rem;
-        font-weight: 700;
-        line-height: 1.3;
-        margin-bottom: 25px;
-      }
-      
-      .service-link {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1rem;
-        line-height: 1.6;
-        font-weight: 400;
-      }
-      
-      .booking-form-box h4 {
-        font-family: 'Inter', sans-serif;
-        font-size: 1.1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      
-      .booking-form-box label {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 0.9rem;
-        font-weight: 400;
-        color: #555;
-      }
-      
-      .booking-form-box .btn-submit {
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      
-      .booking-form-wrapper {
-        background: #fff;
-        border: 2px solid #e9ecef;
-        margin-bottom: 20px;
-      }
-      
-      .booking-form-header {
-        background: linear-gradient(135deg, #c9a961, #b8860b);
-        color: white;
-        padding: 15px 20px;
-        text-align: center;
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      
-      .booking-form {
-        padding: 30px;
-      }
-      
-      .form-group {
-        margin-bottom: 20px;
-      }
-      
-      .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        color: rgba(0, 0, 0, 0.7);
-        font-size: 14px;
-        font-weight: 600;
-        font-family: "Poppins", Arial, sans-serif;
-      }
-      
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
+
+      .booking-input {
         width: 100%;
         padding: 12px 15px;
-        border: 1px solid #ddd;
-        background: #f8f9fa;
-        font-size: 16px;
-        font-family: "Poppins", Arial, sans-serif;
-        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-family: "Open Sans", sans-serif;
+        transition: all 0.2s;
       }
-      
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
+
+      .booking-input:focus {
+        border-color: var(--color-gold);
         outline: none;
-        border-color: #c9a961;
-        background: #fff;
+        box-shadow: 0 0 0 3px rgba(188, 108, 37, 0.1);
       }
-      
-      .btn-submit {
+
+      .btn-reserve {
         width: 100%;
-        background: linear-gradient(135deg, #c9a961, #b8860b);
+        background: var(--color-dark);
         color: white;
-        border: none;
-        padding: 15px;
-        font-size: 16px;
-        font-weight: 700;
-        font-family: "Poppins", Arial, sans-serif;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 600;
         text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none;
         cursor: pointer;
-        transition: all 0.3s ease;
-        letter-spacing: 0.5px;
+        transition: all 0.3s;
+        margin-top: 10px;
       }
-      
-      .btn-submit:hover {
+
+      .btn-reserve:hover {
+        background: var(--color-gold);
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(201, 169, 97, 0.4);
+      }
+
+      .trust-badges {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+
+      .trust-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.75rem;
+        color: #718096;
+        gap: 5px;
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 768px) {
+        .pack-title { font-size: 2.2rem; }
+        .highlights-row { gap: 10px; }
+        .inclusions-grid { grid-template-columns: 1fr; }
+        .masonry-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+        .masonry-item:first-child { grid-row: span 1; height: 250px; }
       }
     </style>
   </head>
@@ -508,184 +379,191 @@
       </div>
     </div>
 
-    <!-- Package Detail Content - Two Column Layout -->
+    <!-- Package Details Component -->
     <div class="pack-detail-container">
       
-      <!-- Left Column: Main Content -->
+      <!-- LEFT COLUMN (65%) -->
       <div class="pack-main-content">
         
-        <!-- Page Title -->
-        <h1 class="pack-title">Agafay Marrakech Desert Basic Pack - Quad & Dromadaire Aventure</h1>
-        
-        <!-- Feature Image -->
-        <div style="margin-bottom: 40px;">
-          <img src="../images/hotel-2.jpg" alt="Agafay Basic Pack" style="width: 100%; height: 400px; object-fit: cover;">
-        </div>
-        
-        <!-- Description Section -->
-        <div class="content-section">
-          <div class="section-tab">DESCRIPTION</div>
-          <h3 class="section-heading">À Quoi S'Attendre</h3>
-          <ul class="icon-list">
-            <li>Quad à travers les paysages lunaires de l'Agafay, entre plaines arides et collines dorées.</li>
-            <li>Balade traditionnelle à dos de dromadaire à travers les étendues paisibles du désert.</li>
-            <li>Spectacle culturel sous les étoiles, mêlant musique live, danse traditionnelle et ambiance orientale.</li>
-            <li>Dîner marocain authentique avec des saveurs traditionnelles qui éveilleront les sens et célèbreront la richesse de la cuisine locale.</li>
-          </ul>
-        </div>
-        
-        <!-- What's Included -->
-        <div class="content-section">
-          <h3 class="section-heading">Le Prix Comprend :</h3>
-          <ul class="icon-list check-list">
-            <li>Quad double (1h)</li>
-            <li>Balade à dos de dromadaire (20 min)</li>
-            <li>Dîner traditionnel</li>
-            <li>Spectacle</li>
-          </ul>
-        </div>
-        
-        <!-- What's NOT Included -->
-        <div class="content-section">
-          <h3 class="section-heading">Le Prix Ne Comprend Pas :</h3>
-          <ul class="icon-list cross-list">
-            <li>Transport</li>
-            <li>Boissons supplémentaires</li>
-          </ul>
-        </div>
-        
-        <!-- Add-ons Section -->
-        <div class="content-section">
-          <h3 class="section-heading">Complémentaires :</h3>
-          <ul class="icon-list">
-            <li>Guide professionnel</li>
-            <li>Dégustation de thé traditionnel à la menthe</li>
-          </ul>
-        </div>
-        
-        <!-- Programme Section -->
-        <div class="content-section">
-          <h3 class="section-heading">Programme</h3>
-          <p style="color: #555; line-height: 1.8; margin-bottom: 35px;">Vivez l'essence du désert d'Agafay avec notre formule Basique, combinant aventure palpitante et immersion dans la culture marocaine. Explorez des paysages à couper le souffle, profitez de moments de calme et découvrez l'authenticité du désert.</p>
-          
-          <div class="programme-item">
-            <div class="programme-badge">Activités</div>
-            <div class="programme-content">
-              <h4>Balade à dos de dromadaire</h4>
-              <p>Vivez une expérience unique à travers les dunes dorées du désert d'Agafay, découvrant des paysages arides.</p>
-              <p>Admirez la beauté naturelle de cet endroit magique, loin de l'agitation, dans une atmosphère apaisante et sereine.</p>
-            </div>
+        <!-- Header Info -->
+        <div class="pack-header">
+          <div class="rating-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="margin-right:5px"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            5.0 (120+ Reviews)
           </div>
           
-          <div class="programme-item">
-            <div class="programme-badge">Activités</div>
-            <div class="programme-content">
-              <h4>Quad Double</h4>
-              <p>Découvrez des étendues sauvages et arides, guidé par des experts pour une expérience en toute sécurité.</p>
-              <p>Profitez de la sensation de liberté tout en explorant ce cadre unique, dans une ambiance excitante et mémorable.</p>
+          <h1 class="pack-title">Agafay Desert Basic Pack</h1>
+          <p class="font-sans" style="font-size: 1.1rem; color: #718096; line-height: 1.6;">
+            Experience the magic of the Agafay Desert with our essential adventure package. Combining thrill and tradition, this is the perfect introduction to Moroccan desert life.
+          </p>
+
+          <div class="highlights-row">
+            <div class="highlight-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Duration: 4 Hours
             </div>
-          </div>
-          
-          <div class="programme-item">
-            <div class="programme-badge">Soirée</div>
-            <div class="programme-content">
-              <h4>Dîner</h4>
-              <p>Savourez un dîner marocain authentique entouré des paysages du désert.</p>
-              <p>Découvrez les saveurs riches de la cuisine traditionnelle, avec des plats soigneusement préparés, alliant des tajines parfumés aux pâtisseries délicates.</p>
+            <div class="highlight-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Location: Agafay Desert
             </div>
-          </div>
-          
-          <div class="programme-item">
-            <div class="programme-badge">Soirée</div>
-            <div class="programme-content">
-              <h4>Spectacle</h4>
-              <p>Laissez-vous emporter par la beauté et l'énergie de ce spectacle unique, pour un souvenir inoubliable.</p>
-              <p>Plongez dans un spectacle culturel envoûtant sous les étoiles, alliant musique live, danse traditionnelle et ambiance orientale.</p>
+            <div class="highlight-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Guide: Included
+            </div>
+            <div class="highlight-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              Transport: Optional
             </div>
           </div>
         </div>
-        
-        <!-- Gallery Section -->
-        <div class="content-section">
-          <h3 class="section-heading">GALERIE / PHOTOS</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-            <img src="../images/destination-1.jpg" alt="Quad adventure in Agafay" style="width: 100%; height: 250px; object-fit: cover;">
-            <img src="../images/destination-2.jpg" alt="Sunset views" style="width: 100%; height: 250px; object-fit: cover;">
-            <img src="../images/destination-3.jpg" alt="Traditional dinner setup" style="width: 100%; height: 250px; object-fit: cover;">
-            <img src="../images/destination-4.jpg" alt="Camel ride experience" style="width: 100%; height: 250px; object-fit: cover;">
+
+        <!-- The Experience (Timeline) -->
+        <h3 class="section-title">The Experience</h3>
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+          
+          <!-- Step 1 -->
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            </div>
+            <div class="timeline-content">
+              <h4>Pickup & Welcome</h4>
+              <p>Your journey begins with a warm welcome and transfer to our luxury camp in the heart of Agafay (if transport selected).</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="timeline-content">
+              <h4>Quad Biking Adventure (1 Hour)</h4>
+              <p>Feel the adrenaline as you race across the lunar landscapes on our powerful 300cc quads. Safety gear and briefing included.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-item">
+            <div class="timeline-icon">
+               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="timeline-content">
+              <h4>Camel Trek Sunset (20 Min)</h4>
+              <p>Slow down the pace with a traditional camel ride as the sun sets, painting the desert sky in hues of orange and purple.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <div class="timeline-content">
+              <h4>Dinner & Show</h4>
+              <p>Conclude your evening with a feast of Moroccan delicacies (Tajine, Couscous) accompanied by live Gnaoua music and fire eaters.</p>
+            </div>
           </div>
         </div>
-        
+
+        <!-- Inclusions Grid -->
+        <h3 class="section-title">What's Included</h3>
+        <div class="inclusions-grid">
+          <ul class="check-list list-unstyled">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 1 Hour Quad Biking</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 20 Min Camel Ride</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Traditional Dinner</li>
+          </ul>
+          <ul class="check-list list-unstyled">
+             <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Live Cultural Show</li>
+             <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Safety Equipment</li>
+             <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Mineral Water</li>
+          </ul>
+        </div>
+        <div style="margin-top: 15px; font-size: 0.9rem; color: #718096;">
+          <strong>Not Included:</strong> Hotel Transfer (Extra), Alcoholic Beverages.
+        </div>
+
+        <!-- Masonry Gallery -->
+        <h3 class="section-title">Gallery</h3>
+        <div class="masonry-grid">
+          <img src="../images/hotel-2.jpg" class="masonry-item" alt="Desert View">
+          <img src="../images/destination-2.jpg" class="masonry-item" alt="Quad Biking">
+          <img src="../images/destination-3.jpg" class="masonry-item" alt="Camel Ride">
+        </div>
+
       </div>
       
-      <!-- Right Sidebar -->
+      <!-- RIGHT COLUMN (35%) - Sticky Booking Card -->
       <div class="pack-sidebar">
-        <div class="sidebar-sticky">
+        <div class="booking-card">
           
-          <!-- Price Box -->
-          <div class="price-box">
-            <h3 style="font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase;">Prix</h3>
-            <div class="price-amount">400 DH</div>
-            <p style="font-size: 0.85rem; margin-top: 10px;">Le prix peut varier en fonction de la saison</p>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+            <div>
+              <div class="price-tag">400 DH</div>
+              <div class="price-sub">per person</div>
+            </div>
+            <div class="rating-badge" style="margin:0;">
+              ★ 5.0
+            </div>
           </div>
-          
-          <!-- Booking Form -->
-          <div class="booking-form-wrapper">
-            <h4 class="booking-form-header">Réservation</h4>
-            <form id="basicPackForm" class="booking-form">
+
+          <form id="basicPackForm">
+            <div class="form-group">
+              <label style="font-size:0.85rem; font-weight:600; margin-bottom:5px; display:block;">Full Name</label>
+              <input type="text" name="name" class="booking-input" placeholder="John Doe" required>
+            </div>
+            
+            <div class="form-group">
+              <label style="font-size:0.85rem; font-weight:600; margin-bottom:5px; display:block;">Email Address</label>
+              <input type="email" name="email" class="booking-input" placeholder="john@example.com" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
               <div class="form-group">
-                <label>Nom Complet</label>
-                <input type="text" name="name" required placeholder="Votre nom complet">
+                <label style="font-size:0.85rem; font-weight:600; margin-bottom:5px; display:block;">Date</label>
+                <input type="date" name="date" class="booking-input" required>
               </div>
               <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" required placeholder="votre.email@exemple.com">
-              </div>
-              <div class="form-group">
-                <label>Numéro de téléphone</label>
-                <input type="tel" name="phone" required placeholder="+212 612 345 678">
-              </div>
-              <div class="form-group">
-                <label>Date</label>
-                <input type="date" name="date" required>
-              </div>
-              <div class="form-group">
-                <label>Nombre de personne</label>
-                <select name="guests" required>
-                  <option value="">Sélectionner...</option>
-                  <option value="1">1 Personne</option>
-                  <option value="2">2 Personnes</option>
-                  <option value="3-4">3-4 Personnes</option>
-                  <option value="5+">5+ Personnes</option>
+                <label style="font-size:0.85rem; font-weight:600; margin-bottom:5px; display:block;">Guests</label>
+                <select name="guests" class="booking-input" required>
+                  <option value="1">1 Person</option>
+                  <option value="2" selected>2 People</option>
+                  <option value="3">3 People</option>
+                  <option value="4">4 People</option>
+                  <option value="5+">5+ Group</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label>Note</label>
-                <textarea name="note" rows="3" placeholder="Demandes spéciales..."></textarea>
-              </div>
-              <button type="submit" class="btn-submit">Submit</button>
-            </form>
+            </div>
+
+            <button type="submit" class="btn-reserve">
+              Reserve Now
+            </button>
+          </form>
+
+          <div class="trust-badges">
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Secure Booking
+            </div>
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Best Price
+            </div>
+            <div class="trust-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Local Expert
+            </div>
           </div>
           
-          <!-- WhatsApp CTA -->
-          <div class="whatsapp-cta-box">
-            <h4 style="font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase;">Pour Une Réservation Rapide Par WhatsApp</h4>
-            <p style="font-size: 0.95rem; margin-bottom: 20px;">pour une réservation rapide veuillez nous envoyez par whatsapp</p>
-            <a href="https://wa.me/212612345678?text=Bonjour! Je suis intéressé par le Pack Basic." style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white; padding: 12px 30px; font-weight: 700; text-transform: uppercase; text-decoration: none; display: inline-block;">RÉSERVEZ MAINTENANT</a>
+          <div style="text-align: center; margin-top: 20px;">
+             <p style="font-size: 0.9rem; color: #718096; margin-bottom: 10px;">Need help?</p>
+             <a href="https://wa.me/212612345678" style="display: inline-flex; align-items: center; color: #25D366; font-weight: 600; text-decoration: none;">
+               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+               Chat on WhatsApp
+             </a>
           </div>
-          
-          <!-- Other Services -->
-          <div class="other-services-box">
-            <h4 style="font-size: 0.85rem; margin-bottom: 10px; text-transform: uppercase; opacity: 0.7; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;">Autre Services</h4>
-            <h3 style="font-size: 1.3rem; margin-bottom: 25px; text-align: center;">Découvrir Autres Services D'Agafay Marrakech</h3>
-            <a href="../activities.html" class="service-link">Dromadaire Agafay Marrakech</a>
-            <a href="../activities.html" class="service-link">Quad Agafay</a>
-            <a href="../activities.html" class="service-link">Buggy Agafay Marrakech</a>
-            <a href="../activities.html" class="service-link">Organisation Mariage Agafay Marrakech</a>
-            <a href="../contact.html" class="service-link">Demande En Mariages Agafay</a>
-            <a href="../activities.html" class="service-link">Organisation soirées Agafay</a>
-          </div>
-          
         </div>
       </div>
       

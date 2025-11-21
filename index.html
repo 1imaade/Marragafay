@@ -1614,7 +1614,8 @@
           <div class="col-lg-10 text-center" data-aos="fade-up" data-aos-duration="1000">
             <div class="section-title-block">
               <p class="section-subtitle">Our All-Inclusive Packages</p>
-              <h2 class="section-main-title">Our Best Packages</h2>
+              <h2 class="section-main-title">Explore Our Packages</h2>
+              <p class="text-muted mt-3" style="font-size: 1rem; color: #6c757d;">Click any package to view full details and book</p>
             </div>
           </div>
         </div>
@@ -4404,7 +4405,18 @@ document.addEventListener('DOMContentLoaded', function() {
   clickableCards.forEach(card => {
     card.addEventListener('click', function() {
       const packageType = this.getAttribute('data-package');
-      openModal(packageType);
+      
+      // Map package types to their respective pages
+      const packagePages = {
+        'classic': 'packages/basic.html',
+        'premium': 'packages/premium.html', 
+        'vip': 'packages/vip.html'
+      };
+      
+      // Navigate to the appropriate package page
+      if (packagePages[packageType]) {
+        window.location.href = packagePages[packageType];
+      }
     });
   });
 
