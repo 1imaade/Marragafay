@@ -541,51 +541,52 @@
             </div>
             <!-- End Dynamic Content Wrapper -->
 
-            <!-- Main Search Widget - STAYS VISIBLE (not part of slide transitions) -->
-            <div class="main-search-widget" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-              <form id="mainSearchForm" class="main-search-form">
-                <div class="form-group">
-                  <label for="activityType">Activity Type</label>
-                  <select id="activityType" name="activityType" class="form-control">
-                    <option value="">Select Activity</option>
-                    <option value="desert-tour">Desert Tour (Full Day)</option>
-                    <option value="overnight-camp">Overnight Camp</option>
-                    <option value="quad-biking">Quad Biking Only</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="bookingDate">Select Date</label>
-                  <input type="text" id="bookingDate" name="bookingDate" class="form-control" placeholder="Choose date" readonly>
-                </div>
-                <div class="form-group guest-counter-container">
-                  <label for="numGuests">Number of Guests</label>
-                  <div class="guest-counter" id="numGuests" name="numGuests">
-                    <span class="guest-display">1 Guest</span>
-                    <i class="icon-chevron-down"></i>
-                  </div>
-                  <!-- Hidden popup for guest selection -->
-                  <div class="guest-popup" id="guestPopup">
-                    <div class="guest-counter-item">
-                      <label>Adults</label>
-                      <div class="counter-controls">
-                        <button type="button" class="counter-btn minus" data-target="adults">-</button>
-                        <input type="number" class="counter-input" id="adultsCount" value="1" min="1" max="50" readonly>
-                        <button type="button" class="counter-btn plus" data-target="adults">+</button>
-                      </div>
-                    </div>
-                    <div class="guest-counter-item">
-                      <label>Children (under 12)</label>
-                      <div class="counter-controls">
-                        <button type="button" class="counter-btn minus" data-target="children">-</button>
-                        <input type="number" class="counter-input" id="childrenCount" value="0" min="0" max="50" readonly>
-                        <button type="button" class="counter-btn plus" data-target="children">+</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <button type="submit" class="btn-search">Search Packages</button>
-              </form>
+            <!-- Premium CTA Button - Replaces Search Widget -->
+            <div class="hero-cta-container" style="display: flex; flex-direction: column; align-items: center;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+              <a href="#packs" class="btn-hero-cta js-scroll-trigger">
+                Discover Our Packs
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+              </a>
             </div>
+
+            <style>
+              .btn-hero-cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background-color: #C69438; /* Premium Gold/Earth Color */
+                color: #ffffff !important;
+                text-transform: uppercase;
+                font-family: "Poppins", sans-serif;
+                font-weight: 700;
+                font-size: 1rem;
+                letter-spacing: 0.15em; /* Tracking widest */
+                padding: 14px 35px; /* Comfortable padding */
+                border-radius: 4px; /* Rounded-md feel */
+                text-decoration: none !important;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                border: none;
+                margin-top: 25px;
+              }
+              
+              .btn-hero-cta:hover {
+                background-color: #b0822f; /* Slightly darker on hover */
+                transform: translateY(-4px); /* Lift effect */
+                box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+                color: #ffffff !important;
+              }
+
+              .btn-hero-cta svg {
+                transition: transform 0.3s ease;
+              }
+
+              .btn-hero-cta:hover svg {
+                transform: translateY(3px);
+              }
+            </style>
 
           </div>
         </div>
