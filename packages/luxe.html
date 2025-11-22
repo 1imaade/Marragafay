@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Luxe Pack - Agafay Desert | Marragafay</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="../css/animate.css">
-  
+
   <!-- Favicon -->
   <link rel="icon" href="../images/main-logo.jpg">
 </head>
+
 <body>
-  
+
   <!-- Page Content Root -->
   <div id="page-root"></div>
 
@@ -29,10 +33,10 @@
   <script src="../js/jquery.waypoints.min.js"></script>
   <script src="../js/owl.carousel.min.js"></script>
   <script src="../js/main.js"></script>
-  
+
   <!-- Master Template -->
   <script src="../js/TourPageTemplate.js"></script>
-  
+
   <script>
     TourPageTemplate.render({
       title: "Luxe Desert Experience",
@@ -42,14 +46,14 @@
       heroImage: "../images/hotel-3.jpg",
       rating: "5.0",
       reviews: "200+",
-      
+
       highlights: [
         { icon: "clock", text: "Full Day & Night" },
         { icon: "user", text: "Private Guide & Butler" },
         { icon: "bus", text: "Luxury 4x4 Transfer" },
         { icon: "check", text: "All Inclusive" }
       ],
-      
+
       timeline: [
         { title: "VIP Pickup", text: "Private chauffeur pickup from your hotel in a luxury 4x4 vehicle.", icon: "bus" },
         { title: "Welcome Ceremony", text: "Traditional milk & dates welcome ritual upon arrival at the VIP camp.", icon: "star" },
@@ -57,7 +61,7 @@
         { title: "Gourmet Dinner", text: "5-course Moroccan feast served in your private tent or under the stars.", icon: "check" },
         { title: "Night Entertainment", text: "Private fire show and Gnaoua music performance.", icon: "star" }
       ],
-      
+
       included: [
         "Private Luxury Tent (En-suite)",
         "Private 4x4 Transfers",
@@ -66,9 +70,9 @@
         "Butler Service",
         "All Soft Drinks"
       ],
-      
+
       notIncluded: "Alcoholic beverages (available at bar), Gratuities",
-      
+
       gallery: [
         "../images/hotel-3.jpg",
         "../images/slide2.jpg",
@@ -77,5 +81,11 @@
       ]
     }, 'page-root');
   </script>
+
+  <!-- Supabase Integration -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/supabase-client.js"></script>
+  <script src="../js/booking-manager.js"></script>
 </body>
+
 </html>
