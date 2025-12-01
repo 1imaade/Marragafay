@@ -1,4 +1,14 @@
 // Booking Manager - Handles form submission and Supabase integration
+
+const PRICE_LIST = {
+    "Basic": 400,
+    "Comfort": 550,
+    "Luxe": 800,
+    "Quad": 350,
+    "Buggy": 600,
+    "Camel": 200
+};
+
 console.log('Booking Manager Loaded');
 
 // Dynamically load SweetAlert2 if not already present
@@ -36,6 +46,21 @@ document.addEventListener('submit', async function (e) {
             package_title: formData.get('package_title') || document.title, // Fallback to page title if hidden input is missing
             notes: formData.get('message') || ''
         };
+
+        // Calculate Price Logic
+        let pricePerPerson = 400; // Default fallback
+        const titleToCheck = bookingData.package_title || '';
+
+        for (const key in PRICE_LIST) {
+            if (titleToCheck.includes(key)) {
+                pricePerPerson = PRICE_LIST[key];
+                break;
+            }
+        }
+
+        const total = pricePerPerson * bookingData.guests_count;
+        bookingData.total_price = total;
+
 
         // Debug log to see what we captured
         console.log('Captured Data:', bookingData);
