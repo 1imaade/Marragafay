@@ -29,5 +29,5 @@ const dinnerShowData = {
     inclusions: ['Traditional 3-Course Dinner', 'Mint Tea & Moroccan Pastries', 'Live Gnaoua Music', 'Belly Dancing Show', 'Fire Performance', 'Bonfire Experience', 'Vegetarian Options Available'],
     notIncluded: 'Hotel Transfer (Available as add-on), Alcoholic Beverages, Tips.',
     galleryImages: ['../images/hotel-2.jpg', '../images/destination-2.jpg', '../images/slide2.jpg'],
-    price: '200 DH'
+    price: '300 MAD'
 };

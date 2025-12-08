@@ -2,10 +2,10 @@
 
 const PRICE_LIST = {
     "Basic": 400,
-    "Comfort": 550,
-    "Luxe": 800,
+    "Comfort": 600,
+    "Luxe": 1200,
     "Quad": 350,
-    "Buggy": 600,
+    "Buggy": 850,
     "Camel": 200
 };
 

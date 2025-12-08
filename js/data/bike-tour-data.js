@@ -29,5 +29,5 @@ const bikeTourData = {
     inclusions: ['Mountain Bike', 'Safety Helmet', 'Repair Kit', 'Expert Guide', 'Mineral Water & Snacks', 'Insurance'],
     notIncluded: 'Hotel Transfer (Available as add-on), Meals.',
     galleryImages: ['../images/slide4.jpg', '../images/destination-2.jpg', '../images/hotel-2.jpg'],
-    price: '220 DH'
+    price: '300 MAD'
 };

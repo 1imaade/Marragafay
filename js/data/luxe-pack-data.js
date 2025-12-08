@@ -109,5 +109,5 @@ const luxePackData = {
     ],
 
     // Pricing
-    price: '1,500 DH'
+    price: '1200 MAD'
 };

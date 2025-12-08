@@ -29,5 +29,5 @@ const camelRideData = {
     inclusions: ['Camel Trek', 'Berber Handler', 'Traditional Clothing (Optional)', 'Mineral Water', 'Insurance'],
     notIncluded: 'Hotel Transfer (Available as add-on), Photos (Available for purchase).',
     galleryImages: ['../images/slide3.jpg', '../images/hotel-2.jpg', '../images/destination-3.jpg'],
-    price: '150 DH'
+    price: '200 MAD'
 };

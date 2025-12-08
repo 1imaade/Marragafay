@@ -100,5 +100,5 @@ const comfortPackData = {
     ],
 
     // Pricing
-    price: '750 DH'
+    price: '600 MAD'
 };

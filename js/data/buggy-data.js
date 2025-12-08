@@ -29,5 +29,5 @@ const buggyRidingData = {
     inclusions: ['2-Seater Buggy', 'Safety Helmets', 'Safety Briefing', 'Expert Guide', 'Mineral Water', 'Insurance'],
     notIncluded: 'Hotel Transfer (Available as add-on), Photos (Available for purchase).',
     galleryImages: ['../images/destination-3.jpg', '../images/hotel-2.jpg', '../images/destination-2.jpg'],
-    price: '300 DH'
+    price: '850 MAD'
 };

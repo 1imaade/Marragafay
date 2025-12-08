@@ -91,5 +91,5 @@ const basicPackData = {
     ],
 
     // Pricing
-    price: '400 DH'
+    price: '400 MAD'
 };

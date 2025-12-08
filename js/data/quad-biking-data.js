@@ -91,5 +91,5 @@ const quadBikingData = {
     ],
 
     // Pricing
-    price: '250 DH'
+    price: '350 MAD'
 };

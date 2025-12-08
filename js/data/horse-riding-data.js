@@ -29,5 +29,5 @@ const horseRidingData = {
     inclusions: ['Arabian/Berber Horse', 'Riding Equipment', 'Safety Helmet', 'Expert Guide', 'Mineral Water', 'Insurance'],
     notIncluded: 'Hotel Transfer (Available as add-on), Photos (Available for purchase).',
     galleryImages: ['../images/destination-3.jpg', '../images/hotel-2.jpg', '../images/slide4.jpg'],
-    price: '280 DH'
+    price: '550 MAD'
 };

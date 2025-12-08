@@ -1,15 +1,15 @@
-(function(){
-  function loadScript(src){
-    return new Promise(function(resolve, reject){
+(function () {
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
       var s = document.createElement('script');
       s.src = src; s.async = true; s.onload = resolve; s.onerror = reject;
       document.head.appendChild(s);
     });
   }
 
-  function ensureRoot(){
+  function ensureRoot() {
     var root = document.getElementById('page-root');
-    if(!root){
+    if (!root) {
       root = document.createElement('div');
       root.id = 'page-root';
       document.body.insertBefore(root, document.body.firstChild);
@@ -17,14 +17,14 @@
     return root;
   }
 
-  function hideLegacy(){
+  function hideLegacy() {
     var style = document.createElement('style');
     style.setAttribute('data-basic-refactor', 'true');
     style.textContent = 'body > :not(#page-root):not(script){display:none !important;}';
     document.head.appendChild(style);
   }
 
-  function initHeroSlider(){
+  function initHeroSlider() {
     if (!window.jQuery || !window.jQuery.fn || !window.jQuery.fn.owlCarousel) return;
     var $ = window.jQuery;
     if ($('.hero-bg-slider').length) {
@@ -42,17 +42,17 @@
         mouseDrag: false,
         pullDrag: false,
         freeDrag: false,
-        onInitialized: function() {
+        onInitialized: function () {
           $('.hero-wrap .container').css('position', 'relative').css('z-index', '2');
           var $slider = $('.hero-bg-slider');
-          $slider.on('change.owl.carousel', function() {
+          $slider.on('change.owl.carousel', function () {
             $slider.find('.owl-item').not('.active').find('.slider-bg').css({
               transform: 'scale(1)',
               '-webkit-transform': 'scale(1)'
             });
           });
-          $slider.on('changed.owl.carousel', function() {
-            $slider.find('.owl-item').not('.active').find('img').each(function() {
+          $slider.on('changed.owl.carousel', function () {
+            $slider.find('.owl-item').not('.active').find('img').each(function () {
               var img = new Image();
               img.src = $(this).attr('src');
             });
@@ -62,11 +62,11 @@
     }
   }
 
-  function renderBasic(){
+  function renderBasic() {
     var data = {
       title: "Agafay Desert Basic Pack",
       subTitle: "Packs",
-      price: "400 DH",
+      price: "400 MAD",
       description: "Experience the magic of the Agafay Desert with our essential adventure package. Combining thrill and tradition, this is the perfect introduction to Moroccan desert life.",
       heroImages: [
         "../images/hotel-2.jpg",
@@ -117,8 +117,8 @@
       initHeroSlider();
     } else {
       loadScript('../js/TourPageTemplate.js')
-        .then(function(){ TourPageTemplate.render(data, 'page-root'); initHeroSlider(); })
-        .catch(function(err){ console.error('Failed to load TourPageTemplate.js', err); });
+        .then(function () { TourPageTemplate.render(data, 'page-root'); initHeroSlider(); })
+        .catch(function (err) { console.error('Failed to load TourPageTemplate.js', err); });
     }
   }
 
