@@ -54,7 +54,8 @@
   width: 300px;
   height: 200px;
   background: #bc6c25;
-  z-index: 5; /* Gold badge - highest in section but below navbar */
+  z-index: 5;
+  /* Gold badge - highest in section but below navbar */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,7 +115,8 @@
   right: 0;
   width: 350px;
   height: 230px;
-  z-index: 1; /* Lowest layer - behind badge and other images */
+  z-index: 1;
+  /* Lowest layer - behind badge and other images */
 }
 
 /* Image 2 - Bottom left (luxury camp) - Middle layer */
@@ -123,7 +125,8 @@
   left: 0;
   width: 320px;
   height: 220px;
-  z-index: 2; /* Middle layer - above image 1, below image 3 and badge */
+  z-index: 2;
+  /* Middle layer - above image 1, below image 3 and badge */
 }
 
 /* Image 3 - Bottom right (camel sunset) - Front image layer */
@@ -132,7 +135,8 @@
   right: 40px;
   width: 380px;
   height: 250px;
-  z-index: 3; /* Front image - above other images, below badge */
+  z-index: 3;
+  /* Front image - above other images, below badge */
 }
 
 /* ========================================= */
@@ -218,7 +222,7 @@
 
 .why-choose-card {
   background: transparent;
-  padding: 0;
+  padding: 15px;
   text-align: left;
   transition: all 0.3s ease;
   box-shadow: none;
@@ -226,7 +230,9 @@
   align-items: flex-start;
   gap: 15px;
   flex: 1;
-  max-width: 180px;
+  /* Removed fixed max-width to allow text to fit */
+  min-height: auto;
+  overflow-wrap: break-word;
 }
 
 .why-choose-card:hover {
@@ -285,43 +291,43 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
-  
+
   .why-choose-images {
     height: 550px;
   }
-  
+
   .why-choose-title {
     font-size: 2.4rem;
   }
-  
+
   .why-choose-image-1 {
     width: 280px;
     height: 180px;
     top: 15px;
     right: 0;
   }
-  
+
   .why-choose-image-2 {
     width: 260px;
     height: 170px;
     bottom: 150px;
     left: 0;
   }
-  
+
   .why-choose-image-3 {
     width: 300px;
     height: 200px;
     bottom: 0;
     right: 30px;
   }
-  
+
   .why-choose-badge {
     width: 250px;
     height: 160px;
     top: 60px;
     left: 40px;
   }
-  
+
   .why-choose-badge-text {
     font-size: 1.4rem;
   }
@@ -332,58 +338,65 @@
   .why-choose-section {
     padding: 60px 0;
   }
-  
+
   .why-choose-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
-  
+
   .why-choose-images {
     height: 420px;
     max-width: 400px;
     margin: 0 auto;
   }
-  
+
   .why-choose-content {
     padding-left: 0;
   }
-  
+
   .why-choose-title {
     font-size: 2rem;
   }
-  
+
   .why-choose-cards {
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
+    /* Handled by margin-bottom on cards */
   }
-  
+
+  .why-choose-card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
   .why-choose-image-1 {
     width: 220px;
     height: 140px;
     top: 10px;
     right: 10px;
   }
-  
+
   .why-choose-image-2 {
     width: 200px;
     height: 140px;
     bottom: 120px;
     left: 10px;
   }
-  
+
   .why-choose-image-3 {
     width: 210px;
     height: 130px;
     bottom: 10px;
     right: 30px;
   }
-  
+
   .why-choose-badge {
     width: 180px;
     height: 130px;
     padding: 20px;
   }
-  
+
   .why-choose-badge-text {
     font-size: 1.2rem;
   }
@@ -394,42 +407,42 @@
   .why-choose-container {
     padding: 0 20px;
   }
-  
+
   .why-choose-images {
     height: 360px;
   }
-  
+
   .why-choose-title {
     font-size: 1.75rem;
   }
-  
+
   .why-choose-image-1 {
     width: 180px;
     height: 120px;
   }
-  
+
   .why-choose-image-2 {
     width: 170px;
     height: 120px;
     bottom: 100px;
   }
-  
+
   .why-choose-image-3 {
     width: 180px;
     height: 110px;
     right: 20px;
   }
-  
+
   .why-choose-badge {
     width: 160px;
     height: 110px;
     padding: 15px;
   }
-  
+
   .why-choose-badge-text {
     font-size: 1.05rem;
   }
-  
+
   .why-choose-description {
     font-size: 1rem;
   }
@@ -450,7 +463,7 @@
   .why-choose-title {
     color: #000000;
   }
-  
+
   .why-choose-description {
     color: #000000;
   }
@@ -461,7 +474,7 @@
   .why-choose-card {
     transition: none;
   }
-  
+
   .why-choose-card:hover {
     transform: none;
   }

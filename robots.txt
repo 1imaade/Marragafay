@@ -19,7 +19,7 @@ User-agent: DotBot
 Disallow: /
 
 # Sitemap (update when you create one)
-# Sitemap: https://yourdomain.com/sitemap.xml
+# Sitemap: https://Marragafay.com/sitemap.xml
 
 # Crawl-delay to reduce request frequency (in seconds)
 Crawl-delay: 10

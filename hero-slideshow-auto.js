@@ -5,38 +5,38 @@
 // AUTO-ADVANCE ENABLED: Slides cycle automatically + manual controls available
 // SLIDE COUNTER REMOVED: No "(4/4)" indicator displayed
 
-(function() {
+(function () {
   'use strict';
-  
+
   // ========================================
   // CONFIGURATION - ADJUST SLIDESHOW SPEED HERE
   // ========================================
   const AUTO_ADVANCE_INTERVAL = 7000; // Milliseconds between auto-advances (7 seconds = 7000ms)
   // Change to 6000 for 6 seconds, 8000 for 8 seconds, etc.
-  
+
   const TRANSITION_DURATION = 600; // Fade transition duration in milliseconds (400-700ms recommended)
-  
+
   // SLIDE DATA - Add/edit slides here
   // Each slide has: image, headline (with HTML), subtitle (marketing text)
   // TEXT-IMAGE SYNC: When image changes, headline and subtitle update together
   const heroSlides = [
     {
-      image: 'images/slide1.jpg',
+      image: 'images/Slider-images/slider-1.jpeg',
       headline: 'AGAFAY DESERT<br><span style="color: #cfbda5; font-weight: 400;">EXPERIENCE</span>',
       subtitle: 'Discover the authentic essence of the Moroccan desert in a setting of exceptional luxury'
     },
     {
-      image: 'images/slide2.jpg',
+      image: 'images/Slider-images/slider-2.jpg',
       headline: 'SUNSET CAMEL<br><span style="color: #cfbda5; font-weight: 400;">RIDES</span>',
       subtitle: 'Experience the authentic Agafay adventure as golden hour illuminates the desert dunes'
     },
     {
-      image: 'images/slide3.jpg',
+      image: 'images/Slider-images/slider-3.jpg',
       headline: 'LUXURY CAMP<br><span style="color: #cfbda5; font-weight: 400;">NIGHTS</span>',
       subtitle: 'Comfort meets wilderness under a blanket of stars in our premium desert accommodations'
     },
     {
-      image: 'images/hotel-1.jpg',
+      image: 'images/Slider-images/slider-4.jpeg',
       headline: 'EXCLUSIVE DESERT<br><span style="color: #cfbda5; font-weight: 400;">DINING</span>',
       subtitle: 'Savor traditional Moroccan cuisine in an unforgettable open-air setting'
     }
@@ -70,10 +70,10 @@
   function init() {
     // Preload images
     preloadImages();
-    
+
     // Set initial background
     bgImage.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${heroSlides[0].image}')`;
-    
+
     // Create luxury navigation dots
     heroSlides.forEach((slide, index) => {
       const dot = document.createElement('button');
@@ -121,7 +121,7 @@
   // ========================================
   // AUTO-ADVANCE FUNCTIONS
   // ========================================
-  
+
   // Start automatic slideshow cycling
   function startAutoAdvance() {
     autoAdvanceTimer = setInterval(() => {
@@ -153,10 +153,10 @@
       headline.innerHTML = heroSlides[index].headline;
       // Subtitle updates with per-slide marketing description
       subtitle.textContent = heroSlides[index].subtitle;
-      
+
       // Update background image (crossfade effect)
       bgImage.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${heroSlides[index].image}')`;
-      
+
       // Update dots with elegant animation
       const dots = document.querySelectorAll('.hero-dot');
       dots.forEach((dot, i) => {
@@ -177,9 +177,9 @@
         contentWrapper.style.opacity = '1';
         contentWrapper.style.transform = 'translateY(0)';
       });
-      
+
       currentSlide = index;
-      
+
       // Release transition lock
       setTimeout(() => {
         isTransitioning = false;

@@ -46,6 +46,11 @@ const TourPageTemplate = (function () {
       .text-center { text-align: center; }
       .hero-container { height: 60vh; min-height: 400px; }
       .bg-black-40 { background-color: rgba(0,0,0,0.4); }
+      .hero-blur-overlay {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+        backdrop-filter: blur(3px);
+        box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+      }
       .text-white { color: white !important; }
 
       .font-serif { font-family: "EB Garamond", serif; }
@@ -235,7 +240,7 @@ const TourPageTemplate = (function () {
       <!-- Hero Section -->
       <div class="hero-container relative w-full">
         <img src="${bgImage}" class="absolute inset-0 h-full w-full object-cover" alt="${title}">
-        <div class="absolute inset-0 bg-black-40"></div>
+        <div class="absolute inset-0 hero-blur-overlay"></div>
         
         <div class="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <h1 class="mb-4 text-white" style="font-family: 'EB Garamond', serif; font-size: 3.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${title}</h1>
