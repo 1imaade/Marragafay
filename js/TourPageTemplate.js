@@ -225,8 +225,8 @@ const TourPageTemplate = (function () {
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="../activities.html" class="nav-link">Activities</a></li>
-              <li class="nav-item active"><a href="../packs.html" class="nav-link">Packs</a></li>
+              <li class="nav-item ${subTitle === 'Activity' ? 'active' : ''}"><a href="../activities.html" class="nav-link">Activities</a></li>
+              <li class="nav-item ${subTitle !== 'Activity' ? 'active' : ''}"><a href="../packs.html" class="nav-link">Packs</a></li>
               <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
               <li class="nav-item"><a href="../reviews.html" class="nav-link">Reviews</a></li>
               <li class="nav-item"><a href="../blog.html" class="nav-link">Blog</a></li>
@@ -436,36 +436,14 @@ const TourPageTemplate = (function () {
       const handleScroll = () => {
         const scrollTop = $(window).scrollTop();
 
-        // At 150px - add scrolled class
-        if (scrollTop > 150) {
+        // At 20px - add scrolled class (solid white)
+        if (scrollTop > 20) {
           if (!$navbar.hasClass('scrolled')) {
             $navbar.addClass('scrolled');
           }
-          // Add menu-scrolled class for menu icon color change
-          if (!$body.hasClass('menu-scrolled')) {
-            $body.addClass('menu-scrolled');
-          }
-        }
-        if (scrollTop < 150) {
+        } else {
           if ($navbar.hasClass('scrolled')) {
-            $navbar.removeClass('scrolled sleep');
-          }
-          // Remove menu-scrolled class when back to top
-          if ($body.hasClass('menu-scrolled')) {
-            $body.removeClass('menu-scrolled');
-          }
-        }
-
-        // At 350px - add awake class
-        if (scrollTop > 350) {
-          if (!$navbar.hasClass('awake')) {
-            $navbar.addClass('awake');
-          }
-        }
-        if (scrollTop < 350) {
-          if ($navbar.hasClass('awake')) {
-            $navbar.removeClass('awake');
-            $navbar.addClass('sleep');
+            $navbar.removeClass('scrolled');
           }
         }
       };
