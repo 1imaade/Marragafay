@@ -203,7 +203,7 @@ const TourPageTemplate = (function () {
       <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
           <a class="navbar-brand" href="../index.html"><img src="../images/logo-trensparent.png" alt="Marragafy"
-              style="width: 80px; height: auto;"></a>
+              style="width: 70px; height: 70px;"></a>
 
           <!-- Moved language switcher here -->
           <div class="mobile-language-switcher">

@@ -14828,3 +14828,17 @@ overflow: hidden;
     bottom: 20px !important;
   }
 }
+
+/* ========================================= */
+/* NAVBAR PADDING ADJUSTMENT - MOBILE ONLY */
+/* ========================================= */
+@media (max-width: 991.98px) {
+  .navbar.ftco_navbar.ftco-navbar-light {
+    padding: 5px 16px !important;
+  }
+
+  .navbar-brand img {
+    width: 70px !important;
+    height: 70px !important;
+  }
+}
