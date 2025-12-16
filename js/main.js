@@ -136,22 +136,29 @@ AOS.init({
 	});
 
 	// scroll
+	// scroll (Optimized for Performance)
 	var scrollWindow = function () {
-		$(window).scroll(function () {
-			var $w = $(this),
-				st = $w.scrollTop(),
-				navbar = $('.ftco_navbar'),
-				sd = $('.js-scroll-wrap');
+		var navbar = $('.ftco_navbar');
+		var lastScrollTop = 0;
+		var ticking = false;
 
-			if (st > 20) {
-				if (!navbar.hasClass('scrolled')) {
-					navbar.addClass('scrolled');
-				}
-			}
-			if (st <= 20) {
-				if (navbar.hasClass('scrolled')) {
-					navbar.removeClass('scrolled');
-				}
+		$(window).scroll(function () {
+			if (!ticking) {
+				window.requestAnimationFrame(function () {
+					var st = $(window).scrollTop();
+
+					if (st > 20) {
+						if (!navbar.hasClass('scrolled')) {
+							navbar.addClass('scrolled');
+						}
+					} else {
+						if (navbar.hasClass('scrolled')) {
+							navbar.removeClass('scrolled');
+						}
+					}
+					ticking = false;
+				});
+				ticking = true;
 			}
 		});
 	};

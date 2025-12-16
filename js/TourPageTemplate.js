@@ -74,19 +74,25 @@ const TourPageTemplate = (function () {
 
       /* Timeline */
       .section-title { font-family: "EB Garamond", serif; font-size: 2rem; color: var(--color-dark); margin-bottom: 25px; margin-top: 50px; }
-      .timeline-container { position: relative; padding-left: 30px; margin: 40px 0; }
-      .timeline-line { position: absolute; left: 15px; top: 10px; bottom: 10px; width: 2px; background: #e2e8f0; }
-      .timeline-item { position: relative; margin-bottom: 40px; }
-      .timeline-icon { position: absolute; left: -45px; top: 0; width: 32px; height: 32px; background: var(--color-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 2; box-shadow: 0 0 0 5px #fff; }
+      .timeline-container { position: relative; padding-left: 60px; margin: 40px 0; }
+      .timeline-container::before { content: ''; position: absolute; left: 35px; top: 0; bottom: 40px; width: 2px; background: #e0e0e0; }
+      .timeline-line { display: none; } /* Hide old line element, using ::before now */
+      .timeline-item { position: relative; padding-bottom: 40px; }
+      .timeline-item:last-child { padding-bottom: 0; }
+      .timeline-item:last-child::after { content: ''; position: absolute; left: -45px; top: 40px; bottom: 0; width: 2px; background: transparent; } /* Ensures line doesn't extend past last icon */
+      .timeline-icon { position: absolute; left: -45px; top: 0; width: 40px; height: 40px; background: var(--color-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 2; box-shadow: 0 0 0 4px #fff; }
       .timeline-content h4 { font-family: "EB Garamond", serif; font-size: 1.4rem; color: var(--color-dark); margin-bottom: 5px; }
+      .timeline-content p { color: #444; font-weight: 450; line-height: 1.6; margin-bottom: 0; }
 
       /* Inclusions */
-      .inclusions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #f8fafc; padding: 30px; border-radius: var(--radius-lg); border: 1px solid #edf2f7; }
-      .check-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 1rem; }
+      .inclusions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #f8fafc; padding: 30px; padding-left: 25px; border-radius: var(--radius-lg); border: 1px solid #edf2f7; }
+      .check-list { padding-left: 0; }
+      .check-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 1rem; white-space: nowrap; }
+      .check-list li svg { flex-shrink: 0; color: #22c55e; }
       
       /* Gallery */
-      .masonry-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 200px); gap: 15px; }
-      .masonry-item { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); transition: transform 0.3s ease; }
+      .masonry-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 200px); gap: 15px; margin-bottom: 40px; }
+      .masonry-item { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
       .masonry-item:first-child { grid-row: span 2; height: 100%; }
 
       /* Booking Card */
@@ -94,28 +100,122 @@ const TourPageTemplate = (function () {
       .booking-card:hover { box-shadow: var(--shadow-hover); }
       .price-tag { font-family: "EB Garamond", serif; font-size: 2.5rem; color: var(--color-gold); font-weight: 700; line-height: 1; }
       .booking-input { width: 100%; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; font-family: "Open Sans", sans-serif; transition: all 0.2s; }
-      .btn-reserve { width: 100%; background: var(--color-dark); color: white; padding: 16px; border-radius: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
-      .btn-reserve:hover { background: var(--color-gold); transform: translateY(-2px); }
+      .btn-reserve { width: 100%; background: #C19B76; color: white; padding: 16px; border-radius: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: 2px solid #C19B76; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
+      .btn-reserve:hover { background: #b08d68; border-color: #b08d68; transform: translateY(-2px); }
       .trust-badges { display: flex; justify-content: center; gap: 15px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
       .trust-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: #718096; gap: 5px; }
 
       /* Mobile */
       @media (max-width: 768px) {
-        .pack-detail-container { display: flex; flex-direction: column; padding: 0 15px; margin-top: 20px; margin-bottom: 100px; }
+        .pack-detail-container { display: flex; flex-direction: column; padding: 0 20px; margin-top: 20px; margin-bottom: 100px; }
         .pack-sidebar { order: 1; width: 100%; }
-        .booking-card { position: relative; top: 0; box-shadow: none; border: 1px solid #eee; padding: 20px; margin-top: 30px; }
+        .booking-card { position: relative; top: 0; box-shadow: none; border: 1px solid #eee; padding: 20px; margin-top: 40px; }
         .pack-title { font-size: 2rem; margin-bottom: 15px; }
         .section-title { font-size: 1.75rem; margin-top: 40px; margin-bottom: 20px; }
-        .timeline-container { padding-left: 20px; margin: 30px 0; }
-        .timeline-line { left: 10px; }
-        .timeline-icon { width: 28px; height: 28px; left: -34px; }
-        .masonry-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 15px; -ms-overflow-style: none; scrollbar-width: none; }
-        .masonry-grid::-webkit-scrollbar { display: none; }
-        .masonry-item { flex: 0 0 85%; height: 250px; scroll-snap-align: center; }
+        /* ===== MOBILE TIMELINE - HARD RESET ===== */
+        /* Line on EACH ITEM, Icon at left:0, Line at left:24px */
+        
+        /* 1. RESET CONTAINER - Remove all padding/borders */
+        .timeline-container { 
+          position: relative !important;
+          padding-left: 0 !important;
+          margin: 30px 15px !important; /* 15px from screen edges */
+          border: none !important;
+        }
+        
+        /* 2. KILL container's ::before line */
+        .timeline-container::before { 
+          display: none !important;
+          content: none !important;
+        }
+        
+        /* 3. KILL old .timeline-line element */
+        .timeline-line { 
+          display: none !important;
+        }
+        
+        /* 4. TIMELINE ITEM - Wrapper for each step */
+        .timeline-item { 
+          position: relative !important;
+          padding-left: 70px !important; /* 50px icon + 20px gap */
+          padding-bottom: 40px !important;
+          margin-bottom: 0 !important;
+          margin-left: 0 !important;
+          border: none !important;
+        }
+        
+        /* 5. THE LINE - Created on EACH item's ::before */
+        /* Icon is 50px at left:0, center is at 25px */
+        /* Line is 2px wide at left:24px, centers at 25px */
+        .timeline-item::before { 
+          content: '' !important;
+          position: absolute !important;
+          left: 24px !important;
+          top: 0 !important;
+          bottom: 0 !important;
+          width: 2px !important;
+          background: #e6e6e6 !important;
+          z-index: 1 !important;
+        }
+        
+        /* 6. LAST ITEM - No line below */
+        .timeline-item:last-child { 
+          padding-bottom: 0 !important;
+        }
+        .timeline-item:last-child::before { 
+          display: none !important;
+        }
+        
+        /* 7. THE ICON - 50x50px at left:0 */
+        .timeline-icon { 
+          position: absolute !important;
+          left: 0 !important;
+          top: 0 !important;
+          width: 50px !important;
+          height: 50px !important;
+          border-radius: 50% !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          z-index: 2 !important;
+          background: var(--color-gold) !important;
+          color: #fff !important;
+          box-shadow: 0 0 0 4px #fff !important;
+        }
+        
+        /* 8. TEXT CONTENT - Reset */
+        .timeline-content { 
+          padding-left: 0 !important;
+          margin-left: 0 !important;
+          padding-top: 0 !important;
+        }
+        .timeline-content h4 { 
+          font-size: 1.2rem !important;
+          margin: 0 0 5px 0 !important;
+          line-height: 1.3 !important;
+        }
+        .timeline-content p { 
+          font-size: 0.95rem !important;
+          line-height: 1.6 !important;
+          margin: 0 !important;
+        }
+        
+        /* Fixed: Inclusions grid for mobile */
+        .inclusions-grid { grid-template-columns: 1fr; padding: 20px; padding-left: 20px; }
+        .check-list li { font-size: 14px; white-space: normal; flex-wrap: nowrap; }
+        .check-list li svg { min-width: 20px; }
+        
+        /* Fixed: Gallery as 2-column grid (not horizontal scroll) */
+        .masonry-grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 40px; overflow: visible; }
+        .masonry-item { width: 100% !important; height: 150px !important; flex: none !important; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .masonry-item:first-child { grid-row: span 1; height: 150px !important; }
+        
+        /* Fixed: Mobile bottom bar with brand gold button */
         .mobile-bottom-bar { display: flex !important; position: fixed; bottom: 0; left: 0; width: 100%; background: white; z-index: 1000; padding: 15px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); align-items: center; justify-content: space-between; border-top: 1px solid #eee; }
-        .mobile-price { font-family: "EB Garamond", serif; font-size: 1.8rem; color: var(--color-gold); font-weight: 700; line-height: 1; }
+        .mobile-price { font-family: "EB Garamond", serif; font-size: 1.8rem; color: #C19B76; font-weight: 700; line-height: 1; }
         .mobile-price span { font-size: 0.8rem; color: #718096; font-family: "Open Sans", sans-serif; font-weight: 400; display: block; }
-        .btn-mobile-book { background: var(--color-dark); color: white; padding: 12px 25px; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: none; font-size: 0.9rem; }
+        .btn-mobile-book { background: #C19B76; color: white; padding: 12px 25px; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: none; font-size: 0.9rem; }
+        .btn-mobile-book:hover, .btn-mobile-book:active { background: #b08d68; }
       }
       .mobile-bottom-bar { display: none; }
   `;
@@ -218,11 +318,11 @@ const TourPageTemplate = (function () {
             </div>
           </div>
 
-          <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-menu"></span>
           </button>
 
-          <div class="collapse navbar-collapse">
+          <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
               <li class="nav-item ${subTitle === 'Activity' ? 'active' : ''}"><a href="../activities.html" class="nav-link">Activities</a></li>
