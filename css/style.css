@@ -1,4 +1,4 @@
-*/:root {
+﻿*/:root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -2037,7 +2037,7 @@ pre code {
 
   /* Add decorative elements */
   .ftco-section.bg-light .intro::after {
-    content: '✦';
+    content: 'âœ¦';
     position: absolute;
     top: 15px;
     right: 20px;
@@ -15093,4 +15093,17 @@ html body section#marragafay-slogan-box {
     min-height: 180px !important;
     padding: 60px 0 !important;
   }
+}. 
+
+/* Navbar Scrolled Background Color */
+.ftco-navbar-light.scrolled {
+  background: #fcfbf7 !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.ftco-navbar-light.scrolled .nav-link {
+  color: #000 !important;
+}
+.ftco-navbar-light.scrolled .navbar-brand {
+    color: #000 !important;
+}
+

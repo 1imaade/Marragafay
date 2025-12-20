@@ -13,7 +13,7 @@ const TourPageTemplate = (function () {
 
   const styles = `
       /* Global Typography - Matching Homepage */
-      body { font-family: "Overpass", "Open Sans", sans-serif; font-size: 16px; line-height: 1.8; color: rgba(0, 0, 0, 0.7); }
+      body { font-family: "Overpass", "Open Sans", sans-serif; font-size: 16px; line-height: 1.8; color: rgba(0, 0, 0, 0.7); background-color: #fcfbf7; }
       
       :root {
         --color-gold: #bc6c25;
@@ -70,7 +70,7 @@ const TourPageTemplate = (function () {
       .rating-badge { display: inline-flex; align-items: center; background: #fff8e1; color: #b7860b; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; margin-bottom: 15px; }
       .pack-title { font-family: "EB Garamond", serif; font-size: 3.5rem; line-height: 1.1; color: var(--color-dark); margin-bottom: 20px; }
       .highlights-row { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 25px; }
-      .highlight-item { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; color: var(--color-text); background: white; padding: 8px 16px; border: 1px solid #eee; border-radius: 8px; }
+      .highlight-item { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; color: var(--color-text); background: #ffffff; padding: 8px 16px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
 
       /* Timeline */
       .section-title { font-family: "EB Garamond", serif; font-size: 2rem; color: var(--color-dark); margin-bottom: 25px; margin-top: 50px; }
@@ -80,12 +80,12 @@ const TourPageTemplate = (function () {
       .timeline-item { position: relative; padding-bottom: 40px; }
       .timeline-item:last-child { padding-bottom: 0; }
       .timeline-item:last-child::after { content: ''; position: absolute; left: -45px; top: 40px; bottom: 0; width: 2px; background: transparent; } /* Ensures line doesn't extend past last icon */
-      .timeline-icon { position: absolute; left: -45px; top: 0; width: 40px; height: 40px; background: var(--color-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 2; box-shadow: 0 0 0 4px #fff; }
+      .timeline-icon { position: absolute; left: -45px; top: 0; width: 40px; height: 40px; background: var(--color-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; z-index: 2; box-shadow: 0 0 0 4px #fcfbf7; }
       .timeline-content h4 { font-family: "EB Garamond", serif; font-size: 1.4rem; color: var(--color-dark); margin-bottom: 5px; }
       .timeline-content p { color: #444; font-weight: 450; line-height: 1.6; margin-bottom: 0; }
 
       /* Inclusions */
-      .inclusions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #f8fafc; padding: 30px; padding-left: 25px; border-radius: var(--radius-lg); border: 1px solid #edf2f7; }
+      .inclusions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #ffffff; padding: 30px; padding-left: 25px; border-radius: var(--radius-lg); border: 1px solid #edf2f7; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
       .check-list { padding-left: 0; }
       .check-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 1rem; white-space: nowrap; }
       .check-list li svg { flex-shrink: 0; color: #22c55e; }
@@ -96,7 +96,8 @@ const TourPageTemplate = (function () {
       .masonry-item:first-child { grid-row: span 2; height: 100%; }
 
       /* Booking Card */
-      .booking-card { position: sticky; top: 120px; background: white; padding: 30px; border-radius: var(--radius-xl); box-shadow: var(--shadow-soft); border: 1px solid rgba(0,0,0,0.04); transition: box-shadow 0.3s ease; }
+      /* Booking Card */
+      .booking-card { position: sticky; top: 120px; background: #fcfbf7; padding: 30px; border-radius: var(--radius-xl); box-shadow: var(--shadow-soft); border: 1px solid rgba(188, 108, 37, 0.2); transition: box-shadow 0.3s ease; }
       .booking-card:hover { box-shadow: var(--shadow-hover); }
       .price-tag { font-family: "EB Garamond", serif; font-size: 2.5rem; color: var(--color-gold); font-weight: 700; line-height: 1; }
       .booking-input { width: 100%; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; font-family: "Open Sans", sans-serif; transition: all 0.2s; }
@@ -104,14 +105,93 @@ const TourPageTemplate = (function () {
       .btn-reserve:hover { background: #b08d68; border-color: #b08d68; transform: translateY(-2px); }
       .trust-badges { display: flex; justify-content: center; gap: 15px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
       .trust-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: #718096; gap: 5px; }
-
+      /* Guest Selector Popover - Premium Design */
+      .guest-selector-wrapper { position: relative; }
+      .guest-trigger { 
+        cursor: pointer; 
+        background-color: #fff; 
+        text-align: left; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .guest-trigger::after {
+        content: '';
+        display: inline-block;
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #a0aec0;
+        margin-left: 10px;
+      }
+      .guest-dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        z-index: 100;
+        min-width: 280px;
+        animation: fadeIn 0.2s ease-out;
+      }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+      .guest-dropdown.active { display: block; }
+      
+      .guest-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .guest-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+      
+      .guest-info { flex: 1; }
+      .guest-label { font-size: 1rem; font-weight: 700; color: #1a202c; display: block; margin-bottom: 2px;}
+      .guest-sub { font-size: 0.85rem; color: #718096; font-weight: 400; }
+      
+      .counter-control { display: flex; align-items: center; gap: 15px; }
+      .counter-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #cbd5e0;
+        background: white;
+        color: #718096;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        user-select: none;
+        line-height: 0;
+        padding-bottom: 4px;
+      }
+      .counter-btn:hover { border-color: #bc6c25; color: #bc6c25; background: #fffcf5; }
+      .counter-btn:active { transform: scale(0.95); }
+      .counter-val { font-weight: 700; font-size: 1.1rem; min-width: 25px; text-align: center; color: #2d3748; }
       /* Mobile */
       @media (max-width: 768px) {
         .pack-detail-container { display: flex; flex-direction: column; padding: 0 20px; margin-top: 20px; margin-bottom: 100px; }
         .pack-sidebar { order: 1; width: 100%; }
         .booking-card { position: relative; top: 0; box-shadow: none; border: 1px solid #eee; padding: 20px; margin-top: 40px; }
         .pack-title { font-size: 2rem; margin-bottom: 15px; }
+        .pack-title { font-size: 2rem; margin-bottom: 15px; }
         .section-title { font-size: 1.75rem; margin-top: 40px; margin-bottom: 20px; }
+        
+        /* Mobile Form Grid Stack */
+        .booking-form-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+        
+        /* Mobile Guest Dropdown Fit */
+        .guest-dropdown { min-width: auto; width: 100%; top: calc(100% + 5px); }
         /* ===== MOBILE TIMELINE - HARD RESET ===== */
         /* Line on EACH ITEM, Icon at left:0, Line at left:24px */
         
@@ -180,7 +260,7 @@ const TourPageTemplate = (function () {
           z-index: 2 !important;
           background: var(--color-gold) !important;
           color: #fff !important;
-          box-shadow: 0 0 0 4px #fff !important;
+          box-shadow: 0 0 0 4px #fcfbf7 !important;
         }
         
         /* 8. TEXT CONTENT - Reset */
@@ -433,20 +513,48 @@ const TourPageTemplate = (function () {
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+              <div class="booking-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div class="form-group">
                   <label style="font-size:0.85rem; font-weight:600; margin-bottom:5px; display:block;">Date</label>
                   <input type="date" name="date" class="booking-input" required>
                 </div>
-                <div class="form-group">
+                
+                <div class="form-group guest-selector-wrapper">
                   <label style="font-size:0.85rem; font-weight:600; margin-bottom:5px; display:block;">Guests</label>
-                  <select name="guests" class="booking-input" required>
-                    <option value="1">1 Person</option>
-                    <option value="2" selected>2 People</option>
-                    <option value="3">3 People</option>
-                    <option value="4">4 People</option>
-                    <option value="5+">5+ Group</option>
-                  </select>
+                  <!-- Visual Input (Read Only) -->
+                  <input type="text" id="guestDisplay" class="booking-input guest-trigger" value="2 Adults, 0 Children" readonly>
+                  
+                  <!-- Hidden Inputs for Form Submission -->
+                  <input type="hidden" name="adults" id="adultsInput" value="2">
+                  <input type="hidden" name="children" id="childrenInput" value="0">
+
+                  <!-- Popover -->
+                  <div class="guest-dropdown" id="guestDropdown">
+                    <!-- Adults Row -->
+                    <div class="guest-row">
+                      <div>
+                        <div class="guest-label">Adults</div>
+                        <span class="guest-sub">Age 13+</span>
+                      </div>
+                      <div class="counter-control">
+                        <div class="counter-btn" onclick="updateGuest('adults', -1)">-</div>
+                        <span class="counter-val" id="adultsVal">2</span>
+                        <div class="counter-btn" onclick="updateGuest('adults', 1)">+</div>
+                      </div>
+                    </div>
+                    <!-- Children Row -->
+                    <div class="guest-row">
+                      <div>
+                        <div class="guest-label">Children</div>
+                        <span class="guest-sub">Age 2-12</span>
+                      </div>
+                      <div class="counter-control">
+                        <div class="counter-btn" onclick="updateGuest('children', -1)">-</div>
+                        <span class="counter-val" id="childrenVal">0</span>
+                        <div class="counter-btn" onclick="updateGuest('children', 1)">+</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -551,6 +659,71 @@ const TourPageTemplate = (function () {
 
     // Inject HTML
     target.innerHTML = html;
+
+    // Booking Date Logic - Restrict Past & Today
+    const dateInput = target.querySelector('input[name="date"]');
+    if (dateInput) {
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      const yyyy = tomorrow.getFullYear();
+      let mm = tomorrow.getMonth() + 1; // Months start at 0
+      let dd = tomorrow.getDate();
+
+      if (dd < 10) dd = '0' + dd;
+      if (mm < 10) mm = '0' + mm;
+
+      const minDate = yyyy + '-' + mm + '-' + dd;
+      dateInput.min = minDate;
+    }
+
+    // Guest Selector Logic
+    const guestTrigger = target.querySelector('.guest-trigger');
+    const guestDropdown = target.querySelector('.guest-dropdown');
+
+    if (guestTrigger && guestDropdown) {
+      // Toggle Dropdown
+      guestTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        guestDropdown.classList.toggle('active');
+      });
+
+      // Close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!guestTrigger.contains(e.target) && !guestDropdown.contains(e.target)) {
+          guestDropdown.classList.remove('active');
+        }
+      });
+    }
+
+    // Export update function to window so onclick works
+    window.updateGuest = function (type, change) {
+      const input = document.getElementById(type + 'Input');
+      const valDisplay = document.getElementById(type + 'Val');
+      const display = document.getElementById('guestDisplay');
+
+      let currentVal = parseInt(input.value);
+      let newVal = currentVal + change;
+
+      // Restraints
+      if (type === 'adults' && newVal < 1) newVal = 1;
+      if (type === 'children' && newVal < 0) newVal = 0;
+
+      // Update State
+      input.value = newVal;
+      valDisplay.textContent = newVal;
+
+      // Update Display String
+      const a = parseInt(document.getElementById('adultsInput').value);
+      const c = parseInt(document.getElementById('childrenInput').value);
+
+      let text = `${a} Adult${a !== 1 ? 's' : ''}`;
+      if (c > 0) {
+        text += `, ${c} Child${c !== 1 ? 'ren' : ''}`;
+      }
+      display.value = text;
+    };
 
     // Navbar Scroll & Mobile Logic - EXACT MATCH TO HOME PAGE
     const navbar = document.getElementById('ftco-navbar');
