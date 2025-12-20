@@ -8,6 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -218,27 +219,11 @@
   <!-- This section is consistent across all pages -->
   <!-- To update globally, change background in inline style below -->
   <!-- ========================================= -->
-  <section class="ftco-section-parallax">
-    <div class="parallax-img d-flex align-items-center" style="background: #bc6c25 !important;">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2>Subcribe to our Newsletter</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind texts. Separated they live in</p>
-            <div class="row d-flex justify-content-center mt-5">
-              <div class="col-md-8">
-                <form action="#" class="subscribe-form">
-                  <div class="form-group d-flex">
-                    <input type="text" class="form-control" placeholder="Enter email address">
-                    <input type="submit" value="Subscribe" class="submit px-3">
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <section class="pro-slogan-section" id="marragafay-slogan-box">
+    <div class="container">
+      <h2 style="color: #fff !important; font-weight: 900; text-transform: uppercase;">
+        <span id="typed-slogan-v2"></span>
+      </h2>
     </div>
   </section>
   <!-- END SHARED NEWSLETTER COMPONENT -->
@@ -338,6 +323,35 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/mobile-menu.js"></script>
+
+  <!-- Typed.js for Slogan Section -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sloganElement = document.getElementById('typed-slogan-v2');
+      if (sloganElement) {
+        var typed = new Typed('#typed-slogan-v2', {
+          strings: [
+            "Live the moment with Marragafay",
+            "Vivez l'instant avec Marragafay",
+            "عيش اللحضة معانا",
+            "Vive el momento con Marragafay",
+            "Erlebe den Moment mit Marragafay",
+            "Vivi il momento con Marragafay",
+            "Viva o momento com Marragafay",
+            "Beleef het moment met Marragafay"
+          ],
+          typeSpeed: 80,
+          backSpeed: 40,
+          loop: true,
+          backDelay: 2000,
+          showCursor: true,
+          cursorChar: '|',
+          autoInsertCss: true,
+        });
+      }
+    });
+  </script>
 
 </body>
 

@@ -12197,7 +12197,7 @@ textarea.form-control {
 .ftco-footer .ftco-heading-2 {
   font-size: 17px;
   font-weight: 400;
-  color: #000000;
+  color: #ffffff;
 }
 
 .ftco-footer-social li {
@@ -12224,6 +12224,7 @@ textarea.form-control {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .ftco-footer-social li a:hover {
@@ -14989,5 +14990,107 @@ overflow: hidden;
     letter-spacing: 2px !important;
     font-weight: 400 !important;
     opacity: 0.9 !important;
+  }
+}
+
+/* ========================================= */
+/* PACKAGE CARD ALIGNMENT FIX (GLOBAL)       */
+/* Forces all "Book Now" buttons to align at the bottom */
+/* ========================================= */
+.luxury-package-card,
+.pricing-entry,
+.block-7 {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.package-content,
+.pricing-entry .text,
+.block-7 .text {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+  /* Ensure content takes available space */
+}
+
+.package-footer,
+.pricing-entry .price-area {
+  margin-top: auto !important;
+  width: 100% !important;
+}
+
+/* ========================================= */
+/* PRICE DISPLAY FIX (GLOBAL)                */
+/* Forces "/person" to be on its own line    */
+/* ========================================= */
+.package-price>small {
+  display: block !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+  line-height: 1 !important;
+  margin-top: 5px !important;
+}
+
+/* ========================================= */
+/* WHY CHOOSE SECTION - DESKTOP FIX */
+/* Prevents text from being squashed */
+/* ========================================= */
+.why-choose-card {
+  min-width: 0 !important;
+}
+
+.why-choose-card-content {
+  min-width: 0 !important;
+  word-wrap: break-word !important;
+}
+
+.why-choose-card-description {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+/* Extreme priority to bypass line 38 */
+html body section#marragafay-slogan-box {
+  background: linear-gradient(0deg, rgba(177, 140, 88, 0.9), rgba(177, 140, 88, 0.9)), url('../images/activites/quad.jpeg') !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  /* Parallax effect */
+  background-position: center !important;
+  display: flex !important;
+  min-height: 200px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-bottom: 0px !important;
+  text-align: center !important;
+  /* Ensure it sits flush if needed */
+}
+
+#typed-slogan-v2 {
+  color: #ffffff !important;
+  font-size: 42px;
+}
+
+/* Typed cursor styling - ensuring visibility */
+.typed-cursor {
+  font-size: 42px;
+  color: #ffffff !important;
+  font-weight: 300;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+
+  #typed-slogan-v2,
+  .typed-cursor {
+    font-size: 24px !important;
+  }
+
+  html body section#marragafay-slogan-box {
+    min-height: 180px !important;
+    padding: 60px 0 !important;
   }
 }

@@ -6,8 +6,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Eczar:wght@400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@200;300;400;500;600;700&family=Montserrat:wght@800;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/section-titles.css">
+
+  <style>
+    /* Scoped font application to match Homepage (index.html) style */
+    /* Target ONLY the packages section to preserve Hero and Footer styles */
+    .luxury-packages-section h1,
+    .luxury-packages-section h2,
+    .luxury-packages-section h3,
+    .luxury-packages-section h4,
+    .luxury-packages-section h5,
+    .luxury-packages-section h6 {
+      font-family: "Overpass", sans-serif !important;
+    }
+
+    .luxury-packages-section,
+    .luxury-packages-section p,
+    .luxury-packages-section a,
+    .luxury-packages-section div,
+    .luxury-packages-section span,
+    .luxury-packages-section li,
+    .luxury-packages-section button,
+    .luxury-packages-section .btn {
+      font-family: "Overpass", "Open Sans", "Eczar", "EB Garamond", sans-serif !important;
+    }
+  </style>
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -109,49 +138,53 @@
       </div>
 
       <div class="row">
-        <!-- Classic Package -->
-        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <div class="luxury-package-card clickable-card" data-package="classic"
-            style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; cursor: pointer;">
+        <!-- Basic Package -->
+        <div class="col-lg-4 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-duration="1000"
+          data-aos-delay="100">
+          <div class="luxury-package-card"
+            style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; width: 100%; display: flex; flex-direction: column;">
             <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
-              <img src="images/packs/pack-basic.jpeg" alt="Classic Package" class="img-fluid w-100 h-100"
-                style="object-fit: cover;">
-              <div class="package-overlay"
-                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));">
-              </div>
-              <div class="package-badge"
-                style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
-                Most Popular
-              </div>
+              <a href="packages/basic.html" style="display: block; height: 100%;">
+                <img src="images/packs/pack-basic.jpeg" alt="Agafay Basic Pack" class="img-fluid w-100 h-100"
+                  style="object-fit: cover;">
+                <div class="package-overlay"
+                  style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));">
+                </div>
+                <div class="package-badge"
+                  style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
+                  Most Popular
+                </div>
+              </a>
             </div>
-            <div class="package-content p-4">
+            <div class="package-content p-4" style="display: flex; flex-direction: column; flex-grow: 1;">
               <h4 class="package-title mb-3"
                 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; font-weight: 500;">
-                Classic Desert Experience
+                <a href="packages/basic.html" style="color: inherit; text-decoration: none;">Agafay Basic Pack</a>
               </h4>
               <p class="package-description mb-3" style="color: #6c757d; font-size: 0.95rem; line-height: 1.6;">
-                Perfect introduction to luxury desert living with premium accommodations and curated activities.
+                Quad & Camel Adventure.
               </p>
               <div class="package-features mb-4">
                 <div class="d-flex align-items-center mb-2">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Quad biking adventure</span>
+                  <span style="font-size: 0.9rem; color: #495057;">Double Quad Biking (1h)</span>
                 </div>
                 <div class="d-flex align-items-center mb-2">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Camel trek experience</span>
+                  <span style="font-size: 0.9rem; color: #495057;">Camel Ride (20 min)</span>
                 </div>
                 <div class="d-flex align-items-center">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Traditional Moroccan dinner</span>
+                  <span style="font-size: 0.9rem; color: #495057;">Dinner & Show</span>
                 </div>
               </div>
-              <div class="package-footer d-flex justify-content-between align-items-center">
+              <div class="package-footer d-flex justify-content-between align-items-center" style="margin-top: auto;">
                 <div class="package-price">
-                  <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">400 MAD</span>
+                  <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">400 <small
+                      style="font-size: 1.2rem;">MAD</small></span>
                   <small style="color: #6c757d; margin-left: 5px;">/person</small>
                 </div>
-                <a href="packs.html" class="btn luxury-btn"
+                <a href="packages/basic.html" class="btn luxury-btn"
                   style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
                   Book Now
                 </a>
@@ -160,49 +193,57 @@
           </div>
         </div>
 
-        <!-- Premium Package -->
-        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <div class="luxury-package-card clickable-card" data-package="premium"
-            style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; cursor: pointer;">
+        <!-- Comfort Package -->
+        <div class="col-lg-4 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-duration="1000"
+          data-aos-delay="200">
+          <div class="luxury-package-card"
+            style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; width: 100%; display: flex; flex-direction: column;">
             <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
-              <img src="images/packs/pack-comfort.jpeg" alt="Premium Package" class="img-fluid w-100 h-100"
-                style="object-fit: cover;">
-              <div class="package-overlay"
-                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));">
-              </div>
-              <div class="package-badge"
-                style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #2c3e50, #34495e); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
-                Premium
-              </div>
+              <a href="packages/comfort.html" style="display: block; height: 100%;">
+                <img src="images/packs/pack-comfort.jpeg" alt="Comfort Pack" class="img-fluid w-100 h-100"
+                  style="object-fit: cover;">
+                <div class="package-overlay"
+                  style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));">
+                </div>
+                <div class="package-badge"
+                  style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #2c3e50, #34495e); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
+                  Comfort
+                </div>
+              </a>
             </div>
-            <div class="package-content p-4">
+            <div class="package-content p-4" style="display: flex; flex-direction: column; flex-grow: 1;">
               <h4 class="package-title mb-3"
                 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; font-weight: 500;">
-                Luxury Desert Retreat
+                <a href="packages/comfort.html" style="color: inherit; text-decoration: none;">Comfort Pack</a>
               </h4>
               <p class="package-description mb-3" style="color: #6c757d; font-size: 0.95rem; line-height: 1.6;">
-                Ultimate luxury experience with private accommodations and exclusive personalized services.
+                Transport & Adventure Included.
               </p>
               <div class="package-features mb-4">
                 <div class="d-flex align-items-center mb-2">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Private luxury tent</span>
+                  <span style="font-size: 0.9rem; color: #495057;">Round-trip Transport</span>
                 </div>
                 <div class="d-flex align-items-center mb-2">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Personal butler service</span>
+                  <span style="font-size: 0.9rem; color: #495057;">Double Quad (1h)</span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                  <span style="font-size: 0.9rem; color: #495057;">Camel Ride (20 min)</span>
                 </div>
                 <div class="d-flex align-items-center">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Gourmet dining experience</span>
+                  <span style="font-size: 0.9rem; color: #495057;">Dinner & Show</span>
                 </div>
               </div>
-              <div class="package-footer d-flex justify-content-between align-items-center">
+              <div class="package-footer d-flex justify-content-between align-items-center" style="margin-top: auto;">
                 <div class="package-price">
-                  <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">600 MAD</span>
+                  <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">600 <small
+                      style="font-size: 1.2rem;">MAD</small></span>
                   <small style="color: #6c757d; margin-left: 5px;">/person</small>
                 </div>
-                <a href="packs.html" class="btn luxury-btn"
+                <a href="packages/comfort.html" class="btn luxury-btn"
                   style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
                   Book Now
                 </a>
@@ -211,49 +252,57 @@
           </div>
         </div>
 
-        <!-- VIP Package -->
-        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <div class="luxury-package-card clickable-card" data-package="vip"
-            style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; cursor: pointer;">
+        <!-- Luxury Package -->
+        <div class="col-lg-4 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-duration="1000"
+          data-aos-delay="300">
+          <div class="luxury-package-card"
+            style="background: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: all 0.3s ease; width: 100%; display: flex; flex-direction: column;">
             <div class="package-image-container" style="position: relative; height: 250px; overflow: hidden;">
-              <img src="images/packs/pack-luxury.jpeg" alt="VIP Package" class="img-fluid w-100 h-100"
-                style="object-fit: cover;">
-              <div class="package-overlay"
-                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));">
-              </div>
-              <div class="package-badge"
-                style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
-                VIP Experience
-              </div>
+              <a href="packages/luxe.html" style="display: block; height: 100%;">
+                <img src="images/packs/pack-luxury.jpeg" alt="Luxury Pack" class="img-fluid w-100 h-100"
+                  style="object-fit: cover;">
+                <div class="package-overlay"
+                  style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, rgba(44, 62, 80, 0.1), rgba(212, 175, 55, 0.1));">
+                </div>
+                <div class="package-badge"
+                  style="position: absolute; top: 20px; left: 20px; background: linear-gradient(45deg, #d4af37, #b8860b); color: white; padding: 8px 16px; border-radius: 0; font-size: 0.85rem; font-weight: 600;">
+                  Luxury
+                </div>
+              </a>
             </div>
-            <div class="package-content p-4">
+            <div class="package-content p-4" style="display: flex; flex-direction: column; flex-grow: 1;">
               <h4 class="package-title mb-3"
                 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; font-weight: 500;">
-                Royal Desert Experience
+                <a href="packages/luxe.html" style="color: inherit; text-decoration: none;">Luxury Pack</a>
               </h4>
               <p class="package-description mb-3" style="color: #6c757d; font-size: 0.95rem; line-height: 1.6;">
-                The pinnacle of luxury desert hospitality with exclusive amenities and personalized service.
+                VIP Experience & Gastronomy.
               </p>
               <div class="package-features mb-4">
                 <div class="d-flex align-items-center mb-2">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Private luxury villa</span>
+                  <span style="font-size: 0.9rem; color: #495057;">VIP Private Transport</span>
                 </div>
                 <div class="d-flex align-items-center mb-2">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Helicopter transfers</span>
+                  <span style="font-size: 0.9rem; color: #495057;">Single Quad (1h)</span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
+                  <span style="font-size: 0.9rem; color: #495057;">Extended Camel Ride (1h)</span>
                 </div>
                 <div class="d-flex align-items-center">
                   <i class="icon-check" style="color: #d4af37; margin-right: 10px; font-size: 1rem;"></i>
-                  <span style="font-size: 0.9rem; color: #495057;">Exclusive desert activities</span>
+                  <span style="font-size: 0.9rem; color: #495057;">Gourmet Dinner & VIP Show</span>
                 </div>
               </div>
-              <div class="package-footer d-flex justify-content-between align-items-center">
+              <div class="package-footer d-flex justify-content-between align-items-center" style="margin-top: auto;">
                 <div class="package-price">
-                  <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">1200 MAD</span>
+                  <span style="font-size: 2rem; font-weight: 700; color: #d4af37;">1200 <small
+                      style="font-size: 1.2rem;">MAD</small></span>
                   <small style="color: #6c757d; margin-left: 5px;">/person</small>
                 </div>
-                <a href="packs.html" class="btn luxury-btn"
+                <a href="packages/luxe.html" class="btn luxury-btn"
                   style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 12px 24px; border-radius: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease;">
                   Book Now
                 </a>
@@ -271,27 +320,11 @@
   <!-- This section is consistent across all pages -->
   <!-- To update globally, change background in inline style below -->
   <!-- ========================================= -->
-  <section class="ftco-section-parallax">
-    <div class="parallax-img d-flex align-items-center" style="background: #bc6c25 !important;">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2>Subcribe to our Newsletter</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind texts. Separated they live in</p>
-            <div class="row d-flex justify-content-center mt-5">
-              <div class="col-md-8">
-                <form action="#" class="subscribe-form">
-                  <div class="form-group d-flex">
-                    <input type="text" class="form-control" placeholder="Enter email address">
-                    <input type="submit" value="Subscribe" class="submit px-3">
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <section class="pro-slogan-section" id="marragafay-slogan-box">
+    <div class="container">
+      <h2 style="color: #fff !important; font-weight: 900; text-transform: uppercase;">
+        <span id="typed-slogan-v2"></span>
+      </h2>
     </div>
   </section>
   <!-- END SHARED NEWSLETTER COMPONENT -->
@@ -386,6 +419,35 @@
   <script src="js/main.js"></script>
   <script src="js/mobile-menu.js"></script>
   <script src="js/booking-widgets.js"></script>
+
+  <!-- Typed.js for Slogan Section -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sloganElement = document.getElementById('typed-slogan-v2');
+      if (sloganElement) {
+        var typed = new Typed('#typed-slogan-v2', {
+          strings: [
+            "Live the moment with Marragafay",
+            "Vivez l'instant avec Marragafay",
+            "عيش اللحضة معانا",
+            "Vive el momento con Marragafay",
+            "Erlebe den Moment mit Marragafay",
+            "Vivi il momento con Marragafay",
+            "Viva o momento com Marragafay",
+            "Beleef het moment met Marragafay"
+          ],
+          typeSpeed: 80,
+          backSpeed: 40,
+          loop: true,
+          backDelay: 2000,
+          showCursor: true,
+          cursorChar: '|',
+          autoInsertCss: true,
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>

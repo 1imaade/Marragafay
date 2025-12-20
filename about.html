@@ -6,8 +6,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Eczar:wght@400..800&family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@200;300;400;500;600;700&family=Montserrat:wght@800;900&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -42,6 +45,225 @@
 
   <!-- Section Titles CSS -->
   <link rel="stylesheet" href="css/section-titles.css">
+  <style>
+    /* Mobile responsiveness for section titles */
+    @media (max-width: 768px) {
+      .luxury-section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Font Utility Classes */
+    .overpass-uniquifier {
+      font-family: "Overpass", sans-serif;
+    }
+
+    .open-sans-uniquifier {
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .eczar-uniquifier {
+      font-family: "Eczar", serif;
+    }
+
+    /* ============================================== */
+    /* SCOPED FONT APPLICATION - "Who Are We" & "Why Choose" ONLY */
+    /* ============================================== */
+    /* Prevent affecting Hero and Footer */
+
+    .hero-about-section,
+    .why-choose-section,
+    .testimonials-section {
+      font-family: "Overpass", "Open Sans", "Eczar", "EB Garamond", sans-serif;
+    }
+
+    .hero-about-section h1,
+    .hero-about-section h2,
+    .hero-about-section h3,
+    .hero-about-section h4,
+    .why-choose-section h1,
+    .why-choose-section h2,
+    .why-choose-section h3,
+    .why-choose-section h4,
+    .testimonials-section h1,
+    .testimonials-section h2,
+    .testimonials-section h3,
+    .testimonials-section h4 {
+      font-family: "Overpass", sans-serif !important;
+    }
+
+    .hero-about-section p,
+    .hero-about-section a,
+    .hero-about-section span,
+    .why-choose-section p,
+    .why-choose-section a,
+    .why-choose-section span,
+    .testimonials-section p,
+    .testimonials-section a,
+    .testimonials-section span,
+    .testimonials-section div {
+      font-family: "Overpass", "Open Sans", "Eczar", "EB Garamond", sans-serif !important;
+    }
+
+    /* Testimonials Slider Styles (Specific Component - Safe) */
+    .testimonials-slider-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+      box-sizing: border-box;
+      background: transparent !important;
+      border: none !important;
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(45deg, #d4af37, #b8860b);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .slider-arrow:hover {
+      background: linear-gradient(45deg, #b8860b, #d4af37);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .slider-arrow-left {
+      left: 0;
+    }
+
+    .slider-arrow-right {
+      right: 0;
+    }
+
+    .testimonials-slider {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 0;
+      background: transparent !important;
+    }
+
+    .testimonial-card-wrapper {
+      min-width: 33.333%;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .testimonials-slider-container {
+        padding: 0 50px;
+      }
+
+      .testimonial-card-wrapper {
+        min-width: 100%;
+        padding: 0 10px;
+      }
+
+      .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .testimonials-slider-container {
+        padding: 0 40px;
+      }
+    }
+
+    /* FAQ Animation System (Specific Component - Safe) */
+    .luxury-faq-header {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .luxury-faq-header:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .luxury-faq-header:active {
+      transform: translateY(0px) !important;
+      transition: all 0.1s ease !important;
+    }
+
+    .faq-toggle-icon {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      transform: rotate(0deg) !important;
+      transform-origin: center !important;
+      color: #d4af37 !important;
+      font-size: 1rem !important;
+      display: inline-block !important;
+    }
+
+    .luxury-faq-header[aria-expanded="true"] .faq-toggle-icon {
+      transform: rotate(180deg) !important;
+      color: #bc6c25 !important;
+    }
+
+    .luxury-faq-header:hover .faq-toggle-icon {
+      color: #bc6c25 !important;
+      transform: scale(1.05) rotate(0deg) !important;
+    }
+
+    .luxury-faq-header[aria-expanded="true"]:hover .faq-toggle-icon {
+      transform: scale(1.05) rotate(180deg) !important;
+    }
+
+    .luxury-faq-accordion .collapse {
+      transition: all 0.35s ease-in-out !important;
+    }
+
+    .luxury-faq-header.loading .faq-toggle-icon {
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+    }
+
+    .luxury-faq-header.expanded {
+      background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%) !important;
+    }
+
+    .luxury-faq-header.collapsed {
+      background: #ffffff !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -119,33 +341,41 @@
       <div class="row align-items-center">
 
         <!-- LEFT COLUMN: Grid Gallery -->
+        <!-- CSS GRID GALLERY - 2x2 Layout with Feature Image -->
+        <!-- CUSTOMIZATION GUIDE:
+               - Replace image sources in each <img> tag below
+               - Feature image (top-left) spans 2 rows for emphasis
+               - Grid adjusts: 2 columns on desktop, 1 column on mobile (<700px)
+               - All images: object-fit cover, sharp square corners, depth shadow
+               - To adjust grid spans: modify grid-row values in inline styles
+          -->
         <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
           <div class="hero-grid-gallery"
             style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px; height: 550px;">
 
-            <!-- Feature Image: Top-Left (Spans 2 rows) -->
+            <!-- FEATURE IMAGE: Top-Left (Spans 2 rows) -->
+            <!-- SLOT IMAGE 1: Replace src with your main feature image -->
             <div
               style="grid-column: 1; grid-row: 1 / 3; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
-              <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=1000&fit=crop"
-                alt="Camel trekking in Agafay Desert"
+              <img src="images/who-are-we/wo-3.jpg" alt="Camel trekking in Agafay Desert with reflection"
                 style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
             </div>
 
-            <!-- Image: Top-Right -->
+            <!-- STANDARD IMAGE: Top-Right -->
+            <!-- SLOT IMAGE 2: Replace src with your second image -->
             <div
               style="grid-column: 2; grid-row: 1; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
-              <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=600&h=400&fit=crop"
-                alt="Historic fortress in Morocco"
+              <img src="images/who-are-we/wo-2.jpg" alt="Historic fortress in Morocco"
                 style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
             </div>
 
-            <!-- Image: Bottom-Right -->
+            <!-- SQUARE IMAGE: Bottom-Right -->
+            <!-- SLOT IMAGE 3: Replace src with your third image -->
             <div
               style="grid-column: 2; grid-row: 2; position: relative; overflow: hidden; border-radius: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);">
-              <img src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&h=400&fit=crop"
-                alt="Quad biking adventure in Agafay Desert"
+              <img src="images/who-are-we/wo-1.jpg" alt="Quad biking adventure in Agafay Desert"
                 style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;"
                 onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
             </div>
@@ -158,18 +388,21 @@
           <div class="hero-content-block" style="padding-left: 40px;">
 
             <!-- Small Gold Pre-Title -->
+            <!-- SLOT: Edit "WHO ARE WE?" text -->
             <p class="hero-pretitle"
               style="font-size: 0.85rem; font-weight: 600; color: #bc6c25; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
               WHO ARE WE?
             </p>
 
             <!-- Large Bold Section Title -->
+            <!-- SLOT: Edit "AGAFAY DESERT MARRAKECH" text -->
             <h2 class="hero-main-title"
               style="font-family: 'Inter', sans-serif; font-size: 3.2rem; font-weight: 800; color: #1a365d; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; letter-spacing: -0.5px;">
-              AGAFAY DESERT<br>MARRAKECH
+              The Eternal Magic<br>of Agafay
             </h2>
 
             <!-- Gold Horizontal Divider with Icon and Dots -->
+            <!-- CUSTOMIZATION: Adjust gap, dot size, or change SVG icon -->
             <div class="hero-divider" style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px;">
               <!-- Left Dots -->
               <div style="display: flex; gap: 6px;">
@@ -178,7 +411,8 @@
                 <span style="width: 6px; height: 6px; background: #bc6c25; border-radius: 50%; display: block;"></span>
               </div>
 
-              <!-- Center Icon -->
+              <!-- Center Icon (24px SVG) -->
+              <!-- SLOT: Replace SVG path to change icon -->
               <svg width="24" height="24" viewBox="0 0 24 24" fill="#bc6c25" style="flex-shrink: 0;">
                 <path
                   d="M12 2C13.1 2 14 2.9 14 4C14 4.5 13.8 5 13.5 5.4L15 10H21C21.6 10 22 10.4 22 11C22 11.3 21.9 11.5 21.7 11.7L17 20C16.7 20.6 16.1 21 15.5 21H8C7.4 21 7 20.6 7 20V11C7 10.7 7.1 10.5 7.3 10.3L11.6 5.5C11.2 5.1 11 4.6 11 4C11 2.9 11.9 2 12 2Z" />
@@ -196,22 +430,24 @@
             </div>
 
             <!-- Bold Subtitle -->
+            <!-- SLOT: Edit subtitle text -->
             <h3 class="hero-subtitle"
               style="font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 700; color: #2c3e50; margin-bottom: 20px; line-height: 1.3;">
-              Come and live a unique and authentic experience out of time
+              A moon-like landscape just 45 minutes from the bustling Medina.
             </h3>
 
             <!-- Description Paragraph -->
+            <!-- SLOT: Edit description text -->
             <p class="hero-description"
               style="font-family: 'Open Sans', sans-serif; font-size: 1.05rem; color: #6b7280; line-height: 1.8; margin-bottom: 32px; font-weight: 400;">
-              At Marragafay, we believe that true luxury lies in the warmth of welcome and the peace of mind. Our
-              mission is to open the doors to the soul of the Agafay Desert, offering you not just a tour, but a safe,
-              curated journey into the extraordinary. We pride ourselves on our legendary Moroccan hospitality, ensuring
-              every guest feels like family, while maintaining the highest international standards of safety and
-              comfort.
+              Escape the city noise and immerse yourself in the stone desert. Witness breathtaking sunsets, sleep under
+              a blanket of stars, and feel the ancient rhythm of the Berber land. Agafay is not just a place; it's a
+              feeling.
             </p>
 
             <!-- Gold "Book Now" Button -->
+            <!-- SLOT: Edit button text and href link -->
+            <!-- CUSTOMIZATION: Adjust padding, font-size, border-radius -->
             <a href="packs.html" class="hero-cta-button"
               style="display: inline-block; background: #bc6c25; color: white; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 16px 40px; border-radius: 4px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);"
               onmouseover="this.style.background='#d4af37'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(188, 108, 37, 0.4)';"
@@ -225,6 +461,136 @@
       </div>
     </div>
   </section>
+
+  <!-- Responsive Styles for Hero/About Section -->
+  <!-- GRID ISOLATION & MOBILE LOCK: Layout preserved across all screen sizes -->
+  <style>
+    /* ========================================= */
+    /* GRID LAYOUT PRESERVATION SYSTEM */
+    /* ========================================= */
+    /* DESIGN PRINCIPLE: Maintain identical grid structure and content alignment */
+    /* across all devices - no collapse, no centering, no layout changes */
+
+    /* Base responsive adjustments - CONTENT ALIGNMENT LOCKED */
+    @media (max-width: 991px) {
+      .hero-about-section {
+        padding: 60px 0 !important;
+      }
+
+      /* MOBILE LOCK: Keep content left-aligned, never center */
+      .hero-content-block {
+        padding-left: 20px !important;
+        text-align: left !important;
+      }
+
+      .hero-main-title {
+        font-size: 2.5rem !important;
+        text-align: left !important;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem !important;
+        text-align: left !important;
+      }
+
+      .hero-description {
+        font-size: 1rem !important;
+        text-align: left !important;
+      }
+
+      /* DIVIDER LOCK: Keep left-aligned, never center */
+      .hero-divider {
+        justify-content: flex-start !important;
+      }
+
+      /* BUTTON LOCK: Keep left-aligned, never center */
+      .hero-cta-button {
+        display: inline-block !important;
+        margin: 0 !important;
+      }
+    }
+
+    /* ========================================= */
+    /* GRID PRESERVATION: Mobile maintains exact same structure */
+    /* ========================================= */
+    /* CRITICAL: Grid layout NEVER collapses - maintains 2x2 structure */
+    @media (max-width: 700px) {
+
+      /* GRID ISOLATION: Force identical grid structure on mobile */
+      .hero-grid-gallery {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 1fr 1fr !important;
+        gap: 12px !important;
+        height: 400px !important;
+      }
+
+      /* SPAN PRESERVATION: Feature image keeps its 2-row span */
+      .hero-grid-gallery>div:first-child {
+        grid-column: 1 !important;
+        grid-row: 1 / 3 !important;
+      }
+
+      /* POSITION LOCK: Other images maintain exact grid positions */
+      .hero-grid-gallery>div:nth-child(2) {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+      }
+
+      .hero-grid-gallery>div:nth-child(3) {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+      }
+
+      /* CONTENT ALIGNMENT LOCK: All content stays left-aligned */
+      .hero-content-block {
+        padding-left: 15px !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+      }
+
+      .hero-pretitle,
+      .hero-main-title,
+      .hero-subtitle,
+      .hero-description {
+        text-align: left !important;
+      }
+
+      .hero-divider {
+        justify-content: flex-start !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-main-title {
+        font-size: 2rem !important;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem !important;
+      }
+
+      .hero-image-wrapper img {
+        height: 350px !important;
+        min-height: 300px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-main-title {
+        font-size: 1.75rem !important;
+      }
+
+      .hero-pretitle {
+        font-size: 0.75rem !important;
+      }
+
+      .hero-cta-button {
+        padding: 14px 32px !important;
+        font-size: 0.9rem !important;
+      }
+    }
+  </style>
 
   <!-- 1:1 section copy from homepage. Do not edit here unless homepage also updated. -->
   <!-- WHY CHOOSE AGAFAY MARRAKECH Section -->
@@ -242,22 +608,19 @@
             <h2 class="why-choose-badge-text">Why Choose Marragafay ?</h2>
           </div>
 
-          <!-- Image 1: Desert adventure -->
+          <!-- Image 1: Desert adventure (top right) -->
           <div class="why-choose-image why-choose-image-1">
-            <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&h=600&fit=crop"
-              alt="Desert adventure with 4x4 vehicle" loading="lazy">
+            <img src="images/why-choose/why3.jpg" alt="Desert adventure with 4x4 vehicle" loading="lazy">
           </div>
 
-          <!-- Image 2: Luxury camp setup -->
+          <!-- Image 2: Luxury camp setup (bottom left) -->
           <div class="why-choose-image why-choose-image-2">
-            <img src="https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=800&h=600&fit=crop"
-              alt="Luxury desert camp dining setup" loading="lazy">
+            <img src="images/why-choose/why2.jpg" alt="Luxury desert camp dining setup" loading="lazy">
           </div>
 
-          <!-- Image 3: Camel sunset -->
+          <!-- Image 3: Camel sunset (bottom right) -->
           <div class="why-choose-image why-choose-image-3">
-            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop"
-              alt="Camel trekking at sunset" loading="lazy">
+            <img src="images/why-choose/why1.jpeg" alt="Camel trekking at sunset" loading="lazy">
           </div>
 
         </div>
@@ -266,10 +629,10 @@
         <div class="why-choose-content">
 
           <!-- Gold subtitle -->
-          <p class="why-choose-subtitle">Agafay Marrakech Desert</p>
+          <p class="why-choose-subtitle">Your trusted partner for safe, luxury, and authentic adventures.</p>
 
           <!-- Main title -->
-          <h2 class="why-choose-title">Your Perfect Place To Discover Agafay</h2>
+          <h2 class="why-choose-title">Why Choose Marragafay</h2>
 
           <!-- Decorative separator with dots and icon -->
           <div class="why-choose-separator">
@@ -293,15 +656,9 @@
 
           <!-- Description paragraphs -->
           <p class="why-choose-description">
-            Your safety is our absolute priority. We work exclusively with certified, experienced guides who know every
-            inch of these dunes. From well-maintained equipment for our quad adventures to expert camel handlers, every
-            detail is managed to ensure you can explore with total confidence.
-          </p>
-
-          <p class="why-choose-description">
-            Beyond safety, we offer a sanctuary of hospitality. Our team is dedicated to anticipating your needs,
-            providing personalized service that turns a simple trip into a cherished memory. Whether it's a private
-            dinner under the stars or a custom itinerary, we are here to serve you with warmth and professionalism.
+            We don't just sell tours; we craft memories. With brand-new equipment, certified local guides, and a
+            commitment to hospitality, Marragafay ensures your desert experience is safe, comfortable, and truly
+            unforgettable.
           </p>
 
           <!-- Advantage Cards -->
@@ -316,7 +673,7 @@
                 </svg>
               </div>
               <div class="why-choose-card-content">
-                <h3 class="why-choose-card-title">Best Price Quality</h3>
+                <h3 class="why-choose-card-title">Safety First</h3>
                 <p class="why-choose-card-description">The best rates for quality service</p>
               </div>
             </div>
@@ -330,7 +687,7 @@
                 </svg>
               </div>
               <div class="why-choose-card-content">
-                <h3 class="why-choose-card-title">Best Destination</h3>
+                <h3 class="why-choose-card-title">Local Experts</h3>
                 <p class="why-choose-card-description">A beautiful destination in Marrakech to discover</p>
               </div>
             </div>
@@ -344,7 +701,7 @@
                 </svg>
               </div>
               <div class="why-choose-card-content">
-                <h3 class="why-choose-card-title">Personalized Service</h3>
+                <h3 class="why-choose-card-title">VIP Service</h3>
                 <p class="why-choose-card-description">Enjoy personalized service like never before</p>
               </div>
             </div>
@@ -513,27 +870,11 @@
   <!-- This section is consistent across all pages -->
   <!-- To update globally, change background in inline style below -->
   <!-- ========================================= -->
-  <section class="ftco-section-parallax">
-    <div class="parallax-img d-flex align-items-center" style="background: #bc6c25 !important;">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2>Subcribe to our Newsletter</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind texts. Separated they live in</p>
-            <div class="row d-flex justify-content-center mt-5">
-              <div class="col-md-8">
-                <form action="#" class="subscribe-form">
-                  <div class="form-group d-flex">
-                    <input type="text" class="form-control" placeholder="Enter email address">
-                    <input type="submit" value="Subscribe" class="submit px-3">
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <section class="pro-slogan-section" id="marragafay-slogan-box">
+    <div class="container">
+      <h2 style="color: #fff !important; font-weight: 900; text-transform: uppercase;">
+        <span id="typed-slogan-v2"></span>
+      </h2>
     </div>
   </section>
   <!-- END SHARED NEWSLETTER COMPONENT -->
@@ -543,9 +884,8 @@
       <div class="row mb-5">
         <div class="col-md">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Adventure</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind texts.</p>
+            <h2 class="ftco-heading-2">Marragafay</h2>
+            <p>Discover the beauty of Agafay Desert with our unique experiences and activities.</p>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
               <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
               <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -557,39 +897,35 @@
           <div class="ftco-footer-widget mb-4 ml-md-4">
             <h2 class="ftco-heading-2">Information</h2>
             <ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">About Us</a></li>
-              <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-              <li><a href="#" class="py-2 d-block">Call Us</a></li>
-              <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-              <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-              <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-              <li><a href="#" class="py-2 d-block">Refund policy</a></li>
+              <li><a href="about.html" class="py-2 d-block">About Us</a></li>
+              <li><a href="contact.html" class="py-2 d-block">Contact Us</a></li>
+              <li><a href="#" class="py-2 d-block">Terms & Conditions</a></li>
+              <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
             </ul>
           </div>
         </div>
         <div class="col-md">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Experience</h2>
+            <h2 class="ftco-heading-2">Quick Links</h2>
             <ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">Beach</a></li>
-              <li><a href="#" class="py-2 d-block">Adventure</a></li>
-              <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-              <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-              <li><a href="#" class="py-2 d-block">Nature</a></li>
-              <li><a href="#" class="py-2 d-block">Party</a></li>
+              <li><a href="activities.html" class="py-2 d-block">Activities</a></li>
+              <li><a href="packs.html" class="py-2 d-block">Packs</a></li>
+              <li><a href="about.html" class="py-2 d-block">About</a></li>
+              <li><a href="reviews.html" class="py-2 d-block">Reviews</a></li>
+              <li><a href="blog.html" class="py-2 d-block">Blog</a></li>
             </ul>
           </div>
         </div>
         <div class="col-md">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Have a Questions?</h2>
+            <h2 class="ftco-heading-2">Have a Question?</h2>
             <div class="block-23 mb-3">
               <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San
-                    Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                <li><span class="icon icon-map-marker"></span><span class="text">Agafay Desert, Marrakech,
+                    Morocco</span></li>
+                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+212 600 000000</span></a></li>
                 <li><a href="#"><span class="icon icon-envelope"></span><span
-                      class="text">info@yourdomain.com</span></a></li>
+                      class="text">info@marragafay.com</span></a></li>
               </ul>
             </div>
           </div>
@@ -597,7 +933,9 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-
+          <p>&copy;
+            <script>document.write(new Date().getFullYear());</script> Marragafay. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
@@ -638,6 +976,35 @@
 
   <!-- Testimonials JS -->
   <script src="js/testimonials.js"></script>
+
+  <!-- Typed.js for Slogan Section -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sloganElement = document.getElementById('typed-slogan-v2');
+      if (sloganElement) {
+        var typed = new Typed('#typed-slogan-v2', {
+          strings: [
+            "Live the moment with Marragafay",
+            "Vivez l'instant avec Marragafay",
+            "عيش اللحضة معانا",
+            "Vive el momento con Marragafay",
+            "Erlebe den Moment mit Marragafay",
+            "Vivi il momento con Marragafay",
+            "Viva o momento com Marragafay",
+            "Beleef het moment met Marragafay"
+          ],
+          typeSpeed: 80,
+          backSpeed: 40,
+          loop: true,
+          backDelay: 2000,
+          showCursor: true,
+          cursorChar: '|',
+          autoInsertCss: true,
+        });
+      }
+    });
+  </script>
 
 </body>
 

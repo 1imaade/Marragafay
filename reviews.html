@@ -6,8 +6,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Eczar:wght@400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=Montserrat:wght@800;900&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -32,6 +35,46 @@
 
   <!-- Section Titles CSS -->
   <link rel="stylesheet" href="css/section-titles.css">
+  <style>
+    /* Scoped Font Application for Reviews Page */
+    /* Target Testimonials and other Luxury Sections to match Homepage */
+    .testimonials-section,
+    .luxury-gallery-section,
+    .luxury-faq-section {
+      font-family: "Overpass", "Open Sans", "Eczar", "EB Garamond", sans-serif;
+    }
+
+    .testimonials-section h1,
+    .testimonials-section h2,
+    .testimonials-section h3,
+    .testimonials-section h4,
+    .testimonials-section h5,
+    .luxury-gallery-section h1,
+    .luxury-gallery-section h2,
+    .luxury-gallery-section h3,
+    .luxury-gallery-section h4,
+    .luxury-faq-section h1,
+    .luxury-faq-section h2,
+    .luxury-faq-section h3,
+    .luxury-faq-section h4,
+    .luxury-faq-section h5 {
+      font-family: "Overpass", sans-serif !important;
+    }
+
+    .testimonials-section p,
+    .testimonials-section a,
+    .testimonials-section span,
+    .testimonials-section div,
+    .luxury-gallery-section p,
+    .luxury-gallery-section a,
+    .luxury-gallery-section span,
+    .luxury-faq-section p,
+    .luxury-faq-section a,
+    .luxury-faq-section span,
+    .luxury-faq-section div {
+      font-family: "Overpass", "Open Sans", "Eczar", "EB Garamond", sans-serif !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -437,27 +480,11 @@
   <!-- This section is consistent across all pages -->
   <!-- To update globally, change background in inline style below -->
   <!-- ========================================= -->
-  <section class="ftco-section-parallax">
-    <div class="parallax-img d-flex align-items-center" style="background: #bc6c25 !important;">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2>Subcribe to our Newsletter</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind texts. Separated they live in</p>
-            <div class="row d-flex justify-content-center mt-5">
-              <div class="col-md-8">
-                <form action="#" class="subscribe-form">
-                  <div class="form-group d-flex">
-                    <input type="text" class="form-control" placeholder="Enter email address">
-                    <input type="submit" value="Subscribe" class="submit px-3">
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <section class="pro-slogan-section" id="marragafay-slogan-box">
+    <div class="container">
+      <h2 style="color: #fff !important; font-weight: 900; text-transform: uppercase;">
+        <span id="typed-slogan-v2"></span>
+      </h2>
     </div>
   </section>
   <!-- END SHARED NEWSLETTER COMPONENT -->
@@ -557,6 +584,35 @@
 
   <!-- Testimonials JS -->
   <script src="js/testimonials.js"></script>
+
+  <!-- Typed.js for Slogan Section -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var sloganElement = document.getElementById('typed-slogan-v2');
+      if (sloganElement) {
+        var typed = new Typed('#typed-slogan-v2', {
+          strings: [
+            "Live the moment with Marragafay",
+            "Vivez l'instant avec Marragafay",
+            "عيش اللحضة معانا",
+            "Vive el momento con Marragafay",
+            "Erlebe den Moment mit Marragafay",
+            "Vivi il momento con Marragafay",
+            "Viva o momento com Marragafay",
+            "Beleef het moment met Marragafay"
+          ],
+          typeSpeed: 80,
+          backSpeed: 40,
+          loop: true,
+          backDelay: 2000,
+          showCursor: true,
+          cursorChar: '|',
+          autoInsertCss: true,
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
