@@ -34,31 +34,101 @@ document.addEventListener('submit', async function (e) {
         console.log('Form submission detected via Delegation!');
 
         const form = e.target;
+
+        // UX: Immediate feedback & prevent double submission
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.dataset.originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Processing...';
+        }
+
         const formData = new FormData(form);
 
-        // Extract values safely using FormData - with fallbacks for different field names
+        // Extract values safely using FormData
+        const adults = parseInt(formData.get('adults') || formData.get('guests') || '1');
+        const children = parseInt(formData.get('children') || '0');
+        const totalGuests = adults + children;
+
         const bookingData = {
-            customer_name: formData.get('full_name') || formData.get('name'), // Try both common names
-            customer_email: formData.get('email'),
-            phone: formData.get('phone'),
-            booking_date: formData.get('booking_date') || formData.get('date'),
-            guests_count: parseInt(formData.get('guests') || '1'),
-            package_title: formData.get('package_title') || document.title, // Fallback to page title if hidden input is missing
+            name: formData.get('full_name') || formData.get('name'),
+            email: formData.get('email'),
+            phone_number: formData.get('phone'),
+            date: formData.get('booking_date') || formData.get('date'), // DB Column: date
+            guests: totalGuests,
+            adults: adults,
+            children: children,
+            package_title: formData.get('package_title') || document.title,
             notes: formData.get('message') || ''
         };
 
-        // Calculate Price Logic
+        // Append breakdown to notes just in case
+        if (children > 0) {
+            bookingData.notes += ` (Adults: ${adults}, Children: ${children})`;
+        }
+
+        // Calculate Price Logic with Dynamic Pricing support
         let pricePerPerson = 400; // Default fallback
         const titleToCheck = bookingData.package_title || '';
 
-        for (const key in PRICE_LIST) {
-            if (titleToCheck.includes(key)) {
-                pricePerPerson = PRICE_LIST[key];
-                break;
+        // Try to get dynamic price first if function exists
+        if (typeof window.getDynamicPrice === 'function') {
+            try {
+                // Determine if it's a package or activity
+                let itemType = 'package';
+                let itemName = '';
+
+                // Match against known packages/activities
+                if (titleToCheck.includes('Basic')) {
+                    itemName = 'Basic';
+                } else if (titleToCheck.includes('Comfort')) {
+                    itemName = 'Comfort';
+                } else if (titleToCheck.includes('Luxe') || titleToCheck.includes('Luxury')) {
+                    itemName = 'Luxe';
+                } else if (titleToCheck.includes('Quad')) {
+                    itemType = 'activity';
+                    itemName = 'Quad Biking';
+                } else if (titleToCheck.includes('Buggy')) {
+                    itemType = 'activity';
+                    itemName = 'Buggy';
+                } else if (titleToCheck.includes('Camel')) {
+                    itemType = 'activity';
+                    itemName = 'Camel Ride';
+                }
+
+                if (itemName) {
+                    pricePerPerson = await window.getDynamicPrice(itemType, itemName);
+                    console.log(`Dynamic price fetched: ${pricePerPerson} for ${itemType} ${itemName}`);
+                }
+            } catch (error) {
+                console.error('Error fetching dynamic price:', error);
+                // Fall back to PRICE_LIST below
             }
         }
 
-        const total = pricePerPerson * bookingData.guests_count;
+        // Fallback to static PRICE_LIST if dynamic pricing didn't work
+        if (pricePerPerson === 400) {
+            for (const key in PRICE_LIST) {
+                if (titleToCheck.includes(key)) {
+                    pricePerPerson = PRICE_LIST[key];
+                    break;
+                }
+            }
+        }
+
+        // Calculate Total Price
+        // Logic: Currently treating children as full price unless specific discount logic is added here.
+        // User requested: "check if I have a discount logic, otherwise count them normally".
+
+        let total = 0;
+
+        // Future-proof: If we add child pricing later, we can do:
+        // const childPrice = pricePerPerson * 0.5; // Example 50%
+        // total = (adults * pricePerPerson) + (children * childPrice);
+
+        // Current Logic: Standard per-person pricing for all
+        total = pricePerPerson * totalGuests;
+
         bookingData.total_price = total;
 
 
@@ -66,16 +136,35 @@ document.addEventListener('submit', async function (e) {
         console.log('Captured Data:', bookingData);
 
         // Check for missing critical fields
-        if (!bookingData.customer_email || !bookingData.customer_name) {
+        if (!bookingData.email || !bookingData.name) {
+
+            // Re-enable button if validation fails
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = submitBtn.dataset.originalText || 'Book Now';
+            }
+
             // Beautiful error popup for validation
             if (window.Swal) {
                 Swal.fire({
-                    title: 'Missing Information',
-                    text: 'Please fill in all required fields (Name and Email).',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    confirmButtonColor: '#C19B76',
-                    background: '#ffffff'
+                    title: 'Almost There',
+                    text: 'Please complete all required fields.',
+                    icon: 'info',
+                    confirmButtonText: 'Got it',
+                    confirmButtonColor: '#bc6c25',
+                    background: '#fff',
+                    color: '#333',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeIn animate__faster'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOut animate__faster'
+                    },
+                    customClass: {
+                        popup: 'swal-clean-popup',
+                        title: 'swal-clean-title',
+                        confirmButton: 'swal-clean-btn'
+                    }
                 });
             } else {
                 alert('Please fill in all required fields.');
@@ -96,14 +185,26 @@ document.addEventListener('submit', async function (e) {
 
             if (window.Swal) {
                 Swal.fire({
-                    title: 'Reservation Received!',
-                    text: 'Thank you! We have received your booking. We will contact you shortly on WhatsApp to confirm the details.',
-                    icon: 'success', // Green checkmark
-                    confirmButtonText: 'Great!',
-                    confirmButtonColor: '#C19B76', // Brand gold/brown color
-                    background: '#ffffff',
+                    title: 'Booking Confirmed!',
+                    html: '<p style="color:#666; font-size:15px; margin:0;">We\'ll contact you on WhatsApp shortly.</p>',
+                    icon: 'success',
+                    confirmButtonText: 'Perfect',
+                    confirmButtonColor: '#bc6c25',
+                    background: '#fff',
+                    color: '#222',
+                    timer: 5000,
+                    timerProgressBar: true,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeIn animate__faster'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOut animate__faster'
+                    },
                     customClass: {
-                        popup: 'animated fadeInDown'
+                        popup: 'swal-clean-popup',
+                        title: 'swal-clean-title',
+                        confirmButton: 'swal-clean-btn',
+                        timerProgressBar: 'swal-progress-gold'
                     }
                 });
             } else {
@@ -111,22 +212,44 @@ document.addEventListener('submit', async function (e) {
             }
 
             form.reset();
+            // UX: Keep disabled or show success state
+            if (submitBtn) {
+                submitBtn.innerText = 'Sent!';
+            }
 
         } catch (error) {
             // Error handling - Beautiful error popup
-            console.error('Booking error:', error);
+            console.error('Booking error detail:', error);
+
+            // Re-enable button on error
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = submitBtn.dataset.originalText || 'Book Now';
+            }
 
             if (window.Swal) {
                 Swal.fire({
-                    title: 'Booking Failed',
-                    text: 'Error: ' + error.message,
+                    title: 'Something Went Wrong',
+                    text: 'Please try again or contact us directly.',
                     icon: 'error',
-                    confirmButtonText: 'Try Again',
-                    confirmButtonColor: '#C19B76',
-                    background: '#ffffff'
+                    confirmButtonText: 'Retry',
+                    confirmButtonColor: '#bc6c25',
+                    background: '#fff',
+                    color: '#333',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeIn animate__faster'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOut animate__faster'
+                    },
+                    customClass: {
+                        popup: 'swal-clean-popup',
+                        title: 'swal-clean-title',
+                        confirmButton: 'swal-clean-btn'
+                    }
                 });
             } else {
-                alert('Error: ' + error.message);
+                alert('Error: ' + (error.message || 'Unknown error'));
             }
         }
     }

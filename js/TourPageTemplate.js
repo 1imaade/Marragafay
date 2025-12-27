@@ -298,6 +298,30 @@ const TourPageTemplate = (function () {
         .btn-mobile-book:hover, .btn-mobile-book:active { background: #b08d68; }
       }
       .mobile-bottom-bar { display: none; }
+      /* NAVBAR BOOKING BUTTON - Gold Theme (Matches Index & Packs) */
+      .navbar .nav-link.booking-btn {
+        background: #bc6c25 !important;
+        color: #fff !important;
+        border: 1.5px solid #bc6c25 !important;
+        border-radius: 0 !important;
+        font-weight: 600 !important;
+        padding: 10px 20px !important;
+        transition: all 0.2s ease !important;
+        display: inline-block !important;
+      }
+
+      .navbar .nav-link.booking-btn:hover {
+        background: #d4af37 !important;
+        border-color: #d4af37 !important;
+        color: #fff !important;
+      }
+      
+      @media (max-width: 768px) {
+        .navbar .nav-link.booking-btn {
+          padding: 12px 20px !important;
+          font-size: 1rem !important;
+        }
+      }
   `;
 
   // Icons (Lucide-like SVGs)
@@ -411,7 +435,7 @@ const TourPageTemplate = (function () {
               <li class="nav-item"><a href="../reviews.html" class="nav-link">Reviews</a></li>
               <!-- <li class="nav-item"><a href="../blog.html" class="nav-link">Blog</a></li> -->
               <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
-              <li class="nav-item"><a href="#" class="nav-link booking-btn">Booking</a></li>
+              <li class="nav-item"><a href="../packs.html" class="nav-link booking-btn">Booking</a></li>
             </ul>
           </div>
         </div>

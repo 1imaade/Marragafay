@@ -8,9 +8,12 @@
     'use strict';
 
     // =========================================
-    // SAMPLE REVIEWS DATA
-    // In production, this would be fetched from Supabase
+    // SUPABASE REVIEWS DATA
+    // Fetches approved reviews dynamically from Supabase
     // =========================================
+    let allReviews = []; // Will be populated from Supabase
+
+    // Sample reviews as fallback if Supabase is unavailable
     const sampleReviews = [
         {
             id: 1,
@@ -20,7 +23,8 @@
             text: 'A truly magical experience! The camel ride at sunset was breathtaking, and the dinner show was the perfect end to the day. The staff went above and beyond to make our visit unforgettable. Highly recommended for anyone visiting Marrakech!',
             date: '2025-12-19',
             verified: true,
-            photo: null
+            photo: null,
+            status: 'approved'
         },
         {
             id: 2,
@@ -30,7 +34,8 @@
             text: 'Professional guides and top-notch equipment. The quad biking was thrilling but felt very safe. Will definitely come back!',
             date: '2025-12-18',
             verified: true,
-            photo: null
+            photo: null,
+            status: 'approved'
         },
         {
             id: 3,
@@ -40,7 +45,8 @@
             text: 'Best desert experience ever! The sunset was incredible and the traditional dinner exceeded all expectations. The entire team was so welcoming and professional.',
             date: '2025-12-17',
             verified: true,
-            photo: 'images/activites/camel.jpg'
+            photo: 'images/activites/camel.jpg',
+            status: 'approved'
         },
         {
             id: 4,
@@ -50,7 +56,8 @@
             text: 'Great value for money. The buggy tour was fantastic and our guide Mohammed was very knowledgeable about the area.',
             date: '2025-12-16',
             verified: true,
-            photo: null
+            photo: null,
+            status: 'approved'
         },
         {
             id: 5,
@@ -60,7 +67,8 @@
             text: 'Unique and magnificent place that you absolutely must discover. A more than perfect dinner and warm welcome! The atmosphere under the stars was pure magic.',
             date: '2025-12-14',
             verified: true,
-            photo: null
+            photo: null,
+            status: 'approved'
         },
         {
             id: 6,
@@ -70,7 +78,8 @@
             text: 'What an experience! Breathtaking food and quality service. The staff made us feel like royalty.',
             date: '2025-12-12',
             verified: true,
-            photo: 'images/activites/quad.jpeg'
+            photo: 'images/activites/quad.jpeg',
+            status: 'approved'
         },
         {
             id: 7,
@@ -80,7 +89,8 @@
             text: 'Perfect romantic getaway! The hot air balloon at sunrise followed by a champagne breakfast was unforgettable. We celebrated our anniversary here and it was the best decision ever!',
             date: '2025-12-10',
             verified: true,
-            photo: 'images/activites/hote-aire.jpeg'
+            photo: 'images/activites/hote-aire.jpeg',
+            status: 'approved'
         },
         {
             id: 8,
@@ -90,7 +100,8 @@
             text: 'Amazing desert adventure. The quad biking was exhilarating and the staff were incredibly friendly.',
             date: '2025-12-08',
             verified: true,
-            photo: null
+            photo: null,
+            status: 'approved'
         },
         {
             id: 9,
@@ -100,7 +111,8 @@
             text: 'A once-in-a-lifetime experience. The camel trek through the desert at sunset was absolutely magical. Everything was perfectly organized from pickup to drop-off.',
             date: '2025-12-06',
             verified: true,
-            photo: null
+            photo: null,
+            status: 'approved'
         },
         {
             id: 10,
@@ -110,9 +122,35 @@
             text: 'Exceeded all expectations! The dinner show was entertaining and the food was authentic Moroccan cuisine.',
             date: '2025-12-04',
             verified: true,
-            photo: 'images/activites/show.jpeg'
+            photo: 'images/activites/show.jpeg',
+            status: 'approved'
         }
     ];
+
+    /**
+     * Fetch approved reviews from Supabase
+     */
+    async function fetchApprovedReviews() {
+        try {
+            console.log('Fetching approved reviews from Supabase...');
+
+            const { data, error } = await supabaseClient
+                .from('reviews')
+                .select('*')
+                .eq('status', 'approved') // ONLY fetch approved reviews
+                .order('created_at', { ascending: false }); // Newest first
+
+            if (error) throw error;
+
+            console.log(`Fetched ${data.length} approved reviews from Supabase`);
+            return data;
+
+        } catch (error) {
+            console.error('Error fetching reviews from Supabase:', error);
+            console.log('Falling back to sample reviews');
+            return sampleReviews;
+        }
+    }
 
     // =========================================
     // DOM ELEMENTS
@@ -279,25 +317,75 @@
     // =========================================
     // LOAD REVIEWS
     // =========================================
-    function loadReviews() {
-        const reviews = sampleReviews;
+    async function loadReviews() {
+        // Show loading state
+        showLoadingState();
+
+        // Fetch approved reviews from Supabase
+        allReviews = await fetchApprovedReviews();
+
         reviewsContainer.innerHTML = '';
 
-        reviews.forEach((review, index) => {
-            const card = createReviewCard(review);
-            card.style.animationDelay = `${index * 0.1}s`;
-            reviewsContainer.appendChild(card);
-        });
+        if (allReviews.length === 0) {
+            showEmptyState();
+        } else {
+            allReviews.forEach((review, index) => {
+                const card = createReviewCard(review);
+                card.style.animationDelay = `${index * 0.1}s`;
+                reviewsContainer.appendChild(card);
+            });
+        }
 
-        displayedReviews = reviews.length;
+        displayedReviews = allReviews.length;
         updateLoadMoreButton();
+
+        // Update star distribution based on real data
+        updateStarDistribution(allReviews);
+
+        // Update the rating header with real stats
+        updateRatingHeader(allReviews);
+    }
+
+    function showLoadingState() {
+        reviewsContainer.innerHTML = `
+            <div style="text-align: center; padding: 60px 20px;">
+                <div class="spinner-border" role="status" style="color: #b18c58; width: 3rem; height: 3rem; border-width: 3px;">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <p style="margin-top: 20px; color: #666; font-size: 16px;">Loading reviews...</p>
+            </div>
+        `;
+    }
+
+    function showEmptyState() {
+        reviewsContainer.innerHTML = `
+            <div style="text-align: center; padding: 80px 20px;">
+                <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="#b18c58" stroke-width="1.5" style="margin: 0 auto 20px;">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                <h4 style="color: #333; margin-bottom: 12px; font-weight: 600;">No Reviews Yet</h4>
+                <p style="color: #666; margin-bottom: 24px;">Be the first to share your experience with Marragafay!</p>
+                <button class="btn-write-review" onclick="document.getElementById('write-review-btn').click()">
+                    Write First Review
+                </button>
+            </div>
+        `;
     }
 
     function createReviewCard(review) {
         const card = document.createElement('div');
         card.className = 'review-card fade-in';
         card.dataset.rating = review.rating;
-        card.dataset.hasPhoto = review.photo ? 'true' : 'false';
+        card.dataset.hasPhoto = (review.photo || review.image_url) ? 'true' : 'false';
+
+        // Use consistent field names - support both 'photo' and 'image_url'
+        const photoUrl = review.photo || review.image_url || null;
+
+        // Use correct field name - 'comment' from Supabase
+        const reviewText = review.comment || review.text || '';
+
+        // Location with fallback
+        const location = review.location || 'Guest';
 
         // Generate avatar HTML - Always use initials with brand identity gold
         const initials = review.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
@@ -308,18 +396,19 @@
         const starsHTML = generateStarsHTML(review.rating);
 
         // Generate photo HTML with 16:9 aspect ratio container
-        const photoHTML = review.photo
-            ? `<div class="review-photo-container"><img src="${review.photo}" alt="Review photo" class="review-photo" loading="lazy"></div>`
+        const photoHTML = photoUrl
+            ? `<div class="review-photo-container"><img src="${photoUrl}" alt="Review photo" class="review-photo" loading="lazy"></div>`
             : '';
 
-        // Format date (relative time)
-        const formattedDate = formatRelativeDate(review.date);
+        // Format date (relative time) - support both 'date' and 'created_at'
+        const dateValue = review.created_at || review.date;
+        const formattedDate = formatRelativeDate(dateValue);
 
         // Check if review text is long (needs Read More)
         const maxLength = 120;
-        const isLongReview = review.text.length > maxLength;
-        const displayText = isLongReview ? review.text.substring(0, maxLength) + '...' : review.text;
-        const readMoreHTML = isLongReview ? `<a href="javascript:void(0)" class="read-more-link" data-full-text="${review.text.replace(/"/g, '&quot;')}">Read More</a>` : '';
+        const isLongReview = reviewText.length > maxLength;
+        const displayText = isLongReview ? reviewText.substring(0, maxLength) + '...' : reviewText;
+        const readMoreHTML = isLongReview ? `<a href="javascript:void(0)" class="read-more-link" data-full-text="${reviewText.replace(/"/g, '&quot;')}">Read More</a>` : '';
 
         card.innerHTML = `
       <div class="review-card-header">
@@ -327,7 +416,7 @@
         <div class="review-author-info">
           <h4 class="review-author-name">${review.name}</h4>
           <div class="review-author-meta">
-            <span class="review-author-location">${review.location}</span>
+            <span class="review-author-location">${location}</span>
           </div>
         </div>
       </div>
@@ -535,27 +624,55 @@
             submitBtn.textContent = 'Submitting...';
 
             try {
-                // Prepare photo URLs array (in production, these would be uploaded to storage first)
+                // Upload photos to Supabase Storage if they exist
                 let photoUrls = [];
-                if (photos && photos.length > 0) {
-                    // In production: Upload to Supabase Storage and get URLs
-                    // For now, we'll prepare the file names for submission
+                if (photos && photos.length > 0 && typeof supabaseClient !== 'undefined') {
+                    console.log('Uploading photos to Supabase Storage...');
+
+                    for (let i = 0; i < photos.length; i++) {
+                        const file = photos[i];
+                        const fileExt = file.name.split('.').pop();
+                        const fileName = `${Date.now()}_${i}.${fileExt}`;
+                        const filePath = `${fileName}`;
+
+                        // Upload to Supabase Storage
+                        const { data: uploadData, error: uploadError } = await supabaseClient
+                            .storage
+                            .from('review-images')
+                            .upload(filePath, file, {
+                                cacheControl: '3600',
+                                upsert: false
+                            });
+
+                        if (uploadError) {
+                            console.error('Upload error:', uploadError);
+                            throw uploadError;
+                        }
+
+                        // Get public URL
+                        const { data: { publicUrl } } = supabaseClient
+                            .storage
+                            .from('review-images')
+                            .getPublicUrl(filePath);
+
+                        photoUrls.push(publicUrl);
+                        console.log(`Uploaded: ${publicUrl}`);
+                    }
+                } else if (photos && photos.length > 0) {
+                    // Fallback if Supabase not available
                     for (let i = 0; i < photos.length; i++) {
                         photoUrls.push(photos[i].name);
                     }
-                    console.log('Photos to upload:', photoUrls);
+                    console.log('Photos prepared (demo mode):', photoUrls);
                 }
 
                 // Submit to Supabase with pending status
                 const reviewData = {
                     name: name,
                     rating: selectedRating,
-                    text: comment,
+                    comment: comment, // Using 'comment' field from Supabase schema
                     status: 'pending', // Awaiting dashboard approval
-                    date: new Date().toISOString().split('T')[0],
-                    verified: false,
-                    photo: photoUrls.length > 0 ? photoUrls[0] : null, // First photo as primary
-                    photos: photoUrls, // All photos array
+                    image_url: photoUrls.length > 0 ? photoUrls[0] : null, // Using 'image_url' field
                     created_at: new Date().toISOString()
                 };
 
@@ -568,6 +685,8 @@
                     if (error) {
                         throw error;
                     }
+
+                    console.log('Review submitted successfully:', data);
                 } else {
                     // Simulate submission for demo
                     console.log('Review submitted (demo mode):', reviewData);
@@ -608,6 +727,107 @@
                 messageEl.textContent = '';
             }
         }
+    }
+
+    // =========================================
+    // UPDATE STAR DISTRIBUTION ON PAGE
+    // =========================================
+    function updateStarDistribution(reviews) {
+        if (!reviews || reviews.length === 0) return;
+
+        const stats = calculateStats(reviews);
+
+        // Update average rating display
+        const avgRatingEl = document.querySelector('.aggregate-rating-value');
+        if (avgRatingEl) {
+            avgRatingEl.textContent = stats.average;
+        }
+
+        // Update total reviews count
+        const totalReviewsEl = document.querySelector('.total-reviews-count');
+        if (totalReviewsEl) {
+            totalReviewsEl.textContent = `${stats.total} reviews`;
+        }
+
+        // Update star breakdown bars
+        for (let i = 1; i <= 5; i++) {
+            const barEl = document.querySelector(`[data-star="${i}"] .star-bar-fill`);
+            const percentEl = document.querySelector(`[data-star="${i}"] .star-percent`);
+
+            if (barEl) {
+                barEl.style.width = `${stats.percentages[i]}%`;
+            }
+
+            if (percentEl) {
+                percentEl.textContent = `${stats.percentages[i]}%`;
+            }
+        }
+
+        console.log('Star distribution updated:', stats);
+    }
+
+    // =========================================
+    // UPDATE RATING HEADER ON PAGE
+    // =========================================
+    function updateRatingHeader(reviews) {
+        if (!reviews || reviews.length === 0) {
+            // Set default values when no reviews
+            const avgRatingEl = document.querySelector('.rating-big-number');
+            if (avgRatingEl) {
+                avgRatingEl.textContent = '0.0';
+            }
+
+            const countEl = document.querySelector('.rating-count');
+            if (countEl) {
+                countEl.textContent = 'No reviews yet';
+            }
+
+            // Update all breakdown bars to 0%
+            const breakdownRows = document.querySelectorAll('.breakdown-row');
+            breakdownRows.forEach(row => {
+                const fillEl = row.querySelector('.breakdown-fill');
+                const percentEl = row.querySelector('.breakdown-percent');
+                if (fillEl) fillEl.style.width = '0%';
+                if (percentEl) percentEl.textContent = '0%';
+            });
+
+            return;
+        }
+
+        const stats = calculateStats(reviews);
+
+        // Update the big average rating number
+        const avgRatingEl = document.querySelector('.rating-big-number');
+        if (avgRatingEl) {
+            avgRatingEl.textContent = stats.average;
+        }
+
+        // Update the review count text
+        const countEl = document.querySelector('.rating-count');
+        if (countEl) {
+            const reviewText = stats.total === 1 ? 'Review' : 'Reviews';
+            countEl.textContent = `Based on ${stats.total}+ Verified ${reviewText}`;
+        }
+
+        // Update the star breakdown bars with animation
+        const breakdownRows = document.querySelectorAll('.breakdown-row');
+        breakdownRows.forEach((row, index) => {
+            const starLevel = 5 - index; // 5, 4, 3, 2, 1
+            const fillEl = row.querySelector('.breakdown-fill');
+            const percentEl = row.querySelector('.breakdown-percent');
+
+            if (fillEl && percentEl) {
+                const percentage = stats.percentages[starLevel] || 0;
+
+                // Animate the width
+                setTimeout(() => {
+                    fillEl.style.width = `${percentage}%`;
+                    percentEl.textContent = `${percentage}%`;
+                }, index * 100);
+            }
+        });
+
+        console.log('Rating header updated with real stats:', stats);
     }
 
     // =========================================
