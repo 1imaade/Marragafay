@@ -217,41 +217,34 @@ document.addEventListener('submit', async function (e) {
 
             if (error) throw error;
 
-            // Success - Beautiful confirmation popup
+            // SUCCESS - Nuclear Fix: Robust Confirmation Popup
             console.log('Booking successful:', data);
 
             if (window.Swal) {
                 Swal.fire({
-                    title: 'Booking Confirmed!',
-                    html: '<p style="color:#666; font-size:15px; margin:0;">We\'ll contact you on WhatsApp shortly.</p>',
+                    title: '<span style="color:#222">Booking Confirmed</span>',
+                    html: '<p style="color:#666; font-family:sans-serif;">We have received your request.<br>We will contact you on WhatsApp shortly.</p>',
                     icon: 'success',
+                    iconColor: '#C19B76',
                     confirmButtonText: 'Perfect',
-                    confirmButtonColor: '#bc6c25',
-                    background: '#fff',
-                    color: '#222',
-                    timer: 5000,
-                    timerProgressBar: true,
-                    showClass: {
-                        popup: 'animate__animated animate__fadeIn animate__faster'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOut animate__faster'
-                    },
+                    buttonsStyling: false, // Important: Disables default ugly styles
                     customClass: {
-                        popup: 'swal-clean-popup',
-                        title: 'swal-clean-title',
-                        confirmButton: 'swal-clean-btn',
-                        timerProgressBar: 'swal-progress-gold'
-                    }
+                        popup: 'swal2-popup', // Uses our custom CSS
+                        confirmButton: 'swal2-confirm btn btn-lg', // Adds Bootstrap classes + our custom
+                        icon: 'swal2-icon'
+                    },
+                    allowOutsideClick: true,
+                    allowEscapeKey: true,
+                    backdrop: `rgba(0,0,0,0.6)`
+                }).then(() => {
+                    // Force page reload to clear "stuck" states and ghost data
+                    console.log('Popup closed - reloading page for fresh state');
+                    window.location.reload();
                 });
             } else {
-                alert('Booking Confirmed!');
-            }
-
-            form.reset();
-            // UX: Keep disabled or show success state
-            if (submitBtn) {
-                submitBtn.innerText = 'Sent!';
+                // Fallback for browsers without SweetAlert
+                alert('Booking Confirmed! We\'ll contact you on WhatsApp shortly.');
+                window.location.reload();
             }
 
         } catch (error) {

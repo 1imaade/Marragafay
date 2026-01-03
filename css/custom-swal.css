@@ -1,0 +1,141 @@
+/* ============================================== */
+/* NUCLEAR FIX: SweetAlert2 Force-Luxury Override */
+/* Critical UX Fix - Ensures popup never gets stuck */
+/* ============================================== */
+
+/* Force Z-Index to Top of Everything */
+div:where(.swal2-container) {
+    z-index: 999999 !important;
+}
+
+/* Main Popup Styling - Luxury Gold Theme */
+div:where(.swal2-popup) {
+    border-radius: 15px !important;
+    font-family: 'Playfair Display', serif !important;
+    padding: 2rem !important;
+    border: 1px solid #C19B76 !important;
+    /* Gold Border */
+}
+
+/* Success Icon - Gold Branding */
+div:where(.swal2-icon) {
+    border-color: #C19B76 !important;
+    color: #C19B76 !important;
+}
+
+/* Icon Inner Elements - Gold Checkmark */
+div:where(.swal2-icon.swal2-success .swal2-success-ring) {
+    border-color: rgba(193, 155, 118, 0.3) !important;
+}
+
+div:where(.swal2-icon.swal2-success .swal2-success-line-tip),
+div:where(.swal2-icon.swal2-success .swal2-success-line-long) {
+    background-color: #C19B76 !important;
+}
+
+/* Confirm Button - Luxury Gold with Shadow */
+div:where(.swal2-confirm) {
+    background-color: #C19B76 !important;
+    box-shadow: 0 4px 15px rgba(193, 155, 118, 0.4) !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 30px !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Button Hover - Darker Gold */
+div:where(.swal2-confirm):hover {
+    background-color: #a07e5e !important;
+    /* Darker Gold */
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(193, 155, 118, 0.5) !important;
+}
+
+/* Button Active/Click State */
+div:where(.swal2-confirm):active {
+    background-color: #8F6F4E !important;
+    transform: translateY(0) !important;
+}
+
+/* Button Focus - Remove Ugly Default Outline */
+div:where(.swal2-confirm):focus {
+    outline: none !important;
+    box-shadow: 0 4px 15px rgba(193, 155, 118, 0.6),
+        0 0 0 3px rgba(193, 155, 118, 0.2) !important;
+}
+
+/* Title Styling */
+div:where(.swal2-title) {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 600 !important;
+    font-size: 1.75rem !important;
+    color: #222 !important;
+}
+
+/* HTML Content Container */
+div:where(.swal2-html-container) {
+    font-family: 'Open Sans', sans-serif !important;
+    color: #666 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+/* Backdrop/Overlay */
+div:where(.swal2-container).swal2-backdrop-show {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Actions Container (Buttons Group) */
+div:where(.swal2-actions) {
+    margin-top: 1.5rem !important;
+}
+
+/* Remove Default SweetAlert Button Styling */
+.swal2-styled {
+    margin: 0 !important;
+    padding: 12px 30px !important;
+}
+
+/* Ensure Popup is Always Clickable and Not Stuck */
+div:where(.swal2-container) {
+    pointer-events: auto !important;
+}
+
+div:where(.swal2-popup) {
+    pointer-events: auto !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    div:where(.swal2-popup) {
+        padding: 1.5rem !important;
+        max-width: 90vw !important;
+    }
+
+    div:where(.swal2-title) {
+        font-size: 1.5rem !important;
+    }
+
+    div:where(.swal2-confirm) {
+        padding: 10px 25px !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+/* Animation Override - Smooth Fade */
+.swal2-show {
+    animation: swal2-show 0.3s !important;
+}
+
+.swal2-hide {
+    animation: swal2-hide 0.2s !important;
+}
+
+/* Ensure Title Inherits Correct Font */
+div:where(.swal2-title) span {
+    font-family: inherit !important;
+}
