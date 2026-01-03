@@ -3270,8 +3270,9 @@
               <ul>
                 <li><span class="icon icon-map-marker"></span><span class="text">Agafay Desert, Marrakech,
                     Morocco</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+212 672-531624</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span
+                <li><a href="tel:+212672531624"><span class="icon icon-phone"></span><span class="text">+212
+                      672-531624</span></a></li>
+                <li><a href="mailto:marragafay@gmail.com"><span class="icon icon-envelope"></span><span
                       class="text">marragafay@gmail.com</span></a></li>
               </ul>
             </div>
@@ -4295,9 +4296,9 @@
                 <label for="bookingPhone"
                   style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">WhatsApp/Phone
                   Number *</label>
-                <input type="tel" id="bookingPhone" name="phone" required
+                <input type="tel" id="bookingPhone" name="phone" required pattern="[0-9\s+\-]+"
                   style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 0; font-size: 1rem; background: #ffffff; transition: border-color 0.3s ease;"
-                  placeholder="+212 612 345 678">
+                  placeholder="+212 612 345 678" title="Please enter a valid phone number (numbers, spaces, +, - only)">
               </div>
 
               <!-- Date field -->
@@ -4508,9 +4509,9 @@
                 <label for="activityBookingPhone"
                   style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">WhatsApp/Phone
                   Number *</label>
-                <input type="tel" id="activityBookingPhone" name="phone" required
+                <input type="tel" id="activityBookingPhone" name="phone" required pattern="[0-9\s+\-]+"
                   style="width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 0; font-size: 1rem; background: #ffffff; transition: border-color 0.3s ease;"
-                  placeholder="+212 612 345 678">
+                  placeholder="+212 612 345 678" title="Please enter a valid phone number (numbers, spaces, +, - only)">
               </div>
 
               <!-- Date field -->

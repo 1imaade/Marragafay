@@ -135,6 +135,43 @@ document.addEventListener('submit', async function (e) {
         // Debug log to see what we captured
         console.log('Captured Data:', bookingData);
 
+        // Phone Number Validation - Only allow numbers, spaces, +, and -
+        const phoneRegex = /^[0-9\s+\-]+$/;
+        if (bookingData.phone_number && !phoneRegex.test(bookingData.phone_number)) {
+            // Re-enable button if validation fails
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerText = submitBtn.dataset.originalText || 'Book Now';
+            }
+
+            // Beautiful error popup for phone validation
+            if (window.Swal) {
+                Swal.fire({
+                    title: 'Invalid Phone Number',
+                    text: 'Please enter a valid phone number using only numbers, spaces, +, and - characters.',
+                    icon: 'warning',
+                    confirmButtonText: 'Got it',
+                    confirmButtonColor: '#bc6c25',
+                    background: '#fff',
+                    color: '#333',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeIn animate__faster'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOut animate__faster'
+                    },
+                    customClass: {
+                        popup: 'swal-clean-popup',
+                        title: 'swal-clean-title',
+                        confirmButton: 'swal-clean-btn'
+                    }
+                });
+            } else {
+                alert('Please enter a valid phone number (numbers, spaces, +, and - only).');
+            }
+            return;
+        }
+
         // Check for missing critical fields
         if (!bookingData.email || !bookingData.name) {
 

@@ -3,11 +3,11 @@
 /* Handles form validation, date selection, and redirections */
 /* =========================================== */
 
-(function($) {
+(function ($) {
   'use strict';
 
   // Initialize when document is ready
-  $(document).ready(function() {
+  $(document).ready(function () {
     initMainSearchWidget();
     initQuickBookingWidget();
     initDatePickers();
@@ -26,7 +26,7 @@
     if (guestCounter.length === 0) return;
 
     // Click handler for guest counter
-    guestCounter.on('click', function(e) {
+    guestCounter.on('click', function (e) {
       e.stopPropagation();
 
       // Close any other open popups first
@@ -43,7 +43,7 @@
     });
 
     // Click outside to close popup
-    $(document).on('click', function(e) {
+    $(document).on('click', function (e) {
       if (!$(e.target).closest('.guest-counter').length && !$(e.target).closest('.guest-popup').length) {
         guestPopup.removeClass('show');
         guestCounter.removeClass('active');
@@ -51,7 +51,7 @@
     });
 
     // Counter button handlers
-    $('.counter-btn').on('click', function() {
+    $('.counter-btn').on('click', function () {
       const target = $(this).data('target');
       const isPlus = $(this).hasClass('plus');
       const input = $(`#${target}Count`);
@@ -94,7 +94,7 @@
   }
 
   function updateCounterButtonStates() {
-    $('.counter-btn').each(function() {
+    $('.counter-btn').each(function () {
       const target = $(this).data('target');
       const input = $(`#${target}Count`);
       const currentValue = parseInt(input.val()) || 0;
@@ -115,11 +115,11 @@
 
   function initMainSearchWidget() {
     const form = $('#mainSearchForm');
-    
+
     if (form.length === 0) return;
 
     // Form submission handler
-    form.on('submit', function(e) {
+    form.on('submit', function (e) {
       e.preventDefault();
 
       // Validate form
@@ -146,7 +146,7 @@
       submitBtn.text('Searching...');
 
       // Redirect to packs page with parameters
-      setTimeout(function() {
+      setTimeout(function () {
         window.location.href = 'packs.html?' + params.toString();
       }, 500);
 
@@ -154,7 +154,7 @@
     });
 
     // Real-time validation
-    $('#activityType, #bookingDate, #numAdults, #numChildren').on('change', function() {
+    $('#activityType, #bookingDate, #numAdults, #numChildren').on('change', function () {
       clearError($(this).closest('.form-group'));
     });
   }
@@ -179,7 +179,7 @@
       const selectedDate = new Date(bookingDate.val());
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      
+
       if (selectedDate < today) {
         showError(bookingDate.closest('.form-group'), 'Please select a future date');
         isValid = false;
@@ -212,11 +212,11 @@
 
   function initQuickBookingWidget() {
     const form = $('#quickBookingForm');
-    
+
     if (form.length === 0) return;
 
     // Form submission handler
-    form.on('submit', function(e) {
+    form.on('submit', function (e) {
       e.preventDefault();
 
       // Validate form
@@ -247,7 +247,7 @@
       submitBtn.text('Processing...');
 
       // Redirect to checkout page with parameters
-      setTimeout(function() {
+      setTimeout(function () {
         window.location.href = 'checkout.html?' + params.toString();
       }, 500);
 
@@ -255,7 +255,7 @@
     });
 
     // Real-time validation
-    $('#quickBookingDate, #quickNumAdults, #quickNumChildren').on('change', function() {
+    $('#quickBookingDate, #quickNumAdults, #quickNumChildren').on('change', function () {
       clearError($(this).closest('.form-group'));
     });
   }
@@ -273,7 +273,7 @@
       const selectedDate = new Date(bookingDate.val());
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      
+
       if (selectedDate < today) {
         showError(bookingDate.closest('.form-group'), 'Please select a future date');
         isValid = false;
@@ -305,8 +305,16 @@
   /* ========================================= */
 
   function initDatePickers() {
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const todayDate = `${year}-${month}-${day}`;
+
     // Initialize datepicker for main search widget
     if ($('#bookingDate').length > 0) {
+      $('#bookingDate').attr('min', todayDate);
       $('#bookingDate').datepicker({
         format: 'yyyy-mm-dd',
         startDate: new Date(),
@@ -318,6 +326,7 @@
 
     // Initialize datepicker for quick booking widget
     if ($('#quickBookingDate').length > 0) {
+      $('#quickBookingDate').attr('min', todayDate);
       $('#quickBookingDate').datepicker({
         format: 'yyyy-mm-dd',
         startDate: new Date(),
@@ -326,6 +335,13 @@
         orientation: 'bottom auto'
       });
     }
+
+    // Set min date for ALL date inputs on the page (including modal forms)
+    $('input[type="date"]').each(function () {
+      $(this).attr('min', todayDate);
+    });
+
+    console.log(`Date validation applied: min date set to ${todayDate}`);
   }
 
   /* ========================================= */
@@ -334,7 +350,7 @@
 
   function parseURLParameters() {
     const urlParams = new URLSearchParams(window.location.search);
-    
+
     // Parse parameters for packs.html page
     if (window.location.pathname.includes('packs.html')) {
       const activity = urlParams.get('activity');
@@ -408,12 +424,12 @@
   function showError(formGroup, message) {
     formGroup.addClass('has-error');
     let errorElement = formGroup.find('.form-error');
-    
+
     if (errorElement.length === 0) {
       errorElement = $('<div class="form-error"></div>');
       formGroup.append(errorElement);
     }
-    
+
     errorElement.text(message).show();
   }
 
@@ -449,7 +465,7 @@
   /* ========================================= */
 
   // Prevent negative numbers and enforce max values
-  $('input[type="number"]').on('input', function() {
+  $('input[type="number"]').on('input', function () {
     const value = parseInt($(this).val());
     const min = parseInt($(this).attr('min')) || 1;
     const max = parseInt($(this).attr('max')) || 50;
