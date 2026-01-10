@@ -90,10 +90,107 @@ const TourPageTemplate = (function () {
       .check-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 1rem; white-space: nowrap; }
       .check-list li svg { flex-shrink: 0; color: #22c55e; }
       
-      /* Gallery */
-      .masonry-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 200px); gap: 15px; margin-bottom: 40px; }
-      .masonry-item { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-      .masonry-item:first-child { grid-row: span 2; height: 100%; }
+      /* Gallery - Column Masonry Layout (No Cropping, Sharp Corners) */
+      .masonry-grid { 
+        columns: 1; 
+        column-gap: 15px; 
+        margin-bottom: 40px; 
+      }
+      @media (min-width: 640px) { .masonry-grid { columns: 2; } }
+      @media (min-width: 1024px) { .masonry-grid { columns: 3; } }
+      
+      .masonry-item { 
+        display: block;
+        width: 100%; 
+        height: auto; /* Natural aspect ratio - NO CROPPING */
+        object-fit: contain; /* Show full image */
+        margin-bottom: 15px;
+        break-inside: avoid; /* Prevent column breaks */
+        border-radius: 0; /* Sharp corners - NO RADIUS */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+        transition: box-shadow 0.3s ease, transform 0.3s ease; 
+        cursor: pointer;
+      }
+      .masonry-item:hover { 
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        transform: translateY(-2px);
+      }
+
+      /* Gallery Lightbox Modal - Sharp Corners */
+      .gallery-lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+      }
+      .gallery-lightbox.active { display: flex; }
+      
+      .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .lightbox-image {
+        max-width: 100%;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        border-radius: 0; /* Sharp corners - NO RADIUS */
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+      }
+      
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        z-index: 10001;
+        background: rgba(0, 0, 0, 0.5);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0; /* Sharp corners */
+        transition: background 0.3s ease;
+      }
+      .lightbox-close:hover { background: rgba(188, 108, 37, 0.8); }
+      
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.5);
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0; /* Sharp corners */
+        transition: background 0.3s ease;
+        user-select: none;
+      }
+      .lightbox-nav:hover { background: rgba(188, 108, 37, 0.8); }
+      .lightbox-prev { left: 30px; }
+      .lightbox-next { right: 30px; }
+      
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
       /* Booking Card */
       /* Booking Card */
@@ -285,10 +382,18 @@ const TourPageTemplate = (function () {
         .check-list li { font-size: 14px; white-space: normal; flex-wrap: nowrap; }
         .check-list li svg { min-width: 20px; }
         
-        /* Fixed: Gallery as 2-column grid (not horizontal scroll) */
-        .masonry-grid { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 40px; overflow: visible; }
-        .masonry-item { width: 100% !important; height: 150px !important; flex: none !important; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .masonry-item:first-child { grid-row: span 1; height: 150px !important; }
+        
+        /* Fixed: Gallery - 2 Column Masonry on Mobile (No Cropping, Sharp Corners) */
+        .masonry-grid { columns: 2 !important; column-gap: 10px !important; margin-bottom: 40px; }
+        .masonry-item { 
+          width: 100% !important; 
+          height: auto !important; 
+          object-fit: contain !important;
+          margin-bottom: 10px;
+          break-inside: avoid;
+          border-radius: 0 !important; /* Sharp corners on mobile too */
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+        }
         
         /* Fixed: Mobile bottom bar with brand gold button */
         .mobile-bottom-bar { display: flex !important; position: fixed; bottom: 0; left: 0; width: 100%; background: white; z-index: 1000; padding: 15px 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); align-items: center; justify-content: space-between; border-top: 1px solid #eee; }
@@ -362,8 +467,8 @@ const TourPageTemplate = (function () {
 
   // Helper to render gallery
   function renderGallery(images) {
-    return images.map(img => `
-      <img src="${img}" class="masonry-item" alt="Gallery Image">
+    return images.map((img, index) => `
+      <img src="${img}" class="masonry-item" alt="Gallery Image" onclick="openGalleryLightbox(${index})" data-gallery-index="${index}">
     `).join('');
   }
 
@@ -679,6 +784,16 @@ const TourPageTemplate = (function () {
           </div>
         </div>
       </footer>
+      
+      <!-- Gallery Lightbox Modal -->
+      <div class="gallery-lightbox" id="galleryLightbox">
+        <div class="lightbox-close" onclick="closeGalleryLightbox()">&times;</div>
+        <div class="lightbox-nav lightbox-prev" onclick="navigateGallery(-1)">‹</div>
+        <div class="lightbox-content">
+          <img id="lightboxImage" class="lightbox-image" src="" alt="Gallery Image">
+        </div>
+        <div class="lightbox-nav lightbox-next" onclick="navigateGallery(1)">›</div>
+      </div>
     `;
 
     // Inject HTML
@@ -785,6 +900,65 @@ const TourPageTemplate = (function () {
 
       // Initial check
       handleScroll();
+    }
+
+    // Gallery Lightbox Functions
+    let currentGalleryIndex = 0;
+    let currentGalleryImages = gallery || [];
+
+    // Export lightbox functions to window
+    window.openGalleryLightbox = function (index) {
+      currentGalleryIndex = index;
+      currentGalleryImages = gallery;
+      const lightbox = document.getElementById('galleryLightbox');
+      const lightboxImg = document.getElementById('lightboxImage');
+
+      if (lightbox && lightboxImg && currentGalleryImages[currentGalleryIndex]) {
+        lightboxImg.src = currentGalleryImages[currentGalleryIndex];
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+      }
+    };
+
+    window.closeGalleryLightbox = function () {
+      const lightbox = document.getElementById('galleryLightbox');
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scroll
+      }
+    };
+
+    window.navigateGallery = function (direction) {
+      currentGalleryIndex += direction;
+
+      // Loop around
+      if (currentGalleryIndex < 0) {
+        currentGalleryIndex = currentGalleryImages.length - 1;
+      } else if (currentGalleryIndex >= currentGalleryImages.length) {
+        currentGalleryIndex = 0;
+      }
+
+      const lightboxImg = document.getElementById('lightboxImage');
+      if (lightboxImg && currentGalleryImages[currentGalleryIndex]) {
+        lightboxImg.src = currentGalleryImages[currentGalleryIndex];
+      }
+    };
+
+    // Close lightbox on ESC key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        window.closeGalleryLightbox();
+      }
+    });
+
+    // Close lightbox when clicking outside the image
+    const lightbox = document.getElementById('galleryLightbox');
+    if (lightbox) {
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) {
+          window.closeGalleryLightbox();
+        }
+      });
     }
   }
 

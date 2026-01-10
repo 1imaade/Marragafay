@@ -1,0 +1,340 @@
+/* ============================================== */
+/* PERFORMANCE OPTIMIZATION CSS */
+/* GPU-Accelerated Animations & Layout Stability */
+/* Target: 60 FPS on all devices */
+/* ============================================== */
+
+/* ==================================================
+   1. GPU ACCELERATION FOR AOS ANIMATED ELEMENTS
+   ================================================== */
+
+/* Force GPU rendering for all AOS elements */
+[data-aos] {
+    will-change: transform, opacity;
+    /* This tells the browser to prepare GPU memory for these properties */
+    backface-visibility: hidden;
+    /* Prevents flickering on iOS */
+    perspective: 1000px;
+    /* Enables 3D transform context */
+    transform: translate3d(0, 0, 0);
+    /* Hardware acceleration hack */
+}
+
+/* Remove will-change after animation completes to free GPU memory */
+[data-aos].aos-animate {
+    will-change: auto;
+    /* Release GPU resources after animation */
+}
+
+/* ==================================================
+   2. OPTIMIZE TRANSFORMS (Hardware Accelerated)
+   ================================================== */
+
+/* Replace margin/top animations with transform */
+[data-aos="fade-up"] {
+    transform: translate3d(0, 40px, 0);
+    /* GPU accelerated, not `margin-top` */
+}
+
+[data-aos="fade-down"] {
+    transform: translate3d(0, -40px, 0);
+}
+
+[data-aos="fade-left"] {
+    transform: translate3d(40px, 0, 0);
+}
+
+[data-aos="fade-right"] {
+    transform: translate3d(-40px, 0, 0);
+}
+
+/* When animated, return to origin with GPU */
+[data-aos="fade-up"].aos-animate,
+[data-aos="fade-down"].aos-animate,
+[data-aos="fade-left"].aos-animate,
+[data-aos="fade-right"].aos-animate {
+    transform: translate3d(0, 0, 0);
+    /* GPU: perfect for smooth 60fps */
+}
+
+/* ==================================================
+   3. IMAGE LAZY LOADING & LAYOUT STABILITY
+   ================================================== */
+
+/* Prevent layout shift (CLS) during image load */
+img[loading="lazy"] {
+    content-visibility: auto;
+    /* Browser hints for off-screen rendering */
+}
+
+/* Aspect ratio containers to prevent layout shift */
+.img-container {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+    /* Placeholder color */
+}
+
+/* 16:9 aspect ratio (common for hero images) */
+.img-container-16-9 {
+    padding-top: 56.25%;
+    /* 9/16 = 0.5625 */
+}
+
+/* 4:3 aspect ratio (common for cards) */
+.img-container-4-3 {
+    padding-top: 75%;
+    /* 3/4 = 0.75 */
+}
+
+/* 1:1 aspect ratio (square images) */
+.img-container-1-1 {
+    padding-top: 100%;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==================================================
+   4. SCROLL PERFORMANCE - PASSIVE LISTENERS
+   ================================================== */
+
+/* Smooth scrolling with CSS (no JS) */
+html {
+    scroll-behavior: smooth;
+    /* Native smooth scroll - no janky JS */
+}
+
+/* Optimize scroll containers */
+.scroll-container {
+    -webkit-overflow-scrolling: touch;
+    /* iOS momentum scrolling */
+    overflow-scrolling: touch;
+}
+
+/* ==================================================
+   5. REDUCE PAINT & COMPOSITE LAYERS
+   ================================================== */
+
+/* Contain layout calculations */
+.section-isolated {
+    contain: layout style paint;
+    /* Browser won't recalculate siblings */
+}
+
+/* Force own composite layer for animated sections */
+.animated-section {
+    transform: translateZ(0);
+    /* Creates own composite layer */
+    will-change: transform;
+}
+
+/* ==================================================
+   6. OPTIMIZE HEAVY ELEMENTS (Cards, Grids)
+   ================================================== */
+
+/* Reduce repaints on card hover */
+.activity-grid-card,
+.package-card,
+.review-card {
+    transform: translateZ(0);
+    /* GPU layer */
+    will-change: transform, box-shadow;
+    /* Prepare for hover animations */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth, not janky */
+}
+
+.activity-grid-card:hover,
+.package-card:hover,
+.review-card:hover {
+    transform: translate3d(0, -5px, 0);
+    /* GPU accelerated lift */
+}
+
+/* ==================================================
+   7. ANIMATION STAGGER FIX (Reduce Simultaneous Paints)
+   ================================================== */
+
+/* AOS delay increments - prevents 10 cards animating at once */
+[data-aos][data-aos-delay="100"] {
+    transition-delay: 0.1s;
+}
+
+[data-aos][data-aos-delay="200"] {
+    transition-delay: 0.2s;
+}
+
+[data-aos][data-aos-delay="300"] {
+    transition-delay: 0.3s;
+}
+
+[data-aos][data-aos-delay="400"] {
+    transition-delay: 0.4s;
+}
+
+[data-aos][data-aos-delay="500"] {
+    transition-delay: 0.5s;
+}
+
+/* ==================================================
+   8. REDUCE REFLOWS - EXPLICIT HEIGHTS
+   ================================================== */
+
+/* Prevent layout thrashing on dynamic content */
+.dynamic-content {
+    min-height: 200px;
+    /* Reserve space before content loads */
+}
+
+.footer {
+    min-height: 400px;
+    /* Prevent layout shift when footer loads */
+}
+
+/* ==================================================
+   9. FONT LOADING OPTIMIZATION (FOUT Prevention)
+   ================================================== */
+
+/* Font display swap for faster perceived performance */
+@font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+    /* Show fallback font immediately, then swap */
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-display: swap;
+}
+
+/* ==================================================
+   10. CRITICAL ANIMATIONS ONLY
+   ================================================== */
+
+/* Disable animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ==================================================
+   11. DEBOUNCE RESIZE EVENTS (Prevent Jank)
+   ================================================== */
+
+/* Let browser handle resize optimization */
+.resize-observer {
+    resize: both;
+    /* Native resize observer */
+}
+
+/* ==================================================
+   12. COMPOSITING HINTS FOR BROWSER
+   ================================================== */
+
+/* Tell browser which elements will change */
+.will-animate {
+    will-change: transform, opacity;
+}
+
+/* Navigation that slides in/out */
+.nav-mobile {
+    will-change: transform;
+}
+
+/* Modals and overlays */
+.modal,
+.overlay {
+    will-change: opacity;
+    backface-visibility: hidden;
+}
+
+/* ==================================================
+   13. REMOVE CPU-INTENSIVE BOX-SHADOWS ON SCROLL
+   ================================================== */
+
+/* Use cheaper transforms instead of heavy shadows */
+.card-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Static shadow */
+    transition: transform 0.3s ease;
+    /* Only animate transform */
+}
+
+.card-shadow:hover {
+    transform: translateY(-3px);
+    /* GPU cheap */
+    /* Don't animate box-shadow on hover - causes repaint! */
+}
+
+/* ==================================================
+   14. MOBILE PERFORMANCE BOOST
+   ================================================== */
+
+@media (max-width: 768px) {
+
+    /* Reduce animation complexity on mobile */
+    [data-aos] {
+        animation-duration: 400ms !important;
+        /* Faster animations on mobile */
+    }
+
+    /* Disable complex transforms on mobile */
+    .complex-animation {
+        transform: none !important;
+    }
+
+    /* Reduce will-change on mobile to save memory */
+    [data-aos].aos-animate {
+        will-change: auto;
+    }
+}
+
+/* ==================================================
+   15. INTERSECTION OBSERVER OPTIMIZATION
+   ================================================== */
+
+/* Mark elements for lazy components */
+.lazy-load-boundary {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+    /* Estimate size for layout */
+}
+
+/* ==================================================
+   PERFORMANCE MONITORING (DEV ONLY)
+   ================================================== */
+
+/* Highlight elements causing reflows (uncomment in dev) */
+/*
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.1);
+}
+*/
+
+/* ==================================================
+   FINAL NOTES:
+   - will-change: Reserve GPU memory (don't overuse!)
+   - translate3d(0,0,0): Force GPU rendering
+   - transform > margin: Always use transform
+   - contain: Isolate rendering context
+   - content-visibility: Defer off-screen rendering
+   ================================================== */

@@ -217,32 +217,33 @@ document.addEventListener('submit', async function (e) {
 
             if (error) throw error;
 
-            // SUCCESS - Nuclear Fix: Robust Confirmation Popup
+            // SUCCESS - 5-Star Luxury Hotel Confirmation
             console.log('Booking successful:', data);
 
             if (window.Swal) {
                 Swal.fire({
-                    title: '<span style="color:#222">Booking Confirmed</span>',
-                    html: '<p style="color:#666; font-family:sans-serif;">We have received your request.<br>We will contact you on WhatsApp shortly.</p>',
+                    title: 'Booking Confirmed',
+                    html: 'We have received your request.<br>We will contact you on WhatsApp shortly.',
                     icon: 'success',
                     iconColor: '#C19B76',
                     confirmButtonText: 'Perfect',
-                    buttonsStyling: false, // Important: Disables default ugly styles
+                    buttonsStyling: false,
                     customClass: {
-                        popup: 'swal2-popup', // Uses our custom CSS
-                        confirmButton: 'swal2-confirm btn btn-lg', // Adds Bootstrap classes + our custom
-                        icon: 'swal2-icon'
+                        popup: 'swal2-popup',
+                        title: 'swal2-title',
+                        htmlContainer: 'swal2-html-container',
+                        confirmButton: 'swal2-confirm',
+                        icon: 'swal2-icon swal2-success'
                     },
                     allowOutsideClick: true,
                     allowEscapeKey: true,
-                    backdrop: `rgba(0,0,0,0.6)`
+                    showCloseButton: false,
+                    focusConfirm: true
                 }).then(() => {
-                    // Force page reload to clear "stuck" states and ghost data
-                    console.log('Popup closed - reloading page for fresh state');
+                    // Fresh state for next booking
                     window.location.reload();
                 });
             } else {
-                // Fallback for browsers without SweetAlert
                 alert('Booking Confirmed! We\'ll contact you on WhatsApp shortly.');
                 window.location.reload();
             }

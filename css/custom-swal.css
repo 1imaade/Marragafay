@@ -1,141 +1,348 @@
 /* ============================================== */
-/* NUCLEAR FIX: SweetAlert2 Force-Luxury Override */
-/* Critical UX Fix - Ensures popup never gets stuck */
+/* 5-STAR LUXURY HOTEL POPUP DESIGN */
+/* Minimalist • Elegant • Premium */
 /* ============================================== */
 
-/* Force Z-Index to Top of Everything */
+/* ==================================================
+   1. BACKDROP - Dark Overlay with Blur Effect
+   ================================================== */
 div:where(.swal2-container) {
     z-index: 999999 !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
 }
 
-/* Main Popup Styling - Luxury Gold Theme */
+/* ==================================================
+   2. POPUP CONTAINER - Elegant White Card
+   ================================================== */
 div:where(.swal2-popup) {
-    border-radius: 15px !important;
-    font-family: 'Playfair Display', serif !important;
-    padding: 2rem !important;
-    border: 1px solid #C19B76 !important;
-    /* Gold Border */
+    /* Pure white with soft diffuse shadow */
+    background: #ffffff !important;
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.15),
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        0 0 1px rgba(0, 0, 0, 0.1) !important;
+
+    /* Smooth rounded corners (not too round) */
+    border-radius: 16px !important;
+
+    /* Generous breathing room */
+    padding: 48px 40px 40px 40px !important;
+
+    /* Clean borders - subtle gold accent */
+    border: none !important;
+
+    /* Max width for elegance */
+    max-width: 420px !important;
+
+    /* Remove any default borders */
+    outline: none !important;
 }
 
-/* Success Icon - Gold Branding */
+/* ==================================================
+   3. TITLE - Elegant Serif Typography
+   ================================================== */
+div:where(.swal2-title) {
+    /* Playfair Display - Elegant Serif */
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif !important;
+
+    /* Elegant, not bold */
+    font-weight: 500 !important;
+    font-size: 1.75rem !important;
+    letter-spacing: 0.3px !important;
+
+    /* Rich dark color (not pitch black) */
+    color: #1a1a1a !important;
+
+    /* Spacing */
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+
+    /* Line height for elegance */
+    line-height: 1.3 !important;
+}
+
+/* Title span styling (for inline span) */
+div:where(.swal2-title) span {
+    font-family: inherit !important;
+    color: inherit !important;
+}
+
+/* ==================================================
+   4. MESSAGE TEXT - Clean Sans-Serif
+   ================================================== */
+div:where(.swal2-html-container) {
+    /* Clean sans-serif */
+    font-family: 'Inter', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+
+    /* Dark grey, not black */
+    color: #5a5a5a !important;
+
+    /* Comfortable reading size */
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.65 !important;
+
+    /* Spacing */
+    margin: 16px 0 0 0 !important;
+    padding: 0 !important;
+}
+
+div:where(.swal2-html-container) p {
+    margin: 0 !important;
+    color: inherit !important;
+    font-family: inherit !important;
+}
+
+/* ==================================================
+   5. SUCCESS ICON - Brand Gold (No Green!)
+   ================================================== */
+
+/* Main icon container */
 div:where(.swal2-icon) {
     border-color: #C19B76 !important;
-    color: #C19B76 !important;
+    margin: 0 auto 24px auto !important;
+    width: 70px !important;
+    height: 70px !important;
 }
 
-/* Icon Inner Elements - Gold Checkmark */
+/* Success ring - subtle gold */
 div:where(.swal2-icon.swal2-success .swal2-success-ring) {
-    border-color: rgba(193, 155, 118, 0.3) !important;
+    border-color: rgba(193, 155, 118, 0.25) !important;
 }
 
+/* Checkmark lines - solid gold */
 div:where(.swal2-icon.swal2-success .swal2-success-line-tip),
 div:where(.swal2-icon.swal2-success .swal2-success-line-long) {
     background-color: #C19B76 !important;
 }
 
-/* Confirm Button - Luxury Gold with Shadow */
-div:where(.swal2-confirm) {
+/* Success fix placeholder */
+div:where(.swal2-icon.swal2-success .swal2-success-fix) {
+    background-color: #ffffff !important;
+}
+
+/* Circle animation - gold */
+div:where(.swal2-icon.swal2-success .swal2-success-circular-line-left),
+div:where(.swal2-icon.swal2-success .swal2-success-circular-line-right) {
+    background-color: #ffffff !important;
+}
+
+/* ==================================================
+   6. CONFIRM BUTTON - Minimal Gold
+   ================================================== */
+div:where(.swal2-confirm),
+button:where(.swal2-confirm) {
+    /* Brand gold background */
     background-color: #C19B76 !important;
-    box-shadow: 0 4px 15px rgba(193, 155, 118, 0.4) !important;
-    font-weight: 600 !important;
-    letter-spacing: 1px !important;
-    border: none !important;
-    border-radius: 8px !important;
-    padding: 12px 30px !important;
+    background-image: none !important;
+
+    /* White text */
     color: #ffffff !important;
-    font-size: 1rem !important;
-    transition: all 0.3s ease !important;
+
+    /* No borders */
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    /* Elegant typography */
+    font-family: 'Inter', 'Open Sans', -apple-system, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: none !important;
+
+    /* Generous padding (breathing room) */
+    padding: 14px 42px !important;
+
+    /* Smooth rounded corners */
+    border-radius: 8px !important;
+
+    /* Smooth transition for hover */
+    transition: background-color 0.2s ease, transform 0.15s ease !important;
+
+    /* Cursor */
+    cursor: pointer !important;
 }
 
-/* Button Hover - Darker Gold */
-div:where(.swal2-confirm):hover {
-    background-color: #a07e5e !important;
-    /* Darker Gold */
+/* Button hover - slightly darker gold */
+div:where(.swal2-confirm):hover,
+button:where(.swal2-confirm):hover {
+    background-color: #a88968 !important;
     transform: translateY(-1px) !important;
-    box-shadow: 0 6px 20px rgba(193, 155, 118, 0.5) !important;
 }
 
-/* Button Active/Click State */
-div:where(.swal2-confirm):active {
-    background-color: #8F6F4E !important;
+/* Button active/pressed */
+div:where(.swal2-confirm):active,
+button:where(.swal2-confirm):active {
+    background-color: #96795a !important;
     transform: translateY(0) !important;
 }
 
-/* Button Focus - Remove Ugly Default Outline */
-div:where(.swal2-confirm):focus {
+/* Button focus - subtle glow */
+div:where(.swal2-confirm):focus,
+button:where(.swal2-confirm):focus {
     outline: none !important;
-    box-shadow: 0 4px 15px rgba(193, 155, 118, 0.6),
-        0 0 0 3px rgba(193, 155, 118, 0.2) !important;
+    box-shadow: 0 0 0 3px rgba(193, 155, 118, 0.25) !important;
 }
 
-/* Title Styling */
-div:where(.swal2-title) {
-    font-family: 'Playfair Display', serif !important;
-    font-weight: 600 !important;
-    font-size: 1.75rem !important;
-    color: #222 !important;
-}
-
-/* HTML Content Container */
-div:where(.swal2-html-container) {
-    font-family: 'Open Sans', sans-serif !important;
-    color: #666 !important;
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-}
-
-/* Backdrop/Overlay */
-div:where(.swal2-container).swal2-backdrop-show {
-    background: rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Actions Container (Buttons Group) */
+/* ==================================================
+   7. ACTIONS CONTAINER (Button Area)
+   ================================================== */
 div:where(.swal2-actions) {
-    margin-top: 1.5rem !important;
+    margin-top: 32px !important;
+    padding: 0 !important;
 }
 
-/* Remove Default SweetAlert Button Styling */
-.swal2-styled {
-    margin: 0 !important;
-    padding: 12px 30px !important;
+/* ==================================================
+   8. CLOSE BUTTON (If Shown)
+   ================================================== */
+button:where(.swal2-close) {
+    color: #999999 !important;
+    font-size: 28px !important;
+    font-weight: 300 !important;
+    top: 16px !important;
+    right: 16px !important;
+    transition: color 0.2s ease !important;
 }
 
-/* Ensure Popup is Always Clickable and Not Stuck */
-div:where(.swal2-container) {
-    pointer-events: auto !important;
+button:where(.swal2-close):hover {
+    color: #666666 !important;
 }
 
-div:where(.swal2-popup) {
-    pointer-events: auto !important;
+button:where(.swal2-close):focus {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 576px) {
+/* ==================================================
+   9. ANIMATION - Elegant Fade In
+   ================================================== */
+.swal2-show {
+    animation: luxuryFadeIn 0.3s ease-out !important;
+}
+
+.swal2-hide {
+    animation: luxuryFadeOut 0.2s ease-in !important;
+}
+
+@keyframes luxuryFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes luxuryFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+/* Icon pop animation */
+div:where(.swal2-icon.swal2-success) {
+    animation: iconPop 0.4s ease-out 0.1s both !important;
+}
+
+@keyframes iconPop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ==================================================
+   10. MOBILE RESPONSIVE
+   ================================================== */
+@media (max-width: 480px) {
     div:where(.swal2-popup) {
-        padding: 1.5rem !important;
+        padding: 40px 28px 32px 28px !important;
         max-width: 90vw !important;
+        border-radius: 14px !important;
+        margin: 16px !important;
     }
 
     div:where(.swal2-title) {
         font-size: 1.5rem !important;
     }
 
-    div:where(.swal2-confirm) {
-        padding: 10px 25px !important;
-        font-size: 0.95rem !important;
+    div:where(.swal2-html-container) {
+        font-size: 14px !important;
+    }
+
+    div:where(.swal2-icon) {
+        width: 60px !important;
+        height: 60px !important;
+        margin-bottom: 20px !important;
+    }
+
+    div:where(.swal2-confirm),
+    button:where(.swal2-confirm) {
+        padding: 12px 36px !important;
+        font-size: 13px !important;
     }
 }
 
-/* Animation Override - Smooth Fade */
-.swal2-show {
-    animation: swal2-show 0.3s !important;
+/* ==================================================
+   11. INTERACTION STATES
+   ================================================== */
+
+/* Ensure popup is always interactive */
+div:where(.swal2-container) {
+    pointer-events: auto !important;
 }
 
-.swal2-hide {
-    animation: swal2-hide 0.2s !important;
+div:where(.swal2-popup) {
+    pointer-events: auto !important;
 }
 
-/* Ensure Title Inherits Correct Font */
-div:where(.swal2-title) span {
-    font-family: inherit !important;
+/* Remove default SweetAlert styled button overrides */
+.swal2-styled.swal2-confirm {
+    background-color: #C19B76 !important;
+    border: none !important;
+}
+
+/* ==================================================
+   12. CLEAN OVERRIDES
+   ================================================== */
+
+/* Remove any timer progress bar (if enabled) */
+div:where(.swal2-timer-progress-bar) {
+    display: none !important;
+}
+
+/* Remove loader */
+div:where(.swal2-loader) {
+    border-color: #C19B76 transparent #C19B76 transparent !important;
+}
+
+/* Remove default input styling conflicts */
+.swal2-input {
+    border-color: #C19B76 !important;
+}
+
+.swal2-input:focus {
+    border-color: #C19B76 !important;
+    box-shadow: 0 0 0 3px rgba(193, 155, 118, 0.25) !important;
 }

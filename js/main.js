@@ -1,6 +1,19 @@
+// AOS Init - Performance Optimized for 60 FPS
 AOS.init({
-	duration: 800,
-	easing: 'slide'
+	duration: 600,  // Reduced from 800ms for faster perceived performance
+	easing: 'ease-out-cubic',  // Smoother than 'slide'
+	once: true,  // Animate only once (reduces repaints on scroll up)
+	offset: 100,  // Trigger animations earlier for smoother feel
+	delay: 0,
+	disable: function () {
+		// Disable on reduced-motion preference (accessibility + performance)
+		return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	},
+	// Use passive event listeners for better scroll performance
+	useClassNames: false,
+	disableMutationObserver: false,
+	throttleDelay: 99,  // Throttle scroll events (built-in AOS optimization)
+	debounceDelay: 50,  // Debounce window resize events
 });
 
 (function ($) {
@@ -131,9 +144,7 @@ AOS.init({
 	});
 
 
-	$('#dropdown04').on('show.bs.dropdown', function () {
-		console.log('show');
-	});
+	// REMOVED: console.log from dropdown - causes performance overhead
 
 	// scroll
 	// scroll (Optimized for Performance)
@@ -196,7 +207,7 @@ AOS.init({
 				$('.number').each(function () {
 					var $this = $(this),
 						num = $this.data('number');
-					console.log(num);
+					// REMOVED: console.log(num) - performance overhead
 					$this.animateNumber(
 						{
 							number: num,
@@ -267,9 +278,7 @@ AOS.init({
 				navToggler.click();
 			}
 		});
-		$('body').on('activate.bs.scrollspy', function () {
-			console.log('nice');
-		})
+		// REMOVED: console.log from scrollspy - performance overhead
 	};
 	OnePageNav();
 
