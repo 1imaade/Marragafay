@@ -76,6 +76,118 @@ const testimonialsData = [
 ];
 
 // ========================================= //
+// SMART AVATAR UTILITY FUNCTIONS
+// ========================================= //
+
+/**
+ * Generate a consistent pastel color from a name string
+ * Same name will always get the same color
+ */
+function stringToColor(name) {
+  // Hash the string to get a consistent number
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    hash = hash & hash; // Convert to 32bit integer
+  }
+
+  // Generate pastel colors (soft, professional)
+  const pastelColors = [
+    '#A8DADC', // Soft Blue
+    '#F1FAEE', // Soft Cream
+    '#E63946', // Soft Red
+    '#F4A261', // Soft Orange
+    '#2A9D8F', // Soft Teal
+    '#E9C46A', // Soft Yellow
+    '#B5A6C9', // Soft Purple
+    '#F08080', // Light Coral
+    '#98D8C8', // Mint
+    '#F7DC6F', // Soft Gold
+    '#BB8FCE', // Lavender
+    '#85C1E2', // Sky Blue
+    '#F8B88B', // Peach
+    '#99C1B9', // Sage
+    '#FAC9B8', // Soft Pink
+  ];
+
+  // Use hash to pick a color consistently
+  const index = Math.abs(hash) % pastelColors.length;
+  return pastelColors[index];
+}
+
+/**
+ * Get the first letter/initial from a name
+ */
+function getInitial(name) {
+  if (!name) return '?';
+  return name.charAt(0).toUpperCase();
+}
+
+/**
+ * Convert name to filename format (e.g., "Hadia Tagaoui" -> "Hadia-Tagaoui")
+ */
+function nameToFilename(name) {
+  return name.replace(/\s+/g, "-");
+}
+
+/**
+ * Generate Google-style fallback avatar HTML
+ */
+function generateFallbackAvatar(name) {
+  const initial = getInitial(name);
+  const bgColor = stringToColor(name);
+
+  // Determine if we need light or dark text based on background
+  const rgb = bgColor.match(/[A-Za-z0-9]{2}/g).map(x => parseInt(x, 16));
+  const brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
+  const textColor = brightness > 155 ? '#333' : '#fff';
+
+  return `
+    <div class="testimonial-avatar testimonial-avatar-fallback" 
+         style="
+           background-color: ${bgColor};
+           color: ${textColor};
+           width: 80px;
+           height: 80px;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-size: 32px;
+           font-weight: 700;
+           font-family: 'Inter', 'Roboto', sans-serif;
+           text-transform: uppercase;
+           user-select: none;
+         "
+         aria-label="Avatar for ${name}">
+      ${initial}
+    </div>
+  `;
+}
+
+/**
+ * Create Smart Avatar with local image check and fallback
+ */
+function createSmartAvatar(name) {
+  const filename = nameToFilename(name);
+  const localImagePath = `/images/profile-testimonials/${filename}.jpg`;
+  const fallbackId = `avatar-fallback-${filename.replace(/[^a-zA-Z0-9]/g, '')}`;
+
+  return `
+    <img id="${fallbackId}" 
+         src="${localImagePath}" 
+         alt="${name}" 
+         class="testimonial-avatar"
+         loading="lazy"
+         style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; display: block;"
+         onerror="this.style.display='none'; document.getElementById('${fallbackId}-fallback').style.display='flex';">
+    <div id="${fallbackId}-fallback" style="display: none;">
+      ${generateFallbackAvatar(name)}
+    </div>
+  `;
+}
+
+// ========================================= //
 // STAR RATING SVG GENERATOR
 // ========================================= //
 function generateStarRating(rating) {
@@ -114,12 +226,8 @@ function createTestimonialCard(testimonial) {
         <!-- Quote Icon Badge -->
         <div class="testimonial-quote" aria-hidden="true">"</div>
         
-        <!-- Client Avatar -->
-        <img src="${testimonial.photo}" 
-             alt="${testimonial.name}" 
-             class="testimonial-avatar"
-             loading="lazy"
-             onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'">
+        <!-- Client Avatar (Smart Avatar with Fallback) -->
+        ${createSmartAvatar(testimonial.name)}
         
         <!-- Review Text -->
         <div class="testimonial-review">
