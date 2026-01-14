@@ -36,6 +36,9 @@
   <!-- Reviews Page Specific CSS -->
   <link rel="stylesheet" href="css/reviews-page.css">
 
+  <!-- Global Lightbox CSS -->
+  <link rel="stylesheet" href="css/lightbox.css">
+
   <style>
     /* Additional page-specific overrides */
     .reviews-main-section {
@@ -477,6 +480,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-client.js"></script>
 
+  <!-- Global Lightbox System -->
+  <script src="js/global-lightbox.js"></script>
+
   <!-- Reviews Manager -->
   <script src="js/reviews-manager.js"></script>
 
@@ -508,6 +514,15 @@
       }
     });
   </script>
+
+  <!-- Image Lightbox Viewer with Navigation -->
+  <div id="image-lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <a class="lightbox-prev" id="lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</a>
+    <a class="lightbox-next" id="lightbox-next" onclick="changeLightboxImage(1)">&#10095;</a>
+    <img class="lightbox-content" id="lightbox-img" alt="Full screen view">
+  </div>
+
 </body>
 
 </html>

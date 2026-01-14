@@ -465,10 +465,10 @@ const TourPageTemplate = (function () {
     `).join('');
   }
 
-  // Helper to render gallery
+  // Helper to render gallery (using global lightbox)
   function renderGallery(images) {
     return images.map((img, index) => `
-      <img src="${img}" class="masonry-item" alt="Gallery Image" onclick="openGalleryLightbox(${index})" data-gallery-index="${index}">
+      <img src="${img}" class="masonry-item" alt="Gallery Image" data-gallery-index="${index}">
     `).join('');
   }
 
@@ -785,15 +785,7 @@ const TourPageTemplate = (function () {
         </div>
       </footer>
       
-      <!-- Gallery Lightbox Modal -->
-      <div class="gallery-lightbox" id="galleryLightbox">
-        <div class="lightbox-close" onclick="closeGalleryLightbox()">&times;</div>
-        <div class="lightbox-nav lightbox-prev" onclick="navigateGallery(-1)">‹</div>
-        <div class="lightbox-content">
-          <img id="lightboxImage" class="lightbox-image" src="" alt="Gallery Image">
-        </div>
-        <div class="lightbox-nav lightbox-next" onclick="navigateGallery(1)">›</div>
-      </div>
+      <!-- NOTE: Gallery Lightbox moved to global system (see global-lightbox.js) -->
     `;
 
     // Inject HTML
@@ -902,64 +894,20 @@ const TourPageTemplate = (function () {
       handleScroll();
     }
 
-    // Gallery Lightbox Functions
-    let currentGalleryIndex = 0;
-    let currentGalleryImages = gallery || [];
-
-    // Export lightbox functions to window
-    window.openGalleryLightbox = function (index) {
-      currentGalleryIndex = index;
-      currentGalleryImages = gallery;
-      const lightbox = document.getElementById('galleryLightbox');
-      const lightboxImg = document.getElementById('lightboxImage');
-
-      if (lightbox && lightboxImg && currentGalleryImages[currentGalleryIndex]) {
-        lightboxImg.src = currentGalleryImages[currentGalleryIndex];
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
-      }
-    };
-
-    window.closeGalleryLightbox = function () {
-      const lightbox = document.getElementById('galleryLightbox');
-      if (lightbox) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scroll
-      }
-    };
-
-    window.navigateGallery = function (direction) {
-      currentGalleryIndex += direction;
-
-      // Loop around
-      if (currentGalleryIndex < 0) {
-        currentGalleryIndex = currentGalleryImages.length - 1;
-      } else if (currentGalleryIndex >= currentGalleryImages.length) {
-        currentGalleryIndex = 0;
-      }
-
-      const lightboxImg = document.getElementById('lightboxImage');
-      if (lightboxImg && currentGalleryImages[currentGalleryIndex]) {
-        lightboxImg.src = currentGalleryImages[currentGalleryIndex];
-      }
-    };
-
-    // Close lightbox on ESC key
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        window.closeGalleryLightbox();
-      }
-    });
-
-    // Close lightbox when clicking outside the image
-    const lightbox = document.getElementById('galleryLightbox');
-    if (lightbox) {
-      lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) {
-          window.closeGalleryLightbox();
-        }
+    // Initialize global lightbox for gallery images
+    // Wait for DOM to be ready, then attach click handlers
+    setTimeout(() => {
+      const galleryImages = document.querySelectorAll('.masonry-item');
+      galleryImages.forEach((img, index) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function () {
+          // Use global lightbox system
+          if (typeof openLightbox === 'function') {
+            openLightbox(gallery, index);
+          }
+        });
       });
-    }
+    }, 100);
   }
 
   return { render };

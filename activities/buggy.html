@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="../css/mobile-menu.css">
   <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="../css/animate.css">
+  <!-- Global Lightbox CSS -->
+  <link rel="stylesheet" href="../css/lightbox.css">
   <link rel="icon" type="image/png" href="/icon.png">
   <link rel="apple-touch-icon" href="/apple-icon.png">
 </head>
@@ -43,7 +45,7 @@
     TourPageTemplate.render({
       title: "Buggy Dune Master",
       subTitle: "Activity",
-      price: "850 MAD",
+      price: "800 DH",
       description: "Take control of a powerful 1000cc buggy and conquer the rugged terrain of Agafay. Perfect for couples or friends who want speed, comfort, and off-road excitement side-by-side.",
       heroImage: "../images/activites/buggy.png",
       rating: "5.0",
@@ -80,6 +82,17 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="../js/supabase-client.js"></script>
   <script src="../js/booking-manager.js"></script>
+
+  <!-- Global Image Lightbox Viewer -->
+  <div id="image-lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <a class="lightbox-prev" id="lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</a>
+    <a class="lightbox-next" id="lightbox-next" onclick="changeLightboxImage(1)">&#10095;</a>
+    <img class="lightbox-content" id="lightbox-img" alt="Full screen view">
+  </div>
+
+  <!-- Global Lightbox JS -->
+  <script src="../js/global-lightbox.js"></script>
 </body>
 
 </html>

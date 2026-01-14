@@ -2,6 +2,7 @@
  * Reviews Page Manager
  * Handles filtering, loading, and submission of reviews
  * Integrates with Supabase for data persistence
+ * NOTE: Lightbox functionality is now in global-lightbox.js
  */
 
 (function () {
@@ -376,10 +377,15 @@
         const card = document.createElement('div');
         card.className = 'review-card fade-in';
         card.dataset.rating = review.rating;
-        card.dataset.hasPhoto = (review.photo || review.image_url) ? 'true' : 'false';
 
-        // Use consistent field names - support both 'photo' and 'image_url'
-        const photoUrl = review.photo || review.image_url || null;
+        // Support new 'images' (TEXT[]) and legacy 'image_url' (TEXT) fields
+        const images = review.images && review.images.length > 0
+            ? review.images         // New: images array
+            : review.image_url      // Legacy: single image_url
+                ? [review.image_url]
+                : [];
+
+        card.dataset.hasPhoto = images.length > 0 ? 'true' : 'false';
 
         // Use correct field name - 'comment' from Supabase
         const reviewText = review.comment || review.text || '';
@@ -395,10 +401,20 @@
         // Generate stars HTML
         const starsHTML = generateStarsHTML(review.rating);
 
-        // Generate photo HTML with 16:9 aspect ratio container
-        const photoHTML = photoUrl
-            ? `<div class="review-photo-container"><img src="${photoUrl}" alt="Review photo" class="review-photo" loading="lazy"></div>`
-            : '';
+        // Generate photo HTML - support multiple images in a gallery with lightbox navigation
+        let photoHTML = '';
+        if (images.length === 1) {
+            // Single image: use existing 16:9 container with lightbox (no navigation needed)
+            const imagesJson = JSON.stringify(images).replace(/"/g, '&quot;');
+            photoHTML = `<div class="review-photo-container"><img src="${images[0]}" alt="Review photo" class="review-photo" loading="lazy" onclick='openLightbox(${imagesJson}, 0)' style="cursor: pointer;"></div>`;
+        } else if (images.length > 1) {
+            // Multiple images: create gallery grid with lightbox navigation
+            const imagesJson = JSON.stringify(images).replace(/"/g, '&quot;');
+            const imagesHtml = images.map((url, index) =>
+                `<img src="${url}" alt="Review photo ${index + 1}" class="review-gallery-image" loading="lazy" onclick='openLightbox(${imagesJson}, ${index})'>`
+            ).join('');
+            photoHTML = `<div class="review-gallery">${imagesHtml}</div>`;
+        }
 
         // Format date (relative time) - support both 'date' and 'created_at'
         const dateValue = review.created_at || review.date;
@@ -611,8 +627,6 @@
             // Validate
             const name = reviewForm.querySelector('#reviewer-name').value.trim();
             const comment = reviewForm.querySelector('#reviewer-comment').value.trim();
-            const photoInput = reviewForm.querySelector('#reviewer-photos');
-            const photos = photoInput ? photoInput.files : null;
 
             if (!name || !comment || selectedRating === 0) {
                 showMessage(messageEl, 'Please fill in all fields and select a rating.', 'error');
@@ -624,78 +638,85 @@
             submitBtn.textContent = 'Submitting...';
 
             try {
-                // Upload photos to Supabase Storage if they exist
-                let photoUrls = [];
-                if (photos && photos.length > 0 && typeof supabaseClient !== 'undefined') {
-                    console.log('Uploading photos to Supabase Storage...');
+                // =========================================
+                // 📤 STEP 1: CAPTURE FILES
+                // =========================================
+                const fileInput = document.getElementById('reviewer-photos');
+                const files = fileInput ? fileInput.files : null;
 
-                    for (let i = 0; i < photos.length; i++) {
-                        const file = photos[i];
-                        const fileExt = file.name.split('.').pop();
-                        const fileName = `${Date.now()}_${i}.${fileExt}`;
-                        const filePath = `${fileName}`;
+                // =========================================
+                // 🔄 STEP 2: LOOP & UPLOAD TO SUPABASE
+                // =========================================
+                let uploadedImageUrls = [];
+
+                if (files && files.length > 0 && typeof supabaseClient !== 'undefined') {
+                    console.log(`Uploading ${files.length} image(s) to Supabase Storage...`);
+
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+
+                        // Generate unique file path
+                        const filePath = Date.now() + '_' + file.name.replace(/\s/g, '_');
 
                         // Upload to Supabase Storage
-                        const { data: uploadData, error: uploadError } = await supabaseClient
-                            .storage
+                        const { data, error } = await supabaseClient.storage
                             .from('review-images')
-                            .upload(filePath, file, {
-                                cacheControl: '3600',
-                                upsert: false
-                            });
+                            .upload(filePath, file);
 
-                        if (uploadError) {
-                            console.error('Upload error:', uploadError);
-                            throw uploadError;
+                        // Error Handling: Stop if upload fails
+                        if (error) {
+                            console.error('Upload failed for file:', file.name, error);
+                            alert(`Failed to upload image: ${file.name}. Please try again.`);
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'SUBMIT REVIEW';
+                            return; // Stop the process
                         }
 
-                        // Get public URL
-                        const { data: { publicUrl } } = supabaseClient
-                            .storage
+                        // Construct public URL
+                        const { data: { publicUrl } } = supabaseClient.storage
                             .from('review-images')
                             .getPublicUrl(filePath);
 
-                        photoUrls.push(publicUrl);
-                        console.log(`Uploaded: ${publicUrl}`);
+                        // Push to array
+                        uploadedImageUrls.push(publicUrl);
+                        console.log(`✅ Uploaded [${i + 1}/${files.length}]:`, publicUrl);
                     }
-                } else if (photos && photos.length > 0) {
-                    // Fallback if Supabase not available
-                    for (let i = 0; i < photos.length; i++) {
-                        photoUrls.push(photos[i].name);
+
+                    console.log('All images uploaded successfully!');
+                } else if (files && files.length > 0) {
+                    // Fallback if Supabase client not available
+                    console.warn('Supabase client not available. Running in demo mode.');
+                    for (let i = 0; i < files.length; i++) {
+                        uploadedImageUrls.push(`demo_${files[i].name}`);
                     }
-                    console.log('Photos prepared (demo mode):', photoUrls);
                 }
 
-                // Submit to Supabase with pending status
-                const reviewData = {
-                    name: name,
-                    rating: selectedRating,
-                    comment: comment, // Using 'comment' field from Supabase schema
-                    status: 'pending', // Awaiting dashboard approval
-                    image_url: photoUrls.length > 0 ? photoUrls[0] : null, // Using 'image_url' field
-                    created_at: new Date().toISOString()
-                };
+                // =========================================
+                // 💾 STEP 3: INSERT DATA INTO DATABASE
+                // =========================================
+                const { error: insertError } = await supabaseClient
+                    .from('reviews')
+                    .insert([{
+                        name: name,
+                        rating: selectedRating,
+                        comment: comment,
+                        images: uploadedImageUrls, // Send the array of URLs
+                        status: 'pending'
+                    }]);
 
-                // Check if Supabase client exists
-                if (typeof supabaseClient !== 'undefined') {
-                    const { data, error } = await supabaseClient
-                        .from('reviews')
-                        .insert([reviewData]);
-
-                    if (error) {
-                        throw error;
-                    }
-
-                    console.log('Review submitted successfully:', data);
-                } else {
-                    // Simulate submission for demo
-                    console.log('Review submitted (demo mode):', reviewData);
-                    await new Promise(resolve => setTimeout(resolve, 1000));
+                if (insertError) {
+                    console.error('Database insert error:', insertError);
+                    throw insertError;
                 }
 
+                console.log('✅ Review submitted successfully with', uploadedImageUrls.length, 'image(s)');
+
+                // =========================================
+                // 🧹 STEP 4: CLEANUP & SUCCESS MESSAGE
+                // =========================================
                 showMessage(messageEl, 'Thank you! Your review has been submitted for approval.', 'success');
 
-                // Reset form after success
+                // Reset form and close modal after success
                 setTimeout(() => {
                     closeModal();
                 }, 2500);
@@ -704,6 +725,7 @@
                 console.error('Error submitting review:', error);
                 showMessage(messageEl, 'Failed to submit review. Please try again.', 'error');
             } finally {
+                // Re-enable button
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'SUBMIT REVIEW';
             }

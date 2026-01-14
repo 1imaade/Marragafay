@@ -239,21 +239,16 @@
 /* ========================================= */
 .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     margin-bottom: 50px;
 }
 
 /* Tablet - 2 columns */
-@media (max-width: 1200px) {
-    .reviews-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 992px) {
     .reviews-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 }
 
@@ -261,6 +256,7 @@
 @media (max-width: 576px) {
     .reviews-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
 
@@ -1077,5 +1073,189 @@
         height: auto;
         min-height: auto;
         max-height: none;
+    }
+}
+
+/* ========================================= */
+/* MULTI-IMAGE GALLERY SUPPORT */
+/* ========================================= */
+
+/* Gallery container for multiple images */
+.review-gallery {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 0;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: thin;
+    scrollbar-color: var(--reviews-gold-light) transparent;
+}
+
+.review-gallery::-webkit-scrollbar {
+    height: 6px;
+}
+
+.review-gallery::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.review-gallery::-webkit-scrollbar-thumb {
+    background: var(--reviews-gold-light);
+    border-radius: 3px;
+}
+
+.review-gallery::-webkit-scrollbar-thumb:hover {
+    background: var(--reviews-gold);
+}
+
+/* Gallery images */
+.review-gallery-image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.review-gallery-image:hover {
+    transform: scale(1.05);
+    border-color: var(--reviews-gold);
+    box-shadow: 0 4px 12px rgba(177, 140, 88, 0.3);
+}
+
+/* For reviews with 2 images - make them larger */
+.review-gallery:has(img:nth-child(2):last-child) .review-gallery-image {
+    width: 130px;
+    height: 130px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .review-gallery-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .review-gallery:has(img:nth-child(2):last-child) .review-gallery-image {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-gallery-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .review-gallery:has(img:nth-child(2):last-child) .review-gallery-image {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* ========================================= */
+/* IMAGE LIGHTBOX VIEWER */
+/* ========================================= */
+
+/* Lightbox overlay - full screen */
+.lightbox {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    /* On top of everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Lightbox image */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.5);
+    cursor: default;
+    /* Prevent closing when clicking image */
+}
+
+/* Close button */
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10000;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: var(--reviews-gold);
+}
+
+/* Navigation arrows */
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    padding: 16px;
+    z-index: 10000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    color: var(--reviews-gold);
+    transform: translateY(-50%) scale(1.2);
+}
+
+/* Hide arrows for single image */
+.lightbox-prev.hidden,
+.lightbox-next.hidden {
+    display: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+        font-size: 40px;
     }
 }
