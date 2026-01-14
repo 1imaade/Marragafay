@@ -365,3 +365,60 @@ AOS.init({
 
 })(jQuery);
 
+
+// Contact Form Handler
+document.addEventListener('DOMContentLoaded', function () {
+	const contactForm = document.getElementById('contact-form');
+	if (contactForm) {
+		contactForm.addEventListener('submit', async function (e) {
+			e.preventDefault();
+
+			const submitBtn = contactForm.querySelector('button[type="submit"]');
+			const originalText = submitBtn.innerText;
+			const originalBackground = submitBtn.style.background;
+
+			submitBtn.innerText = 'Sending...';
+			submitBtn.disabled = true;
+
+			// Get values
+			const formData = new FormData(contactForm);
+			const data = {
+				name: formData.get('name') || document.querySelector('input[placeholder*="Name"]').value,
+				email: formData.get('email') || document.querySelector('input[placeholder*="Email"]').value,
+				subject: formData.get('subject') || document.querySelector('input[placeholder*="Subject"]')?.value || 'General Inquiry',
+				message: formData.get('message') || document.querySelector('textarea').value,
+				status: 'unread'
+			};
+
+			try {
+				const { error } = await supabaseClient
+					.from('messages')
+					.insert([data]);
+
+				if (error) throw error;
+
+				// Success UI
+				contactForm.reset();
+				submitBtn.innerText = 'Message Sent! ✅';
+				submitBtn.style.background = '#28a745';
+				submitBtn.style.borderColor = '#28a745';
+				submitBtn.disabled = false; // Keep it enabled or disabled? User likely wants to see it 'green'
+
+				// Revert after 4 seconds
+				setTimeout(() => {
+					submitBtn.innerText = originalText;
+					submitBtn.style.background = originalBackground;
+					submitBtn.style.borderColor = '';
+				}, 4000);
+
+			} catch (err) {
+				console.error('Error sending message:', err);
+				alert('Error: ' + err.message);
+
+				// Revert immediately on error
+				submitBtn.innerText = originalText;
+				submitBtn.disabled = false;
+			}
+		});
+	}
+});
