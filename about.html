@@ -11,10 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://bgjohquanepghmlmdiyd.supabase.co">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  
+
   <!-- LCP Optimization: Preload critical hero image with high priority -->
   <link rel="preload" as="image" href="images/Slider-images/slider-1.jpeg" fetchpriority="high">
-  
+
+  <!-- Font Loading Optimization: font-display=swap prevents FOIT (Flash of Invisible Text) -->
+  <!-- This allows text to be visible immediately with fallback fonts, then swap to custom fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Eczar:wght@400..800&family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@200;300;400;500;600;700&family=Montserrat:wght@800;900&display=swap"
     rel="stylesheet">
@@ -315,7 +317,7 @@
   </nav>
   <!-- END nav -->
 
-  <div class="hero-wrap js-fullheight">
+  <div class="hero-wrap js-fullheight" style="background-color: #1a1a1a;">
     <!-- Background Slider -->
     <div class="hero-bg-slider owl-carousel">
       <div class="slider-bg" style="background-image: url('images/Slider-images/slider-1.jpeg');"></div>
