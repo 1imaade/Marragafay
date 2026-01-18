@@ -217,35 +217,47 @@ document.addEventListener('submit', async function (e) {
 
             if (error) throw error;
 
-            // SUCCESS - 5-Star Luxury Hotel Confirmation
+            // SUCCESS - Display Booking Details Modal
             console.log('Booking successful:', data);
 
-            if (window.Swal) {
-                Swal.fire({
-                    title: 'Booking Confirmed',
-                    html: 'We have received your request.<br>We will contact you on WhatsApp shortly.',
-                    icon: 'success',
-                    iconColor: '#C19B76',
-                    confirmButtonText: 'Perfect',
-                    buttonsStyling: false,
-                    customClass: {
-                        popup: 'swal2-popup',
-                        title: 'swal2-title',
-                        htmlContainer: 'swal2-html-container',
-                        confirmButton: 'swal2-confirm',
-                        icon: 'swal2-icon swal2-success'
-                    },
-                    allowOutsideClick: true,
-                    allowEscapeKey: true,
-                    showCloseButton: false,
-                    focusConfirm: true
-                }).then(() => {
-                    // Fresh state for next booking
-                    window.location.reload();
-                });
+            // Prepare booking data for modal
+            const confirmedBooking = {
+                id: data?.[0]?.id || Math.floor(Math.random() * 10000), // Use returned ID or generate one
+                name: bookingData.name,
+                email: bookingData.email,
+                phone_number: bookingData.phone_number,
+                date: bookingData.date,
+                guests: bookingData.guests,
+                package_title: bookingData.package_title,
+                total_price: bookingData.total_price,
+                notes: bookingData.notes,
+                status: 'confirmed'
+            };
+
+            // Show the minimal booking details modal
+            if (typeof window.openBookingDetailsModal === 'function') {
+                window.openBookingDetailsModal(confirmedBooking);
             } else {
-                alert('Booking Confirmed! We\'ll contact you on WhatsApp shortly.');
-                window.location.reload();
+                // Fallback to SweetAlert if modal not loaded
+                if (window.Swal) {
+                    Swal.fire({
+                        title: 'Booking Confirmed',
+                        html: 'We have received your request.<br>We will contact you on WhatsApp shortly.',
+                        icon: 'success',
+                        iconColor: '#C19B76',
+                        confirmButtonText: 'Perfect',
+                        buttonsStyling: false,
+                        customClass: {
+                            popup: 'swal2-popup',
+                            title: 'swal2-title',
+                            htmlContainer: 'swal2-html-container',
+                            confirmButton: 'swal2-confirm',
+                            icon: 'swal2-icon swal2-success'
+                        }
+                    });
+                } else {
+                    alert('Booking Confirmed! We\'ll contact you on WhatsApp shortly.');
+                }
             }
 
         } catch (error) {
