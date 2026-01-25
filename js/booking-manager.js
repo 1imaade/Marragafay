@@ -99,8 +99,8 @@ if (!window.Swal) {
 
 // Use Event Delegation to handle dynamically rendered forms
 document.addEventListener('submit', async function (e) {
-    // Check if the submitted element is our booking form
-    if (e.target && e.target.id === 'bookingForm') {
+    // Check if the submitted element is our booking form (support both old and new IDs for GTM)
+    if (e.target && (e.target.id === 'bookingForm' || e.target.id === 'booking-form')) {
         e.preventDefault(); // Stop page reload
         console.log('Form submission detected via Delegation!');
 
