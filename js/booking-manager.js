@@ -15,7 +15,7 @@ console.log('Booking Manager Loaded');
  * Send Booking Email Notification
  * 
  * Calls the PUBLIC API endpoint on the Dashboard (Next.js app) to send email notifications.
- * The Dashboard app runs separately on localhost:3000 and provides a CORS-enabled endpoint
+ * The Dashboard app (admin.marragafay.com) provides a CORS-enabled endpoint
  * that this static site can call to trigger email notifications via Resend.
  * 
  * @param {Object} bookingData - The booking data to include in the email
@@ -34,8 +34,7 @@ async function sendBookingEmailNotification(bookingData) {
         console.log('🚀 ========================================\n');
 
         // Call the public API endpoint on the Dashboard (Next.js app)
-        // TODO: In production, change to your actual Dashboard URL (e.g., https://dashboard.marragafay.com)
-        const DASHBOARD_API_URL = 'http://localhost:3000/api/public/send-booking-email';
+        const DASHBOARD_API_URL = 'https://admin.marragafay.com/api/public/send-booking-email';
 
         const payload = {
             name: bookingData.name,
