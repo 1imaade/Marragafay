@@ -15053,7 +15053,7 @@ overflow: hidden;
 
 /* Extreme priority to bypass line 38 */
 html body section#marragafay-slogan-box {
-  background: linear-gradient(0deg, rgba(177, 140, 88, 0.9), rgba(177, 140, 88, 0.9)), url('../images/activites/quad.jpeg') !important;
+  background: linear-gradient(0deg, rgba(177, 140, 88, 0.9), rgba(177, 140, 88, 0.9)), url('../images/activites/quad.webp') !important;
   background-size: cover !important;
   background-attachment: fixed !important;
   /* Parallax effect */
