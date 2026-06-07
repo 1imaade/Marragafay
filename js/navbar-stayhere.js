@@ -272,7 +272,7 @@
               <div style="display: flex; flex-direction: column; gap: 12px;">
                 ${CONFIG.menuItems.booking.map(item => `
                   <a href="${basePath}${item.href}" style="display: block; font-size: 14px; font-weight: 400; color: #5c5c56; text-decoration: none; padding-top: 4px;" onmouseover="this.style.color='#523225'" onmouseout="this.style.color='#5c5c56'">
-                    ${item.label} &rarr;
+                    ${item.label} <span class="ml-1"><svg class="w-4 h-4 inline-block fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/></svg></span>
                   </a>
                 `).join('')}
               </div>
@@ -371,7 +371,7 @@
               ${CONFIG.menuItems.booking.map(item => `
                 <li class="menu-link-item" style="margin-bottom: 12px;">
                   <a href="${basePath}${item.href}" class="menu-link${item.href === currentPage ? ' active' : ''}" style="font-size: 14px; font-weight: 400; color: #5c5c56;" onmouseover="this.style.color='#523225'" onmouseout="this.style.color='#5c5c56'">
-                    ${item.label} &rarr;
+                    ${item.label} <span class="ml-1"><svg class="w-4 h-4 inline-block fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/></svg></span>
                   </a>
                 </li>
               `).join('')}
