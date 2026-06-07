@@ -1,0 +1,141 @@
+/* ============================================== */
+/* LUXURY BOOKING CONFIRMATION MODAL STYLES */
+/* 5-Star Hotel Grade Popup Design */
+/* ============================================== */
+
+/* Main Modal Container */
+.luxury-booking-modal {
+    border-radius: 12px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15),
+        0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    padding: 45px 40px !important;
+    max-width: 480px !important;
+    border: 1px solid rgba(193, 155, 118, 0.15) !important;
+}
+
+/* Title - Elegant Serif Font */
+.luxury-booking-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+    margin-bottom: 15px !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.3 !important;
+}
+
+/* Body Text Container */
+.luxury-booking-text {
+    margin-top: 15px !important;
+    margin-bottom: 25px !important;
+}
+
+/* Success Icon Customization */
+.luxury-booking-icon {
+    border-color: #C19B76 !important;
+    color: #C19B76 !important;
+}
+
+/* Make the checkmark gold */
+.luxury-booking-modal .swal2-success-ring {
+    border-color: rgba(193, 155, 118, 0.3) !important;
+}
+
+.luxury-booking-modal .swal2-success-line-tip,
+.luxury-booking-modal .swal2-success-line-long {
+    background-color: #C19B76 !important;
+}
+
+/* Confirm Button - Luxury Gold */
+.luxury-booking-button {
+    background: #C19B76 !important;
+    color: #ffffff !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    padding: 14px 40px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(193, 155, 118, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+    letter-spacing: 0.3px !important;
+    cursor: pointer !important;
+}
+
+/* Button Hover Effect - Darker Gold */
+.luxury-booking-button:hover {
+    background: #A98560 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(193, 155, 118, 0.4) !important;
+}
+
+/* Button Active/Focus State */
+.luxury-booking-button:active,
+.luxury-booking-button:focus {
+    background: #8F6F4E !important;
+    transform: translateY(0) !important;
+    box-shadow: 0 3px 10px rgba(193, 155, 118, 0.35) !important;
+    outline: none !important;
+}
+
+/* Remove default SweetAlert2 focus outline */
+.luxury-booking-button:focus-visible {
+    outline: 2px solid rgba(193, 155, 118, 0.5) !important;
+    outline-offset: 3px !important;
+}
+
+/* Backdrop Overlay - Elegant Blur */
+.swal2-container.swal2-backdrop-show {
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(3px) !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    .luxury-booking-modal {
+        padding: 35px 25px !important;
+        max-width: 90vw !important;
+    }
+
+    .luxury-booking-title {
+        font-size: 1.65rem !important;
+    }
+
+    .luxury-booking-button {
+        padding: 12px 32px !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* Additional Polish: Remove default SweetAlert borders */
+.luxury-booking-modal .swal2-icon {
+    border: none !important;
+}
+
+/* Smooth Icon Animation */
+.luxury-booking-modal .swal2-icon.swal2-success {
+    animation: luxury-icon-pop 0.4s ease-out !important;
+}
+
+@keyframes luxury-icon-pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Ensure text is never cut off */
+.luxury-booking-text p {
+    margin: 0 !important;
+    padding: 0 !important;
+}

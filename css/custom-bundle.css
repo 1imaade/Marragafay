@@ -1,0 +1,3544 @@
+/* Center and style hero title on all pages except home */
+body:not(.home) .hero-wrap .slider-text {
+    text-align: center;
+}
+
+body:not(.home) .hero-wrap h1 {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+/* Remove any span styling that might affect the white color */
+body:not(.home) .hero-wrap h1 span {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+/* Full Screen Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  width: 100%;
+  padding: 0 20px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease-out;
+}
+
+.mobile-menu-overlay.active .mobile-menu-content {
+  transform: translateY(0);
+}
+
+.mobile-menu-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu-nav .nav-item {
+  margin: 15px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease-out;
+}
+
+.mobile-menu-overlay.active .mobile-menu-nav .nav-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation for menu items */
+.mobile-menu-nav .nav-item:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu-nav .nav-item:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu-nav .nav-item:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu-nav .nav-item:nth-child(4) { transition-delay: 0.25s; }
+.mobile-menu-nav .nav-item:nth-child(5) { transition-delay: 0.3s; }
+
+.mobile-menu-nav .nav-link {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  padding: 10px 0;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-nav .nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 5px;
+  left: 0;
+  background-color: #78d5ef;
+  transition: width 0.3s ease;
+}
+
+.mobile-menu-nav .nav-link:hover:after {
+  width: 100%;
+}
+
+/* Close Button */
+.mobile-menu-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active + .mobile-menu-close {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-close:before,
+.mobile-menu-close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-close:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.mobile-menu-close:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.mobile-menu-close:hover:before,
+.mobile-menu-close:hover:after {
+  background-color: #78d5ef;
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Robust scroll prevention for mobile menu */
+body.no-scroll {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  top: 0;
+  left: 0;
+}
+
+/* Hide default navbar collapse on mobile */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    display: none !important;
+  }
+  
+  .navbar-toggler {
+    z-index: 10001;
+    position: relative;
+  }
+  
+  .navbar-toggler .icon-menu {
+    font-size: 24px;
+    color: #fff;
+  }
+}
+/* Elegant Button Hover */
+.btn-outline-primary {
+    position: relative;
+    color: #a63c06;
+    border: 1px solid #a63c06;
+    background: transparent;
+    padding: 10px 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline-primary:hover {
+    color: white;
+    border-color: #a63c06;
+    box-shadow: 0 4px 12px rgba(166, 60, 6, 0.1);
+}
+
+.btn-outline-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #a63c06;
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.btn-outline-primary:hover::before {
+    width: 100%;
+}
+
+/* For the main CTA button */
+.hero-wrap .btn-outline-primary {
+    border-width: 2px;
+    padding: 12px 35px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.hero-wrap .btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+/* Legacy button class for backward compatibility */
+.btn41-43 {
+  padding: 5px 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-42 {
+  border: 2px solid rgb(255, 255, 255);
+  z-index: 1;
+  color: white;
+}
+
+.btn-42:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: rgb(255, 255, 255);
+  transition: all 0.3s ease;
+}
+
+.btn-42:hover {
+  color: rgb(0, 0, 0);
+}
+
+.btn-42:hover:after {
+  top: 0;
+  height: 100%;
+}
+
+.btn-42:active {
+  top: 2px;
+}
+
+/* ========================================= */
+/* NAVBAR BOOKING BUTTON - Gold Theme */
+/* ========================================= */
+/* Applied to all pages for global consistency */
+.navbar .nav-link.booking-btn {
+  background: #bc6c25 !important;
+  color: #fff !important;
+  border: 1.5px solid #bc6c25 !important;
+  border-radius: 0 !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease !important;
+  display: inline-block !important;
+}
+
+.navbar .nav-link.booking-btn:hover {
+  background: #d4af37 !important;
+  border-color: #d4af37 !important;
+  color: #fff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar .nav-link.booking-btn {
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar .nav-link.booking-btn {
+    padding: 10px 15px !important;
+    font-size: 0.9rem !important;
+  }
+}
+/*
+ * Pixel-Perfect Activity Grid Section - 2 Columns × 3 Rows Layout
+ * - NO GAPS between cards (gap: 0)
+ * - Square corners (border-radius: 0)
+ * - 8px inner padding creating white border effect
+ * - Gold/brown color scheme (#a48858)
+ * - Desktop: 2 columns × 3 rows, Mobile: 1 column × 6 rows
+ */
+
+.luxury-activities-grid-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 120px 0;
+}
+
+.luxury-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #2c3e50;
+  letter-spacing: -0.02em;
+}
+
+.luxury-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-weight: 300;
+}
+
+/* Grid container with NO GAPS - 2 columns × 3 rows default */
+.activities-grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Card wrapper with 8px padding creating white border effect */
+.activity-grid-card-wrapper {
+  background: #ffffff;
+  padding: 8px;
+  height: 100%;
+}
+
+/* Inner card with square corners */
+.activity-grid-card {
+  position: relative;
+  height: 320px; /* Reduced to 320px for more compact look */
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.activity-grid-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark overlay for readability */
+.activity-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Price tag - Top right, flush with right edge, small space from top */
+.activity-grid-price {
+  position: absolute;
+  top: 16px;
+  right: -8px; /* 8px margin from right edge */
+  background: #bc6c25;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  z-index: 139;
+}
+
+.activity-grid-price-label {
+  font-size: 0.75rem;
+  display: block;
+  font-weight: 400;
+}
+
+.activity-grid-price-amount {
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+/* Activity info - Bottom left */
+.activity-grid-info {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  padding: 12px;
+  color: white;
+  z-index: 10;
+}
+
+.activity-grid-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.3;
+}
+
+/* Booking button */
+.activity-grid-btn {
+  background: #bc6c25;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.activity-grid-btn:hover {
+  background: #a05a1e;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design - Mobile: 1 column × 6 rows */
+@media (max-width: 768px) {
+  .activities-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-grid-card {
+    height: 256px; /* Reduced to 256px for mobile compact look */
+  }
+
+  .luxury-section-title {
+    font-size: 2rem;
+  }
+
+  .activity-grid-title {
+    font-size: 1.2rem;
+  }
+
+  .activity-grid-btn {
+    font-size: 0.85rem;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-activities-grid-section {
+    padding: 60px 0;
+  }
+  
+  .activity-grid-card {
+    height: 280px;
+  }
+  
+  .activity-grid-title {
+    font-size: 1.1rem;
+  }
+  
+  .activity-grid-price {
+    padding: 8px 16px;
+    right: 8px; /* 8px margin from right edge for mobile */
+  }
+  
+  .activity-grid-price-amount {
+    font-size: 1.2rem;
+  }
+}
+/* Luxury Activities Section - Pixel Perfect Grid */
+.luxury-activities-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 120px 0;
+}
+
+.luxury-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #2c3e50;
+  letter-spacing: -0.02em;
+}
+
+.luxury-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  font-weight: 300;
+}
+
+/* Grid with NO GAPS - 3 columns × 2 rows */
+.luxury-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0; /* NO GAPS between cards */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each card with 8px padding (creates white border effect) */
+.luxury-activity-card {
+  position: relative;
+  height: 400px;
+  padding: 8px;
+  background: white;
+  border-radius: 0; /* Sharp corners */
+  overflow: hidden;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0; /* Sharp corners */
+}
+
+/* Background image - full bleed */
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+}
+
+/* Dark overlay for readability */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+}
+
+/* Price tag - Top Right, flush with edge */
+.activity-price {
+  position: absolute;
+  top: 8px;
+  right: 0; /* Flush with right edge */
+  background: #a48858; /* Gold/brown color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0; /* Sharp corners */
+  z-index: 20;
+}
+
+.activity-price strong {
+  font-size: 1.3rem;
+  display: block;
+  line-height: 1.2;
+}
+
+/* Activity info - Bottom Left */
+.activity-info {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  color: white;
+  z-index: 10;
+}
+
+.activity-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Booking button - Gold/brown with white text */
+.activity-btn {
+  display: inline-block;
+  background: #a48858; /* Gold/brown color */
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 0; /* Sharp corners */
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.activity-btn:hover {
+  background: #8b7040;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .luxury-activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .luxury-activities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .luxury-activity-card {
+    height: 350px;
+  }
+  
+  .luxury-section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-activity-card {
+    height: 300px;
+  }
+  
+  .activity-title {
+    font-size: 1.2rem;
+  }
+  
+  .activity-btn {
+    font-size: 0.8rem;
+    padding: 8px 18px;
+  }
+}
+/* =========================================== */
+/* BOOKING WIDGETS STYLESHEET */
+/* Two distinct booking forms for the travel website */
+/* =========================================== */
+
+/* ========================================= */
+/* PART 1: MAIN SEARCH WIDGET (Home Page Hero) */
+/* LUXURY MINIMALIST DESIGN - SQUARE CORNERS */
+/* ========================================= */
+
+.main-search-widget {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 0;
+  padding: 22px 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  margin-top: 100px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 10;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.main-search-widget h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #bc6c25;
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.main-search-form {
+  display: flex;
+  gap: 0;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  border-left: 1px solid rgba(224, 224, 224, 0.5);
+}
+
+.main-search-form .form-group {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 0;
+  padding: 12px 18px;
+  border-right: 1px solid rgba(224, 224, 224, 0.5);
+  position: relative;
+}
+
+.main-search-form .form-group:last-of-type {
+  border-right: none;
+}
+
+.main-search-form label {
+  display: block;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 6px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-align: left;
+}
+
+.main-search-form select,
+.main-search-form input[type="text"],
+.main-search-form input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.main-search-form select:focus,
+.main-search-form input[type="text"]:focus,
+.main-search-form input[type="number"]:focus {
+  outline: none;
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.03);
+}
+
+.main-search-form .btn-search {
+  flex: 0 0 auto;
+  min-width: 170px;
+  padding: 16px 26px;
+  background: linear-gradient(135deg, #bc6c25 0%, #d4af37 100%);
+  color: white;
+  border: none;
+  border-radius: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(188, 108, 37, 0.25);
+  margin-left: 8px;
+  margin-top: 25px;
+}
+
+.main-search-form .btn-search:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #bc6c25 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.35);
+}
+
+.main-search-form .btn-search:active {
+  transform: translateY(0);
+}
+
+/* Icon styling for form fields */
+.main-search-form .form-group i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d4af37;
+  pointer-events: none;
+}
+
+/* Mobile Responsive - Main Widget */
+@media (max-width: 768px) {
+  .main-search-widget {
+    padding: 20px 16px;
+    margin-top: 30px;
+  }
+
+  .main-search-widget h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .main-search-form {
+    flex-direction: column;
+    gap: 0;
+    border-left: none;
+  }
+
+  .main-search-form .form-group {
+    min-width: 100%;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+    padding: 12px 10px;
+  }
+
+  .main-search-form .form-group:last-child {
+    border-bottom: none;
+  }
+
+  .main-search-form .btn-search {
+    width: 100%;
+    min-width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+/* ========================================= */
+/* PART 2: QUICK BOOKING WIDGET (Packs & Activities Pages) */
+/* ========================================= */
+
+.quick-booking-widget {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 10px;
+  padding: 30px 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 100px;
+  z-index: 100;
+  border: 2px solid #d4af37;
+}
+
+.quick-booking-widget h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #bc6c25;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 15px;
+}
+
+.quick-booking-widget .promo-badge {
+  background: linear-gradient(45deg, #d4af37, #b8860b);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.quick-booking-form .form-group {
+  margin-bottom: 20px;
+}
+
+.quick-booking-form label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-booking-form input[type="text"],
+.quick-booking-form input[type="number"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #333;
+}
+
+.quick-booking-form input[type="text"]:focus,
+.quick-booking-form input[type="number"]:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.quick-booking-form .btn-book {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(45deg, #bc6c25, #d4af37);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.3);
+  margin-top: 10px;
+}
+
+.quick-booking-form .btn-book:hover {
+  background: linear-gradient(45deg, #d4af37, #bc6c25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+}
+
+.quick-booking-form .btn-book:active {
+  transform: translateY(0);
+}
+
+.quick-booking-widget .security-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.quick-booking-widget .security-note i {
+  color: #28a745;
+  margin-right: 5px;
+}
+
+/* Features list in quick booking */
+.quick-booking-widget .features-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.quick-booking-widget .features-list li {
+  padding: 8px 0;
+  color: #495057;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.quick-booking-widget .features-list li i {
+  color: #d4af37;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+/* Mobile Responsive - Quick Widget */
+@media (max-width: 991px) {
+  .quick-booking-widget {
+    position: relative;
+    top: 0;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quick-booking-widget {
+    padding: 25px 20px;
+  }
+
+  .quick-booking-widget h4 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ========================================= */
+/* FORM VALIDATION STYLES */
+/* ========================================= */
+
+.form-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none;
+}
+
+.form-group.has-error input,
+.form-group.has-error select {
+  border-color: #dc3545;
+}
+
+.form-group.has-error .form-error {
+  display: block;
+}
+
+/* ========================================= */
+/* LOADING STATE */
+/* ========================================= */
+
+.btn-search.loading,
+.btn-book.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn-search.loading::after,
+.btn-book.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form group containing guest counter needs relative positioning for popup */
+.main-search-form .form-group.guest-counter-container {
+  position: relative;
+}
+
+/* Fallback for browsers that don't support :has() */
+.main-search-form .form-group {
+  position: relative;
+}
+
+.guest-counter {
+  position: relative;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 0;
+  background: transparent;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guest-counter:hover {
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.03);
+}
+
+.guest-counter:focus {
+  outline: none;
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.03);
+}
+
+.guest-display {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.guest-counter i {
+  color: #6c757d;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.guest-counter.active i {
+  transform: rotate(180deg);
+}
+
+/* Guest Popup Styles */
+.guest-popup {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  max-width: 280px;
+  background: #fff;
+  border: 1px solid #d4af37;
+  border-radius: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  display: none;
+  margin-top: 5px;
+  padding: 15px 12px;
+}
+
+.guest-popup.show {
+  display: block;
+}
+
+.guest-counter-item {
+  margin-bottom: 12px;
+}
+
+.guest-counter-item:last-child {
+  margin-bottom: 0;
+}
+
+.guest-counter-item label {
+  display: block;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 8px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.counter-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #2c3e50;
+  background: #fff;
+  color: #2c3e50;
+  border-radius: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.counter-btn:hover {
+  background: #2c3e50;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.counter-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.counter-input {
+  width: 45px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+  background: #fff;
+}
+
+.counter-input:focus {
+  outline: none;
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.03);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .guest-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 280px;
+    z-index: 2000;
+  }
+
+  .counter-controls {
+    gap: 8px;
+  }
+
+  .counter-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+  }
+
+  .counter-input {
+    width: 40px;
+    padding: 5px 7px;
+    font-size: 0.85rem;
+  }
+
+  .guest-counter-item label {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+}
+
+/* ========================================= */
+/* DATEPICKER CUSTOMIZATION */
+/* ========================================= */
+
+.datepicker {
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.datepicker table tr td.active.active,
+.datepicker table tr td.selected.active {
+  background: linear-gradient(45deg, #bc6c25, #d4af37);
+  border-color: #bc6c25;
+}
+
+.datepicker table tr td.today {
+  background: #f8f9fa;
+  color: #bc6c25;
+}
+
+.datepicker table tr td.today:hover {
+  background: #e9ecef;
+}
+/* =========================================== */
+/* TESTIMONIALS SECTION STYLESHEET */
+/* Luxury testimonials slider matching agafaymarrakech.com */
+/* =========================================== */
+
+/* ========================================= */
+/* TESTIMONIALS SECTION WRAPPER */
+/* ========================================= */
+.testimonials-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========================================= */
+/* SECTION TITLE */
+/* ========================================= */
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.testimonials-subtitle {
+  color: #eece9d;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.testimonials-subtitle::before,
+.testimonials-subtitle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background: #eece9d;
+}
+
+.testimonials-subtitle::before {
+  left: -80px;
+}
+
+.testimonials-subtitle::after {
+  right: -80px;
+}
+
+.testimonials-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.testimonials-description {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ========================================= */
+/* SWIPER SLIDER CONFIGURATION */
+/* ========================================= */
+.testimonials-swiper {
+  position: relative;
+  padding: 40px 0 60px;
+  overflow: visible;
+}
+
+.testimonials-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+/* ========================================= */
+/* TESTIMONIAL CARD DESIGN */
+/* ========================================= */
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px 32px;
+  margin: 0 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: all 0.3s ease;
+  height: auto;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Quote Icon */
+.testimonial-quote {
+  position: absolute;
+  top: -20px;
+  left: 32px;
+  width: 40px;
+  height: 40px;
+  background: #eece9d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Client Profile Image */
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #eece9d;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+/* Review Text */
+.testimonial-review {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 25px;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+/* Star Rating */
+.testimonial-rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.star-icon {
+  width: 18px;
+  height: 18px;
+  fill: #eece9d;
+}
+
+/* Client Information */
+.testimonial-client {
+  text-align: center;
+}
+
+.testimonial-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.testimonial-location {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* ========================================= */
+/* SOCIAL PROOF ELEMENTS */
+/* ========================================= */
+
+/* Background Quote Icon */
+.testimonial-quote-bg {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 120px;
+  color: #eece9d;
+  opacity: 0.08;
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Rating Row with Source */
+.testimonial-rating-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* Verified Source Badge */
+.testimonial-source {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: #888;
+  padding: 4px 10px;
+  background: #f5f5f5;
+  border-radius: 12px;
+}
+
+.testimonial-source .source-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Verified Booking Badge */
+.testimonial-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #bc6c25;
+  background: rgba(188, 108, 37, 0.08);
+  padding: 5px 12px;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.testimonial-verified .verified-icon {
+  width: 14px;
+  height: 14px;
+  color: #28a745;
+}
+
+/* Date Display */
+.testimonial-date {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 0.7rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* ========================================= */
+/* NAVIGATION ARROWS */
+/* ========================================= */
+.testimonials-navigation {
+  position: relative;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #2c3e50;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  top: 50%;
+  margin-top: -25px;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: #eece9d;
+  color: white;
+  transform: scale(1.1);
+}
+
+.swiper-button-prev {
+  left: -25px;
+}
+
+.swiper-button-next {
+  right: -25px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ========================================= */
+/* PAGINATION DOTS */
+/* ========================================= */
+.swiper-pagination {
+  position: relative;
+  margin-top: 40px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #d1d5db;
+  opacity: 1;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #eece9d;
+  transform: scale(1.2);
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN */
+/* ========================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .testimonials-title {
+    font-size: 2.2rem;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  .testimonial-card {
+    margin: 0 10px;
+    padding: 32px 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 60px 0;
+  }
+
+  .testimonials-title {
+    font-size: 1.8rem;
+  }
+
+  .testimonials-subtitle::before,
+  .testimonials-subtitle::after {
+    width: 40px;
+  }
+
+  .testimonials-subtitle::before {
+    left: -60px;
+  }
+
+  .testimonials-subtitle::after {
+    right: -60px;
+  }
+
+  .testimonial-card {
+    margin: 0 5px;
+    padding: 24px 20px;
+    min-height: 300px;
+  }
+
+  .testimonial-review {
+    font-size: 1.1rem;
+  }
+
+  .testimonial-avatar {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .testimonials-container {
+    padding: 0 15px;
+  }
+
+  .testimonials-title {
+    font-size: 1.6rem;
+  }
+
+  .testimonials-subtitle::before,
+  .testimonials-subtitle::after {
+    display: none;
+  }
+
+  .testimonial-card {
+    margin: 0;
+    padding: 20px 16px;
+  }
+
+  .testimonial-review {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================= */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* ========================================= */
+.testimonials-swiper:focus-within {
+  outline: 2px solid #eece9d;
+  outline-offset: 4px;
+}
+
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+  outline: 2px solid #eece9d;
+  outline-offset: 2px;
+}
+
+.swiper-pagination-bullet:focus {
+  outline: 2px solid #eece9d;
+  outline-offset: 2px;
+}
+
+/* ========================================= */
+/* LOADING STATE */
+/* ========================================= */
+.testimonials-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.testimonials-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #eece9d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* All French content replaced by English translation – October 20, 2025 */
+/* =========================================== */
+/* WHY CHOOSE AGAFAY MARRAKECH SECTION */
+/* Modern luxury design matching agafaymarrakech.com */
+/* =========================================== */
+
+/* ========================================= */
+/* SECTION CONTAINER */
+/* ========================================= */
+.why-choose-section {
+  padding: 100px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.why-choose-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* ========================================= */
+/* TWO-COLUMN LAYOUT */
+/* ========================================= */
+.why-choose-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* ========================================= */
+/* LEFT COLUMN - IMAGE COLLAGE */
+/* ========================================= */
+.why-choose-images {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+}
+
+/* ========================================= */
+/* Z-INDEX MANAGEMENT - Always below navbar (z-index: 100) */
+/* ========================================= */
+
+/* Gold overlay block - positioned to overlap images */
+.why-choose-badge {
+  position: absolute;
+  top: 80px;
+  left: 60px;
+  width: 300px;
+  height: 200px;
+  background: #bc6c25;
+  z-index: 5;
+  /* Gold badge - highest in section but below navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.why-choose-badge-text {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+/* Base image styling */
+.why-choose-image {
+  position: absolute;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  border: 8px solid #ffffff;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.why-choose-image::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, #bc6c25, #d4af37, #bc6c25);
+  z-index: -1;
+  border-radius: 0;
+}
+
+.why-choose-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.why-choose-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Image 1 - Top right (desert adventure) - Behind gold badge */
+.why-choose-image-1 {
+  top: 20px;
+  right: 0;
+  width: 350px;
+  height: 230px;
+  z-index: 1;
+  /* Lowest layer - behind badge and other images */
+}
+
+/* Image 2 - Bottom left (luxury camp) - Middle layer */
+.why-choose-image-2 {
+  bottom: 180px;
+  left: 0;
+  width: 320px;
+  height: 220px;
+  z-index: 2;
+  /* Middle layer - above image 1, below image 3 and badge */
+}
+
+/* Image 3 - Bottom right (camel sunset) - Front image layer */
+.why-choose-image-3 {
+  bottom: 0;
+  right: 40px;
+  width: 380px;
+  height: 250px;
+  z-index: 3;
+  /* Front image - above other images, below badge */
+}
+
+/* ========================================= */
+/* RIGHT COLUMN - CONTENT */
+/* ========================================= */
+.why-choose-content {
+  padding-left: 40px;
+  padding-top: 20px;
+}
+
+/* Gold subtitle */
+.why-choose-subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #bc6c25;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 12px 0;
+}
+
+/* Main title */
+.why-choose-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #172139;
+  line-height: 1.05;
+  margin: 0 0 30px 0;
+  text-transform: uppercase;
+}
+
+/* Decorative separator */
+.why-choose-separator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.why-choose-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.why-choose-dot {
+  width: 6px;
+  height: 6px;
+  background: #bc6c25;
+  border-radius: 50%;
+}
+
+.why-choose-icon {
+  width: 20px;
+  height: 20px;
+  fill: #bc6c25;
+}
+
+/* Description text */
+.why-choose-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444444;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.why-choose-description:last-of-type {
+  margin-bottom: 40px;
+}
+
+/* ========================================= */
+/* ADVANTAGE CARDS */
+/* ========================================= */
+.why-choose-cards {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.why-choose-card {
+  background: transparent;
+  padding: 12px;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  /* Allows flex item to shrink below content size */
+  min-height: auto;
+  overflow-wrap: break-word;
+}
+
+.why-choose-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Card icon */
+.why-choose-card-icon {
+  width: 40px;
+  height: 40px;
+  background: #bc6c25;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.why-choose-card-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+
+/* Card content */
+.why-choose-card-content {
+  flex: 1;
+  min-width: 0;
+  /* Critical: allows text to wrap instead of force new columns */
+  word-wrap: break-word;
+}
+
+/* Card title */
+.why-choose-card-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #172139;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+/* Card description */
+.why-choose-card-description {
+  font-size: 0.75rem;
+  color: #888888;
+  line-height: 1.4;
+  margin: 0;
+  white-space: normal;
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN */
+/* ========================================= */
+
+/* Large tablets */
+@media (max-width: 1024px) {
+  .why-choose-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .why-choose-images {
+    height: 550px;
+  }
+
+  .why-choose-title {
+    font-size: 2.4rem;
+  }
+
+  .why-choose-image-1 {
+    width: 280px;
+    height: 180px;
+    top: 15px;
+    right: 0;
+  }
+
+  .why-choose-image-2 {
+    width: 260px;
+    height: 170px;
+    bottom: 150px;
+    left: 0;
+  }
+
+  .why-choose-image-3 {
+    width: 300px;
+    height: 200px;
+    bottom: 0;
+    right: 30px;
+  }
+
+  .why-choose-badge {
+    width: 250px;
+    height: 160px;
+    top: 60px;
+    left: 40px;
+  }
+
+  .why-choose-badge-text {
+    font-size: 1.4rem;
+  }
+}
+
+/* Tablets and mobile */
+@media (max-width: 768px) {
+  .why-choose-section {
+    padding: 60px 0;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .why-choose-images {
+    height: 420px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .why-choose-content {
+    padding-left: 0;
+  }
+
+  .why-choose-title {
+    font-size: 2rem;
+  }
+
+  .why-choose-cards {
+    flex-direction: column;
+    gap: 0;
+    /* Handled by margin-bottom on cards */
+  }
+
+  .why-choose-card {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .why-choose-image-1 {
+    width: 220px;
+    height: 140px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .why-choose-image-2 {
+    width: 200px;
+    height: 140px;
+    bottom: 120px;
+    left: 10px;
+  }
+
+  .why-choose-image-3 {
+    width: 210px;
+    height: 130px;
+    bottom: 10px;
+    right: 30px;
+  }
+
+  .why-choose-badge {
+    width: 180px;
+    height: 130px;
+    padding: 20px;
+  }
+
+  .why-choose-badge-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .why-choose-container {
+    padding: 0 20px;
+  }
+
+  .why-choose-images {
+    height: 360px;
+  }
+
+  .why-choose-title {
+    font-size: 1.75rem;
+  }
+
+  .why-choose-image-1 {
+    width: 180px;
+    height: 120px;
+  }
+
+  .why-choose-image-2 {
+    width: 170px;
+    height: 120px;
+    bottom: 100px;
+  }
+
+  .why-choose-image-3 {
+    width: 180px;
+    height: 110px;
+    right: 20px;
+  }
+
+  .why-choose-badge {
+    width: 160px;
+    height: 110px;
+    padding: 15px;
+  }
+
+  .why-choose-badge-text {
+    font-size: 1.05rem;
+  }
+
+  .why-choose-description {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================= */
+/* ACCESSIBILITY */
+/* ========================================= */
+
+/* Focus styles for keyboard navigation */
+.why-choose-card:focus {
+  outline: 2px solid #bc6c25;
+  outline-offset: 3px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .why-choose-title {
+    color: #000000;
+  }
+
+  .why-choose-description {
+    color: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .why-choose-card {
+    transition: none;
+  }
+
+  .why-choose-card:hover {
+    transform: none;
+  }
+}
+/* =========================================== */
+/* LUXURY SECTION TITLES - UNIFIED DESIGN SYSTEM */
+/* Consistent two-line title format for all sections */
+/* Pattern: Gold Subtitle + Large Bold Title */
+/* =========================================== */
+
+/* ========================================= */
+/* SECTION TITLE CONTAINER */
+/* ========================================= */
+.section-title-block {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+/* Left-aligned version for specific sections */
+.section-title-block.text-left {
+  text-align: left;
+}
+
+/* ========================================= */
+/* GOLD SUBTITLE (Top Line) */
+/* Uppercase, letter-spaced, brand gold color */
+/* ========================================= */
+.section-subtitle {
+  /* Typography */
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  
+  /* Color */
+  color: #bc6c25;
+  
+  /* Spacing */
+  margin: 0 0 0.5em 0;
+  padding: 0;
+  
+  /* Visual refinement */
+  opacity: 0.95;
+}
+
+/* ========================================= */
+/* MAIN TITLE (Bottom Line) */
+/* Large, bold, deep blue, evocative phrases */
+/* ========================================= */
+.section-main-title {
+  /* Typography */
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: none;
+  
+  /* Color */
+  color: #172139;
+  
+  /* Spacing */
+  margin: 0 0 1.2em 0;
+  padding: 0;
+  
+  /* Visual refinement */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================= */
+/* RESPONSIVE DESIGN */
+/* ========================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .section-main-title {
+    font-size: 2.4rem;
+  }
+  
+  .section-title-block {
+    margin-bottom: 3rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .section-main-title {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  
+  .section-title-block {
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .section-main-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.8rem;
+  }
+}
+
+/* ========================================= */
+/* ACCESSIBILITY */
+/* ========================================= */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .section-main-title {
+    color: #000000;
+  }
+  
+  .section-subtitle {
+    opacity: 1;
+  }
+}
+
+/* ========================================= */
+/* USAGE EXAMPLES (HTML) */
+/* ========================================= */
+
+/*
+<!-- Activities Section Title -->
+<div class="section-title-block">
+  <p class="section-subtitle">Agafay Marrakech Desert</p>
+  <h2 class="section-main-title">Découvrez Nos Activités D'Exception dans le Désert</h2>
+</div>
+
+<!-- Packages Section Title -->
+<div class="section-title-block">
+  <p class="section-subtitle">Best Packages</p>
+  <h2 class="section-main-title">Nos Meilleures Formules Pour Découvrir Agafay</h2>
+</div>
+
+<!-- Gallery Section Title -->
+<div class="section-title-block">
+  <p class="section-subtitle">Galerie</p>
+  <h2 class="section-main-title">Galerie de Souvenirs Inoubliables</h2>
+</div>
+
+<!-- FAQ Section Title -->
+<div class="section-title-block">
+  <p class="section-subtitle">FAQ</p>
+  <h2 class="section-main-title">Tout Savoir Sur L'Expérience Agafay</h2>
+</div>
+*/
+/* ============================================== */
+/* LUXURY BOOKING CONFIRMATION MODAL STYLES */
+/* 5-Star Hotel Grade Popup Design */
+/* ============================================== */
+
+/* Main Modal Container */
+.luxury-booking-modal {
+    border-radius: 12px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15),
+        0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    padding: 45px 40px !important;
+    max-width: 480px !important;
+    border: 1px solid rgba(193, 155, 118, 0.15) !important;
+}
+
+/* Title - Elegant Serif Font */
+.luxury-booking-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+    margin-bottom: 15px !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.3 !important;
+}
+
+/* Body Text Container */
+.luxury-booking-text {
+    margin-top: 15px !important;
+    margin-bottom: 25px !important;
+}
+
+/* Success Icon Customization */
+.luxury-booking-icon {
+    border-color: #C19B76 !important;
+    color: #C19B76 !important;
+}
+
+/* Make the checkmark gold */
+.luxury-booking-modal .swal2-success-ring {
+    border-color: rgba(193, 155, 118, 0.3) !important;
+}
+
+.luxury-booking-modal .swal2-success-line-tip,
+.luxury-booking-modal .swal2-success-line-long {
+    background-color: #C19B76 !important;
+}
+
+/* Confirm Button - Luxury Gold */
+.luxury-booking-button {
+    background: #C19B76 !important;
+    color: #ffffff !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    padding: 14px 40px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(193, 155, 118, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+    letter-spacing: 0.3px !important;
+    cursor: pointer !important;
+}
+
+/* Button Hover Effect - Darker Gold */
+.luxury-booking-button:hover {
+    background: #A98560 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(193, 155, 118, 0.4) !important;
+}
+
+/* Button Active/Focus State */
+.luxury-booking-button:active,
+.luxury-booking-button:focus {
+    background: #8F6F4E !important;
+    transform: translateY(0) !important;
+    box-shadow: 0 3px 10px rgba(193, 155, 118, 0.35) !important;
+    outline: none !important;
+}
+
+/* Remove default SweetAlert2 focus outline */
+.luxury-booking-button:focus-visible {
+    outline: 2px solid rgba(193, 155, 118, 0.5) !important;
+    outline-offset: 3px !important;
+}
+
+/* Backdrop Overlay - Elegant Blur */
+.swal2-container.swal2-backdrop-show {
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(3px) !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    .luxury-booking-modal {
+        padding: 35px 25px !important;
+        max-width: 90vw !important;
+    }
+
+    .luxury-booking-title {
+        font-size: 1.65rem !important;
+    }
+
+    .luxury-booking-button {
+        padding: 12px 32px !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* Additional Polish: Remove default SweetAlert borders */
+.luxury-booking-modal .swal2-icon {
+    border: none !important;
+}
+
+/* Smooth Icon Animation */
+.luxury-booking-modal .swal2-icon.swal2-success {
+    animation: luxury-icon-pop 0.4s ease-out !important;
+}
+
+@keyframes luxury-icon-pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Ensure text is never cut off */
+.luxury-booking-text p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* ========================================= */
+/* GLOBAL LIGHTBOX VIEWER */
+/* Full-screen image overlay with navigation */
+/* Used across all pages: Home, Details, Reviews */
+/* ========================================= */
+
+/* Lightbox overlay - full screen */
+.lightbox {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    /* On top of everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Lightbox image */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.5);
+    cursor: default;
+    /* Prevent closing when clicking image */
+    object-fit: contain;
+}
+
+/* Close button */
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10000;
+    user-select: none;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #b18c58;
+    /* Brand gold */
+}
+
+/* Navigation arrows */
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    padding: 16px;
+    z-index: 10000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    color: #b18c58;
+    /* Brand gold */
+    transform: translateY(-50%) scale(1.2);
+}
+
+/* Hide arrows for single image */
+.lightbox-prev.hidden,
+.lightbox-next.hidden {
+    display: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+        font-size: 40px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 32px;
+        padding: 12px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 28px;
+        padding: 8px;
+    }
+}
+/* =========================================== */
+/* BOOKING DETAILS MODAL - EXACT IMAGE MATCH */
+/* =========================================== */
+
+/* Backdrop - blurred background */
+.booking-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.booking-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Container */
+.booking-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+    width: 92%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow: hidden;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.booking-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Modal Header */
+.booking-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 32px 0 32px;
+}
+
+.booking-modal-title-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Title - matches image exactly */
+.booking-modal-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #2d2d2d;
+    margin: 0;
+    letter-spacing: 0;
+}
+
+/* Status Badge - olive/khaki pill exactly like image */
+.booking-status-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #a08c5b;
+    color: #ffffff;
+}
+
+.booking-status-badge.confirmed {
+    background: #a08c5b;
+    color: #ffffff;
+}
+
+.booking-status-badge.pending {
+    background: #d4c4a0;
+    color: #5c5234;
+}
+
+/* Close Button - thin X exactly like image */
+.booking-modal-close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #999999;
+    font-size: 32px;
+    font-weight: 200;
+    line-height: 1;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    transition: color 0.2s;
+}
+
+.booking-modal-close:hover {
+    color: #333333;
+}
+
+/* Modal Body */
+.booking-modal-body {
+    padding: 28px 32px 32px 32px;
+}
+
+/* 2-Column Grid Layout - exact match */
+.booking-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 20px;
+}
+
+.booking-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.booking-detail-item.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Labels - small uppercase grey exactly like image */
+.booking-detail-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #999999;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Values - darker text exactly like image */
+.booking-detail-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.3;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Price - BIG serif gold exactly like image "1,200 €" */
+.booking-detail-item.price-item {
+    margin-top: 8px;
+}
+
+.booking-detail-value.price {
+    font-size: 42px;
+    font-weight: 400;
+    color: #b8965c;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+/* Modal Footer - light background with border */
+.booking-modal-footer {
+    padding: 20px 32px;
+    border-top: 1px solid #eeeeee;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    background: #fafafa;
+}
+
+/* Buttons */
+.booking-modal-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Close Button - ghost text exactly like image */
+.booking-modal-btn-ghost {
+    background: transparent;
+    color: #666666;
+    border: none;
+    padding: 10px 16px;
+}
+
+.booking-modal-btn-ghost:hover {
+    color: #333333;
+}
+
+/* Print Receipt Button - gold/olive border exactly like image */
+.booking-modal-btn-primary {
+    background: #ffffff;
+    color: #b8965c;
+    border: 1.5px solid #b8965c;
+}
+
+.booking-modal-btn-primary:hover {
+    background: #b8965c;
+    color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 540px) {
+    .booking-modal {
+        width: 95%;
+        border-radius: 12px;
+    }
+
+    .booking-modal-header {
+        padding: 24px 24px 0 24px;
+    }
+
+    .booking-modal-title {
+        font-size: 18px;
+    }
+
+    .booking-modal-body {
+        padding: 24px;
+    }
+
+    .booking-details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .booking-detail-value.price {
+        font-size: 36px;
+    }
+
+    .booking-modal-footer {
+        padding: 16px 24px;
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .booking-modal-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* ============================================== */
+/* 5-STAR LUXURY HOTEL POPUP DESIGN */
+/* Minimalist • Elegant • Premium */
+/* ============================================== */
+
+/* ==================================================
+   1. BACKDROP - Dark Overlay with Blur Effect
+   ================================================== */
+div:where(.swal2-container) {
+    z-index: 999999 !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* ==================================================
+   2. POPUP CONTAINER - Elegant White Card
+   ================================================== */
+div:where(.swal2-popup) {
+    /* Pure white with soft diffuse shadow */
+    background: #ffffff !important;
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.15),
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        0 0 1px rgba(0, 0, 0, 0.1) !important;
+
+    /* Smooth rounded corners (not too round) */
+    border-radius: 16px !important;
+
+    /* Generous breathing room */
+    padding: 48px 40px 40px 40px !important;
+
+    /* Clean borders - subtle gold accent */
+    border: none !important;
+
+    /* Max width for elegance */
+    max-width: 420px !important;
+
+    /* Remove any default borders */
+    outline: none !important;
+}
+
+/* ==================================================
+   3. TITLE - Elegant Serif Typography
+   ================================================== */
+div:where(.swal2-title) {
+    /* Playfair Display - Elegant Serif */
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif !important;
+
+    /* Elegant, not bold */
+    font-weight: 500 !important;
+    font-size: 1.75rem !important;
+    letter-spacing: 0.3px !important;
+
+    /* Rich dark color (not pitch black) */
+    color: #1a1a1a !important;
+
+    /* Spacing */
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+
+    /* Line height for elegance */
+    line-height: 1.3 !important;
+}
+
+/* Title span styling (for inline span) */
+div:where(.swal2-title) span {
+    font-family: inherit !important;
+    color: inherit !important;
+}
+
+/* ==================================================
+   4. MESSAGE TEXT - Clean Sans-Serif
+   ================================================== */
+div:where(.swal2-html-container) {
+    /* Clean sans-serif */
+    font-family: 'Inter', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+
+    /* Dark grey, not black */
+    color: #5a5a5a !important;
+
+    /* Comfortable reading size */
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.65 !important;
+
+    /* Spacing */
+    margin: 16px 0 0 0 !important;
+    padding: 0 !important;
+}
+
+div:where(.swal2-html-container) p {
+    margin: 0 !important;
+    color: inherit !important;
+    font-family: inherit !important;
+}
+
+/* ==================================================
+   5. SUCCESS ICON - Brand Gold (No Green!)
+   ================================================== */
+
+/* Main icon container */
+div:where(.swal2-icon) {
+    border-color: #C19B76 !important;
+    margin: 0 auto 24px auto !important;
+    width: 70px !important;
+    height: 70px !important;
+}
+
+/* Success ring - subtle gold */
+div:where(.swal2-icon.swal2-success .swal2-success-ring) {
+    border-color: rgba(193, 155, 118, 0.25) !important;
+}
+
+/* Checkmark lines - solid gold */
+div:where(.swal2-icon.swal2-success .swal2-success-line-tip),
+div:where(.swal2-icon.swal2-success .swal2-success-line-long) {
+    background-color: #C19B76 !important;
+}
+
+/* Success fix placeholder */
+div:where(.swal2-icon.swal2-success .swal2-success-fix) {
+    background-color: #ffffff !important;
+}
+
+/* Circle animation - gold */
+div:where(.swal2-icon.swal2-success .swal2-success-circular-line-left),
+div:where(.swal2-icon.swal2-success .swal2-success-circular-line-right) {
+    background-color: #ffffff !important;
+}
+
+/* ==================================================
+   6. CONFIRM BUTTON - Minimal Gold
+   ================================================== */
+div:where(.swal2-confirm),
+button:where(.swal2-confirm) {
+    /* Brand gold background */
+    background-color: #C19B76 !important;
+    background-image: none !important;
+
+    /* White text */
+    color: #ffffff !important;
+
+    /* No borders */
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    /* Elegant typography */
+    font-family: 'Inter', 'Open Sans', -apple-system, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: none !important;
+
+    /* Generous padding (breathing room) */
+    padding: 14px 42px !important;
+
+    /* Smooth rounded corners */
+    border-radius: 8px !important;
+
+    /* Smooth transition for hover */
+    transition: background-color 0.2s ease, transform 0.15s ease !important;
+
+    /* Cursor */
+    cursor: pointer !important;
+}
+
+/* Button hover - slightly darker gold */
+div:where(.swal2-confirm):hover,
+button:where(.swal2-confirm):hover {
+    background-color: #a88968 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Button active/pressed */
+div:where(.swal2-confirm):active,
+button:where(.swal2-confirm):active {
+    background-color: #96795a !important;
+    transform: translateY(0) !important;
+}
+
+/* Button focus - subtle glow */
+div:where(.swal2-confirm):focus,
+button:where(.swal2-confirm):focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(193, 155, 118, 0.25) !important;
+}
+
+/* ==================================================
+   7. ACTIONS CONTAINER (Button Area)
+   ================================================== */
+div:where(.swal2-actions) {
+    margin-top: 32px !important;
+    padding: 0 !important;
+}
+
+/* ==================================================
+   8. CLOSE BUTTON (If Shown)
+   ================================================== */
+button:where(.swal2-close) {
+    color: #999999 !important;
+    font-size: 28px !important;
+    font-weight: 300 !important;
+    top: 16px !important;
+    right: 16px !important;
+    transition: color 0.2s ease !important;
+}
+
+button:where(.swal2-close):hover {
+    color: #666666 !important;
+}
+
+button:where(.swal2-close):focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ==================================================
+   9. ANIMATION - Elegant Fade In
+   ================================================== */
+.swal2-show {
+    animation: luxuryFadeIn 0.3s ease-out !important;
+}
+
+.swal2-hide {
+    animation: luxuryFadeOut 0.2s ease-in !important;
+}
+
+@keyframes luxuryFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes luxuryFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+/* Icon pop animation */
+div:where(.swal2-icon.swal2-success) {
+    animation: iconPop 0.4s ease-out 0.1s both !important;
+}
+
+@keyframes iconPop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ==================================================
+   10. MOBILE RESPONSIVE
+   ================================================== */
+@media (max-width: 480px) {
+    div:where(.swal2-popup) {
+        padding: 40px 28px 32px 28px !important;
+        max-width: 90vw !important;
+        border-radius: 14px !important;
+        margin: 16px !important;
+    }
+
+    div:where(.swal2-title) {
+        font-size: 1.5rem !important;
+    }
+
+    div:where(.swal2-html-container) {
+        font-size: 14px !important;
+    }
+
+    div:where(.swal2-icon) {
+        width: 60px !important;
+        height: 60px !important;
+        margin-bottom: 20px !important;
+    }
+
+    div:where(.swal2-confirm),
+    button:where(.swal2-confirm) {
+        padding: 12px 36px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* ==================================================
+   11. INTERACTION STATES
+   ================================================== */
+
+/* Ensure popup is always interactive */
+div:where(.swal2-container) {
+    pointer-events: auto !important;
+}
+
+div:where(.swal2-popup) {
+    pointer-events: auto !important;
+}
+
+/* Remove default SweetAlert styled button overrides */
+.swal2-styled.swal2-confirm {
+    background-color: #C19B76 !important;
+    border: none !important;
+}
+
+/* ==================================================
+   12. CLEAN OVERRIDES
+   ================================================== */
+
+/* Remove any timer progress bar (if enabled) */
+div:where(.swal2-timer-progress-bar) {
+    display: none !important;
+}
+
+/* Remove loader */
+div:where(.swal2-loader) {
+    border-color: #C19B76 transparent #C19B76 transparent !important;
+}
+
+/* Remove default input styling conflicts */
+.swal2-input {
+    border-color: #C19B76 !important;
+}
+
+.swal2-input:focus {
+    border-color: #C19B76 !important;
+    box-shadow: 0 0 0 3px rgba(193, 155, 118, 0.25) !important;
+}
+/* ============================================== */
+/* PERFORMANCE OPTIMIZATION CSS */
+/* GPU-Accelerated Animations & Layout Stability */
+/* Target: 60 FPS on all devices */
+/* ============================================== */
+
+/* ==================================================
+   1. GPU ACCELERATION FOR AOS ANIMATED ELEMENTS
+   ================================================== */
+
+/* Force GPU rendering for all AOS elements */
+[data-aos] {
+    will-change: transform, opacity;
+    /* This tells the browser to prepare GPU memory for these properties */
+    backface-visibility: hidden;
+    /* Prevents flickering on iOS */
+    perspective: 1000px;
+    /* Enables 3D transform context */
+    transform: translate3d(0, 0, 0);
+    /* Hardware acceleration hack */
+}
+
+/* Remove will-change after animation completes to free GPU memory */
+[data-aos].aos-animate {
+    will-change: auto;
+    /* Release GPU resources after animation */
+}
+
+/* ==================================================
+   2. OPTIMIZE TRANSFORMS (Hardware Accelerated)
+   ================================================== */
+
+/* Replace margin/top animations with transform */
+[data-aos="fade-up"] {
+    transform: translate3d(0, 40px, 0);
+    /* GPU accelerated, not `margin-top` */
+}
+
+[data-aos="fade-down"] {
+    transform: translate3d(0, -40px, 0);
+}
+
+[data-aos="fade-left"] {
+    transform: translate3d(40px, 0, 0);
+}
+
+[data-aos="fade-right"] {
+    transform: translate3d(-40px, 0, 0);
+}
+
+/* When animated, return to origin with GPU */
+[data-aos="fade-up"].aos-animate,
+[data-aos="fade-down"].aos-animate,
+[data-aos="fade-left"].aos-animate,
+[data-aos="fade-right"].aos-animate {
+    transform: translate3d(0, 0, 0);
+    /* GPU: perfect for smooth 60fps */
+}
+
+/* ==================================================
+   3. IMAGE LAZY LOADING & LAYOUT STABILITY
+   ================================================== */
+
+/* Prevent layout shift (CLS) during image load */
+img[loading="lazy"] {
+    content-visibility: auto;
+    /* Browser hints for off-screen rendering */
+}
+
+/* Aspect ratio containers to prevent layout shift */
+.img-container {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+    /* Placeholder color */
+}
+
+/* 16:9 aspect ratio (common for hero images) */
+.img-container-16-9 {
+    padding-top: 56.25%;
+    /* 9/16 = 0.5625 */
+}
+
+/* 4:3 aspect ratio (common for cards) */
+.img-container-4-3 {
+    padding-top: 75%;
+    /* 3/4 = 0.75 */
+}
+
+/* 1:1 aspect ratio (square images) */
+.img-container-1-1 {
+    padding-top: 100%;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==================================================
+   4. SCROLL PERFORMANCE - PASSIVE LISTENERS
+   ================================================== */
+
+/* Smooth scrolling with CSS (no JS) */
+html {
+    scroll-behavior: smooth;
+    /* Native smooth scroll - no janky JS */
+}
+
+/* Optimize scroll containers */
+.scroll-container {
+    -webkit-overflow-scrolling: touch;
+    /* iOS momentum scrolling */
+    overflow-scrolling: touch;
+}
+
+/* ==================================================
+   5. REDUCE PAINT & COMPOSITE LAYERS
+   ================================================== */
+
+/* Contain layout calculations */
+.section-isolated {
+    contain: layout style paint;
+    /* Browser won't recalculate siblings */
+}
+
+/* Force own composite layer for animated sections */
+.animated-section {
+    transform: translateZ(0);
+    /* Creates own composite layer */
+    will-change: transform;
+}
+
+/* ==================================================
+   6. OPTIMIZE HEAVY ELEMENTS (Cards, Grids)
+   ================================================== */
+
+/* Reduce repaints on card hover */
+.activity-grid-card,
+.package-card,
+.review-card {
+    transform: translateZ(0);
+    /* GPU layer */
+    will-change: transform, box-shadow;
+    /* Prepare for hover animations */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth, not janky */
+}
+
+.activity-grid-card:hover,
+.package-card:hover,
+.review-card:hover {
+    transform: translate3d(0, -5px, 0);
+    /* GPU accelerated lift */
+}
+
+/* ==================================================
+   7. ANIMATION STAGGER FIX (Reduce Simultaneous Paints)
+   ================================================== */
+
+/* AOS delay increments - prevents 10 cards animating at once */
+[data-aos][data-aos-delay="100"] {
+    transition-delay: 0.1s;
+}
+
+[data-aos][data-aos-delay="200"] {
+    transition-delay: 0.2s;
+}
+
+[data-aos][data-aos-delay="300"] {
+    transition-delay: 0.3s;
+}
+
+[data-aos][data-aos-delay="400"] {
+    transition-delay: 0.4s;
+}
+
+[data-aos][data-aos-delay="500"] {
+    transition-delay: 0.5s;
+}
+
+/* ==================================================
+   8. REDUCE REFLOWS - EXPLICIT HEIGHTS
+   ================================================== */
+
+/* Prevent layout thrashing on dynamic content */
+.dynamic-content {
+    min-height: 200px;
+    /* Reserve space before content loads */
+}
+
+.footer {
+    min-height: 400px;
+    /* Prevent layout shift when footer loads */
+}
+
+/* ==================================================
+   9. FONT LOADING OPTIMIZATION (FOUT Prevention)
+   ================================================== */
+
+/* Font display swap for faster perceived performance */
+@font-face {
+    font-family: 'Clash Grotesk';
+    src: url('../fonts/WEB/fonts/ClashGrotesk-Variable.woff2') format('woff2');
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+/* ==================================================
+   10. CRITICAL ANIMATIONS ONLY
+   ================================================== */
+
+/* Disable animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ==================================================
+   11. DEBOUNCE RESIZE EVENTS (Prevent Jank)
+   ================================================== */
+
+/* Let browser handle resize optimization */
+.resize-observer {
+    resize: both;
+    /* Native resize observer */
+}
+
+/* ==================================================
+   12. COMPOSITING HINTS FOR BROWSER
+   ================================================== */
+
+/* Tell browser which elements will change */
+.will-animate {
+    will-change: transform, opacity;
+}
+
+/* Navigation that slides in/out */
+.nav-mobile {
+    will-change: transform;
+}
+
+/* Modals and overlays */
+.modal,
+.overlay {
+    will-change: opacity;
+    backface-visibility: hidden;
+}
+
+/* ==================================================
+   13. REMOVE CPU-INTENSIVE BOX-SHADOWS ON SCROLL
+   ================================================== */
+
+/* Use cheaper transforms instead of heavy shadows */
+.card-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Static shadow */
+    transition: transform 0.3s ease;
+    /* Only animate transform */
+}
+
+.card-shadow:hover {
+    transform: translateY(-3px);
+    /* GPU cheap */
+    /* Don't animate box-shadow on hover - causes repaint! */
+}
+
+/* ==================================================
+   14. MOBILE PERFORMANCE BOOST
+   ================================================== */
+
+@media (max-width: 768px) {
+
+    /* Reduce animation complexity on mobile */
+    [data-aos] {
+        animation-duration: 400ms !important;
+        /* Faster animations on mobile */
+    }
+
+    /* Disable complex transforms on mobile */
+    .complex-animation {
+        transform: none !important;
+    }
+
+    /* Reduce will-change on mobile to save memory */
+    [data-aos].aos-animate {
+        will-change: auto;
+    }
+}
+
+/* ==================================================
+   15. INTERSECTION OBSERVER OPTIMIZATION
+   ================================================== */
+
+/* Mark elements for lazy components */
+.lazy-load-boundary {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+    /* Estimate size for layout */
+}
+
+/* ==================================================
+   PERFORMANCE MONITORING (DEV ONLY)
+   ================================================== */
+
+/* Highlight elements causing reflows (uncomment in dev) */
+/*
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.1);
+}
+*/
+
+/* ==================================================
+   FINAL NOTES:
+   - will-change: Reserve GPU memory (don't overuse!)
+   - translate3d(0,0,0): Force GPU rendering
+   - transform > margin: Always use transform
+   - contain: Isolate rendering context
+   - content-visibility: Defer off-screen rendering
+   ================================================== */

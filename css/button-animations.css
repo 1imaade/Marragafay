@@ -1,0 +1,132 @@
+/* Elegant Button Hover */
+.btn-outline-primary {
+    position: relative;
+    color: #a63c06;
+    border: 1px solid #a63c06;
+    background: transparent;
+    padding: 10px 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline-primary:hover {
+    color: white;
+    border-color: #a63c06;
+    box-shadow: 0 4px 12px rgba(166, 60, 6, 0.1);
+}
+
+.btn-outline-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #a63c06;
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.btn-outline-primary:hover::before {
+    width: 100%;
+}
+
+/* For the main CTA button */
+.hero-wrap .btn-outline-primary {
+    border-width: 2px;
+    padding: 12px 35px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.hero-wrap .btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+/* Legacy button class for backward compatibility */
+.btn41-43 {
+  padding: 5px 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-42 {
+  border: 2px solid rgb(255, 255, 255);
+  z-index: 1;
+  color: white;
+}
+
+.btn-42:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: rgb(255, 255, 255);
+  transition: all 0.3s ease;
+}
+
+.btn-42:hover {
+  color: rgb(0, 0, 0);
+}
+
+.btn-42:hover:after {
+  top: 0;
+  height: 100%;
+}
+
+.btn-42:active {
+  top: 2px;
+}
+
+/* ========================================= */
+/* NAVBAR BOOKING BUTTON - Gold Theme */
+/* ========================================= */
+/* Applied to all pages for global consistency */
+.navbar .nav-link.booking-btn {
+  background: #bc6c25 !important;
+  color: #fff !important;
+  border: 1.5px solid #bc6c25 !important;
+  border-radius: 0 !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease !important;
+  display: inline-block !important;
+}
+
+.navbar .nav-link.booking-btn:hover {
+  background: #d4af37 !important;
+  border-color: #d4af37 !important;
+  color: #fff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar .nav-link.booking-btn {
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar .nav-link.booking-btn {
+    padding: 10px 15px !important;
+    font-size: 0.9rem !important;
+  }
+}

@@ -1,0 +1,120 @@
+/* Logo and Navigation Fixes */
+.navbar-brand {
+  position: relative;
+  padding: 15px 25px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 30px;
+  color: #fff !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  margin-right: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  z-index: 1001;
+}
+
+.navbar-brand:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  bottom: -15px;
+  background: inherit;
+  border-radius: 30px;
+  z-index: -1;
+  opacity: 0.8;
+  transform: translateY(5px) scale(0.95);
+  filter: blur(5px);
+}
+
+.navbar-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure consistent navbar background */
+.ftco-navbar-light {
+  padding: 15px 0;
+  background: transparent !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Add background when scrolled */
+.ftco-navbar-light.scrolled {
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.9) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 0.5s ease-in-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure content doesn't jump when navbar becomes fixed */
+body {
+  padding-top: 0;
+}
+
+/* Adjust hero section to account for fixed navbar */
+.hero-wrap {
+  padding-top: 80px;
+}
+
+/* Mobile menu button styling */
+.navbar-toggler {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 0.75rem;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Ensure mobile menu has proper spacing */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    padding: 80px 20px 120px !important;
+  }
+  
+  .navbar-brand {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .navbar-toggler {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 1002;
+  }
+  
+  .ftco-navbar-light.scrolled .navbar-brand {
+    top: 10px;
+  }
+}

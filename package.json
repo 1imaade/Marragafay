@@ -1,0 +1,50 @@
+{
+  "name": "marragafay",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/third-parties": "^16.1.6",
+    "@supabase/supabase-js": "^2.39.0",
+    "@tailwindcss/postcss": "^4.3.0",
+    "embla-carousel-react": "^8.6.0",
+    "glob": "^13.0.6",
+    "jsdom": "^29.1.1",
+    "lucide-react": "^1.17.0",
+    "next": "14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "resend": "^2.1.0",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^5.3.0"
+  },
+  "description": "",
+  "main": "compress-images.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1imaade/Marragafay.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1imaade/Marragafay/issues"
+  },
+  "homepage": "https://github.com/1imaade/Marragafay#readme"
+}

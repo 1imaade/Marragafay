@@ -1,0 +1,16 @@
+/* Center and style hero title on all pages except home */
+body:not(.home) .hero-wrap .slider-text {
+    text-align: center;
+}
+
+body:not(.home) .hero-wrap h1 {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+/* Remove any span styling that might affect the white color */
+body:not(.home) .hero-wrap h1 span {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

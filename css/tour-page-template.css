@@ -1,0 +1,423 @@
+/**
+ * TOUR PAGE TEMPLATE STYLES
+ * Extracted from packages/basic.html
+ * Ensures 100% pixel-perfect consistency across all tour pages
+ */
+
+/* Global Typography - Matching Homepage */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Luxury Design System */
+:root {
+  --color-gold: #bc6c25;
+  --color-gold-light: #d4af37;
+  --color-dark: #1a365d;
+  --color-text: #4a5568;
+  --color-bg-light: #f8f9fa;
+  --color-white: #ffffff;
+  --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+  --shadow-hover: 0 20px 50px -10px rgba(0,0,0,0.12);
+  --radius-xl: 16px;
+  --radius-lg: 12px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-text);
+  background-color: #fcfcfc;
+}
+
+/* Typography */
+.font-serif { font-family: "EB Garamond", serif; }
+.font-sans { font-family: "Open Sans", sans-serif; }
+
+.text-gold { color: var(--color-gold); }
+.text-dark { color: var(--color-dark); }
+
+/* Layout */
+.pack-detail-container {
+  max-width: 1280px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .pack-detail-container {
+    grid-template-columns: 1fr;
+  }
+  .pack-sidebar {
+    order: -1; /* Show booking on top on mobile? Maybe below is better for UX on mobile. keeping default for now */
+    order: 1; 
+  }
+}
+
+/* Left Column Content */
+.pack-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 30px;
+}
+
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #fff8e1;
+  color: #b7860b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.pack-title {
+  font-family: "EB Garamond", serif;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+.highlights-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.section-title {
+  font-family: "EB Garamond", serif;
+  font-size: 2rem;
+  color: var(--color-dark);
+  margin-bottom: 25px;
+  margin-top: 50px;
+}
+
+/* Visual Timeline */
+.timeline-container {
+  position: relative;
+  padding-left: 30px;
+  margin: 40px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -45px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 2;
+  box-shadow: 0 0 0 5px #fff;
+}
+
+.timeline-content h4 {
+  font-family: "EB Garamond", serif;
+  font-size: 1.4rem;
+  color: var(--color-dark);
+  margin-bottom: 5px;
+}
+
+/* Inclusions Grid */
+.inclusions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  border: 1px solid #edf2f7;
+}
+
+.check-list li, .cross-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.check-list li svg { color: var(--color-gold); }
+.cross-list li svg { color: #a0aec0; }
+
+/* Masonry Gallery */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 200px);
+  gap: 15px;
+}
+
+.masonry-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease;
+}
+
+.masonry-item:first-child {
+  grid-row: span 2;
+  height: 100%;
+}
+
+/* Sticky Booking Card */
+.booking-card {
+  position: sticky;
+  top: 120px;
+  background: white;
+  padding: 30px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.booking-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.price-tag {
+  font-family: "EB Garamond", serif;
+  font-size: 2.5rem;
+  color: var(--color-gold);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.price-sub {
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+.booking-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-family: "Open Sans", sans-serif;
+  transition: all 0.2s;
+}
+
+.booking-input:focus {
+  border-color: var(--color-gold);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(188, 108, 37, 0.1);
+}
+
+.btn-reserve {
+  width: 100%;
+  background: var(--color-dark);
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.btn-reserve:hover {
+  background: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #718096;
+  gap: 5px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .pack-detail-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    margin-top: 20px;
+    margin-bottom: 100px; /* Extra space for bottom bar */
+  }
+
+  .pack-sidebar {
+    order: 1; /* Show booking form at the bottom */
+    width: 100%;
+  }
+  
+  .booking-card {
+    /* Hide full booking card on mobile initially if we want, or just unstick it */
+    position: relative;
+    top: 0;
+    box-shadow: none;
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  /* Typography Scaling */
+  .pack-title { 
+    font-size: 2rem; 
+    margin-bottom: 15px;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  /* Timeline Adjustments */
+  .timeline-container {
+    padding-left: 20px;
+    margin: 30px 0;
+  }
+  
+  .timeline-line {
+    left: 10px;
+  }
+  
+  .timeline-icon {
+    width: 28px;
+    height: 28px;
+    left: -34px;
+    /* Ensure icon stays visible and doesn't get cut off */
+  }
+  
+  .timeline-content {
+    padding-left: 10px; /* Give text some breathing room */
+  }
+
+  .timeline-content h4 {
+    font-size: 1.2rem;
+  }
+
+  /* Gallery - Horizontal Snap Scroll */
+  .masonry-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding-bottom: 15px; /* Space for scrollbar */
+    /* Hide scrollbar for cleaner look */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .masonry-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .masonry-item {
+    flex: 0 0 85%; /* Show 85% of image to encourage scrolling */
+    height: 250px;
+    scroll-snap-align: center;
+  }
+  
+  .masonry-item:first-child {
+    height: 250px; /* Reset height override */
+  }
+
+  /* Mobile Sticky Bottom Bar */
+  .mobile-bottom-bar {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    padding: 15px 20px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+  }
+
+  .mobile-price {
+    font-family: "EB Garamond", serif;
+    font-size: 1.8rem;
+    color: var(--color-gold);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .mobile-price span {
+    font-size: 0.8rem;
+    color: #718096;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    display: block;
+  }
+
+  .btn-mobile-book {
+    background: var(--color-dark);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px; /* Pill shape for mobile */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    font-size: 0.9rem;
+  }
+}
+
+/* Hide Mobile Bar on Desktop */
+.mobile-bottom-bar {
+  display: none;
+}

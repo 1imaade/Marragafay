@@ -1,0 +1,26 @@
+FAVICON FILES YOU NEED TO CREATE
+==================================
+
+Based on your existing high-resolution logo at:
+  images/logo/logo-high-res.png
+
+You need to create the following favicon files:
+
+1. images/favicon-192.png (192x192 pixels) ← CRITICAL for Google Search!
+2. images/apple-touch-icon.png (180x180 pixels)
+3. images/favicon-32.png (32x32 pixels)
+4. images/favicon.ico (48x48 pixels or multi-size)
+
+EASIEST METHOD - Use Online Tool:
+---------------------------------
+1. Visit: https://realfavicongenerator.net/
+2. Upload: images/logo/logo-high-res.png
+3. Configure settings (keep default is fine)
+4. Download the favicon package
+5. Extract and copy these specific files to e:\Marragafay\images\:
+   - favicon-192.png (or android-chrome-192x192.png, rename it)
+   - apple-touch-icon.png
+   - favicon-32x32.png (rename to favicon-32.png)
+   - favicon.ico
+
+After creating these files, all your HTML pages have been updated with the correct meta tags!
