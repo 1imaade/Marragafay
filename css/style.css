@@ -15294,3 +15294,44 @@ html body section#marragafay-slogan-box {
 .animate__faster {
   animation-duration: 0.3s !important;
 }
+/* ==================================================
+   MOBILE FORM RENDERING FIXES (iOS Auto-zoom & Date Alignment)
+   ================================================== */
+
+/* KILL IOS AUTO-ZOOM: Force 16px font-size on all form inputs */
+input,
+select,
+textarea,
+.form-control,
+.booking-input,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+input[type="time"] {
+    font-size: 16px !important;
+}
+
+/* NORMALIZE DATE INPUT ALIGNMENT */
+input[type="date"] {
+    text-align: left !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 100% !important;
+    display: block;
+}
+
+/* Empty state placeholder for date inputs on mobile */
+input[type="date"]:not(.has-value):before,
+input[type="date"]:invalid:before {
+    content: attr(placeholder);
+    width: 100%;
+    color: #9ca3af;
+    display: block;
+}
+
+/* Remove default padding space reserved for native datepicker icon when using appearance:none */
+input[type="date"]::-webkit-date-and-time-value {
+    text-align: left;
+}

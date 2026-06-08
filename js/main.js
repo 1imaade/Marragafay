@@ -427,3 +427,25 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 });
+
+// Date Input Placeholder Fix
+document.addEventListener('DOMContentLoaded', function () {
+	const dateInputs = document.querySelectorAll('input[type="date"]');
+	dateInputs.forEach(input => {
+		// Set initial state
+		if (input.value) {
+			input.classList.add('has-value');
+		} else {
+			input.classList.remove('has-value');
+		}
+		
+		// Update on change
+		input.addEventListener('change', function() {
+			if (this.value) {
+				this.classList.add('has-value');
+			} else {
+				this.classList.remove('has-value');
+			}
+		});
+	});
+});
