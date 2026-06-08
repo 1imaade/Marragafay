@@ -107,7 +107,7 @@ img[loading="lazy"] {
 
 /* Smooth scrolling with CSS (no JS) */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     /* Native smooth scroll - no janky JS */
 }
 
@@ -218,16 +218,10 @@ html {
 /* Disable animations on low-end devices */
 @media (prefers-reduced-motion: reduce) {
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-
+    /* Keep core UI transitions (modals, menus) intact, only disable decorative AOS animations */
     [data-aos] {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
         opacity: 1 !important;
         transform: none !important;
     }
@@ -326,6 +320,30 @@ html {
   outline: 1px solid rgba(255, 0, 0, 0.1);
 }
 */
+
+/* ==================================================
+   16. FORCE HARDWARE ACCELERATION ON CUSTOM TRANSITIONS
+   ================================================== */
+
+/* Force GPU rendering for hover effects, sliding panels, and core UI */
+.ftco-animate,
+.item-animate,
+.dropdown-menu,
+.nav-link,
+.btn,
+.navbar-toggler,
+.owl-carousel .owl-stage,
+.carousel-item,
+.modal-dialog,
+.offcanvas,
+.sliding-panel,
+.hover-effect,
+a,
+button {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
 
 /* ==================================================
    FINAL NOTES:

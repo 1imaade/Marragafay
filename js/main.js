@@ -5,10 +5,7 @@ AOS.init({
 	once: true,  // Animate only once (reduces repaints on scroll up)
 	offset: 100,  // Trigger animations earlier for smoother feel
 	delay: 0,
-	disable: function () {
-		// Disable on reduced-motion preference (accessibility + performance)
-		return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-	},
+	disable: false,
 	// Use passive event listeners for better scroll performance
 	useClassNames: false,
 	disableMutationObserver: false,
