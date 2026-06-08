@@ -53,7 +53,10 @@ async function sendBookingEmailNotification(bookingData) {
         console.log('🚀 ========================================\n');
 
         // Call the public API endpoint on the Dashboard (Next.js app)
-        const DASHBOARD_API_URL = 'https://admin.marragafay.com/api/public/send-booking-email';
+        // Dynamically point to localhost if developing locally
+        const DASHBOARD_API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:3000/api/public/send-booking-email'
+            : 'https://admin.marragafay.com/api/public/send-booking-email';
 
         const payload = {
             name: bookingData.name,
@@ -444,10 +447,10 @@ document.addEventListener('submit', async function (e) {
             }
 
             // ============================================
-            // 📧 SEND EMAIL NOTIFICATION (Background)
+            // 📧 SEND EMAIL NOTIFICATION (Blocking)
             // ============================================
-            // Don't await this - let it run in background to not block UI
-            sendBookingEmailNotification(bookingData)
+            // Await this to ensure the fetch request completes before the browser redirects.
+            await sendBookingEmailNotification(bookingData)
                 .then(result => {
                     if (result.success) {
                         console.log('✅ Email notification sent successfully:', result.id);
