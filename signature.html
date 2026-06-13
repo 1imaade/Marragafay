@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Marragafay | Routing...</title>
+    <script>
+        (function() {
+            // 0ms Latency Traffic Cop
+            var supported = ['en', 'fr', 'es', 'ar'];
+            var stored = localStorage.getItem('marragafay_lang');
+            var browser = (navigator.language || navigator.userLanguage || '').split('-')[0].toLowerCase();
+            
+            // Priority: LocalStorage -> Browser Language -> Fallback (en)
+            var targetLang = supported.includes(stored) ? stored : (supported.includes(browser) ? browser : 'en');
+            
+            // Construct the path keeping exactly the same file structure
+            var path = window.location.pathname;
+            var parts = path.split('/');
+            var lastPart = parts.pop();
+            if (!lastPart || lastPart === '/') lastPart = 'signature.html';
+            parts.push(targetLang, lastPart);
+            var newPath = parts.join('/');
+            
+            // Perform instantaneous redirect
+            window.location.replace(newPath + window.location.search + window.location.hash);
+        })();
+    </script>
+</head>
+<body></body>
+</html>

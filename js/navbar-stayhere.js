@@ -19,8 +19,12 @@
   const CONFIG = {
     scrollThreshold: 10,
     animationDelay: 50,
-    menuItems: {
-      experiencesPacks: [
+    
+    menuItems: (function() {
+      const pathLang = window.location.pathname.split('/').find(p => ['en', 'fr', 'es', 'ar'].includes(p)) || 'en';
+      const dictionaries = {
+        en: {
+          experiencesPacks: [
         { label: 'Marragafay Signature Agafay Escape', href: 'packages/comfort.html' },
         { label: 'Marragafay VIP Luxury Desert Retreat', href: 'packages/luxe.html' },
         { label: 'Marragafay Complete Discovery Expedition', href: 'packages/basic.html' },
@@ -49,10 +53,107 @@
         { label: 'Book an Experience', href: 'packs.html', arrow: true },
         { label: 'Contact Concierge', href: 'contact.html', arrow: true },
       ],
-    },
+        },
+        fr: {
+          experiencesPacks: [
+            { label: 'Signature Marragafay Escapade Agafay', href: 'packages/comfort.html' },
+            { label: 'Retraite VIP Luxe dans le Désert', href: 'packages/luxe.html' },
+            { label: 'Expédition Découverte Complète', href: 'packages/basic.html' },
+          ],
+          experiencesActivities: [
+            { label: 'Aventure Extrême en Quad', href: 'activities/quad-biking.html' },
+            { label: 'Randonnée Traditionnelle à Dos de Chameau', href: 'activities/camel-ride.html' },
+            { label: 'Safari Adrénaline en Buggy', href: 'activities/buggy.html' },
+            { label: 'Vol en Montgolfière au Lever du Soleil', href: 'activities/hot-air-balloon.html' },
+            { label: 'Parapente dans les Montagnes de l\'Atlas', href: 'activities/paragliding.html' },
+            { label: 'Dîner et Spectacle Nomade dans le Désert', href: 'activities/dinner-show.html' },
+          ],
+          brand: [
+            { label: 'À Propos de Marragafay', href: 'about.html' },
+            { label: 'Avis des Clients', href: 'reviews.html' },
+            { label: 'Notre Blog', href: 'blog.html' },
+            { label: 'Carrières', href: 'about.html' },
+            { label: 'FAQ', href: 'about.html' },
+          ],
+          packs: [
+            { label: 'Pack Découverte Agafay', href: 'packages/basic.html' },
+            { label: 'Escapade VIP Luxe', href: 'packages/luxe.html' },
+            { label: 'Pack Coucher de Soleil Romantique', href: 'packages/comfort.html' },
+          ],
+          booking: [
+            { label: 'Réserver une Expérience', href: 'packs.html', arrow: true },
+            { label: 'Contacter le Concierge', href: 'contact.html', arrow: true },
+          ],
+        },
+        es: {
+          experiencesPacks: [
+            { label: 'Marragafay Escapada Signature Agafay', href: 'packages/comfort.html' },
+            { label: 'Retiro VIP de Lujo en el Desierto', href: 'packages/luxe.html' },
+            { label: 'Expedición de Descubrimiento Completo', href: 'packages/basic.html' },
+          ],
+          experiencesActivities: [
+            { label: 'Aventura Extrema en Quad', href: 'activities/quad-biking.html' },
+            { label: 'Paseo Tradicional en Camello', href: 'activities/camel-ride.html' },
+            { label: 'Safari de Adrenalina en Buggy', href: 'activities/buggy.html' },
+            { label: 'Vuelo en Globo Aerostático al Amanecer', href: 'activities/hot-air-balloon.html' },
+            { label: 'Parapente en las Montañas del Atlas', href: 'activities/paragliding.html' },
+            { label: 'Cena y Espectáculo Nómada en el Desierto', href: 'activities/dinner-show.html' },
+          ],
+          brand: [
+            { label: 'Sobre Marragafay', href: 'about.html' },
+            { label: 'Opiniones de Clientes', href: 'reviews.html' },
+            { label: 'Nuestro Blog', href: 'blog.html' },
+            { label: 'Carreras', href: 'about.html' },
+            { label: 'Preguntas Frecuentes', href: 'about.html' },
+          ],
+          packs: [
+            { label: 'Paquete Descubrimiento Agafay', href: 'packages/basic.html' },
+            { label: 'Escapada VIP de Lujo', href: 'packages/luxe.html' },
+            { label: 'Paquete Atardecer Romántico', href: 'packages/comfort.html' },
+          ],
+          booking: [
+            { label: 'Reservar una Experiencia', href: 'packs.html', arrow: true },
+            { label: 'Contactar al Conserje', href: 'contact.html', arrow: true },
+          ],
+        },
+        ar: {
+          experiencesPacks: [
+            { label: 'بصمة مراكفاي: ملاذ أكفاي', href: 'packages/comfort.html' },
+            { label: 'ملاذ فاخر في الصحراء لكبار الشخصيات', href: 'packages/luxe.html' },
+            { label: 'رحلة استكشاف كاملة', href: 'packages/basic.html' },
+          ],
+          experiencesActivities: [
+            { label: 'مغامرة الدراجات الرباعية', href: 'activities/quad-biking.html' },
+            { label: 'ركوب الجمال التقليدي', href: 'activities/camel-ride.html' },
+            { label: 'سفاري عربات الباجي', href: 'activities/buggy.html' },
+            { label: 'رحلة منطاد الهواء الساخن', href: 'activities/hot-air-balloon.html' },
+            { label: 'الطيران المظلي في جبال الأطلس', href: 'activities/paragliding.html' },
+            { label: 'عشاء بدوي وعروض في الصحراء', href: 'activities/dinner-show.html' },
+          ],
+          brand: [
+            { label: 'عن مراكفاي', href: 'about.html' },
+            { label: 'آراء العملاء', href: 'reviews.html' },
+            { label: 'مدونتنا', href: 'blog.html' },
+            { label: 'وظائف', href: 'about.html' },
+            { label: 'الأسئلة الشائعة', href: 'about.html' },
+          ],
+          packs: [
+            { label: 'باقة اكتشاف أكفاي', href: 'packages/basic.html' },
+            { label: 'ملاذ فاخر لكبار الشخصيات', href: 'packages/luxe.html' },
+            { label: 'باقة غروب الشمس الرومانسية', href: 'packages/comfort.html' },
+          ],
+          booking: [
+            { label: 'احجز تجربة', href: 'packs.html', arrow: true },
+            { label: 'تواصل مع خدمة العملاء', href: 'contact.html', arrow: true },
+          ],
+        }
+      };
+      return dictionaries[pathLang];
+    })(),
     languages: [
       { code: 'en', label: 'English', dir: 'ltr' },
       { code: 'fr', label: 'Français', dir: 'ltr' },
+      { code: 'es', label: 'Español', dir: 'ltr' },
       { code: 'ar', label: 'العربية', dir: 'rtl' },
     ],
   };
@@ -72,15 +173,55 @@
   }
   const basePath = getBasePath();
 
+  // ─── UI Strings Dictionary ──────────────────────────────────────────────
+  const pathLang = window.location.pathname.split('/').find(p => ['en', 'fr', 'es', 'ar'].includes(p)) || 'en';
+  const UI_STR = {
+    en: {
+      activities: 'Activities', packs: 'Packs', book: 'Book', experiences: 'Experiences',
+      brand: 'The Brand', stay: 'Stay with us', directBooking: 'Direct booking', bookExp: 'Book Your Experience'
+    },
+    fr: {
+      activities: 'Activités', packs: 'Forfaits', book: 'Réserver', experiences: 'Expériences',
+      brand: 'La Marque', stay: 'Séjournez chez nous', directBooking: 'Réservation directe', bookExp: 'Réservez Votre Expérience'
+    },
+    es: {
+      activities: 'Actividades', packs: 'Paquetes', book: 'Reservar', experiences: 'Experiencias',
+      brand: 'La Marca', stay: 'Quédate con nosotros', directBooking: 'Reserva directa', bookExp: 'Reserva Tu Experiencia'
+    },
+    ar: {
+      activities: 'أنشطة', packs: 'باقات', book: 'احجز', experiences: 'تجارب',
+      brand: 'العلامة التجارية', stay: 'ابق معنا', directBooking: 'حجز مباشر', bookExp: 'احجز تجربتك'
+    }
+  }[pathLang];
+
+
   // ─── DOM Ready ──────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
     injectNavbarHTML();
     injectMenuOverlayHTML();
+    initLanguageDisplay();
     bindEvents();
     setActivePage();
     handleScroll(); // Initial check
+  }
+
+  function initLanguageDisplay() {
+    const pathParts = window.location.pathname.split('/');
+    const currentLang = pathParts.find(p => ['en', 'fr', 'es', 'ar'].includes(p)) || 'en';
+    const langData = CONFIG.languages.find(l => l.code === currentLang);
+    if (langData) {
+      const codeEl = document.querySelector('.lang-code');
+      if (codeEl) codeEl.textContent = langData.code.toUpperCase();
+
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.lang === langData.code);
+      });
+      document.querySelectorAll('.mobile-lang-item').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.lang === langData.code);
+      });
+    }
   }
 
   // ─── Inject Navbar HTML ─────────────────────────────────────────
@@ -121,7 +262,7 @@
         <!-- CENTER: Logo -->
         <div class="nav-center">
           <a href="${basePath}index.html" class="nav-logo" aria-label="Marragafay - Return to homepage">
-            <img src="${basePath}images/logo-no-text.png" 
+            <img src="/images/logo-no-text.png" 
                  alt="Marragafay Logo" 
                  class="nav-logo-img"
                  width="28" height="28"
@@ -202,7 +343,7 @@
           <div style="flex: 1; overflow-y: auto; padding: 24px;">
             <!-- EXPERIENCES -->
             <div style="margin-bottom: 32px;">
-              <h3 style="font-size: 10px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; color: #10100E; letter-spacing: normal;">Experiences</h3>
+              <h3 style="font-size: 10px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; color: #10100E; letter-spacing: normal;">${UI_STR.experiences}</h3>
               
               <!-- Packs Accordion -->
               <details class="group" style="margin-bottom: 16px;">
@@ -245,7 +386,7 @@
 
             <!-- THE BRAND -->
             <div style="margin-bottom: 32px;">
-              <h3 style="font-size: 10px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; color: #10100E; letter-spacing: normal;">The Brand</h3>
+              <h3 style="font-size: 10px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; color: #10100E; letter-spacing: normal;">${UI_STR.brand}</h3>
               <div style="display: flex; flex-direction: column; gap: 2px;">
                 ${CONFIG.menuItems.brand.map(item => `
                   <a href="${basePath}${item.href}" style="display: block; font-size: 14px; line-height: 20px; font-weight: 600; color: #171716; text-transform: capitalize; text-decoration: none; -webkit-font-smoothing: antialiased;" onmouseover="this.style.color='#523225'" onmouseout="this.style.color='#171716'">
@@ -257,7 +398,7 @@
 
             <!-- STAY WITH US -->
             <div style="margin-bottom: 16px;">
-              <h3 style="font-size: 10px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; color: #10100E; letter-spacing: normal;">Stay with us</h3>
+              <h3 style="font-size: 10px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; color: #10100E; letter-spacing: normal;">${UI_STR.stay}</h3>
               <div style="display: flex; flex-direction: column; gap: 2px;">
                 ${CONFIG.menuItems.packs.map(item => `
                   <a href="${basePath}${item.href}" style="display: block; font-size: 14px; line-height: 20px; font-weight: 600; color: #171716; text-decoration: none; -webkit-font-smoothing: antialiased;" onmouseover="this.style.color='#523225'" onmouseout="this.style.color='#171716'">
@@ -268,7 +409,7 @@
 
               <hr style="border: none; border-top: 1px solid #e2e0d3; margin: 24px 0;" />
 
-              <h3 style="font-size: 10px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; color: #10100E; letter-spacing: normal;">Direct booking</h3>
+              <h3 style="font-size: 10px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; color: #10100E; letter-spacing: normal;">${UI_STR.directBooking}</h3>
               <div style="display: flex; flex-direction: column; gap: 12px;">
                 ${CONFIG.menuItems.booking.map(item => `
                   <a href="${basePath}${item.href}" style="display: block; font-size: 14px; font-weight: 400; color: #5c5c56; text-decoration: none; padding-top: 4px;" onmouseover="this.style.color='#523225'" onmouseout="this.style.color='#5c5c56'">
@@ -307,7 +448,7 @@
         <div class="menu-content">
           <!-- Column 1: Experiences -->
           <div class="menu-column">
-            <p class="menu-column-title" style="text-transform: capitalize; font-weight: 600; color: #10100E;">Experiences</p>
+            <p class="menu-column-title" style="text-transform: capitalize; font-weight: 600; color: #10100E;">${UI_STR.experiences}</p>
 
             <p class="menu-subgroup-title" style="margin-top:0; display:flex; align-items:center; gap:6px;">
               Packs <span style="font-size:13px; font-weight:400; color:#b8b5a6;">(3)</span>
@@ -338,7 +479,7 @@
 
           <!-- Column 2: The Brand -->
           <div class="menu-column">
-            <p class="menu-column-title" style="text-transform: capitalize; font-weight: 600; color: #10100E;">The Brand</p>
+            <p class="menu-column-title" style="text-transform: capitalize; font-weight: 600; color: #10100E;">${UI_STR.brand}</p>
             <ul class="menu-links" style="margin-left: 0; padding-left: 0;">
               ${CONFIG.menuItems.brand.map(item => `
                 <li class="menu-link-item" style="margin-bottom: 2px;">
@@ -352,7 +493,7 @@
 
           <!-- Column 3: Stay with us -->
           <div class="menu-column">
-            <p class="menu-column-title" style="text-transform: lowercase;">Stay with us</p>
+            <p class="menu-column-title" style="text-transform: lowercase;">${UI_STR.stay}</p>
 
             <ul class="menu-links" style="margin-left: 0; padding-left: 0;">
               ${CONFIG.menuItems.packs.map(item => `
@@ -366,7 +507,7 @@
 
             <hr style="border: none; border-top: 1px solid #e2e0d3; margin: 24px 0;" />
 
-            <p style="font-size: 10px; line-height: 15px; font-weight: 600; color: #10100E; text-transform: uppercase; margin-bottom: 12px; margin-top: 0;">Direct booking</p>
+            <p style="font-size: 10px; line-height: 15px; font-weight: 600; color: #10100E; text-transform: uppercase; margin-bottom: 12px; margin-top: 0;">${UI_STR.directBooking}</p>
             <ul class="menu-links" style="margin-bottom: 0;">
               ${CONFIG.menuItems.booking.map(item => `
                 <li class="menu-link-item" style="margin-bottom: 12px;">
@@ -576,19 +717,28 @@
     const langData = CONFIG.languages.find(l => l.code === langCode);
     if (!langData) return;
 
-    // Update displayed code
-    const codeEl = document.querySelector('.lang-code');
-    if (codeEl) codeEl.textContent = langCode.toUpperCase();
+    // Lock user preference
+    localStorage.setItem('marragafay_lang', langCode);
 
-    // Update active states
-    document.querySelectorAll('.lang-option').forEach(opt => {
-      opt.classList.toggle('active', opt.dataset.lang === langCode);
-    });
-    document.querySelectorAll('.mobile-lang-item').forEach(opt => {
-      opt.classList.toggle('active', opt.dataset.lang === langCode);
-    });
+    // Dynamic Path Replacement (Robust for local dev subfolders)
+    var currentPath = window.location.pathname;
+    var pathParts = currentPath.split('/');
+    var langIndex = pathParts.findIndex(p => ['en', 'fr', 'es', 'ar'].includes(p));
 
-    closeLangDropdown();
+    if (langIndex !== -1) {
+      pathParts[langIndex] = langCode;
+    } else {
+      // Insert language code before the filename
+      var lastPart = pathParts.pop();
+      if (lastPart === '' || lastPart.endsWith('.html')) {
+          pathParts.push(langCode, lastPart || 'index.html');
+      } else {
+          pathParts.push(lastPart, langCode, 'index.html');
+      }
+    }
+
+    var newPath = pathParts.join('/');
+    window.location.href = newPath + window.location.search + window.location.hash;
   }
 
   // ─── Scroll Handler ─────────────────────────────────────────────
