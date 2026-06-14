@@ -199,8 +199,9 @@
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
+    const isMobile = window.innerWidth <= 768;
     injectNavbarHTML();
-    injectMenuOverlayHTML();
+    injectMenuOverlayHTML(isMobile);
     initLanguageDisplay();
     bindEvents();
     setActivePage();
@@ -319,9 +320,8 @@
   }
 
   // ─── Inject Full-Screen Menu Overlay ────────────────────────────
-  function injectMenuOverlayHTML() {
+  function injectMenuOverlayHTML(isMobile) {
     const currentPage = getCurrentPage();
-    const isMobile = window.innerWidth <= 768;
     const navbar = document.getElementById('ftco-navbar');
     if (!navbar) return;
 
