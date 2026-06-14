@@ -983,13 +983,10 @@
         const dotsContainer = document.querySelector('.hero-dots-container');
         const slideCounter = document.querySelector('.current-slide');
         const heroWrap = document.querySelector('.hero-wrap');
+        const source = document.querySelector('#hero-picture source');
+        const img = document.getElementById('hero-img');
         // Preload all images for smooth transitions
         // Uses Promise-based loading for better performance tracking
-        const mobileImages = {
-          '/images/Slider-images/slider-1.webp': '/images/Slider-images/slider-1-mobile.webp',
-          '/images/Slider-images/slider-4.webp': '/images/Slider-images/slider-4-mobile.webp'
-        };
-
         const mobileImages = {
           '/images/Slider-images/slider-1.webp': '/images/Slider-images/slider-1-mobile.webp',
           '/images/Slider-images/slider-4.webp': '/images/Slider-images/slider-4-mobile.webp'
