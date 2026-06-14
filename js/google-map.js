@@ -108,9 +108,29 @@ function init() {
     });
 }
 
-// Initialize map when DOM is ready
-if (typeof google !== 'undefined' && google.maps) {
-    google.maps.event.addDomListener(window, 'load', init);
+function loadGoogleMaps() {
+    if (typeof google !== 'undefined' && google.maps) {
+        init();
+        return;
+    }
+    var script = document.createElement('script');
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false";
+    script.onload = function() {
+        if (typeof google !== 'undefined' && google.maps) {
+            init();
+        }
+    };
+    script.onerror = function() {
+        console.error("Failed to load Google Maps API");
+    };
+    document.body.appendChild(script);
+}
+
+// Delay loading by 2 seconds after DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(loadGoogleMaps, 2000);
+    });
 } else {
-    console.warn('Google Maps API not loaded');
+    setTimeout(loadGoogleMaps, 2000);
 }

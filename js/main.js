@@ -43,7 +43,7 @@ AOS.init({
 	// On mobile, resize/scroll events from Stellar can cause the page
 	// to jump back to the hero section whenever the browser chrome
 	// (address bar) appears or disappears.
-	if (!isMobile.any()) {
+	if (!isMobile.any() && $.fn.stellar) {
 		$(window).stellar({
 			responsive: true,
 			parallaxBackgrounds: true,
@@ -96,53 +96,57 @@ AOS.init({
 	// loader();
 
 	// Scrollax
-	$.Scrollax();
+	if ($.Scrollax) {
+		$.Scrollax();
+	}
 
 	var carousel = function () {
-		$('.carousel-testimony').owlCarousel({
-			center: true,
-			loop: true,
-			items: 1,
-			margin: 30,
-			stagePadding: 0,
-			nav: true,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
-			responsive: {
-				0: {
-					items: 1
-				},
-				600: {
-					items: 3
-				},
-				1000: {
-					items: 3
+		if ($.fn.owlCarousel) {
+			$('.carousel-testimony').owlCarousel({
+				center: true,
+				loop: true,
+				items: 1,
+				margin: 30,
+				stagePadding: 0,
+				nav: true,
+				navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+				responsive: {
+					0: {
+						items: 1
+					},
+					600: {
+						items: 3
+					},
+					1000: {
+						items: 3
+					}
 				}
-			}
-		});
+			});
 
-		$('.single-slider').owlCarousel({
-			animateOut: 'fadeOut',
-			animateIn: 'fadeIn',
-			autoplay: true,
-			loop: true,
-			items: 1,
-			margin: 0,
-			stagePadding: 0,
-			nav: true,
-			dots: true,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
-			responsive: {
-				0: {
-					items: 1
-				},
-				600: {
-					items: 1
-				},
-				1000: {
-					items: 1
+			$('.single-slider').owlCarousel({
+				animateOut: 'fadeOut',
+				animateIn: 'fadeIn',
+				autoplay: true,
+				loop: true,
+				items: 1,
+				margin: 0,
+				stagePadding: 0,
+				nav: true,
+				dots: true,
+				navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+				responsive: {
+					0: {
+						items: 1
+					},
+					600: {
+						items: 1
+					},
+					1000: {
+						items: 1
+					}
 				}
-			}
-		});
+			});
+		}
 
 	};
 	carousel();
@@ -204,56 +208,61 @@ AOS.init({
 
 	var counter = function () {
 
-		$('#section-counter').waypoint(function (direction) {
+		if ($.fn.waypoint && $.fn.animateNumber) {
+			$('#section-counter').waypoint(function (direction) {
 
-			if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
+				if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
 
-				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-				$('.number').each(function () {
-					var $this = $(this),
-						num = $this.data('number');
-					// REMOVED: console.log(num) - performance overhead
-					$this.animateNumber(
-						{
-							number: num,
-							numberStep: comma_separator_number_step
-						}, 7000
-					);
-				});
+					var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+					$('.number').each(function () {
+						var $this = $(this),
+							num = $this.data('number');
+						// REMOVED: console.log(num) - performance overhead
+						$this.animateNumber(
+							{
+								number: num,
+								numberStep: comma_separator_number_step
+							}, 7000
+						);
+					});
 
-			}
+				}
 
-		}, { offset: '95%' });
+			}, { offset: '95%' });
+		}
 
 	}
 	counter();
 
 	var contentWayPoint = function () {
 		var i = 0;
-		$('.ftco-animate').waypoint(function (direction) {
+		if ($.fn.waypoint) {
+			$('.ftco-animate').waypoint(function (direction) {
 
-			if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
+				if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
 
-				i++;
+					i++;
 
-				$(this.element).addClass('item-animate');
-				setTimeout(function () {
+					$(this.element).addClass('item-animate');
+					setTimeout(function () {
 
-					$('body .ftco-animate.item-animate').each(function (k) {
-						var el = $(this);
-						setTimeout(function () {
-							var effect = el.data('animate-effect');
-							if (effect === 'fadeIn') {
-								el.addClass('fadeIn ftco-animated');
-							} else if (effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft ftco-animated');
-							} else if (effect === 'fadeInRight') {
-								el.addClass('fadeInRight ftco-animated');
-							} else {
-								el.addClass('fadeInUp ftco-animated');
-							}
-							el.removeClass('item-animate');
-						}, k * 50, 'easeInOutExpo');
+						$('body .ftco-animate.item-animate').each(function (k) {
+							var el = $(this);
+							setTimeout(function () {
+								var effect = el.data('animate-effect');
+								if (effect === 'fadeIn') {
+									el.addClass('fadeIn ftco-animated');
+								} else if (effect === 'fadeInLeft') {
+									el.addClass('fadeInLeft ftco-animated');
+								} else if (effect === 'fadeInRight') {
+									el.addClass('fadeInRight ftco-animated');
+								} else {
+									el.addClass('fadeInUp ftco-animated');
+								}
+								el.removeClass('item-animate');
+							}, k * 50, 'easeInOutExpo');
+						});
+
 					});
 
 				}, 100);
@@ -261,6 +270,7 @@ AOS.init({
 			}
 
 		}, { offset: '95%' });
+		}
 	};
 	contentWayPoint();
 
@@ -289,7 +299,7 @@ AOS.init({
 
 
 	// Initialize Hero Background Slider with Smooth Zoom
-	if ($('.hero-bg-slider').length) {
+	if ($('.hero-bg-slider').length && $.fn.owlCarousel) {
 		$('.hero-bg-slider').owlCarousel({
 			items: 1,
 			loop: true,
@@ -329,41 +339,45 @@ AOS.init({
 	}
 
 	// magnific popup
-	$('.image-popup').magnificPopup({
-		type: 'image',
-		closeOnContentClick: true,
-		closeBtnInside: false,
-		fixedContentPos: true,
-		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-		gallery: {
-			enabled: true,
-			navigateByImgClick: true,
-			preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-		},
-		image: {
-			verticalFit: true
-		},
-		zoom: {
-			enabled: true,
-			duration: 300 // don't foget to change the duration also in CSS
-		}
-	});
+	if ($.fn.magnificPopup) {
+		$('.image-popup').magnificPopup({
+			type: 'image',
+			closeOnContentClick: true,
+			closeBtnInside: false,
+			fixedContentPos: true,
+			mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+			gallery: {
+				enabled: true,
+				navigateByImgClick: true,
+				preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+			},
+			image: {
+				verticalFit: true
+			},
+			zoom: {
+				enabled: true,
+				duration: 300 // don't foget to change the duration also in CSS
+			}
+		});
 
-	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-		disableOn: 700,
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		removalDelay: 160,
-		preloader: false,
+		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
 
-		fixedContentPos: false
-	});
+			fixedContentPos: false
+		});
+	}
 
 
-	$('.checkin_date, .checkout_date').datepicker({
-		'format': 'm/d/yyyy',
-		'autoclose': true
-	});
+	if ($.fn.datepicker) {
+		$('.checkin_date, .checkout_date').datepicker({
+			'format': 'm/d/yyyy',
+			'autoclose': true
+		});
+	}
 
 
 

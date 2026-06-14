@@ -5,31 +5,39 @@
   <link rel="alternate" hreflang="ar" href="https://marragafay.com/ar/activities/camel-ride" />
   <link rel="alternate" hreflang="x-default" href="https://marragafay.com/activities/camel-ride" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-18107593090"></script>
+    <!-- Delayed Google Tag Manager & Google Analytics (2s delay after DOMContentLoaded) -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        var adsScript = document.createElement('script');
+        adsScript.async = true;
+        adsScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18107593090';
+        document.head.appendChild(adsScript);
+        gtag('config', 'AW-18107593090');
 
-    gtag('config', 'AW-18107593090');
-  </script>
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-PK8G4JC2');</script>
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-RSQ34QQFT0';
+        document.head.appendChild(gaScript);
+        gtag('config', 'G-RSQ34QQFT0');
 
-  <!-- Google Analytics 4 -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-RSQ34QQFT0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-RSQ34QQFT0');
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+          });
+          var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PK8G4JC2');
+      }, 2000);
+    });
   </script>
 
   <title>Randonnée à dos de chameau au coucher du soleil - Agafay Desert | Marragafay</title>
@@ -1134,7 +1142,13 @@
         
         <!-- Right Stack 2 -->
         <div class="col-span-1 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/images/activites/camel.webp" alt="Marragafay Expérience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <picture>
+              <source media="(max-width: 480px)" srcset="/images/activites/camel-mobile.webp">
+              <picture>
+              <source media="(max-width: 480px)" srcset="/images/activites/camel-mobile.webp">
+              <img src="/images/activites/camel.webp" alt="Marragafay Expérience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" fetchpriority="high">
+            </picture>
+            </picture>
         </div>
 
         <!-- Bottom Row 1 -->
@@ -1570,25 +1584,20 @@
   <!-- TASK 3 — All external scripts deferred, in dependency order -->
   <!-- 1. jQuery core (must be first) -->
   <script src="/js/jquery.min.js" defer=""></script>
-  <script src="/js/jquery-migrate-3.0.1.min.js" defer=""></script>
-  <!-- 2. Bootstrap dependencies -->
+    <!-- 2. Bootstrap dependencies -->
   <script src="/js/popper.min.js" defer=""></script>
   <script src="/js/bootstrap.min.js" defer=""></script>
   <!-- 3. jQuery plugins -->
   <script src="/js/jquery.easing.1.3.js" defer=""></script>
   <script src="/js/jquery.waypoints.min.js" defer=""></script>
-  <script src="/js/jquery.stellar.min.js" defer=""></script>
-  <script src="/js/owl.carousel.min.js" defer=""></script>
+    <script src="/js/owl.carousel.min.js" defer=""></script>
   <script src="/js/jquery.magnific-popup.min.js" defer=""></script>
   <script src="/js/aos.js" defer=""></script>
-  <script src="/js/jquery.animateNumber.min.js" defer=""></script>
-  <script src="/js/bootstrap-datepicker.js" defer=""></script>
-  <script src="/js/scrollax.min.js" defer=""></script>
-  <!-- 4. Swiper (before custom JS that may use it) -->
+    <script src="/js/bootstrap-datepicker.js" defer=""></script>
+    <!-- 4. Swiper (before custom JS that may use it) -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer=""></script>
   <!-- 5. Google Maps -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false" defer=""></script>
-  <script src="/js/google-map.js" defer=""></script>
+    <script src="/js/google-map.js" defer=""></script>
   <!-- 6. Custom application scripts -->
   <script src="/js/main.js" defer=""></script>
   <!-- StayHere-Inspired Navbar JS (replaces mobile-menu.js) -->

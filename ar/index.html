@@ -8,31 +8,39 @@
   <link rel="alternate" hreflang="ar" href="https://marragafay.com/ar/" />
   <link rel="alternate" hreflang="x-default" href="https://marragafay.com/" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18107593090"></script>
+    <!-- Delayed Google Tag Manager & Google Analytics (2s delay after DOMContentLoaded) -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        var adsScript = document.createElement('script');
+        adsScript.async = true;
+        adsScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18107593090';
+        document.head.appendChild(adsScript);
+        gtag('config', 'AW-18107593090');
 
-    gtag('config', 'AW-18107593090');
-  </script>
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-PK8G4JC2');</script>
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-RSQ34QQFT0';
+        document.head.appendChild(gaScript);
+        gtag('config', 'G-RSQ34QQFT0');
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSQ34QQFT0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-RSQ34QQFT0');
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+          });
+          var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PK8G4JC2');
+      }, 2000);
+    });
   </script>
 
   <title>Marragafay | أجافي Desert Luxury Tours & Camps</title>
@@ -78,7 +86,8 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <!-- TASK 1: LCP hero image preload - FIRST resource hint, before all CSS -->
-  <link rel="preload" as="image" href="/images/Slider-images/slider-1.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="/images/Slider-images/slider-1-mobile.webp" as="image" media="(max-width: 480px)" fetchpriority="high" type="image/webp">
+  <link rel="preload" href="/images/Slider-images/slider-1.webp" as="image" media="(min-width: 481px)" fetchpriority="high" type="image/webp">
 
   <!-- TASK 4c: Critical CSS inlined to eliminate render-blocking -->
   <style>
@@ -676,8 +685,7 @@
     }
   </style>
   <link rel="stylesheet" href="/css/tailwind-built.css">
-  <link rel="preload" fetchpriority="high" as="image" href="/images/Slider-images/slider-4.webp" type="image/webp">
-</head>
+  </head>
 
 <body class="home" style="font-family: 'Clash Grotesk', sans-serif !important; overflow-x: hidden; /* Prevent horizontal scrolling issues */">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK8G4JC2" height="0" width="0"
@@ -716,8 +724,11 @@
   </nav>
   <div class="hero-wrap hero-section js-fullheight" id="home"
     style="position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #1a1a1a;">
-    <div class="hero-bg-image"
-      style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; background-color: #1a1a1a; transition: opacity 600ms ease-in-out; z-index: 1;">
+    <div class="hero-bg-image" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: #1a1a1a; transition: opacity 600ms ease-in-out; z-index: 1;">
+      <picture id="hero-picture">
+        <source media="(max-width: 480px)" srcset="/images/Slider-images/slider-1-mobile.webp">
+        <img src="/images/Slider-images/slider-1.webp" alt="Agafay Desert" style="width: 100%; height: 100%; object-fit: cover;" fetchpriority="high" id="hero-img">
+      </picture>
     </div>
     <div class="hero-overlay"
       style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 2;"></div>
@@ -970,6 +981,16 @@
         const heroWrap = document.querySelector('.hero-wrap');
         // Preload all images for smooth transitions
         // Uses Promise-based loading for better performance tracking
+        const mobileImages = {
+          '/images/Slider-images/slider-1.webp': '/images/Slider-images/slider-1-mobile.webp',
+          '/images/Slider-images/slider-4.webp': '/images/Slider-images/slider-4-mobile.webp'
+        };
+
+        const mobileImages = {
+          '/images/Slider-images/slider-1.webp': '/images/Slider-images/slider-1-mobile.webp',
+          '/images/Slider-images/slider-4.webp': '/images/Slider-images/slider-4-mobile.webp'
+        };
+
         function preloadImages() {
           const promises = heroSlides.map(slide => {
             return new Promise((resolve) => {
@@ -988,7 +1009,11 @@
             // Images loaded, slideshow ready
           });
           // Set initial background with optimized loading
-          bgImage.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${heroSlides[0].image}')`;
+          const initialImg = heroSlides[0].image;
+          const initialMobileImg = mobileImages[initialImg] || initialImg;
+          source.srcset = initialMobileImg;
+          img.src = initialImg;
+          img.alt = heroSlides[0].alt || '';
           // Create luxury navigation dots
           heroSlides.forEach((slide, index) => {
             const dot = document.createElement('button');
@@ -1060,7 +1085,11 @@
             // Subtitle updates with per-slide marketing description
             subtitle.textContent = heroSlides[index].subtitle;
             // Update background with crossfade
-            bgImage.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${heroSlides[index].image}')`;
+            const targetImg = heroSlides[index].image;
+            const targetMobileImg = mobileImages[targetImg] || targetImg;
+            source.srcset = targetMobileImg;
+            img.src = targetImg;
+            img.alt = heroSlides[index].alt || '';
             // Update dots with elegant animation
             const dots = document.querySelectorAll('.hero-dot');
             dots.forEach((dot, i) => {
@@ -2450,8 +2479,14 @@
         <!-- CARD 2 -->
         <a href="activities/camel-ride" class="activities-editorial-card snap-center snap-always w-[70vw] min-w-[70vw] sm:w-[350px] md:w-[calc(33.333%-1rem)] md:min-w-0">
           <div class="activities-editorial-img-wrapper">
-            <img src="/images/activites/camel.webp" alt="رحلة غروب الشمس الجمل" class="activities-editorial-img"
-              loading="lazy">
+            <picture>
+              <source media="(max-width: 480px)" srcset="/images/activites/camel-mobile.webp">
+              <picture>
+              <source media="(max-width: 480px)" srcset="/images/activites/camel-mobile.webp">
+              <img src="/images/activites/camel.webp" alt="رحلة غروب الشمس الجمل" class="activities-editorial-img"
+               fetchpriority="high">
+            </picture>
+            </picture>
           </div>
           <div class="activities-editorial-card-content">
             <h3 class="activities-editorial-card-title">رحلة غروب الشمس الجمل</h3>
@@ -3184,26 +3219,20 @@
   <!-- TASK 3 — All external scripts deferred, in dependency order -->
   <!-- 1. jQuery core (must be first) -->
   <script src="/js/jquery.min.js" defer></script>
-  <script src="/js/jquery-migrate-3.0.1.min.js" defer></script>
-  <!-- 2. Bootstrap dependencies -->
+    <!-- 2. Bootstrap dependencies -->
   <script src="/js/popper.min.js" defer></script>
   <script src="/js/bootstrap.min.js" defer></script>
   <!-- 3. jQuery plugins -->
   <script src="/js/jquery.easing.1.3.js" defer></script>
   <script src="/js/jquery.waypoints.min.js" defer></script>
-  <script src="/js/jquery.stellar.min.js" defer></script>
-  <script src="/js/owl.carousel.min.js" defer></script>
+    <script src="/js/owl.carousel.min.js" defer></script>
   <script src="/js/jquery.magnific-popup.min.js" defer></script>
   <script src="/js/aos.js" defer></script>
-  <script src="/js/jquery.animateNumber.min.js" defer></script>
-  <script src="/js/bootstrap-datepicker.js" defer></script>
-  <script src="/js/scrollax.min.js" defer></script>
-  <!-- 4. Swiper (before custom JS that may use it) -->
+    <script src="/js/bootstrap-datepicker.js" defer></script>
+    <!-- 4. Swiper (before custom JS that may use it) -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <!-- 5. Google Maps -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"
-    defer></script>
-  <script src="/js/google-map.js" defer></script>
+    <script src="/js/google-map.js" defer></script>
   <!-- 6. Custom application scripts -->
   <script src="/js/main.js" defer></script>
   <!-- StayHere-Inspired Navbar JS (replaces mobile-menu.js) -->
