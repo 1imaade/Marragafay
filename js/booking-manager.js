@@ -464,7 +464,7 @@ document.addEventListener('submit', async function (e) {
 
             localStorage.setItem('recentBooking', JSON.stringify({ name: bookingData.name, date: bookingData.date, package_name: bookingData.package_title, guests_total: bookingData.guests, total_price: total, whatsapp: bookingData.phone_number }));
             // Forcibly trigger a JavaScript redirect to the new dedicated success page
-            window.location.href = '../success.html';
+            window.location.href = '../success';
 
         } catch (error) {
             // Error handling - Beautiful error popup

@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add active class to current page link
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPath = window.location.pathname.split('/').pop() || '';
     mainNav.querySelectorAll('.nav-link').forEach(link => {
       const linkHref = link.getAttribute('href');
       if (linkHref === currentPath || 
-          (currentPath === '' && linkHref === 'index.html')) {
+          (currentPath === '' && (linkHref === './' || linkHref === '/' || linkHref === 'index.html'))) {
         link.classList.add('active');
       }
       

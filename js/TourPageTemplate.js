@@ -568,7 +568,7 @@ const TourPageTemplate = (function () {
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-          <a class="navbar-brand" href="../index.html"><img src="../images/logo-trensparent.webp" alt="Marragafy"
+          <a class="navbar-brand" href="../"><img src="../images/logo-trensparent.webp" alt="Marragafy"
               style="width: 70px; height: 70px;"></a>
 
           <!-- Moved language switcher here -->
@@ -590,14 +590,14 @@ const TourPageTemplate = (function () {
 
           <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-              <li class="nav-item ${subTitle === 'Activity' ? 'active' : ''}"><a href="../activities.html" class="nav-link">Activities</a></li>
-              <li class="nav-item ${subTitle !== 'Activity' ? 'active' : ''}"><a href="../packs.html" class="nav-link">Packs</a></li>
-              <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="../reviews.html" class="nav-link">Reviews</a></li>
-              <!-- <li class="nav-item"><a href="../blog.html" class="nav-link">Blog</a></li> -->
-              <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
-              <li class="nav-item"><a href="../packs.html" class="nav-link booking-btn">Booking</a></li>
+              <li class="nav-item"><a href="../" class="nav-link">Home</a></li>
+              <li class="nav-item ${subTitle === 'Activity' ? 'active' : ''}"><a href="../activities" class="nav-link">Activities</a></li>
+              <li class="nav-item ${subTitle !== 'Activity' ? 'active' : ''}"><a href="../packs" class="nav-link">Packs</a></li>
+              <li class="nav-item"><a href="../about" class="nav-link">About</a></li>
+              <li class="nav-item"><a href="../reviews" class="nav-link">Reviews</a></li>
+              <!-- <li class="nav-item"><a href="../blog" class="nav-link">Blog</a></li> -->
+              <li class="nav-item"><a href="../contact" class="nav-link">Contact</a></li>
+              <li class="nav-item"><a href="../packs" class="nav-link booking-btn">Booking</a></li>
             </ul>
           </div>
         </div>
@@ -611,7 +611,7 @@ const TourPageTemplate = (function () {
         <div class="container relative z-10 flex h-full flex-col items-center justify-center text-center">
           <h1 class="mb-4 text-white" style="font-family: 'EB Garamond', serif; font-size: 3.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${title}</h1>
           <p class="breadcrumbs text-white" style="font-size: 1.1rem; letter-spacing: 1px;">
-            <span class="mr-2"><a href="../index.html" class="text-white">Home</a></span> 
+            <span class="mr-2"><a href="../" class="text-white">Home</a></span> 
             <span class="text-white" style="opacity: 0.8;">${subTitle}</span>
           </p>
         </div>
@@ -838,8 +838,8 @@ const TourPageTemplate = (function () {
 	              <div class="ftco-footer-widget mb-4 ml-md-4">
 	                <h2 class="ftco-heading-2">Information</h2>
 	                <ul class="list-unstyled">
-	                  <li><a href="../about.html" class="py-2 d-block">About Us</a></li>
-	                  <li><a href="../contact.html" class="py-2 d-block">Contact Us</a></li>
+	                  <li><a href="../about" class="py-2 d-block">About Us</a></li>
+	                  <li><a href="../contact" class="py-2 d-block">Contact Us</a></li>
 	                  <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
 	                  <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
 	                </ul>
@@ -849,10 +849,10 @@ const TourPageTemplate = (function () {
 	              <div class="ftco-footer-widget mb-4">
 	                <h2 class="ftco-heading-2">Quick Links</h2>
 	                <ul class="list-unstyled">
-	                  <li><a href="../activities.html" class="py-2 d-block">Activities</a></li>
-	                  <li><a href="../packs.html" class="py-2 d-block">Packs</a></li>
-	                  <li><a href="../about.html" class="py-2 d-block">About</a></li>
-	                  <li><a href="../reviews.html" class="py-2 d-block">Reviews</a></li>
+	                  <li><a href="../activities" class="py-2 d-block">Activities</a></li>
+	                  <li><a href="../packs" class="py-2 d-block">Packs</a></li>
+	                  <li><a href="../about" class="py-2 d-block">About</a></li>
+	                  <li><a href="../reviews" class="py-2 d-block">Reviews</a></li>
 	                </ul>
 	              </div>
 	            </div>

@@ -1,5 +1,5 @@
 const fs = require('fs');
-let html = fs.readFileSync('packages/basic.html', 'utf8');
+let html = fs.readFileSync('packages/basic', 'utf8');
 
 // Replace the badge wrapper with the exact requested micro tag
 const badBadgeHTML = `<div class="flex items-center gap-2 mb-6">
@@ -11,4 +11,4 @@ const goodBadgeHTML = `<span class="text-xs font-bold uppercase tracking-widest 
 
 html = html.replace(badBadgeHTML, goodBadgeHTML);
 
-fs.writeFileSync('packages/basic.html', html, 'utf8');
+fs.writeFileSync('packages/basic', html, 'utf8');

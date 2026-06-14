@@ -1,11 +1,11 @@
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
 
-const basicHtml = fs.readFileSync('packages/basic.html', 'utf8');
+const basicHtml = fs.readFileSync('packages/basic', 'utf8');
 
 const migrations = [
-  { path: 'packages/comfort.html', type: 'package', name: 'Marragafay Signature', shortName: 'Signature' },
-  { path: 'packages/luxe.html', type: 'package', name: 'The Marragafay Luxury', shortName: 'Luxury' },
+  { path: 'packages/comfort', type: 'package', name: 'Marragafay Signature', shortName: 'Signature' },
+  { path: 'packages/luxe', type: 'package', name: 'The Marragafay Luxury', shortName: 'Luxury' },
   { path: 'activities/buggy.html', type: 'activity', name: 'Dune Buggy Adventure', shortName: 'Buggy' },
   { path: 'activities/camel-ride.html', type: 'activity', name: 'Sunset Camel Trek', shortName: 'Camel Trek' },
   { path: 'activities/dinner-show.html', type: 'activity', name: 'Agafay Dinner Show', shortName: 'Dinner Show' },

@@ -25,9 +25,9 @@
       const dictionaries = {
         en: {
           experiencesPacks: [
-        { label: 'Marragafay Signature Agafay Escape', href: 'packages/comfort.html' },
-        { label: 'Marragafay VIP Luxury Desert Retreat', href: 'packages/luxe.html' },
-        { label: 'Marragafay Complete Discovery Expedition', href: 'packages/basic.html' },
+        { label: 'Marragafay Signature Agafay Escape', href: 'packages/comfort' },
+        { label: 'Marragafay VIP Luxury Desert Retreat', href: 'packages/luxe' },
+        { label: 'Marragafay Complete Discovery Expedition', href: 'packages/basic' },
       ],
       experiencesActivities: [
         { label: 'Marragafay Extreme Quad Biking Adventure', href: 'activities/quad-biking.html' },
@@ -45,9 +45,9 @@
         { label: 'FAQ', href: 'about.html' },
       ],
       packs: [
-        { label: 'Agafay Discovery Pack', href: 'packages/basic.html' },
-        { label: 'VIP Luxury Escape', href: 'packages/luxe.html' },
-        { label: 'Romantic Sunset Pack', href: 'packages/comfort.html' },
+        { label: 'Agafay Discovery Pack', href: 'packages/basic' },
+        { label: 'VIP Luxury Escape', href: 'packages/luxe' },
+        { label: 'Romantic Sunset Pack', href: 'packages/comfort' },
       ],
       booking: [
         { label: 'Book an Experience', href: 'packs.html', arrow: true },
@@ -56,9 +56,9 @@
         },
         fr: {
           experiencesPacks: [
-            { label: 'Signature Marragafay Escapade Agafay', href: 'packages/comfort.html' },
-            { label: 'Retraite VIP Luxe dans le Désert', href: 'packages/luxe.html' },
-            { label: 'Expédition Découverte Complète', href: 'packages/basic.html' },
+            { label: 'Signature Marragafay Escapade Agafay', href: 'packages/comfort' },
+            { label: 'Retraite VIP Luxe dans le Désert', href: 'packages/luxe' },
+            { label: 'Expédition Découverte Complète', href: 'packages/basic' },
           ],
           experiencesActivities: [
             { label: 'Aventure Extrême en Quad', href: 'activities/quad-biking.html' },
@@ -76,9 +76,9 @@
             { label: 'FAQ', href: 'about.html' },
           ],
           packs: [
-            { label: 'Pack Découverte Agafay', href: 'packages/basic.html' },
-            { label: 'Escapade VIP Luxe', href: 'packages/luxe.html' },
-            { label: 'Pack Coucher de Soleil Romantique', href: 'packages/comfort.html' },
+            { label: 'Pack Découverte Agafay', href: 'packages/basic' },
+            { label: 'Escapade VIP Luxe', href: 'packages/luxe' },
+            { label: 'Pack Coucher de Soleil Romantique', href: 'packages/comfort' },
           ],
           booking: [
             { label: 'Réserver une Expérience', href: 'packs.html', arrow: true },
@@ -87,9 +87,9 @@
         },
         es: {
           experiencesPacks: [
-            { label: 'Marragafay Escapada Signature Agafay', href: 'packages/comfort.html' },
-            { label: 'Retiro VIP de Lujo en el Desierto', href: 'packages/luxe.html' },
-            { label: 'Expedición de Descubrimiento Completo', href: 'packages/basic.html' },
+            { label: 'Marragafay Escapada Signature Agafay', href: 'packages/comfort' },
+            { label: 'Retiro VIP de Lujo en el Desierto', href: 'packages/luxe' },
+            { label: 'Expedición de Descubrimiento Completo', href: 'packages/basic' },
           ],
           experiencesActivities: [
             { label: 'Aventura Extrema en Quad', href: 'activities/quad-biking.html' },
@@ -107,9 +107,9 @@
             { label: 'Preguntas Frecuentes', href: 'about.html' },
           ],
           packs: [
-            { label: 'Paquete Descubrimiento Agafay', href: 'packages/basic.html' },
-            { label: 'Escapada VIP de Lujo', href: 'packages/luxe.html' },
-            { label: 'Paquete Atardecer Romántico', href: 'packages/comfort.html' },
+            { label: 'Paquete Descubrimiento Agafay', href: 'packages/basic' },
+            { label: 'Escapada VIP de Lujo', href: 'packages/luxe' },
+            { label: 'Paquete Atardecer Romántico', href: 'packages/comfort' },
           ],
           booking: [
             { label: 'Reservar una Experiencia', href: 'packs.html', arrow: true },
@@ -118,9 +118,9 @@
         },
         ar: {
           experiencesPacks: [
-            { label: 'بصمة مراكفاي: ملاذ أكفاي', href: 'packages/comfort.html' },
-            { label: 'ملاذ فاخر في الصحراء لكبار الشخصيات', href: 'packages/luxe.html' },
-            { label: 'رحلة استكشاف كاملة', href: 'packages/basic.html' },
+            { label: 'بصمة مراكفاي: ملاذ أكفاي', href: 'packages/comfort' },
+            { label: 'ملاذ فاخر في الصحراء لكبار الشخصيات', href: 'packages/luxe' },
+            { label: 'رحلة استكشاف كاملة', href: 'packages/basic' },
           ],
           experiencesActivities: [
             { label: 'مغامرة الدراجات الرباعية', href: 'activities/quad-biking.html' },
@@ -138,9 +138,9 @@
             { label: 'الأسئلة الشائعة', href: 'about.html' },
           ],
           packs: [
-            { label: 'باقة اكتشاف أكفاي', href: 'packages/basic.html' },
-            { label: 'ملاذ فاخر لكبار الشخصيات', href: 'packages/luxe.html' },
-            { label: 'باقة غروب الشمس الرومانسية', href: 'packages/comfort.html' },
+            { label: 'باقة اكتشاف أكفاي', href: 'packages/basic' },
+            { label: 'ملاذ فاخر لكبار الشخصيات', href: 'packages/luxe' },
+            { label: 'باقة غروب الشمس الرومانسية', href: 'packages/comfort' },
           ],
           booking: [
             { label: 'احجز تجربة', href: 'packs.html', arrow: true },
@@ -235,8 +235,8 @@
     // Build quick links for desktop
     const quickLinksHTML = `
       <div class="nav-quick-links">
-        <a href="${basePath}activities.html" class="nav-quick-link${currentPage === 'activities.html' ? ' active' : ''}">Activities</a>
-        <a href="${basePath}packs.html" class="nav-quick-link${currentPage === 'packs.html' ? ' active' : ''}">Packs</a>
+        <a href="${basePath}activities" class="nav-quick-link${currentPage === 'activities.html' ? ' active' : ''}">Activities</a>
+        <a href="${basePath}packs" class="nav-quick-link${currentPage === 'packs.html' ? ' active' : ''}">Packs</a>
       </div>
     `;
 
@@ -261,7 +261,7 @@
 
         <!-- CENTER: Logo -->
         <div class="nav-center">
-          <a href="${basePath}index.html" class="nav-logo" aria-label="Marragafay - Return to homepage">
+          <a href="${basePath}index" class="nav-logo" aria-label="Marragafay - Return to homepage">
             <img src="/images/logo-no-text.png" 
                  alt="Marragafay Logo" 
                  class="nav-logo-img"
@@ -295,7 +295,7 @@
               </button>
             `).join('')}
           </div>
-          <a href="${basePath}packs.html" class="nav-cta" id="navBookCta">Book</a>
+          <a href="${basePath}packs" class="nav-cta" id="navBookCta">Book</a>
         </div>
       </div>
     `;
@@ -437,7 +437,7 @@
 
           <!-- Sticky Conversion Footer -->
           <div style="margin-top: auto; padding: 16px; border-top: 1px solid #e2e0d3; background-color: #F6F7EA;">
-            <button onclick="window.location.href='${basePath}book.html'" style="width: 100%; background-color: #523225; color: #F6F7EA; font-weight: 600; padding: 14px 0; border: none; border-radius: 50px; cursor: pointer; transition: opacity 0.2s; font-size: 14px;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+            <button onclick="window.location.href='${basePath}book'" style="width: 100%; background-color: #523225; color: #F6F7EA; font-weight: 600; padding: 14px 0; border: none; border-radius: 50px; cursor: pointer; transition: opacity 0.2s; font-size: 14px;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
               Book Your Experience
             </button>
           </div>

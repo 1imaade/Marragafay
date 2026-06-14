@@ -51,5 +51,5 @@ const gridInjection = `
 
 const finalHtml = topPart + "\n" + gridInjection + "\n" + bottomPart;
 
-fs.writeFileSync('packages/basic.html', finalHtml, 'utf8');
+fs.writeFileSync('packages/basic', finalHtml, 'utf8');
 console.log("Successfully created pristine shell in packages/basic.html");

@@ -147,7 +147,7 @@
 
       // Redirect to packs page with parameters
       setTimeout(function () {
-        window.location.href = 'packs.html?' + params.toString();
+        window.location.href = 'packs?' + params.toString();
       }, 500);
 
       return false;
@@ -250,7 +250,7 @@
 
       // Redirect to checkout page with parameters
       setTimeout(function () {
-        window.location.href = 'checkout.html?' + params.toString();
+        window.location.href = 'checkout?' + params.toString();
       }, 500);
 
       return false;
@@ -355,8 +355,8 @@
   function parseURLParameters() {
     const urlParams = new URLSearchParams(window.location.search);
 
-    // Parse parameters for packs.html page
-    if (window.location.pathname.includes('packs.html')) {
+    // Parse parameters for packs page
+    if (window.location.pathname.includes('packs')) {
       const activity = urlParams.get('activity');
       const date = urlParams.get('date');
       const adults = urlParams.get('adults');
@@ -373,8 +373,8 @@
       if (children) $('#quickNumChildren').val(children);
     }
 
-    // Parse parameters for checkout.html page
-    if (window.location.pathname.includes('checkout.html')) {
+    // Parse parameters for checkout page
+    if (window.location.pathname.includes('checkout')) {
       const activity = urlParams.get('activity');
       const date = urlParams.get('date');
       const adults = urlParams.get('adults');
@@ -444,8 +444,8 @@
 
   function getCurrentPage() {
     const path = window.location.pathname;
-    if (path.includes('packs.html')) return 'Packs Page';
-    if (path.includes('activities.html')) return 'Activities Page';
+    if (path.includes('packs')) return 'Packs Page';
+    if (path.includes('activities')) return 'Activities Page';
     return 'Unknown';
   }
 

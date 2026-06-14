@@ -3,8 +3,8 @@ const path = require('path');
 const { JSDOM } = require('jsdom');
 
 const filesToProcess = [
-  'packages/comfort.html',
-  'packages/luxe.html',
+  'packages/comfort',
+  'packages/luxe',
   'activities/buggy.html',
   'activities/camel-ride.html',
   'activities/dinner-show.html',

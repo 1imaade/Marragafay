@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
 
-const basicHtmlPath = 'packages/basic.html';
+const basicHtmlPath = 'packages/basic';
 const html = fs.readFileSync(basicHtmlPath, 'utf8');
 
 const dom = new JSDOM(html);
