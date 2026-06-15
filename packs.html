@@ -23,7 +23,8 @@
             window.location.replace('/' + targetLang + path + window.location.search + window.location.hash);
         })();
     </script>
-  <link rel="stylesheet" href="/css/tailwind-built.css">
+  <link rel="preload" href="/css/tailwind-built.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/tailwind-built.css"></noscript>
 </head>
 <body></body>
 </html>

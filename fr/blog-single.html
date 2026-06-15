@@ -73,7 +73,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/logo/logo-high-res.webp">
   <link rel="shortcut icon" type="image/png" href="/images/logo/logo-high-res.webp">
 
-  <link rel="stylesheet" href="/css/tailwind-built.css">
+  <link rel="preload" href="/css/tailwind-built.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/tailwind-built.css"></noscript>
 </head>
 
 <body class="home bg-[#F6F7EA]" style="font-family: 'Clash Grotesk', sans-serif !important; overflow-x: hidden; background-color: #F6F7EA !important;">
@@ -188,7 +189,6 @@
             </div>
           </div>
 
-
           <div class="pt-5 mt-5">
             <h3 class="mb-5">6 commentaires</h3>
             <ul class="comment-list">
@@ -232,7 +232,6 @@
                         Quam voluptas earum impedit necessitatibus, nihil ?</p>
                       <p><a href="#" class="reply">Répondre</a></p>
                     </div>
-
 
                     <ul class="children">
                       <li class="comment">
@@ -485,7 +484,6 @@
       <div class="row">
         <div class="col-md-12 text-center">
 
-
         </div>
       </div>
     </div>
@@ -495,8 +493,6 @@
   <!-- END LEGACY CONTENT WRAPPER -->
 
   <!-- loader -->
-
-
 
   <script defer src="/js/jquery.min.js"></script>
   <script defer src="/js/jquery-migrate-3.0.1.min.js"></script>
@@ -515,7 +511,6 @@
   <script defer src="/js/main.js"></script>
   <!-- StayHere-Inspired Navbar JS (replaces mobile-menu.js) -->
   <script src="/js/navbar-stayhere.js" defer></script>
-
 
 <!-- LANGUAGE SWITCHER INJECTION -->
 <script>
@@ -561,6 +556,5 @@
   });
 </script>
 </body>
-
 
 </html>

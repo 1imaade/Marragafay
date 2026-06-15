@@ -51,9 +51,7 @@
   <meta name="google-site-verification" content="bamVos41fgswgcgtQoBGzbYihLKMpzhQOS7PiAlnm-M">
   <meta name="facebook-domain-verification" content="ie0eyu39g9logo846tr4cgli13tp1f">
   
-  <!-- TASK 4a: Google Fonts - preload + async non-render-blocking -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  
   
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -68,9 +66,7 @@
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Eczar:wght@400..800&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=Overpass:ital,wght@0,100..900;1,100..900&amp;family=Montserrat:wght@800;900&amp;display=swap">
   </noscript>
-  <!-- Other preconnects -->
-  <link rel="preconnect" href="https://bgjohquanepghmlmdiyd.supabase.co">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <!-- Other preconnects -->  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <!-- TASK 1: LCP hero image preload - FIRST resource hint, before all CSS -->
   <link rel="preload" as="image" href="/images/activites/camel.jpg" type="image/webp" fetchpriority="high">
@@ -389,7 +385,6 @@
       }
     }
 
-
     /* Open Sans font class for future use */
     .open-sans-uniquifier {
       font-family: "Open Sans", sans-serif;
@@ -705,7 +700,8 @@
       .is-active .itinerary-text-group { transform: scale(1.03) !important; }
     }
   </style>
-  <link rel="stylesheet" href="/css/tailwind-built.css">
+  <link rel="preload" href="/css/tailwind-built.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/tailwind-built.css"></noscript>
 </head>
 
 <body class="home" style="font-family: 'Clash Grotesk', sans-serif !important; overflow-x: hidden; /* Prevent horizontal scrolling issues */">
@@ -771,8 +767,6 @@
           </div>
 
         </div>
-
-
 
         <div class="absolute inset-0 bg-gradient-to-t from-[#10100E]/95 via-transparent via-40% md:via-50% to-transparent z-10 pointer-events-none"></div>
 
@@ -957,7 +951,6 @@
         </div>
       </section>
 
-
     </main>
 
   <style>
@@ -975,7 +968,6 @@
       }
     }
   </style>
-
 
    <!-- Brand-Aligned Itinerary & Specs Section -->
   <section class="w-full py-10 md:py-16 bg-[#F6F7EA] px-4 md:px-10 lg:px-16 flex flex-col items-center">
@@ -1571,7 +1563,6 @@
     </div>
   </footer>
 
-
   <!-- TASK 3 — All external scripts deferred, in dependency order -->
   <!-- 1. jQuery core (must be first) -->
   <script src="/js/jquery.min.js" defer=""></script>
@@ -2095,9 +2086,6 @@
   <!-- Runs before the modal scripts so window.MarragafayWA is ready when modals open -->
   <script defer src="/js/whatsapp-prefill.js"></script>
 
-
-
-
 <style>
   /* Spinner animation for loading states */
   @keyframes spin {
@@ -2234,7 +2222,6 @@
     -webkit-backdrop-filter: blur(5px) !important;
   }
 </style>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
