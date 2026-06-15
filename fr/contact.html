@@ -746,7 +746,7 @@
       </div>
     </div>
   </nav>
-    <main class="bg-[#F6F7EA]">
+    <main id="main-content" tabindex="-1" style="outline: none;" class="bg-[#F6F7EA]">
       <!-- HERO SECTION -->
       <section class="relative w-full h-[75vh] min-h-[550px] flex flex-col justify-end pb-[100px]">
         <!-- Background Image -->
@@ -782,17 +782,17 @@
               </h2>
               
               <div class="mb-16">
-                <p class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Conciergerie et WhatsApp</p>
+                <p class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Conciergerie et WhatsApp</p>
                 <p class="text-[16px] md:text-[18px] leading-[26px] font-medium text-[#10100E] mb-8">+212 672-531624</p>
               </div>
 
               <div class="mb-16">
-                <p class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Email Demandes de renseignements</p>
+                <p class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Email Demandes de renseignements</p>
                 <p class="text-[16px] md:text-[18px] leading-[26px] font-medium text-[#10100E] mb-8">bonjour@marragafay.com</p>
               </div>
 
               <div class="mb-16">
-                <p class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Base d'opérations</p>
+                <p class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Base d'opérations</p>
                 <p class="text-[16px] md:text-[18px] leading-[26px] font-medium text-[#10100E] mb-8">Désert de Pierre d'Agafay<br>Marrakech, Maroc</p>
               </div>
             </div>
@@ -806,37 +806,37 @@
               <form id="contact-form" onsubmit="return false;">
                 <!-- Nom et prénom -->
                 <div class="flex flex-col mb-8">
-                  <label for="contact-name" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Nom et prénom</label>
+                  <label for="contact-name" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Nom et prénom</label>
                   <input type="text" id="contact-name" name="name" required placeholder="e.g. James Whitmore" class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none" />
                 </div>
 
                 <!-- Adresse email -->
                 <div class="flex flex-col mb-8">
-                  <label for="contact-email" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Adresse email</label>
+                  <label for="contact-email" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Adresse email</label>
                   <input type="email" id="contact-email" name="email" required placeholder="name@domain.com" class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none" />
                 </div>
 
                 <!-- Téléphone/WhatsApp -->
                 <div class="flex flex-col mb-8">
-                  <label for="contact-phone" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Téléphone/WhatsApp</label>
+                  <label for="contact-phone" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Téléphone/WhatsApp</label>
                   <input type="tel" id="contact-phone" name="phone" required placeholder="+1 234 567 8900" class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none" />
                 </div>
 
                 <!-- Date prévue -->
                 <div class="flex flex-col mb-8">
-                  <label for="contact-date" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Date prévue</label>
+                  <label for="contact-date" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Date prévue</label>
                   <input type="date" id="contact-date" name="date" required class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none" />
                 </div>
 
                 <!-- Taille du groupe -->
                 <div class="flex flex-col mb-8">
-                  <label for="contact-guests" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Taille du groupe</label>
+                  <label for="contact-guests" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Taille du groupe</label>
                   <input type="number" id="contact-guests" name="guests" min="1" required placeholder="2" class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none" />
                 </div>
 
                 <!-- Exigences supplémentaires -->
                 <div class="flex flex-col mb-8">
-                  <label for="contact-requirements" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Exigences supplémentaires</label>
+                  <label for="contact-requirements" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Exigences supplémentaires</label>
                   <textarea id="contact-requirements" name="requirements" rows="5" placeholder="Tell us about your preferences, dietary restrictions, or custom requests…" class="w-full bg-transparent border border-[#10100E]/20 p-4 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-[#10100E] rounded-none min-h-[120px] resize-y"></textarea>
                 </div>
 
@@ -873,7 +873,7 @@
 
         <!-- Col 1 -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Demandes de renseignements</h4>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Demandes de renseignements</p>
           <ul class="space-y-3 list-none p-0 m-0">
             <li><a href="mailto:marragafay@gmail.com" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">marragafay@gmail.com</a></li>
             <li><a href="tel:+212672531624" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">+212 672-531624</a></li>
@@ -883,7 +883,7 @@
 
         <!-- Col 2 -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Expérience</h4>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Expérience</p>
           <ul class="space-y-3 list-none p-0 m-0">
             <li><a href="#fleet" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">La flotte</a></li>
             <li><a href="#events" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">Événements privés</a></li>
@@ -894,7 +894,7 @@
 
         <!-- Col 3 -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Légal</h4>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Légal</p>
           <ul class="space-y-3 list-none p-0 m-0">
             <li><a href="/terms" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">Conditions générales</a></li>
             <li><a href="/privacy" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">politique de confidentialité</a></li>
@@ -904,7 +904,7 @@
 
         <!-- Col 4 -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Sociale</h4>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Sociale</p>
           <ul class="space-y-3 list-none p-0 m-0">
             <li><a href="#" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">Instagram</a></li>
             <li><a href="#" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">Tik Tok</a></li>
@@ -1254,8 +1254,8 @@
             <div class="price-label" style="font-size: 1rem; opacity: 0.9;"></div>
           </div>
           <div class="contact-options" style="border-top: 2px solid #e9ecef; padding-top: 25px;">
-            <h4 style="'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">
-              Contactez-nous</h4>
+            <h3 style="\'Playfair Display\', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">
+              Contactez-nous</h3>
             <a href="https://wa.me/212672531624" target="_blank" id="whatsapp-btn" class="contact-btn whatsapp-btn"
               style="display: block; background: #25D366; color: white; padding: 12px 20px; border-radius: 0; text-decoration: none; margin-bottom: 10px; font-weight: 600; transition: all 0.3s ease;">
               <i class="icon-whatsapp" style="margin-right: 10px;"></i> WhatsApp : +212 672 531 624
@@ -1392,8 +1392,8 @@
             <div class="price-label" style="font-size: 1rem; opacity: 0.9;"></div>
           </div>
           <div class="contact-options" style="border-top: 2px solid #e9ecef; padding-top: 25px;">
-            <h4 style="'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">
-              Contactez-nous</h4>
+            <h3 style="\'Playfair Display\', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">
+              Contactez-nous</h3>
             <a href="https://wa.me/212672531624" target="_blank" id="whatsapp-btn-activity"
               class="contact-btn whatsapp-btn"
               style="display: block; background: #25D366; color: white; padding: 12px 20px; border-radius: 0; text-decoration: none; margin-bottom: 10px; font-weight: 600; transition: all 0.3s ease;">

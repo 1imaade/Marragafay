@@ -746,7 +746,7 @@
       </div>
     </div>
   </nav>
-    <main class="bg-[#F6F7EA]">
+    <main id="main-content" tabindex="-1" style="outline: none;" class="bg-[#F6F7EA]">
       <!-- HERO SECTION -->
       <section class="relative w-full h-[75vh] min-h-[550px] flex flex-col justify-end pb-[100px]">
         <!-- Background Image -->
@@ -776,7 +776,7 @@
 
             <!-- COLUMN 1: SUBMISSION FORM -->
             <div class="lg:sticky lg:top-32 self-start transition-all duration-300">
-              <span class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-4 block">Share Votre expérience</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-4 block">Share Votre expérience</span>
               <h2 class="text-[32px] leading-[36px] md:text-[40px] md:leading-[44px] font-semibold text-[#10100E] tracking-tight lowercase mb-4" style="font-family: 'Clash Grotesk', sans-serif;">
                 laisser un avis.
               </h2>
@@ -785,15 +785,15 @@
               <form id="review-form" onsubmit="return false;">
                 <!-- Nom et prénom -->
                 <div class="flex flex-col mb-8">
-                  <label for="review-name" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Nom et prénom</label>
+                  <label for="review-name" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Nom et prénom</label>
                   <input type="text" id="review-name" name="name" required placeholder="e.g. James Whitmore" class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none" />
                 </div>
 
                 <!-- Select Expérience -->
                 <div class="flex flex-col mb-8">
-                  <label for="review-experience" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Expérience</label>
+                  <label for="review-experience" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Expérience</label>
                   <select id="review-experience" name="experience" required class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2310100E%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 0 center;">
-                    <option value="" disabled selected class="text-[#10100E]/30">Sélectionnez votre expérience</option>
+                    <option value="" disabled selected class="text-[#10100E]/90">Sélectionnez votre expérience</option>
                     <option value="quad-biking">Quad</option>
                     <option value="dune-buggy">Buggy des dunes</option>
                     <option value="camel-ride">Balade à dos de chameau</option>
@@ -808,7 +808,7 @@
 
                 <!-- Star Notation -->
                 <div class="flex flex-col mb-8">
-                  <label class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Notation</label>
+                  <label class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Notation</label>
                   <div class="flex gap-2 items-center" id="star-rating-container">
                     <button type="button" class="star-btn p-0 bg-transparent border-none cursor-pointer transition-transform duration-150 hover:scale-110 outline-none focus:outline-none focus:ring-0" data-value="1" aria-label="1 star">
                       <svg viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-[#10100E] cursor-pointer transition-colors star-icon fill-transparent"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
@@ -831,7 +831,7 @@
 
                 <!-- Review Text -->
                 <div class="flex flex-col mb-8">
-                  <label for="review-text" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-2">Votre expérience</label>
+                  <label for="review-text" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Votre expérience</label>
                   <textarea id="review-text" name="review" required rows="5" placeholder="Tell us about your experience with Marragafay…" class="w-full bg-transparent border border-[#10100E]/20 p-4 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-[#10100E] rounded-none min-h-[120px] resize-y"></textarea>
                 </div>
 
@@ -847,7 +847,7 @@
             <div>
               <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                 <div>
-                  <span class="text-xs font-bold uppercase tracking-widest text-[#10100E]/50 mb-4 block">Preuve sociale</span>
+                  <span class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-4 block">Preuve sociale</span>
                   <h2 class="text-[32px] leading-[36px] md:text-[40px] md:leading-[44px] font-semibold text-[#10100E] tracking-tight lowercase" style="font-family: 'Clash Grotesk', sans-serif;">
                     ce que disent les invités.
                   </h2>
@@ -857,7 +857,7 @@
 
               <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
               <div class="mt-16 flex justify-center w-full">
-                <button id="load-more-btn" class="appearance-none bg-transparent border-0 border-b border-[#10100E] text-[#10100E] uppercase text-xs font-bold tracking-widest pb-1 px-0 hover:text-[#10100E]/50 hover:border-[#10100E]/50 transition-all duration-300 focus:outline-none focus:ring-0">Charger plus d'avis</button>
+                <button id="load-more-btn" class="appearance-none bg-transparent border-0 border-b border-[#10100E] text-[#10100E] uppercase text-xs font-bold tracking-widest pb-1 px-0 hover:text-[#10100E]/90 hover:border-[#10100E]/50 transition-all duration-300 focus:outline-none focus:ring-0">Charger plus d'avis</button>
               </div>
             </div>
 
@@ -964,7 +964,7 @@
 
         <!-- Col 1 -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Demandes de renseignements</h4>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Demandes de renseignements</p>
           <ul class="space-y-3 list-none p-0 m-0">
             <li><a href="mailto:marragafay@gmail.com" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">marragafay@gmail.com</a></li>
             <li><a href="tel:+212672531624" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">+212 672-531624</a></li>
@@ -974,7 +974,7 @@
 
         <!-- Col 2 -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Expérience</h4>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Expérience</p>
           <ul class="space-y-3 list-none p-0 m-0">
             <li><a href="#fleet" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">La flotte</a></li>
             <li><a href="#events" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">Événements privés</a></li>
@@ -985,7 +985,7 @@
 
         <!-- Col 3 -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Légal</h4>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Légal</p>
           <ul class="space-y-3 list-none p-0 m-0">
             <li><a href="/terms" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">Conditions générales</a></li>
             <li><a href="/privacy" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">politique de confidentialité</a></li>
@@ -995,7 +995,7 @@
 
         <!-- Col 4 -->
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Sociale</h4>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">Sociale</p>
           <ul class="space-y-3 list-none p-0 m-0">
             <li><a href="#" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">Instagram</a></li>
             <li><a href="#" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA] transition-colors" style="text-decoration: none;">Tik Tok</a></li>
@@ -1345,8 +1345,8 @@
             <div class="price-label" style="font-size: 1rem; opacity: 0.9;"></div>
           </div>
           <div class="contact-options" style="border-top: 2px solid #e9ecef; padding-top: 25px;">
-            <h4 style="'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">
-              Contactez-nous</h4>
+            <h3 style="\'Playfair Display\', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">
+              Contactez-nous</h3>
             <a href="https://wa.me/212672531624" target="_blank" id="whatsapp-btn" class="contact-btn whatsapp-btn"
               style="display: block; background: #25D366; color: white; padding: 12px 20px; border-radius: 0; text-decoration: none; margin-bottom: 10px; font-weight: 600; transition: all 0.3s ease;">
               <i class="icon-whatsapp" style="margin-right: 10px;"></i> WhatsApp : +212 672 531 624
@@ -1483,8 +1483,8 @@
             <div class="price-label" style="font-size: 1rem; opacity: 0.9;"></div>
           </div>
           <div class="contact-options" style="border-top: 2px solid #e9ecef; padding-top: 25px;">
-            <h4 style="'Playfair Display', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">
-              Contactez-nous</h4>
+            <h3 style="\'Playfair Display\', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 20px;">
+              Contactez-nous</h3>
             <a href="https://wa.me/212672531624" target="_blank" id="whatsapp-btn-activity"
               class="contact-btn whatsapp-btn"
               style="display: block; background: #25D366; color: white; padding: 12px 20px; border-radius: 0; text-decoration: none; margin-bottom: 10px; font-weight: 600; transition: all 0.3s ease;">
