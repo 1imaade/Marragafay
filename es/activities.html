@@ -708,17 +708,16 @@
       border-color: #272724 !important;
     }
   </style>
-  <link rel="preload" href="/css/tailwind-built.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/css/tailwind-built.css"></noscript>
+  <link rel="stylesheet" href="/css/tailwind-built.css">
 </head>
 
 <body class="home" style="font-family: 'Clash Grotesk', sans-serif !important; overflow-x: hidden; /* Prevent horizontal scrolling issues */">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK8G4JC2" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
-  <nav class="navbar navbar-expand-lg bg-[#F6F7EA] text-[#272724] fixed top-0 z-[1000] w-full" style="position: fixed !important; top: 0 !important; background: #F6F7EA !important;" id="ftco-navbar">
+  <nav class="navbar navbar-expand-lg bg-[#F6F7EA] text-[#272724] fixed top-0 z-[1000] w-full" style="position: fixed !important; top: 0 !important; background: #F6F7EA !important; height: var(--nav-height, 72px);" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="./"><img src="/images/logo-trensparent.webp" alt="Marragafy"
-          style="width: 70px; height: 70px;"></a>
+          style="width: 70px; height: 70px;" width="70" height="70"></a>
       <div class="mobile-language-switcher">
         <a href="#" class="language-toggle text-[#272724]" id="languageDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -753,7 +752,7 @@
         <!-- Background Image -->
         <div class="absolute inset-0 w-full h-full">
           <!-- We use the existing slider image, but the layout matches the requested design -->
-          <img src="/images/Slider-images/slider-1.webp" alt="Casablanca" class="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/Slider-images/slider-1.webp" alt="Casablanca" width="1620" height="1080" style="aspect-ratio: 3/2;" class="absolute inset-0 w-full h-full object-cover" />
           <!-- Dark Overlay Gradient for text readability -->
           <div class="absolute inset-0 bg-gradient-to-t from-[#10100E]/90 via-[#10100E]/40 to-transparent"></div>
         </div>
