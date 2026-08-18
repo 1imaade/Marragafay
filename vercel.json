@@ -1,5 +1,12 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/activities", "destination": "/activities.html" },
+    { "source": "/en/activities", "destination": "/en/activities.html" },
+    { "source": "/fr/activities", "destination": "/fr/activities.html" },
+    { "source": "/es/activities", "destination": "/es/activities.html" },
+    { "source": "/ar/activities", "destination": "/ar/activities.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
