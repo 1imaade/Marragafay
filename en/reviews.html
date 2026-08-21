@@ -73,14 +73,7 @@
     }
   </style>
 
-<link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Eczar:wght@400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Montserrat:wght@800;900&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Eczar:wght@400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Montserrat:wght@800;900&display=swap">
-  </noscript>
-  <!-- Other preconnects -->  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+<!-- Other preconnects -->  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <!-- TASK 1: LCP hero image preload - FIRST resource hint, before all CSS -->
   <link rel="preload" as="image" href="/images/Slider-images/slider-1.webp" type="image/webp" fetchpriority="high">
@@ -399,27 +392,6 @@
         /* All other styles (font-family, weight, color, etc.) remain the same */
       }
     }
-
-    /* Open Sans font class for future use */
-    .open-sans-uniquifier {
-      font-family: "Open Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: normal;
-      /* Default weight, can be adjusted */
-      font-style: normal;
-      font-variation-settings: "wdth" 100;
-    }
-
-    /* Eczar font class for future use */
-    .eczar-uniquifier {
-      font-family: "Eczar", serif;
-      font-optical-sizing: auto;
-      font-weight: normal;
-      /* Default weight, can be adjusted */
-      font-style: normal;
-    }
-
-    /* Global font application - Removed old Overpass styles */
 
     /* Testimonials Slider Styles */
     .testimonials-slider-container {
@@ -1106,7 +1078,6 @@
         requestStats.timeline.push(entry);
         // Log to console
         if (DEBUG_MODE && LOG_TO_CONSOLE) {
-          console.log(`[REQUEST ${requestStats.total}] ${type} ${method} ${url}`);
         }
         // Send to server (optional)
         if (LOG_TO_SERVER) {
@@ -1151,13 +1122,6 @@
         getIntervals: () => activeIntervals,
         getTimeouts: () => activeTimeouts,
         printSummary: () => {
-          console.log('\n=== REQUEST SUMMARY ===');
-          console.log(`Total Requests: ${requestStats.total}`);
-          console.log('\nBy Type:', requestStats.byType);
-          console.log('\nBy Domain:', requestStats.byDomain);
-          console.log('\nActive Intervals:', activeIntervals.length);
-          console.log('\nActive Timeouts:', activeTimeouts.length);
-          console.log('\nRecent Requests (last 10):');
           console.table(requestStats.timeline.slice(-10));
         },
         reset: () => {
@@ -1165,7 +1129,6 @@
           requestStats.byType = {};
           requestStats.byDomain = {};
           requestStats.timeline = [];
-          console.log('Stats reset');
         },
         exportLogs: () => {
           const blob = new Blob([JSON.stringify(requestStats, null, 2)], { type: 'application/json' });
@@ -1182,14 +1145,10 @@
       window.addEventListener('beforeunload', () => {
         if (DEBUG_MODE && requestStats.total > 50) {
           console.warn(`⚠️ HIGH REQUEST COUNT: ${requestStats.total} requests made on this page`);
-          console.log('Top domains:', Object.entries(requestStats.byDomain).sort((a, b) => b[1] - a[1]).slice(0, 5));
         }
       });
       // Print initial message
       if (DEBUG_MODE && LOG_TO_CONSOLE) {
-        console.log('%c🔍 Request Monitoring Active', 'color: #4CAF50; font-weight: bold; font-size: 14px;');
-        console.log('Use window.debugRequests.printSummary() to see stats');
-        console.log('Use window.debugRequests.exportLogs() to download logs');
       }
     })();
   </script>
@@ -1659,9 +1618,7 @@
     });
   });
 </script>
-</body>
 
-</html>
 <style>
   /* Spinner animation for loading states */
   @keyframes spin {
@@ -1923,11 +1880,9 @@
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         // Recalculate any position-dependent animations if needed
-        console.log('FAQ layout recalculated for new viewport size');
       }, 250);
     });
     // Console log for debugging
-    console.log(`Enhanced FAQ animation system initialized successfully with ${faqHeaders.length} items`);
   });
 </script>
 <div id="image-lightbox" class="lightbox" onclick="closeLightbox()">
@@ -1947,12 +1902,10 @@
       // Try to find main carousel gallery
       if ($('.owl-carousel').length) {
         initCarouselGallery('.owl-carousel');
-        console.log('Lightbox initialized for Owl Carousel');
       }
       // Also init any static galleries
       if ($('.gallery-section').length) {
         initStaticGallery('.gallery-section');
-        console.log('Lightbox initialized for static gallery');
       }
     }, 500);
   });
@@ -2045,3 +1998,7 @@
     renderReviews();
   });
 </script>
+
+</body>
+
+</html>
