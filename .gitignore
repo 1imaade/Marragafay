@@ -1,5 +1,41 @@
-node_modules
-.DS_Store
-dist
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment and Secrets (CRITICAL)
 .env
-.vercel
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Build outputs & cache
+dist/
+build/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+
+# Backup and temp files
+*.bak
+*.backup
+*.tmp
+*.log
+*backup*.html
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
