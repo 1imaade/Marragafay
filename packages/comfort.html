@@ -1407,22 +1407,22 @@
         item.addEventListener('click', () => {
           const content = item.querySelector('.faq-content');
           const icon = item.querySelector('.faq-icon');
-
-          const isOpen = content.classList.contains('max-h-[500px]');
+          const isCurrentlyOpen = content.classList.contains('is-open') || content.classList.contains('grid-rows-[1fr]');
 
           // Close all first
           document.querySelectorAll('.faq-content').forEach(c => {
-            c.classList.remove('max-h-[500px]', 'opacity-100');
-            c.classList.add('max-h-0', 'opacity-0');
+            c.classList.remove('is-open', 'grid-rows-[1fr]', 'opacity-100', 'max-h-[500px]');
+            c.classList.add('grid-rows-[0fr]', 'opacity-0', 'max-h-0');
           });
           document.querySelectorAll('.faq-icon').forEach(i => {
-            i.textContent = '+';
+            i.classList.remove('is-open');
           });
 
-          if (!isOpen) {
-            content.classList.remove('max-h-0', 'opacity-0');
-            content.classList.add('max-h-[500px]', 'opacity-100');
-            icon.textContent = '−';
+          // Open clicked if was closed
+          if (!isCurrentlyOpen) {
+            content.classList.remove('grid-rows-[0fr]', 'opacity-0', 'max-h-0');
+            content.classList.add('is-open', 'grid-rows-[1fr]', 'opacity-100');
+            if (icon) icon.classList.add('is-open');
           }
         });
       });

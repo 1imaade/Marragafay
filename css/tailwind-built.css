@@ -51,36 +51,41 @@
 
 
 /* ============================================================
-   SMOOTH MOBILE FAQ ACCORDION (iOS Safari & Android Fix)
+   SMOOTH MOBILE FAQ ACCORDION (100% Butter Smooth - No Jitter)
    ============================================================ */
 .faq-content {
   display: grid !important;
   grid-template-rows: 0fr !important;
   opacity: 0 !important;
   max-height: none !important;
-  transition: grid-template-rows 350ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
-  will-change: grid-template-rows, opacity;
-  overflow: hidden !important;
   margin-top: 0 !important;
+  transition: grid-template-rows 350ms cubic-bezier(0.4, 0, 0.2, 1), opacity 280ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: grid-template-rows, opacity;
 }
 
-.faq-content > * {
-  overflow: hidden !important;
-  min-height: 0 !important;
-}
-
+.faq-content.is-open,
+.faq-content.grid-rows-\[1fr\],
 .faq-content.max-h-\[500px\],
-.faq-content.opacity-100,
-.faq-content.is-open {
+.faq-content.opacity-100 {
   grid-template-rows: 1fr !important;
   opacity: 1 !important;
-  margin-top: 0.5rem !important;
+}
+
+.faq-content > div,
+.faq-content > p {
+  overflow: hidden !important;
+  min-height: 0 !important;
+  padding-top: 0.5rem;
 }
 
 .faq-icon {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: inline-block !important;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms ease !important;
+  transform-origin: center center !important;
   will-change: transform;
+}
+
+.faq-icon.is-open {
+  transform: rotate(45deg) !important;
+  color: #FF5A36 !important;
 }
