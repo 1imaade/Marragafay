@@ -7,6 +7,9 @@
   ],
   "routes": [
     { "src": "/api/contact", "dest": "/api/contact.js" },
+    { "src": "/api/booking", "dest": "/api/booking.js" },
+    { "src": "/api/public/send-booking-email", "dest": "/api/booking.js" },
+    { "src": "/api/send-booking-email", "dest": "/api/booking.js" },
     { "src": "/api/(.*)", "dest": "/api/$1.js" },
     { "src": "/activities", "dest": "/activities.html" },
     { "src": "/en/activities", "dest": "/en/activities.html" },

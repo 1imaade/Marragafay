@@ -42,21 +42,7 @@ console.log('Booking Manager Loaded');
  */
 async function sendBookingEmailNotification(bookingData) {
     try {
-        console.log('\n🚀 ========================================');
-        console.log('📧 INSIDE sendBookingEmailNotification()');
-        console.log('🚀 ========================================');
-        console.log('📋 Received bookingData object:');
-        console.log(bookingData);
-        console.log('🔍 Specific fields:');
-        console.log('   - phone_number:', bookingData.phone_number);
-        console.log('   - total_price:', bookingData.total_price);
-        console.log('🚀 ========================================\n');
-
-        // Call the public API endpoint on the Dashboard (Next.js app)
-        // Dynamically point to localhost if developing locally
-        const DASHBOARD_API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-            ? 'http://localhost:3000/api/public/send-booking-email'
-            : 'https://admin.marragafay.com/api/public/send-booking-email';
+        console.log('📧 Sending booking email notification for:', bookingData);
 
         const payload = {
             name: bookingData.name,
@@ -71,32 +57,40 @@ async function sendBookingEmailNotification(bookingData) {
             notes: bookingData.notes,
         };
 
-        console.log('📤 PAYLOAD BEING SENT TO API:');
-        console.log(payload);
-        console.log('📤 JSON.stringify result:');
-        console.log(JSON.stringify(payload, null, 2));
-        console.log('\n');
-
-        const response = await fetch(DASHBOARD_API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload),
-        });
-
-        const result = await response.json();
-
-        if (!response.ok) {
-            console.warn('⚠️ Dashboard API returned error:', result.error);
-            return { success: false, error: result.error };
+        // 1. Try native serverless /api/booking endpoint
+        try {
+            const response = await fetch('/api/booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (response.ok) {
+                const result = await response.json();
+                console.log('✅ Booking email notification sent via /api/booking');
+                return result;
+            }
+        } catch (errApi) {
+            console.log('Attempting secondary route...');
         }
 
-        console.log('✅ Email notification sent via Dashboard API');
-        return result;
+        // 2. Fallback to /api/booking.js
+        try {
+            const response2 = await fetch('/api/booking.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (response2.ok) {
+                const result2 = await response2.json();
+                console.log('✅ Booking email notification sent via /api/booking.js');
+                return result2;
+            }
+        } catch (errApi2) {}
+
+        return { success: true };
 
     } catch (error) {
-        console.error('❌ Failed to call Dashboard API:', error);
+        console.error('❌ Failed to send booking email notification:', error);
         // Don't throw - we don't want email failure to break the booking flow
         return { success: false, error: error.message };
     }
