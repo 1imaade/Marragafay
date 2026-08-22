@@ -173,15 +173,26 @@
                 console.warn('Supabase DB save error:', errDb);
             }
 
-            // 2. Send Email via Vercel Serverless Function /api/contact
+            // 2. Send Email via Vercel Serverless Function (/api/contact or /api/contact.js)
             try {
-                await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+                let emailSent = false;
+                try {
+                    const res = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) emailSent = true;
+                } catch (e1) {}
+
+                if (!emailSent) {
+                    await fetch('/api/contact.js', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                }
             } catch (errApi) {
-                // On local Live Server (port 5501), /api/contact will not exist, but works on Vercel deployment
                 console.log('API email notification attempted');
             }
 
