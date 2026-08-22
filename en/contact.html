@@ -775,7 +775,7 @@
                 plan your expedition.
               </h2>
 
-              <form id="contact-form" onsubmit="return false;">
+              <form id="contact-form">
                 <!-- Full Name -->
                 <div class="flex flex-col mb-8">
                   <label for="contact-name" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Full Name</label>
@@ -811,6 +811,9 @@
                   <label for="contact-requirements" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Additional Requirements</label>
                   <textarea id="contact-requirements" name="requirements" rows="5" placeholder="Tell us about your preferences, dietary restrictions, or custom requests…" class="w-full bg-transparent border border-[#10100E]/20 p-4 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-[#10100E] rounded-none min-h-[120px] resize-y"></textarea>
                 </div>
+                <!-- Form Status Message -->
+                <div id="contact-form-message" class="hidden mb-6 p-5 text-sm transition-all duration-300"></div>
+
 
                 <!-- Submit Button -->
                 <button type="submit" class="w-full bg-[#272724] text-[#F6F7EA] text-[12px] font-semibold uppercase tracking-[0.15em] py-4 px-6 border-none cursor-pointer hover:bg-[#10100E] transition-colors duration-300" style="border-radius: 0;">
@@ -1820,6 +1823,9 @@
   });
 </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="/js/supabase-client.js"></script>
+  <script defer src="/js/contact-form.js"></script>
 </body>
 
 </html>
