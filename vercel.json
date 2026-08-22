@@ -28,6 +28,10 @@
     { "src": "/fr/blog/(.*)", "dest": "/fr/blog/$1.html" },
     { "src": "/es/blog/(.*)", "dest": "/es/blog/$1.html" },
     { "src": "/ar/blog/(.*)", "dest": "/ar/blog/$1.html" },
+    { "src": "/en/(agafay-desert-guide|agafay-camel-ride|agafay-desert-vs-sahara|agafay-dinner-experience|agafay-quad-biking-guide|berber-culture-agafay|marrakech-to-agafay)", "dest": "/en/blog/$1.html" },
+    { "src": "/fr/(agafay-desert-guide|agafay-camel-ride|agafay-desert-vs-sahara|agafay-dinner-experience|agafay-quad-biking-guide|berber-culture-agafay|marrakech-to-agafay)", "dest": "/fr/blog/$1.html" },
+    { "src": "/es/(agafay-desert-guide|agafay-camel-ride|agafay-desert-vs-sahara|agafay-dinner-experience|agafay-quad-biking-guide|berber-culture-agafay|marrakech-to-agafay)", "dest": "/es/blog/$1.html" },
+    { "src": "/ar/(agafay-desert-guide|agafay-camel-ride|agafay-desert-vs-sahara|agafay-dinner-experience|agafay-quad-biking-guide|berber-culture-agafay|marrakech-to-agafay)", "dest": "/ar/blog/$1.html" },
     { "handle": "filesystem" }
   ],
   "headers": [
