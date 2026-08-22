@@ -28,6 +28,101 @@ const PRICE_LIST = {
     "Camel": 10
 };
 
+// ═══════════════════════════════════════════════════════════════════
+// 🌐 SMART INTERNATIONAL PHONE & WHATSAPP AUTO-DETECTION
+// ═══════════════════════════════════════════════════════════════════
+(function () {
+    const COUNTRY_CALLING_CODES = {
+        'fr': '+33', 'gb': '+44', 'uk': '+44', 'us': '+1', 'ca': '+1',
+        'es': '+34', 'ma': '+212', 'de': '+49', 'it': '+39', 'be': '+32',
+        'ch': '+41', 'nl': '+31', 'pt': '+351', 'ae': '+971', 'sa': '+966',
+        'qa': '+974', 'kw': '+965', 'au': '+61', 'ie': '+353', 'se': '+46',
+        'no': '+47', 'dk': '+45', 'pl': '+48'
+    };
+
+    function detectVisitorPrefix() {
+        try {
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+            const userLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            const langCode = userLang.split('-')[0];
+            const countryCode = (userLang.split('-')[1] || '').toLowerCase();
+
+            if (timeZone.includes('Paris')) return '+33';
+            if (timeZone.includes('London')) return '+44';
+            if (timeZone.includes('Madrid')) return '+34';
+            if (timeZone.includes('Berlin') || timeZone.includes('Frankfurt')) return '+49';
+            if (timeZone.includes('Rome')) return '+39';
+            if (timeZone.includes('Brussels')) return '+32';
+            if (timeZone.includes('Amsterdam')) return '+31';
+            if (timeZone.includes('Zurich') || timeZone.includes('Geneva')) return '+41';
+            if (timeZone.includes('Lisbon')) return '+351';
+            if (timeZone.includes('Casablanca')) return '+212';
+            if (timeZone.includes('Dubai')) return '+971';
+            if (timeZone.includes('Riyadh')) return '+966';
+            if (timeZone.includes('New_York') || timeZone.includes('Chicago') || timeZone.includes('Los_Angeles')) return '+1';
+            if (timeZone.includes('Toronto') || timeZone.includes('Vancouver')) return '+1';
+            if (timeZone.includes('Sydney') || timeZone.includes('Melbourne')) return '+61';
+
+            if (countryCode && COUNTRY_CALLING_CODES[countryCode]) return COUNTRY_CALLING_CODES[countryCode];
+            if (COUNTRY_CALLING_CODES[langCode]) return COUNTRY_CALLING_CODES[langCode];
+        } catch (e) {}
+        return '+212';
+    }
+
+    const detectedPrefix = detectVisitorPrefix();
+
+    function formatInternationalNumber(raw) {
+        if (!raw) return '';
+        let cleaned = raw.trim().replace(/[\s\-\(\)]/g, '');
+        if (cleaned.startsWith('+')) return cleaned;
+        if (cleaned.startsWith('00')) return '+' + cleaned.substring(2);
+        if (cleaned.startsWith('0')) return detectedPrefix + ' ' + cleaned.substring(1);
+        if (/^\d{8,11}$/.test(cleaned)) return detectedPrefix + ' ' + cleaned;
+        return detectedPrefix + ' ' + cleaned;
+    }
+
+    function initPhoneInputs() {
+        const phoneInputs = document.querySelectorAll('input[type="tel"], input[name="phone"], input[name="phone_number"]');
+        phoneInputs.forEach(input => {
+            if (input.dataset.smartPhoneAttached) return;
+            input.dataset.smartPhoneAttached = 'true';
+
+            if (detectedPrefix && input.placeholder && input.placeholder.includes('+212')) {
+                input.placeholder = detectedPrefix + ' 600...';
+            }
+
+            input.addEventListener('focus', function () {
+                if (!this.value.trim()) {
+                    this.value = detectedPrefix + ' ';
+                }
+            });
+
+            input.addEventListener('blur', function () {
+                if (this.value.trim() === detectedPrefix || this.value.trim() === '+') {
+                    this.value = '';
+                } else if (this.value.trim()) {
+                    this.value = formatInternationalNumber(this.value);
+                }
+            });
+
+            input.addEventListener('input', function () {
+                if (this.value.startsWith('++')) {
+                    this.value = '+' + this.value.replace(/^\++/, '');
+                }
+            });
+        });
+    }
+
+    window.formatInternationalPhone = formatInternationalNumber;
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPhoneInputs);
+    } else {
+        initPhoneInputs();
+    }
+    document.addEventListener('click', () => setTimeout(initPhoneInputs, 300));
+})();
+
 console.log('Booking Manager Loaded');
 
 /**
@@ -173,6 +268,13 @@ document.addEventListener('submit', async function (e) {
         if (!phoneNumber) {
             phoneNumber = phoneInputElement?.value || formData.get('phone') || formData.get('phone_number') || '';
             console.log('📱 Phone from single input/FormData:', phoneNumber);
+        }
+
+        // Automatic International Country Code Formatting
+        if (phoneNumber && phoneNumber !== 'Not provided') {
+            if (typeof window.formatInternationalPhone === 'function') {
+                phoneNumber = window.formatInternationalPhone(phoneNumber);
+            }
         }
 
         // Final fallback
@@ -456,9 +558,24 @@ document.addEventListener('submit', async function (e) {
                     console.error('❌ Email notification error:', err);
                 });
 
-            localStorage.setItem('recentBooking', JSON.stringify({ name: bookingData.name, date: bookingData.date, package_name: bookingData.package_title, guests_total: bookingData.guests, total_price: total, whatsapp: bookingData.phone_number }));
-            // Forcibly trigger a JavaScript redirect to the new dedicated success page
-            window.location.href = '../success';
+            localStorage.setItem('recentBooking', JSON.stringify({
+                name: bookingData.name,
+                date: bookingData.date,
+                package_name: bookingData.package_title,
+                guests_total: bookingData.guests,
+                total_price: total,
+                whatsapp: bookingData.phone_number
+            }));
+
+            // Redirect to appropriate language success page (compatible with both local Live Server and Vercel)
+            const currentPath = window.location.pathname;
+            let targetSuccess = '/success.html';
+            if (currentPath.includes('/en/')) targetSuccess = '/en/success.html';
+            else if (currentPath.includes('/fr/')) targetSuccess = '/fr/success.html';
+            else if (currentPath.includes('/es/')) targetSuccess = '/es/success.html';
+            else if (currentPath.includes('/ar/')) targetSuccess = '/ar/success.html';
+
+            window.location.href = targetSuccess;
 
         } catch (error) {
             // Error handling - Beautiful error popup
