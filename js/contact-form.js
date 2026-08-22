@@ -63,6 +63,12 @@
         const form = document.getElementById('contact-form');
         if (!form) return;
 
+        // Set min date to today
+        const dateInput = document.getElementById('contact-date') || form.querySelector('input[type="date"]');
+        if (dateInput) {
+            dateInput.min = new Date().toISOString().split('T')[0];
+        }
+
         form.removeAttribute('onsubmit');
         form.addEventListener('submit', handleContactSubmit);
     }

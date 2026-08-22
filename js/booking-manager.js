@@ -91,6 +91,12 @@ const PRICE_LIST = {
                 input.placeholder = detectedPrefix + ' 600...';
             }
 
+            // Enforce LTR phone input on Arabic pages so + and digits type correctly
+            if (document.documentElement.lang === 'ar' || document.documentElement.dir === 'rtl') {
+                input.style.direction = 'ltr';
+                input.style.textAlign = 'right';
+            }
+
             input.addEventListener('focus', function () {
                 if (!this.value.trim()) {
                     this.value = detectedPrefix + ' ';
@@ -113,14 +119,29 @@ const PRICE_LIST = {
         });
     }
 
+    function initDateInputs() {
+        try {
+            const today = new Date().toISOString().split('T')[0];
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(input => {
+                input.min = today;
+            });
+        } catch (e) {}
+    }
+
     window.formatInternationalPhone = formatInternationalNumber;
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initPhoneInputs);
-    } else {
+    function initAllFormHelpers() {
         initPhoneInputs();
+        initDateInputs();
     }
-    document.addEventListener('click', () => setTimeout(initPhoneInputs, 300));
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAllFormHelpers);
+    } else {
+        initAllFormHelpers();
+    }
+    document.addEventListener('click', () => setTimeout(initAllFormHelpers, 300));
 })();
 
 console.log('Booking Manager Loaded');
@@ -476,6 +497,29 @@ document.addEventListener('submit', async function (e) {
                 alert('Please enter a valid phone number (numbers, spaces, +, and - only).');
             }
             return;
+        }
+
+        // Validate date is not in the past
+        if (bookingData.date) {
+            const today = new Date().toISOString().split('T')[0];
+            if (bookingData.date < today) {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = submitBtn.dataset.originalText || 'Book Now';
+                }
+                if (window.Swal) {
+                    Swal.fire({
+                        title: 'Invalid Date',
+                        text: 'Please select today or a future date for your booking.',
+                        icon: 'warning',
+                        confirmButtonText: 'Got it',
+                        confirmButtonColor: '#bc6c25'
+                    });
+                } else {
+                    alert('Please select today or a future date for your booking.');
+                }
+                return;
+            }
         }
 
         // Check for missing critical fields

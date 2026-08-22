@@ -16,6 +16,9 @@
     { "src": "/fr/activities", "dest": "/fr/activities.html" },
     { "src": "/es/activities", "dest": "/es/activities.html" },
     { "src": "/ar/activities", "dest": "/ar/activities.html" },
+    { "src": "/terms", "dest": "/terms.html" },
+    { "src": "/privacy", "dest": "/privacy.html" },
+    { "src": "/cancellation", "dest": "/cancellation.html" },
     { "handle": "filesystem" }
   ],
   "headers": [
