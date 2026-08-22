@@ -16,4 +16,4 @@ User-agent: MJ12bot
 Disallow: /
 
 # Sitemaps
-Sitemap: https://marragafay.com/sitemap.xml
+Sitemap: https://www.marragafay.com/sitemap.xml
