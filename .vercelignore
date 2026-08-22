@@ -35,3 +35,13 @@ scss/
 # Duplicate/backup folders
 Marragafay/
 Admine Dashboard/
+
+# ─── BLOG DEPLOYMENT READY ────────────────────────
+# Old legacy stubs
+blog-single.html
+en/blog.html
+fr/blog.html
+es/blog.html
+ar/blog.html
+
+# ────────────────────────────────────────────────────────────────────────────

@@ -173,35 +173,37 @@ async function sendBookingEmailNotification(bookingData) {
             notes: bookingData.notes,
         };
 
-        // 1. Try native serverless /api/booking endpoint
+        // Determine API endpoint (use live Vercel endpoint when testing on local dev server)
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const endpoint = isLocal ? 'https://www.marragafay.com/api/booking' : '/api/booking';
+
         try {
-            const response = await fetch('/api/booking', {
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
             if (response.ok) {
                 const result = await response.json();
-                console.log('✅ Booking email notification sent via /api/booking');
+                console.log('✅ Booking email notification sent via', endpoint);
                 return result;
             }
         } catch (errApi) {
-            console.log('Attempting secondary route...');
-        }
-
-        // 2. Fallback to /api/booking.js
-        try {
-            const response2 = await fetch('/api/booking.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            if (response2.ok) {
-                const result2 = await response2.json();
-                console.log('✅ Booking email notification sent via /api/booking.js');
-                return result2;
+            console.warn('Primary email dispatch error:', errApi);
+            // Fallback for live production
+            if (!isLocal) {
+                try {
+                    const response2 = await fetch('/api/booking.js', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (response2.ok) {
+                        return await response2.json();
+                    }
+                } catch (e2) {}
             }
-        } catch (errApi2) {}
+        }
 
         return { success: true };
 
@@ -236,6 +238,13 @@ document.addEventListener('submit', async function (e) {
         console.log('Form submission detected via Delegation!');
 
         const form = e.target;
+
+        // Anti-Spam & Double Submission Guard
+        if (form.dataset.submitting === 'true') {
+            console.warn('⚠️ Booking already in progress, ignoring duplicate click.');
+            return;
+        }
+        form.dataset.submitting = 'true';
 
         // UX: Immediate feedback & prevent double submission
         const submitBtn = form.querySelector('button[type="submit"]');
@@ -503,6 +512,7 @@ document.addEventListener('submit', async function (e) {
         if (bookingData.date) {
             const today = new Date().toISOString().split('T')[0];
             if (bookingData.date < today) {
+                form.dataset.submitting = 'false';
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.innerText = submitBtn.dataset.originalText || 'Book Now';
@@ -524,6 +534,7 @@ document.addEventListener('submit', async function (e) {
 
         // Check for missing critical fields
         if (!bookingData.name || !bookingData.phone_number) {
+            form.dataset.submitting = 'false';
 
             // Re-enable button if validation fails
             if (submitBtn) {

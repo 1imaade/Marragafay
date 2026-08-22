@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>المجلة &#8212; قصص وتجارب صحراء أكافاي | ماراكافاي</title>
+  <meta name="description" content="مذكرات ميدانية، أدلة حصرية وتجارب فريدة في صحراء أكافاي الحجرية بالقرب من مراكش." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://marragafay.com/ar/blog" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="المجلة &#8212; قصص وتجارب صحراء أكافاي | ماراكافاي" />
+  <meta property="og:description" content="مذكرات ميدانية وتجارب فاخرة في صحراء أكافاي بالقرب من مراكش." />
+  <meta property="og:url" content="https://marragafay.com/ar/blog" />
+  <meta property="og:image" content="https://marragafay.com/images/Slider-images/slider-1.webp" />
+
+  <link rel="alternate" hreflang="en" href="https://marragafay.com/en/blog" />
+  <link rel="alternate" hreflang="fr" href="https://marragafay.com/fr/blog" />
+  <link rel="alternate" hreflang="es" href="https://marragafay.com/es/blog" />
+  <link rel="alternate" hreflang="ar" href="https://marragafay.com/ar/blog" />
+  <link rel="alternate" hreflang="x-default" href="https://marragafay.com/blog" />
+
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/vendor-bundle.css" />
+  <link rel="stylesheet" href="/css/custom-bundle.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/navbar-stayhere.css" />
+  <link rel="stylesheet" href="/css/tailwind-built.css" />
+
+  <style>
+    * { font-family: 'Clash Grotesk', system-ui, -apple-system, sans-serif !important; }
+    html, body { background-color: #F6F7EA; color: #272724; margin: 0; padding: 0; }
+    body.blog { background-color: #F6F7EA; }
+    .journal-page { padding-top: var(--nav-height, 72px); }
+    .journal-hero { background-color: #F6F7EA; padding: 80px 0 60px; border-bottom: 1px solid rgba(39,39,36,0.12); }
+    .journal-hero__inner { max-width: 1440px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; }
+    .journal-hero__eyebrow { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #523225; margin-bottom: 28px; }
+    .journal-hero__headline { font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; line-height: 1.1; color: #272724; margin: 0 0 24px; max-width: 900px; }
+    .journal-hero__subline { font-size: clamp(1rem, 1.5vw, 1.2rem); font-weight: 400; color: #7a756e; max-width: 540px; line-height: 1.7; margin: 0 0 48px; }
+    .category-filter { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .category-pill { display: inline-flex; align-items: center; padding: 8px 18px; border-radius: 999px; border: 1px solid rgba(39,39,36,0.2); font-size: 13px; font-weight: 600; color: #272724; background: transparent; cursor: pointer; transition: all 0.22s ease; }
+    .category-pill.active { background: #272724; color: #F6F7EA; border-color: #272724; }
+    .journal-section { max-width: 1440px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; }
+    .journal-section-wrap { padding: 80px 0; }
+    .section-label { font-size: 12px; font-weight: 700; color: #523225; margin-bottom: 32px; display: flex; align-items: center; gap: 14px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(39,39,36,0.1); display: block; }
+    .featured-article { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: #EEF0E2; border-radius: 4px; overflow: hidden; min-height: 520px; }
+    .featured-article__image-wrap { position: relative; overflow: hidden; }
+    .featured-article__image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-article__content { padding: 60px 60px 60px 64px; display: flex; flex-direction: column; justify-content: center; background: #EEF0E2; box-sizing: border-box; }
+    .featured-article__title { font-size: clamp(1.8rem, 3.2vw, 2.75rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #272724; margin: 0 0 20px; }
+    .featured-article__excerpt { font-size: 1.05rem; line-height: 1.75; color: #5a5a54; margin: 0 0 32px; max-width: 540px; }
+    .featured-article__cta { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: #272724; text-decoration: none; border-bottom: 1.5px solid #272724; padding-bottom: 2px; width: fit-content; }
+    .article-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .article-card { background: #EEF0E2; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform 0.28s; text-align: right; }
+    .article-card:hover { transform: translateY(-4px); }
+    .article-card__image-wrap { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+    .article-card__image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .article-card__body { padding: 30px 28px 26px; display: flex; flex-direction: column; flex: 1; box-sizing: border-box; }
+    .article-card__title { font-size: 1.15rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; color: #272724; margin: 0 0 12px; }
+    .article-card__excerpt { font-size: 0.925rem; line-height: 1.7; color: #5a5a54; margin: 0 0 20px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .newsletter-section { background: #272724; padding: 90px 0; text-align: center; }
+    .newsletter-headline { font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: #F6F7EA; margin: 0 0 18px; }
+    .newsletter-form { display: flex; max-width: 520px; border-radius: 100px; padding: 4px 4px 4px 20px; align-items: center; margin: 0 auto; border: 1px solid rgba(246,247,234,0.2); border-radius: 3px; }
+    .newsletter-form__input { flex: 1; background: transparent; border: none; outline: none; padding: 16px 20px; font-size: 14px; color: #F6F7EA; text-align: right; }
+    .newsletter-form__btn { background: #523225; color: #F6F7EA; border: none; padding: 16px 28px; font-size: 13px; font-weight: 700; cursor: pointer; }
+    @media (max-width: 1024px) { .article-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 768px) {
+      .featured-article { grid-template-columns: 1fr; }
+      .featured-article__image-wrap { height: 280px; }
+      .article-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body class="blog">
+  <nav style="height: var(--nav-height, 72px);" class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/ar/"><img src="/images/logo-trensparent.webp" alt="Marragafay" style="width: 70px; height: 70px;" width="70" height="70"></a>
+      <div class="mobile-language-switcher">
+        <a href="#" class="language-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-globe"></i> <span>AR</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
+          <a class="dropdown-item lang-option" href="#" data-lang="en">English</a>
+          <a class="dropdown-item lang-option" href="#" data-lang="fr">Français</a>
+          <a class="dropdown-item lang-option" href="#" data-lang="es">Español</a>
+          <a class="dropdown-item lang-option" href="#" data-lang="ar" dir="rtl">العربية</a>
+        </div>
+      </div>
+      <button class="navbar-toggler" type="button" aria-label="Toggle navigation"><span class="icon-menu"></span></button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="/ar/" class="nav-link">الرئيسية</a></li>
+          <li class="nav-item"><a href="/ar/activities" class="nav-link">الأنشطة</a></li>
+          <li class="nav-item"><a href="/ar/packs" class="nav-link">الباقات</a></li>
+          <li class="nav-item"><a href="/ar/about" class="nav-link">من نحن</a></li>
+          <li class="nav-item"><a href="/ar/reviews" class="nav-link">التقييمات</a></li>
+          <li class="nav-item active"><a href="/ar/blog" class="nav-link">المجلة</a></li>
+          <li class="nav-item"><a href="/ar/contact" class="nav-link">اتصل بنا</a></li>
+          <li class="nav-item"><a href="/ar/packs" class="nav-link booking-btn">الحجز</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="journal-page">
+    <section class="journal-hero">
+      <div class="journal-hero__inner">
+        <span class="journal-hero__eyebrow">المجلة.</span>
+        <h1 class="journal-hero__headline">قصص وتجارب من<br>الصحراء الحجرية.</h1>
+        <p class="journal-hero__subline">مذكرات ميدانية، أدلة حصرية ولقاءات استثنائية في صحراء أكافاي الساحرة.</p>
+        <hr style="border: 0; border-top: 1px solid rgba(39,39,36,0.12); margin: 0 0 36px;" />
+        <div class="category-filter">
+          <button class="category-pill active">جميع المقالات</button>
+          <button class="category-pill">دليل الصحراء</button>
+          <button class="category-pill">تجارب فاخرة</button>
+          <button class="category-pill">الثقافة والتراث</button>
+          <button class="category-pill">نصائح السفر</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="journal-section-wrap">
+      <div class="journal-section">
+        <p class="section-label">المقال الرئيسي</p>
+        <article class="featured-article">
+          <div class="featured-article__image-wrap">
+            <img src="/images/Slider-images/slider-1.webp" alt="صحراء أكافاي عند الغروب" loading="eager" decoding="async" />
+          </div>
+          <div class="featured-article__content">
+            <p style="font-size: 11px; font-weight: 700; color: #523225; margin-bottom: 12px;">دليل الصحراء</p>
+            <h2 class="featured-article__title">الدليل الشامل لصحراء أكافاي &#8212; اكتشف سحر الصحراء الحجرية</h2>
+            <p class="featured-article__excerpt">ما يميز أكافاي عن الصحراء الكبرى ولماذا يفضلها الزوار على بعد 45 دقيقة فقط من مراكش. دليلك الكامل لتجربة استثنائية.</p>
+            <a href="/en/blog/agafay-desert-guide.html" class="featured-article__cta">
+              اقرأ المقال الكامل &larr;
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="journal-section-wrap" style="padding-top: 0;">
+      <div class="journal-section">
+        <p class="section-label">من الأرشيف</p>
+        <div class="article-grid">
+          <a href="/en/blog/agafay-camel-ride.html" class="article-card">
+            <div class="article-card__image-wrap"><img src="/images/Slider-images/slider-3.webp" alt="ركوب الجمال في أكافاي" /></div>
+            <div class="article-card__body">
+              <h3 class="article-card__title">جولة الجمال عند الغروب: كل ما تحتاج معرفته</h3>
+              <p class="article-card__excerpt">سكينة الصحراء عند المغيب وتجربة ركوب الجمال الخاصة بين تلال أكافاي.</p>
+            </div>
+          </a>
+
+          <a href="/en/blog/agafay-dinner-experience.html" class="article-card">
+            <div class="article-card__image-wrap"><img src="/images/activites/show.webp" alt="عشاء خاص في صحراء أكافاي" /></div>
+            <div class="article-card__body">
+              <h3 class="article-card__title">العشاء تحت أضواء النجوم: أمسية مغربية فاخرة</h3>
+              <p class="article-card__excerpt">فوانيس الشموع، أشهى المأكولات المغربية وسماء صحراوية تتلألأ بالنجوم.</p>
+            </div>
+          </a>
+
+          <a href="/en/blog/agafay-desert-vs-sahara.html" class="article-card">
+            <div class="article-card__image-wrap"><img src="/images/Slider-images/slider-2.webp" alt="مقارنة أكافاي والصحراء الكبرى" /></div>
+            <div class="article-card__body">
+              <h3 class="article-card__title">صحراء أكافاي أم الصحراء الكبرى: أيهما تختار؟</h3>
+              <p class="article-card__excerpt">مقارنة شاملة في المسافة، التكاليف، وطبيعة التضاريس لتنظيم رحلتك المثالية.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="bg-[#10100E] text-[#F6F7EA] pt-20 pb-10 px-6 md:px-16" style="text-align: right;">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16 overflow-hidden w-full">
+        <p class="text-[12vw] sm:text-[10vw] md:text-[80px] lg:text-[120px] xl:text-[150px] leading-[0.8] tracking-tighter whitespace-nowrap font-bold uppercase mb-6 text-[#F6F7EA]">MARRAGAFAY.</p>
+        <p class="text-[#8e8e88] text-[14px] md:text-[16px] max-w-md leading-relaxed">إعادة تعريف تجربة صحراء أكافاي الحجرية. فخامة بلا تنازل، أساطيل حصرية وخبرة محلية معتمدة.</p>
+      </div>
+      <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 40px 0;">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[14px]">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">تواصل معنا</p>
+          <ul class="space-y-3 list-none p-0 m-0">
+            <li><a href="mailto:marragafay@gmail.com" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">marragafay@gmail.com</a></li>
+            <li><a href="tel:+212672531624" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">+212 672-531624</a></li>
+            <li class="text-[#F6F7EA]/90">صحراء أكافاي، مراكش، المغرب</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">روابط سريعة</p>
+          <ul class="space-y-3 list-none p-0 m-0">
+            <li><a href="/ar/activities" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">الأنشطة</a></li>
+            <li><a href="/ar/packs" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">الباقات</a></li>
+            <li><a href="/ar/reviews" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">التقييمات</a></li>
+            <li><a href="/ar/blog" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">المجلة</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">قانوني</p>
+          <ul class="space-y-3 list-none p-0 m-0">
+            <li><a href="/ar/terms" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">الشروط والأحكام</a></li>
+            <li><a href="/ar/privacy" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">سياسة الخصوصية</a></li>
+            <li><a href="/ar/cancellation" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">سياسة الإلغاء</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#F6F7EA] mb-6">تابعنا</p>
+          <ul class="space-y-3 list-none p-0 m-0">
+            <li><a href="https://www.instagram.com/marragafay" target="_blank" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">Instagram</a></li>
+            <li><a href="https://wa.me/212672531624" target="_blank" class="text-[#F6F7EA]/90 hover:text-[#F6F7EA]">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 40px 0;">
+      <div class="flex justify-between items-center text-xs text-[#F6F7EA]/90">
+        <div>&copy; 2026 ماراكافاي. جميع الحقوق محفوظة.</div>
+        <div>صُمم في مراكش.</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

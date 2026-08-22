@@ -76,6 +76,11 @@
     async function handleContactSubmit(e) {
         e.preventDefault();
         const form = e.target;
+
+        // Prevent rapid double-clicks and duplicate submissions
+        if (form.dataset.submitting === 'true') return;
+        form.dataset.submitting = 'true';
+
         const submitBtn = form.querySelector('button[type="submit"]');
         const lang = getLang();
         const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
@@ -96,12 +101,14 @@
 
         // Validation
         if (!name || !email || !phone) {
+            form.dataset.submitting = 'false';
             displayStatus(form, t.validationMsg, 'error');
             return;
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
+            form.dataset.submitting = 'false';
             displayStatus(form, t.validationMsg, 'error');
             return;
         }
@@ -179,11 +186,14 @@
                 console.warn('Supabase DB save error:', errDb);
             }
 
-            // 2. Send Email via Vercel Serverless Function (/api/contact or /api/contact.js)
+            // 2. Send Email via Vercel Serverless Function
             try {
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const endpoint = isLocal ? 'https://www.marragafay.com/api/contact' : '/api/contact';
+
                 let emailSent = false;
                 try {
-                    const res = await fetch('/api/contact', {
+                    const res = await fetch(endpoint, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
@@ -191,7 +201,7 @@
                     if (res.ok) emailSent = true;
                 } catch (e1) {}
 
-                if (!emailSent) {
+                if (!emailSent && !isLocal) {
                     await fetch('/api/contact.js', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },

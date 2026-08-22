@@ -19,6 +19,15 @@
     { "src": "/terms", "dest": "/terms.html" },
     { "src": "/privacy", "dest": "/privacy.html" },
     { "src": "/cancellation", "dest": "/cancellation.html" },
+    { "src": "/blog", "dest": "/blog.html" },
+    { "src": "/en/blog", "dest": "/en/blog/index.html" },
+    { "src": "/fr/blog", "dest": "/fr/blog/index.html" },
+    { "src": "/es/blog", "dest": "/es/blog/index.html" },
+    { "src": "/ar/blog", "dest": "/ar/blog/index.html" },
+    { "src": "/en/blog/(.*)", "dest": "/en/blog/$1.html" },
+    { "src": "/fr/blog/(.*)", "dest": "/fr/blog/$1.html" },
+    { "src": "/es/blog/(.*)", "dest": "/es/blog/$1.html" },
+    { "src": "/ar/blog/(.*)", "dest": "/ar/blog/$1.html" },
     { "handle": "filesystem" }
   ],
   "headers": [
