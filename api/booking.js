@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     const waCleanNumber = (customerPhone || '').replace(/[^0-9]/g, '');
     const waUrl = waCleanNumber ? `https://wa.me/${waCleanNumber}` : '#';
 
-    // Clean, Simple, Compact Booking Template (Exact Requested Fields Only)
+    // Distinct, Clean, Professional Booking Receipt Email
     const emailHtml = `
 <!DOCTYPE html>
 <html>
@@ -58,67 +58,84 @@ export default async function handler(req, res) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 0; padding: 20px 12px; background-color: #FAFAFA; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; color: #111111;">
+<body style="margin: 0; padding: 24px 12px; background-color: #F4F4F5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; color: #18181B;">
   
-  <div style="max-width: 480px; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #EAEAEA; border-radius: 6px; padding: 22px 24px 18px 24px;">
+  <div style="max-width: 480px; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #E4E4E7; border-top: 3px solid #18181B; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
     
-    <!-- Brand -->
-    <div style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #666666; margin-bottom: 4px;">
-      MARRAGAFAY · RESERVATION
-    </div>
-    
-    <div style="font-size: 17px; font-weight: 600; color: #111111; margin-bottom: 16px;">
-      New Booking: ${experienceTitle}
+    <!-- Top Header Banner -->
+    <div style="padding: 20px 24px 16px 24px; background-color: #FAFAFA; border-bottom: 1px solid #F4F4F5;">
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td>
+            <div style="font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #71717A;">
+              MARRAGAFAY BOOKING
+            </div>
+            <div style="font-size: 16px; font-weight: 700; color: #18181B; margin-top: 2px;">
+              ${experienceTitle}
+            </div>
+          </td>
+          <td style="text-align: right; vertical-align: middle;">
+            <span style="display: inline-block; background-color: #18181B; color: #FFFFFF; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; text-transform: uppercase;">
+              RESERVATION
+            </span>
+          </td>
+        </tr>
+      </table>
     </div>
 
-    <div style="height: 1px; background-color: #EAEAEA; margin-bottom: 16px;"></div>
+    <!-- Main Content -->
+    <div style="padding: 20px 24px 22px 24px;">
+      
+      <!-- Key-Value Info -->
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 18px;">
+        <tr>
+          <td style="padding: 6px 0; width: 110px; font-size: 13px; color: #71717A;">Customer</td>
+          <td style="padding: 6px 0; font-size: 14px; font-weight: 600; color: #18181B;">${customerName}</td>
+        </tr>
+        <tr>
+          <td style="padding: 6px 0; font-size: 13px; color: #71717A;">WhatsApp</td>
+          <td style="padding: 6px 0; font-size: 14px; font-weight: 600; color: #18181B;">
+            <a href="${waUrl}" style="color: #18181B; text-decoration: none;">${customerPhone || 'Not provided'}</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 6px 0; font-size: 13px; color: #71717A;">Booking Date</td>
+          <td style="padding: 6px 0; font-size: 14px; font-weight: 600; color: #18181B;">${date || 'Flexible'}</td>
+        </tr>
+        <tr>
+          <td style="padding: 6px 0; font-size: 13px; color: #71717A;">Guests</td>
+          <td style="padding: 6px 0; font-size: 14px; font-weight: 500; color: #18181B;">${adultsCount} Adults, ${childrenCount} Children</td>
+        </tr>
+      </table>
 
-    <!-- Info List -->
-    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-      <tr>
-        <td style="padding: 5px 0; width: 115px; font-size: 13px; color: #777777; vertical-align: top;">Experience</td>
-        <td style="padding: 5px 0; font-size: 14px; font-weight: 600; color: #111111;">${experienceTitle}</td>
-      </tr>
-      <tr>
-        <td style="padding: 5px 0; font-size: 13px; color: #777777; vertical-align: top;">Customer</td>
-        <td style="padding: 5px 0; font-size: 14px; font-weight: 600; color: #111111;">${customerName}</td>
-      </tr>
-      <tr>
-        <td style="padding: 5px 0; font-size: 13px; color: #777777; vertical-align: top;">WhatsApp</td>
-        <td style="padding: 5px 0; font-size: 14px; font-weight: 500; color: #111111;">
-          <a href="${waUrl}" style="color: #111111; text-decoration: none;">${customerPhone || 'Not provided'}</a>
-        </td>
-      </tr>
-      <tr>
-        <td style="padding: 5px 0; font-size: 13px; color: #777777; vertical-align: top;">Date</td>
-        <td style="padding: 5px 0; font-size: 14px; font-weight: 500; color: #111111;">${date || 'Flexible'}</td>
-      </tr>
-      <tr>
-        <td style="padding: 5px 0; font-size: 13px; color: #777777; vertical-align: top;">Adults</td>
-        <td style="padding: 5px 0; font-size: 14px; font-weight: 500; color: #111111;">${adultsCount}</td>
-      </tr>
-      <tr>
-        <td style="padding: 5px 0; font-size: 13px; color: #777777; vertical-align: top;">Children</td>
-        <td style="padding: 5px 0; font-size: 14px; font-weight: 500; color: #111111;">${childrenCount}</td>
-      </tr>
-      <tr>
-        <td style="padding: 5px 0; font-size: 13px; color: #777777; vertical-align: top;">Total Price</td>
-        <td style="padding: 5px 0; font-size: 15px; font-weight: 700; color: #111111;">${total_price || 'N/A'}</td>
-      </tr>
-    </table>
+      <!-- Prominent Total Price Card -->
+      <div style="background-color: #FAFAFA; border: 1px solid #E4E4E7; border-radius: 6px; padding: 12px 16px; margin-bottom: 20px;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #71717A;">
+              Total Amount
+            </td>
+            <td style="text-align: right; font-size: 18px; font-weight: 800; color: #18181B;">
+              ${total_price || 'N/A'}
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    <!-- Actions: Only Contact Customer on WhatsApp -->
-    ${waCleanNumber ? `
-    <div style="margin-bottom: 20px;">
-      <a href="${waUrl}" target="_blank" style="display: inline-block; background-color: #111111; color: #FFFFFF !important; font-size: 13px; font-weight: 500; padding: 10px 18px; border-radius: 4px; text-decoration: none;">
-        Contact Customer on WhatsApp
-      </a>
+      <!-- Action Button -->
+      ${waCleanNumber ? `
+      <div>
+        <a href="${waUrl}" target="_blank" style="display: block; text-align: center; background-color: #18181B; color: #FFFFFF !important; font-size: 13px; font-weight: 600; padding: 11px 20px; border-radius: 6px; text-decoration: none; letter-spacing: 0.2px;">
+          Contact Customer on WhatsApp ↗
+        </a>
+      </div>
+      ` : ''}
+
     </div>
-    ` : ''}
 
     <!-- Footer -->
-    <div style="border-top: 1px solid #EAEAEA; padding-top: 12px; font-size: 11px; color: #999999;">
-      Sent from Marragafay website · ${new Date().toUTCString()}
+    <div style="padding: 12px 24px; background-color: #FAFAFA; border-top: 1px solid #F4F4F5; font-size: 11px; color: #A1A1AA; text-align: center;">
+      Marragafay Experience Booking · ${new Date().toUTCString()}
     </div>
 
   </div>
@@ -137,7 +154,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: 'Marragafay Bookings <onboarding@resend.dev>',
         to: [TO_EMAIL],
-        subject: `⚡ New Booking: ${experienceTitle} - ${customerName}`,
+        subject: `🎟️ BOOKING: ${experienceTitle} - ${customerName} (${total_price || ''})`,
         html: emailHtml
       })
     });
