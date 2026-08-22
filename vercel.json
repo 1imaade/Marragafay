@@ -1,11 +1,18 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/activities", "destination": "/activities.html" },
-    { "source": "/en/activities", "destination": "/en/activities.html" },
-    { "source": "/fr/activities", "destination": "/fr/activities.html" },
-    { "source": "/es/activities", "destination": "/es/activities.html" },
-    { "source": "/ar/activities", "destination": "/ar/activities.html" }
+  "version": 2,
+  "builds": [
+    { "src": "api/*.js", "use": "@vercel/node" },
+    { "src": "**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/activities", "dest": "/activities.html" },
+    { "src": "/en/activities", "dest": "/en/activities.html" },
+    { "src": "/fr/activities", "dest": "/fr/activities.html" },
+    { "src": "/es/activities", "dest": "/es/activities.html" },
+    { "src": "/ar/activities", "dest": "/ar/activities.html" },
+    { "handle": "filesystem" }
   ],
   "headers": [
     {

@@ -2,9 +2,6 @@
   "name": "marragafay",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "build": "echo 'Static build ready'"
-  },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
     "resend": "^2.1.0"
