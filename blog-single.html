@@ -1,29 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Marragafay | Routing...</title>
-    <script>
-        (function() {
-            // 0ms Latency Traffic Cop
-            var supported = ['en', 'fr', 'es', 'ar'];
-            var stored = localStorage.getItem('marragafay_lang');
-            var browser = (navigator.language || navigator.userLanguage || '').split('-')[0].toLowerCase();
-            
-            // Priority: LocalStorage -> Browser Language -> Fallback (en)
-            var targetLang = supported.includes(stored) ? stored : (supported.includes(browser) ? browser : 'en');
-            
-            // Construct the path keeping exactly the same file structure
-            var path = window.location.pathname;
-            if (path === '/' || path === '') {
-                path = '/index.html';
-            }
-            
-            // Perform instantaneous redirect
-            window.location.replace('/' + targetLang + path + window.location.search + window.location.hash);
-        })();
-    </script>
-  <link rel="stylesheet" href="/css/tailwind-built.css">
+  <meta charset="utf-8">
+  <title>Marragafay The Journal</title>
+  <meta http-equiv="refresh" content="0; url=/en/blog/">
+  <link rel="canonical" href="https://marragafay.com/en/blog">
 </head>
-<body></body>
+<body>
+  <p>Redirecting to <a href="/en/blog/">The Journal</a>...</p>
+</body>
 </html>
