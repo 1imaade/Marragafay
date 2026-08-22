@@ -35,142 +35,81 @@ export default async function handler(req, res) {
       return res.status(500).json({ success: false, error: 'Server email configuration missing' });
     }
 
-    // Customer initials
-    const initials = (name || 'Guest')
-      .split(' ')
-      .filter(Boolean)
-      .map(n => n[0])
-      .join('')
-      .substring(0, 2)
-      .toUpperCase();
-
-    // Clean, High-End Bento Luxury Email Design
+    // Clean, Simple, Professional Email Template
     const emailHtml = `
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Expedition Request</title>
 </head>
-<body style="margin: 0; padding: 48px 16px; background-color: #F6F7F9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #111827; -webkit-font-smoothing: antialiased;">
+<body style="margin: 0; padding: 40px 20px; background-color: #FAFAFA; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; color: #111111;">
   
-  <table role="presentation" style="max-width: 580px; width: 100%; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); border-collapse: separate;">
+  <div style="max-width: 520px; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #EAEAEA; border-radius: 8px; padding: 36px 36px 32px 36px;">
     
-    <!-- Top Header Bar -->
-    <tr>
-      <td style="padding: 32px 36px 24px 36px; border-bottom: 1px solid #F3F4F6;">
-        <table role="presentation" style="width: 100%; border-collapse: collapse;">
-          <tr>
-            <td>
-              <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6B7280;">
-                MARRAGAFAY CONCIERGE
-              </div>
-              <div style="font-size: 20px; font-weight: 700; color: #111827; margin-top: 4px;">
-                New Expedition Request
-              </div>
-            </td>
-            <td style="text-align: right; vertical-align: middle;">
-              <span style="display: inline-block; background-color: #ECFDF5; border: 1px solid #A7F3D0; color: #065F46; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 9999px; letter-spacing: 0.5px;">
-                ● LIVE INQUIRY
-              </span>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+    <!-- Brand -->
+    <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #666666; margin-bottom: 6px;">
+      MARRAGAFAY
+    </div>
+    
+    <div style="font-size: 20px; font-weight: 600; color: #111111; margin-bottom: 24px;">
+      New Website Inquiry
+    </div>
 
-    <!-- Customer Profile Header Card -->
-    <tr>
-      <td style="padding: 28px 36px 20px 36px;">
-        <table role="presentation" style="width: 100%; background-color: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 12px; padding: 18px 20px;">
-          <tr>
-            <td style="width: 48px; vertical-align: middle;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background-color: #111827; color: #FFFFFF; font-size: 15px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; text-align: center; line-height: 44px;">
-                ${initials}
-              </div>
-            </td>
-            <td style="padding-left: 14px; vertical-align: middle;">
-              <div style="font-size: 17px; font-weight: 700; color: #111827; line-height: 1.2;">
-                ${name}
-              </div>
-              <div style="font-size: 13px; color: #6B7280; margin-top: 4px;">
-                <a href="mailto:${email}" style="color: #4B5563; text-decoration: none;">${email}</a> · 
-                <a href="https://wa.me/${(phone || '').replace(/[^0-9]/g, '')}" style="color: #111827; font-weight: 600; text-decoration: none;">${phone || 'No phone'}</a>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+    <div style="height: 1px; background-color: #EAEAEA; margin-bottom: 24px;"></div>
 
-    <!-- Bento 2-Column Summary Cards (Date & Group Size) -->
-    <tr>
-      <td style="padding: 0 36px 24px 36px;">
-        <table role="presentation" style="width: 100%; border-collapse: separate; border-spacing: 12px 0; margin-left: -12px; margin-right: -12px;">
-          <tr>
-            <td style="width: 50%; background-color: #FAFAFA; border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px 20px;">
-              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6B7280; margin-bottom: 6px;">
-                Anticipated Date
-              </div>
-              <div style="font-size: 16px; font-weight: 700; color: #111827;">
-                ${date || 'Flexible Date'}
-              </div>
-            </td>
-            <td style="width: 50%; background-color: #FAFAFA; border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px 20px;">
-              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6B7280; margin-bottom: 6px;">
-                Group Size
-              </div>
-              <div style="font-size: 16px; font-weight: 700; color: #111827;">
-                ${guests ? guests + ' Guests' : 'Not specified'}
-              </div>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+    <!-- Info List -->
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+      <tr>
+        <td style="padding: 8px 0; width: 120px; font-size: 13px; color: #777777; vertical-align: top;">Name</td>
+        <td style="padding: 8px 0; font-size: 14px; font-weight: 600; color: #111111;">${name}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-size: 13px; color: #777777; vertical-align: top;">Email</td>
+        <td style="padding: 8px 0; font-size: 14px; font-weight: 500; color: #111111;">
+          <a href="mailto:${email}" style="color: #111111; text-decoration: underline;">${email}</a>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-size: 13px; color: #777777; vertical-align: top;">Phone</td>
+        <td style="padding: 8px 0; font-size: 14px; font-weight: 500; color: #111111;">
+          <a href="https://wa.me/${(phone || '').replace(/[^0-9]/g, '')}" style="color: #111111; text-decoration: none;">${phone || 'Not provided'}</a>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-size: 13px; color: #777777; vertical-align: top;">Date</td>
+        <td style="padding: 8px 0; font-size: 14px; font-weight: 500; color: #111111;">${date || 'Flexible'}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; font-size: 13px; color: #777777; vertical-align: top;">Guests</td>
+        <td style="padding: 8px 0; font-size: 14px; font-weight: 500; color: #111111;">${guests ? guests + ' Guests' : 'Not specified'}</td>
+      </tr>
+    </table>
 
-    <!-- Special Requirements & Notes -->
-    <tr>
-      <td style="padding: 0 36px 28px 36px;">
-        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #6B7280; margin-bottom: 10px;">
-          Custom Requirements & Notes
-        </div>
-        <div style="background-color: #FFFFFF; border: 1px solid #E5E7EB; border-left: 3px solid #111827; border-radius: 8px; padding: 18px 20px; font-size: 14px; line-height: 1.6; color: #374151; white-space: pre-wrap;">
-${requirements || 'No special requirements specified.'}
-        </div>
-      </td>
-    </tr>
+    <div style="height: 1px; background-color: #EAEAEA; margin-bottom: 24px;"></div>
 
-    <!-- Fast Action Buttons -->
-    <tr>
-      <td style="padding: 0 36px 32px 36px;">
-        <table role="presentation" style="width: 100%; border-collapse: collapse;">
-          <tr>
-            <td style="padding-right: 10px; width: 50%;">
-              <a href="https://wa.me/${(phone || '').replace(/[^0-9]/g, '')}" target="_blank" style="display: block; text-align: center; background-color: #111827; color: #FFFFFF !important; font-size: 13px; font-weight: 600; padding: 14px 20px; border-radius: 10px; text-decoration: none; letter-spacing: 0.3px;">
-                Chat on WhatsApp ↗
-              </a>
-            </td>
-            <td style="padding-left: 10px; width: 50%;">
-              <a href="mailto:${email}?subject=Regarding your Marragafay Expedition Request" target="_blank" style="display: block; text-align: center; background-color: #FFFFFF; color: #111827 !important; border: 1px solid #D1D5DB; font-size: 13px; font-weight: 600; padding: 14px 20px; border-radius: 10px; text-decoration: none; letter-spacing: 0.3px;">
-                Reply via Email ✉
-              </a>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+    <!-- Message -->
+    <div style="margin-bottom: 28px;">
+      <div style="font-size: 13px; color: #777777; margin-bottom: 8px;">Message</div>
+      <div style="font-size: 14px; line-height: 1.6; color: #222222; white-space: pre-wrap; background-color: #F8F8F8; padding: 14px 16px; border-radius: 6px;">
+${requirements || 'No additional requirements provided.'}
+      </div>
+    </div>
 
-    <!-- Footer Summary -->
-    <tr>
-      <td style="padding: 20px 36px; background-color: #FAFAFA; border-top: 1px solid #F3F4F6; font-size: 12px; color: #9CA3AF; text-align: center; line-height: 1.6;">
-        Automatically saved to <strong style="color: #6B7280;">Supabase Database</strong> · Marragafay Agafay Desert<br>
-        <span style="font-size: 11px; color: #CBD5E1;">${new Date().toUTCString()}</span>
-      </td>
-    </tr>
+    <!-- Actions -->
+    <div style="margin-bottom: 28px;">
+      ${phone ? `<a href="https://wa.me/${phone.replace(/[^0-9]/g, '')}" target="_blank" style="display: inline-block; background-color: #111111; color: #FFFFFF !important; font-size: 13px; font-weight: 500; padding: 10px 18px; border-radius: 6px; text-decoration: none; margin-right: 8px;">WhatsApp</a>` : ''}
+      <a href="mailto:${email}?subject=Regarding your Marragafay inquiry" target="_blank" style="display: inline-block; background-color: #FFFFFF; color: #111111 !important; border: 1px solid #CCCCCC; font-size: 13px; font-weight: 500; padding: 10px 18px; border-radius: 6px; text-decoration: none;">
+        Reply Email
+      </a>
+    </div>
 
-  </table>
+    <!-- Footer -->
+    <div style="border-top: 1px solid #EAEAEA; padding-top: 18px; font-size: 11px; color: #999999;">
+      Sent from Marragafay website · ${new Date().toUTCString()}
+    </div>
+
+  </div>
 
 </body>
 </html>
@@ -187,7 +126,7 @@ ${requirements || 'No special requirements specified.'}
         from: 'Marragafay Inquiries <onboarding@resend.dev>',
         to: [TO_EMAIL],
         reply_to: email,
-        subject: `🌟 Expedition Request: ${name}${guests ? ' (' + guests + ' guests)' : ''}${date ? ' [' + date + ']' : ''}`,
+        subject: `New Inquiry: ${name}`,
         html: emailHtml
       })
     });
