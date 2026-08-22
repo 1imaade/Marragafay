@@ -31,79 +31,85 @@ export default async function handler(req, res) {
     const TO_EMAIL = process.env.NOTIFICATION_EMAIL || 'marragafay@gmail.com';
 
     if (!RESEND_API_KEY) {
-      console.warn('RESEND_API_KEY not configured in environment');
+      console.error('RESEND_API_KEY not configured in environment');
       return res.status(500).json({ success: false, error: 'Server email configuration missing' });
     }
 
-    // Format clean HTML email
+    // Clean, Minimalist, Luxury Email Design
     const emailHtml = `
       <!DOCTYPE html>
-      <html>
+      <html lang="en">
       <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f6f7ea; color: #10100E; margin: 0; padding: 24px; }
-          .card { max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid rgba(16,16,14,0.1); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-          .header { background: #10100E; color: #F6F7EA; padding: 28px 32px; text-align: left; }
-          .header h1 { margin: 0 0 4px 0; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #F6F7EA; }
-          .header p { margin: 0; font-size: 13px; opacity: 0.7; }
-          .content { padding: 32px; }
-          .field { margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; padding-bottom: 16px; }
-          .field:last-child { border-bottom: none; }
-          .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: #523225; margin-bottom: 4px; }
-          .value { font-size: 16px; font-weight: 500; color: #10100E; }
-          .message-box { background: #F6F7EA; border-left: 4px solid #523225; padding: 16px; border-radius: 4px; font-size: 15px; line-height: 1.5; color: #272724; white-space: pre-wrap; margin-top: 8px; }
-          .actions { padding: 0 32px 32px 32px; display: flex; gap: 12px; }
-          .btn { display: inline-block; background: #25D366; color: #ffffff !important; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
-          .btn-email { background: #523225; }
-          .footer { background: #f9f9f6; padding: 16px 32px; font-size: 12px; color: #888888; text-align: center; border-top: 1px solid #eee; }
+          body { margin: 0; padding: 32px 16px; background-color: #f9fafb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #111827; }
+          .wrapper { max-width: 540px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; }
+          .header { padding: 28px 32px 20px 32px; border-bottom: 1px solid #f3f4f6; }
+          .brand { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #111827; margin-bottom: 4px; }
+          .title { font-size: 18px; font-weight: 600; color: #374151; margin: 0; }
+          .body-content { padding: 24px 32px; }
+          .info-table { width: 100%; border-collapse: collapse; }
+          .info-table td { padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; vertical-align: top; }
+          .info-label { width: 36%; color: #6b7280; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+          .info-val { width: 64%; color: #111827; font-weight: 600; }
+          .message-section { margin-top: 24px; }
+          .message-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; margin-bottom: 8px; }
+          .message-box { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 16px; font-size: 14px; line-height: 1.5; color: #374151; white-space: pre-wrap; }
+          .cta-container { padding: 0 32px 28px 32px; }
+          .btn-wa { display: inline-block; background: #111827; color: #ffffff !important; padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; margin-right: 8px; }
+          .btn-reply { display: inline-block; background: #f3f4f6; color: #111827 !important; border: 1px solid #e5e7eb; padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; }
+          .footer { padding: 14px 32px; background: #fafafa; border-top: 1px solid #f3f4f6; font-size: 12px; color: #9ca3af; text-align: center; }
         </style>
       </head>
       <body>
-        <div class="card">
+        <div class="wrapper">
           <div class="header">
-            <h1>Marragafay Inquiries</h1>
-            <p>New Expedition Inquiry received from website</p>
+            <div class="brand">MARRAGAFAY</div>
+            <h1 class="title">New Expedition Inquiry</h1>
           </div>
           
-          <div class="content">
-            <div class="field">
-              <div class="label">Customer Name</div>
-              <div class="value">${name}</div>
-            </div>
+          <div class="body-content">
+            <table class="info-table">
+              <tr>
+                <td class="info-label">Customer</td>
+                <td class="info-val">${name}</td>
+              </tr>
+              <tr>
+                <td class="info-label">Email</td>
+                <td class="info-val"><a href="mailto:${email}" style="color: #111827; text-decoration: none;">${email}</a></td>
+              </tr>
+              <tr>
+                <td class="info-label">Phone / WhatsApp</td>
+                <td class="info-val">
+                  <a href="https://wa.me/${(phone || '').replace(/[^0-9]/g, '')}" style="color: #111827; text-decoration: none;">
+                    ${phone || 'Not provided'}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="info-label">Anticipated Date</td>
+                <td class="info-val">${date || 'Flexible Date'}</td>
+              </tr>
+              <tr>
+                <td class="info-label">Group Size</td>
+                <td class="info-val">${guests ? guests + ' Guests' : 'Not specified'}</td>
+              </tr>
+            </table>
 
-            <div class="field">
-              <div class="label">Email Address</div>
-              <div class="value"><a href="mailto:${email}" style="color: #523225; text-decoration: none;">${email}</a></div>
-            </div>
-
-            <div class="field">
-              <div class="label">Phone / WhatsApp</div>
-              <div class="value">
-                <a href="https://wa.me/${(phone || '').replace(/[^0-9]/g, '')}" style="color: #25D366; font-weight: 600; text-decoration: none;">
-                  ${phone || 'Not provided'} ↗
-                </a>
-              </div>
-            </div>
-
-            <div class="field">
-              <div class="label">Anticipated Date & Guests</div>
-              <div class="value">${date || 'Flexible Date'} · ${guests ? guests + ' Guests' : 'Group size not specified'}</div>
-            </div>
-
-            <div class="field">
-              <div class="label">Inquiry Details & Requirements</div>
-              <div class="message-box">${requirements || 'No special requirements specified.'}</div>
+            <div class="message-section">
+              <div class="message-label">Customer Notes & Requirements</div>
+              <div class="message-box">${requirements || 'No additional requirements provided.'}</div>
             </div>
           </div>
 
-          <div class="actions">
-            ${phone ? `<a href="https://wa.me/${phone.replace(/[^0-9]/g, '')}" class="btn" target="_blank">Chat on WhatsApp</a>` : ''}
-            <a href="mailto:${email}?subject=Regarding your Marragafay Expedition Inquiry" class="btn btn-email" target="_blank">Reply via Email</a>
+          <div class="cta-container">
+            ${phone ? `<a href="https://wa.me/${phone.replace(/[^0-9]/g, '')}" class="btn-wa" target="_blank">Chat on WhatsApp</a>` : ''}
+            <a href="mailto:${email}?subject=Regarding your Marragafay Expedition Inquiry" class="btn-reply" target="_blank">Reply via Email</a>
           </div>
 
           <div class="footer">
-            Received via Marragafay Contact Form · ${new Date().toUTCString()}
+            Received via marragafay.com · ${new Date().toUTCString()}
           </div>
         </div>
       </body>
@@ -121,7 +127,7 @@ export default async function handler(req, res) {
         from: 'Marragafay Inquiries <onboarding@resend.dev>',
         to: [TO_EMAIL],
         reply_to: email,
-        subject: `🌟 New Expedition Inquiry: ${name}${guests ? ' (' + guests + ' guests)' : ''}${date ? ' [' + date + ']' : ''}`,
+        subject: `Inquiry: ${name}${guests ? ' (' + guests + ' guests)' : ''}${date ? ' [' + date + ']' : ''}`,
         html: emailHtml
       })
     });
