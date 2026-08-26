@@ -267,7 +267,7 @@
         const guests = data.guests_total || '1';
         const name = data.name || 'Valued Guest';
         const whatsapp = data.whatsapp || 'N/A';
-        const price = data.total_price ? `${data.total_price} €` : 'Calculated via واتساب';
+        const price = data.total_price ? `${data.total_price} MAD` : 'Calculated via واتساب';
 
         document.getElementById('display-pack').textContent = cleanPackage;
         document.getElementById('display-date').textContent = formattedDate;
