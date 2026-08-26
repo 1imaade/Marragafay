@@ -628,7 +628,11 @@ document.addEventListener('booking-legacy-submit', async function (e) {
                 date: bookingData.date,
                 package_name: bookingData.package_title,
                 guests_total: bookingData.guests,
-                total_price: total,
+                total_price_eur: bookingData.total_eur || total,
+                total_price_mad: bookingData.total_mad || bookingData.total_price,
+                customer_currency: 'EUR',
+                accounting_currency: 'MAD',
+                total_price: bookingData.total_eur || total,
                 whatsapp: bookingData.phone_number
             }));
 
@@ -802,9 +806,11 @@ document.addEventListener('booking-legacy-submit', async function (e) {
                 date: payload.date,
                 package_name: result.product_title || payload.product_id,
                 guests_total: Number(payload.adults || payload.guests || 0) + Number(payload.children || 0),
-                total_price: result.trusted_total_eur,
                 total_price_eur: result.trusted_total_eur,
                 total_price_mad: result.trusted_total_mad,
+                customer_currency: 'EUR',
+                accounting_currency: 'MAD',
+                total_price: result.trusted_total_eur,
                 whatsapp: payload.phone
             }));
 

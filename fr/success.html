@@ -270,21 +270,27 @@
         const eurTotal = data.total_price_eur || data.total_price;
         const madTotal = data.total_price_mad;
 
-        let price = 'Calculated via WhatsApp';
-        if (eurTotal && madTotal) {
-          price = `${eurTotal} € <span class="text-xs font-normal text-[#10100E]/60">(${madTotal} MAD)</span>`;
-        } else if (eurTotal) {
-          price = `${eurTotal} €`;
-        } else if (madTotal) {
-          price = `${madTotal} MAD`;
-        }
-
         document.getElementById('display-pack').textContent = cleanPackage;
         document.getElementById('display-date').textContent = formattedDate;
         document.getElementById('display-guests').textContent = guests + (guests == 1 ? ' Guest' : ' Invités');
         document.getElementById('display-name').textContent = name;
         document.getElementById('receipt-whatsapp').textContent = whatsapp;
-        document.getElementById('receipt-price').innerHTML = price;
+
+        const priceEl = document.getElementById('receipt-price');
+        priceEl.textContent = '';
+        if (eurTotal && madTotal) {
+          priceEl.appendChild(document.createTextNode(`${eurTotal} € `));
+          const secondary = document.createElement('span');
+          secondary.className = 'text-xs font-normal text-[#10100E]/60';
+          secondary.textContent = `(${madTotal} MAD)`;
+          priceEl.appendChild(secondary);
+        } else if (eurTotal) {
+          priceEl.textContent = `${eurTotal} €`;
+        } else if (madTotal) {
+          priceEl.textContent = `${madTotal} MAD`;
+        } else {
+          priceEl.textContent = 'Calculated via WhatsApp';
+        }
 
       } catch (e) {
         console.error('Failed to parse recent booking', e);
