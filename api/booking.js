@@ -1,7 +1,9 @@
-// Vercel Serverless Function: api/booking.js
-// Handles automatic email notifications for tour/activity/package bookings via Resend
+// Vercel route shim. The active endpoint lives in booking-server.js.
+// The legacy implementation below is retained only as migration reference.
+import handleBooking from './booking-server.js';
 
-export default async function handler(req, res) {
+/*
+async function legacyBookingHandler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -173,3 +175,6 @@ export default async function handler(req, res) {
     return res.status(500).json({ success: false, error: error.message });
   }
 }
+*/
+
+export default handleBooking;

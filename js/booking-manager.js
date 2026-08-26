@@ -1,39 +1,5 @@
-// Booking Manager - Handles form submission and Supabase integration
-//
-// ═══════════════════════════════════════════════════════════════════
-// 🚨  BACKEND PAYLOAD PROTECTION — READ BEFORE MODIFYING
-// ═══════════════════════════════════════════════════════════════════
-// The Admin Dashboard expects total_price in MOROCCAN DIRHAM (MAD).
-// All front-end prices are displayed in EUR (or GBP/USD via the
-// currency system), but the value INSERTED into the Supabase
-// `bookings` table MUST always be MAD.
-//
-// The conversion happens at line ~276:
-//   bookingData.total_price = total * 10
-//   (1 EUR = 10 MAD — hardcoded, not user-configurable)
-//
-// Rules:
-//  - NEVER remove or change the `* 10` multiplier.
-//  - NEVER send EUR, USD, or GBP strings to the database.
-//  - If you add a new pricing path, convert to MAD before assigning
-//    to `bookingData.total_price`.
-// ═══════════════════════════════════════════════════════════════════
-// 🇲🇦 CANONICAL PRICING REGISTRY (Single Source of Truth in MAD)
-// ═══════════════════════════════════════════════════════════════════
-// All business logic and Supabase payloads are calculated in MAD.
-const CANONICAL_PRICES_MAD = {
-    "Basic": 350,
-    "Comfort": 490,
-    "Luxe": 890,
-    "Quad Biking": 250,
-    "Quad": 250,
-    "Buggy": 800,
-    "Camel Ride": 100,
-    "Camel": 100,
-    "Dinner & Show": 250,
-    "Hot Air Balloon": 1750,
-    "Paragliding": 799
-};
+// Booking Manager - handles browser submission through the authoritative API.
+// Product and price authority lives in api/booking-catalog.js on the server.
 
 // ═══════════════════════════════════════════════════════════════════
 // 🌐 SMART INTERNATIONAL PHONE & WHATSAPP AUTO-DETECTION
@@ -238,7 +204,9 @@ if (!window.Swal) {
 }
 
 // Use Event Delegation to handle dynamically rendered forms
-document.addEventListener('submit', async function (e) {
+// Retained only as a migration reference; active forms use the handler below.
+/*
+document.addEventListener('booking-legacy-submit', async function (e) {
     // Check if the submitted element is our booking form (support both old and new IDs for GTM)
     if (e.target && (e.target.id === 'bookingForm' || e.target.id === 'booking-form' || e.target.id === 'booking-form-activity')) {
         e.preventDefault(); // Stop page reload
@@ -711,3 +679,148 @@ document.addEventListener('submit', async function (e) {
         }
     }
 });
+*/
+
+// Active booking path: browser sends normalized input only. The server owns
+// product resolution, validation, persistence, and trusted MAD pricing.
+(function () {
+    'use strict';
+
+    const PRODUCT_BY_PATH = [
+        ['/packages/basic', 'basic'], ['/packages/comfort', 'comfort'], ['/packages/luxe', 'luxe'],
+        ['/activities/quad-biking', 'quad'], ['/activities/buggy', 'buggy'],
+        ['/activities/camel-ride', 'camel'], ['/activities/paragliding', 'paragliding'],
+        ['/activities/hot-air-balloon', 'hot-air-balloon'], ['/activities/dinner-show', 'dinner-show']
+    ];
+
+    window.MarragafayBookingManagerHandlesSubmit = true;
+
+    function firstValue(formData, names) {
+        for (const name of names) {
+            const value = formData.get(name);
+            if (value !== null && String(value).trim() !== '') return String(value).trim();
+        }
+        return '';
+    }
+
+    function productIdForForm(form, formData) {
+        const dataProduct = form.dataset.productId || form.dataset.product;
+        if (dataProduct) return dataProduct;
+
+        const explicit = firstValue(formData, ['product_id', 'productId', 'product']);
+        if (explicit) return explicit;
+
+        const path = window.location.pathname.toLowerCase();
+        const pathMatch = PRODUCT_BY_PATH.find(([fragment]) => path.includes(fragment));
+        if (pathMatch) return pathMatch[1];
+
+        const modal = form.closest('#packageModal, #activityModal');
+        const modalTitle = modal?.querySelector('.modal-title')?.textContent || '';
+        const title = `${firstValue(formData, ['package_title', 'title', 'activity'])} ${modalTitle}`.toLowerCase();
+        if (title.includes('comfort') || title.includes('signature')) return 'comfort';
+        if (title.includes('luxe') || title.includes('luxury') || title.includes('vip')) return 'luxe';
+        if (title.includes('quad')) return 'quad';
+        if (title.includes('buggy')) return 'buggy';
+        if (title.includes('camel')) return 'camel';
+        if (title.includes('paragliding') || title.includes('parapente')) return 'paragliding';
+        if (title.includes('balloon') || title.includes('منطاد')) return 'hot-air-balloon';
+        if (title.includes('dinner') || title.includes('diner') || title.includes('عشاء')) return 'dinner-show';
+        // Never guess a product for an unrecognized homepage/modal state.
+        return '';
+    }
+
+    function formPayload(form) {
+        const formData = new FormData(form);
+        const phoneInput = form.querySelector('input[name="phone"], input[name="phone_number"], input[type="tel"]');
+        const countryCode = form.querySelector('select[name="country_code"], select[name="countryCode"], .country-code-select');
+        let phone = firstValue(formData, ['phone_number', 'phone']);
+        if (countryCode?.value && phone && !phone.trim().startsWith('+')) phone = `${countryCode.value} ${phone}`.trim();
+        if (typeof window.formatInternationalPhone === 'function' && phone) phone = window.formatInternationalPhone(phone);
+        if (!phone && phoneInput) phone = phoneInput.value.trim();
+
+        const groupSize = firstValue(formData, ['groupSize', 'group_size']);
+        const adults = firstValue(formData, ['adults']);
+        const children = firstValue(formData, ['children']) || '0';
+        const guests = adults || firstValue(formData, ['guests']) || groupSize;
+        const notes = firstValue(formData, ['notes', 'requests', 'message']);
+        const language = document.documentElement.lang || (window.location.pathname.match(/^\/(en|fr|es|ar)(?:\/|$)/)?.[1]) || 'en';
+
+        return {
+            product_id: productIdForForm(form, formData),
+            name: firstValue(formData, ['full_name', 'name']),
+            email: firstValue(formData, ['email']),
+            phone,
+            date: firstValue(formData, ['booking_date', 'date']),
+            adults: adults || undefined,
+            children,
+            guests,
+            notes,
+            language
+        };
+    }
+
+    function showBookingError(message) {
+        if (window.Swal) {
+            window.Swal.fire({ title: 'Booking unavailable', text: message || 'Please try again or contact us directly.', icon: 'error', confirmButtonColor: '#bc6c25' });
+        } else {
+            window.alert(message || 'Please try again or contact us directly.');
+        }
+    }
+
+    document.addEventListener('submit', async function (event) {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement) || !form.matches('.booking-form, #bookingForm, #booking-form, #booking-form-activity')) return;
+        if (form.dataset.bookingUnsupported === 'true') {
+            event.preventDefault();
+            showBookingError('This option is currently available by direct contact only.');
+            return;
+        }
+        if (form.dataset.submitting === 'true') return;
+        event.preventDefault();
+        form.dataset.submitting = 'true';
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton?.innerText || '';
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.innerText = 'Processing...';
+        }
+
+        try {
+            const payload = formPayload(form);
+            const response = await fetch('/api/booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok || !result.booking_success) throw new Error(result.error || 'Unable to process booking');
+
+            localStorage.setItem('recentBooking', JSON.stringify({
+                booking_id: result.booking_id,
+                name: payload.name,
+                date: payload.date,
+                package_name: result.product_title || payload.product_id,
+                guests_total: Number(payload.adults || payload.guests || 0) + Number(payload.children || 0),
+                total_price: result.trusted_total_mad,
+                whatsapp: payload.phone
+            }));
+
+            const slotKey = form.dataset.slotsKey;
+            if (slotKey && typeof window.decrementSlotCount === 'function') window.decrementSlotCount(slotKey);
+
+            const path = window.location.pathname;
+            const target = path.includes('/en/') ? '/en/success.html' : path.includes('/fr/') ? '/fr/success.html' : path.includes('/es/') ? '/es/success.html' : path.includes('/ar/') ? '/ar/success.html' : '/success.html';
+            window.location.href = target;
+        } catch (error) {
+            console.error('Booking submission failed:', error?.message || 'request_failed');
+            showBookingError(error?.message);
+        } finally {
+            form.dataset.submitting = 'false';
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.innerText = originalText;
+            }
+        }
+    });
+})();

@@ -3499,7 +3499,7 @@
             <h3
               style="'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; margin-bottom: 25px; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">
               Réservez ce forfait</h3>
-            <form id="booking-form" class="booking-form"
+            <form id="booking-form" class="booking-form" data-product-id="" data-booking-unsupported="true"
               style="background: #f8f9fa; padding: 25px; border-radius: 0; border: 2px solid #e9ecef;">
               <div class="form-group" style="margin-bottom: 20px;">
                 <label for="bookingName"
@@ -3653,7 +3653,7 @@
             <h3
               style="'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; margin-bottom: 25px; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">
               Réservez cette activité</h3>
-            <form id="booking-form-activity" class="booking-form"
+            <form id="booking-form-activity" class="booking-form" data-product-id="" data-booking-unsupported="true"
               style="background: #f8f9fa; padding: 25px; border-radius: 0; border: 2px solid #e9ecef;">
               <div class="form-group" style="margin-bottom: 20px;">
                 <label for="activityRéservationName"
@@ -3975,6 +3975,7 @@
     const inclusionsList = modal.querySelector('.inclusions-list');
     // Form elements
     const bookingForm = modal.querySelector('.booking-form');
+    const PACKAGE_PRODUCT_IDS = { basic: 'basic', comfort: 'comfort', luxury: 'luxe' };
     const formButtons = modal.querySelector('.form-buttons');
     // Clickable cards
     const clickableCards = document.querySelectorAll('.clickable-card');
@@ -3985,6 +3986,9 @@
       currentPackage = packageType;
       const data = packageData[packageType];
       if (data) {
+        const productId = PACKAGE_PRODUCT_IDS[packageType] || '';
+        bookingForm.dataset.productId = productId;
+        bookingForm.dataset.bookingUnsupported = productId ? 'false' : 'true';
         // Populate modal content
         modalTitle.textContent = data.title;
         modalDescription.textContent = data.description;
@@ -4058,6 +4062,7 @@
     });
     // Form submission handling
     bookingForm.addEventListener('submit', function (e) {
+      if (window.MarragafayBookingManagerHandlesSubmit) return;
       e.preventDefault();
       // Get form data
       const formData = new FormData(this);
@@ -4313,6 +4318,12 @@
     const activityGroupSize = activityModal.querySelector('.group-size');
     // Activity form elements
     const activityRéservationForm = activityModal.querySelector('.booking-form');
+    const ACTIVITY_PRODUCT_IDS = {
+      dromadaire: 'camel', camel: 'camel', quad: 'quad', buggy: 'buggy',
+      paragliding: 'paragliding', parapente: 'paragliding',
+      balloon: 'hot-air-balloon', 'hot-air-balloon': 'hot-air-balloon',
+      diner: 'dinner-show', dinner: 'dinner-show'
+    };
     // Clickable activity cards
     const clickableActivityCards = document.querySelectorAll('.clickable-activity-card');
     // Current activity being viewed
@@ -4322,6 +4333,9 @@
       currentActivity = activityType;
       const data = activityData[activityType];
       if (data) {
+        const productId = ACTIVITY_PRODUCT_IDS[activityType] || '';
+        activityRéservationForm.dataset.productId = productId;
+        activityRéservationForm.dataset.bookingUnsupported = productId ? 'false' : 'true';
         // Populate modal content
         activityModalTitle.textContent = data.title;
         activityModalDescription.textContent = data.description;
@@ -4389,6 +4403,7 @@
     });
     // Activity form submission handling
     activityRéservationForm.addEventListener('submit', function (e) {
+      if (window.MarragafayBookingManagerHandlesSubmit) return;
       e.preventDefault();
       // Get form data
       const formData = new FormData(this);
@@ -4649,6 +4664,7 @@
   });
 </script>
 
+  <script defer src="/js/booking-manager.js"></script>
 </body>
 
 </html>

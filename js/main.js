@@ -386,7 +386,8 @@ AOS.init({
 // Contact Form Handler
 document.addEventListener('DOMContentLoaded', function () {
 	const contactForm = document.getElementById('contact-form');
-	if (contactForm) {
+	const hasDedicatedContactHandler = document.querySelector('script[src$="/js/contact-form.js"]');
+	if (contactForm && !hasDedicatedContactHandler) {
 		contactForm.addEventListener('submit', async function (e) {
 			e.preventDefault();
 
