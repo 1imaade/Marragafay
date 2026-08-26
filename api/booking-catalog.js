@@ -2,15 +2,15 @@
 // Keep customer-supplied titles and prices out of this module's authority.
 
 export const BOOKING_PRODUCTS = Object.freeze({
-  basic: Object.freeze({ id: 'basic', type: 'package', title: 'Agafay Discovery', unitPriceMad: 350 }),
-  comfort: Object.freeze({ id: 'comfort', type: 'package', title: 'Marragafay Signature', unitPriceMad: 499 }),
-  luxe: Object.freeze({ id: 'luxe', type: 'package', title: 'The Marragafay Luxury', unitPriceMad: 890 }),
-  quad: Object.freeze({ id: 'quad', type: 'activity', title: 'Quad Biking', unitPriceMad: 250 }),
-  buggy: Object.freeze({ id: 'buggy', type: 'activity', title: 'Buggy', unitPriceMad: 800 }),
-  camel: Object.freeze({ id: 'camel', type: 'activity', title: 'Camel Ride', unitPriceMad: 100 }),
-  paragliding: Object.freeze({ id: 'paragliding', type: 'activity', title: 'Paragliding', unitPriceMad: 799 }),
-  'hot-air-balloon': Object.freeze({ id: 'hot-air-balloon', type: 'activity', title: 'Hot Air Balloon', unitPriceMad: 1750 }),
-  'dinner-show': Object.freeze({ id: 'dinner-show', type: 'activity', title: 'Dinner & Show', unitPriceMad: 250 })
+  basic: Object.freeze({ id: 'basic', type: 'package', title: 'Agafay Discovery', unitPriceMad: 350, unitPriceEur: 35 }),
+  comfort: Object.freeze({ id: 'comfort', type: 'package', title: 'Marragafay Signature', unitPriceMad: 499, unitPriceEur: 49 }),
+  luxe: Object.freeze({ id: 'luxe', type: 'package', title: 'The Marragafay Luxury', unitPriceMad: 890, unitPriceEur: 89 }),
+  quad: Object.freeze({ id: 'quad', type: 'activity', title: 'Quad Biking', unitPriceMad: 250, unitPriceEur: 25 }),
+  buggy: Object.freeze({ id: 'buggy', type: 'activity', title: 'Buggy', unitPriceMad: 800, unitPriceEur: 80 }),
+  camel: Object.freeze({ id: 'camel', type: 'activity', title: 'Camel Ride', unitPriceMad: 100, unitPriceEur: 10 }),
+  paragliding: Object.freeze({ id: 'paragliding', type: 'activity', title: 'Paragliding', unitPriceMad: 799, unitPriceEur: 80 }),
+  'hot-air-balloon': Object.freeze({ id: 'hot-air-balloon', type: 'activity', title: 'Hot Air Balloon', unitPriceMad: 1750, unitPriceEur: 175 }),
+  'dinner-show': Object.freeze({ id: 'dinner-show', type: 'activity', title: 'Dinner & Show', unitPriceMad: 250, unitPriceEur: 25 })
 });
 
 const PRODUCT_ALIASES = Object.freeze({
@@ -47,5 +47,10 @@ export function calculateTrustedTotal(product, adults, children) {
     billableGuests = Math.max(2, totalGuests);
   }
 
-  return { totalGuests, billableGuests, totalMad: product.unitPriceMad * billableGuests };
+  return {
+    totalGuests,
+    billableGuests,
+    totalMad: product.unitPriceMad * billableGuests,
+    totalEur: product.unitPriceEur * billableGuests
+  };
 }

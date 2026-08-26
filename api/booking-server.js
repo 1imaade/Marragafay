@@ -211,7 +211,7 @@ function buildEmailHtml(booking) {
       <tr><td style="padding:6px 0;color:#71717A;">Booking Date</td><td style="padding:6px 0;font-weight:600;">${safeDate}</td></tr>
       <tr><td style="padding:6px 0;color:#71717A;">Guests</td><td style="padding:6px 0;">${booking.adults} Adults, ${booking.children} Children</td></tr>
       <tr><td style="padding:6px 0;color:#71717A;">Language</td><td style="padding:6px 0;">${safeLanguage}</td></tr>
-    </table><div style="background:#FAFAFA;border:1px solid #E4E4E7;border-radius:6px;padding:12px 16px;margin-bottom:20px;"><strong>Total Amount</strong><span style="float:right;font-size:18px;">${booking.pricing.totalMad} MAD</span></div><div style="white-space:pre-wrap;background:#F8F8F8;padding:10px 14px;border-radius:4px;margin-bottom:20px;">${safeNotes}</div>${waAction}</div>
+    </table><div style="background:#FAFAFA;border:1px solid #E4E4E7;border-radius:6px;padding:12px 16px;margin-bottom:20px;"><strong>Total Amount</strong><span style="float:right;font-size:18px;">${booking.pricing.totalEur} € <span style="font-size:13px;color:#71717A;font-weight:normal;">(${booking.pricing.totalMad} MAD)</span></span></div><div style="white-space:pre-wrap;background:#F8F8F8;padding:10px 14px;border-radius:4px;margin-bottom:20px;">${safeNotes}</div>${waAction}</div>
   </div></body></html>`;
 }
 
@@ -266,7 +266,7 @@ async function sendNotification(booking, bookingId) {
         from: 'Marragafay Bookings <onboarding@resend.dev>',
         to: [process.env.NOTIFICATION_EMAIL || 'marragafay@gmail.com'],
         ...(booking.email ? { reply_to: booking.email } : {}),
-        subject: `BOOKING: ${booking.product.title} - ${booking.name} (${booking.pricing.totalMad} MAD)`,
+        subject: `BOOKING: ${booking.product.title} - ${booking.name} (${booking.pricing.totalEur} € / ${booking.pricing.totalMad} MAD)`,
         html: buildEmailHtml(booking),
         headers: { 'X-Marragafay-Booking-Id': String(bookingId || '') }
       })
@@ -296,7 +296,8 @@ export default async function handleBooking(req, res) {
       booking_id: saved?.id ?? null,
       product_id: booking.product.id,
       product_title: booking.product.title,
-      trusted_total_mad: booking.pricing.totalMad
+      trusted_total_mad: booking.pricing.totalMad,
+      trusted_total_eur: booking.pricing.totalEur
     });
   } catch (error) {
     if (error instanceof ValidationError) {

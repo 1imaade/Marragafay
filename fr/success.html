@@ -267,14 +267,24 @@
         const guests = data.guests_total || '1';
         const name = data.name || 'Valued Guest';
         const whatsapp = data.whatsapp || 'N/A';
-        const price = data.total_price ? `${data.total_price} MAD` : 'Calculated via WhatsApp';
+        const eurTotal = data.total_price_eur || data.total_price;
+        const madTotal = data.total_price_mad;
+
+        let price = 'Calculated via WhatsApp';
+        if (eurTotal && madTotal) {
+          price = `${eurTotal} € <span class="text-xs font-normal text-[#10100E]/60">(${madTotal} MAD)</span>`;
+        } else if (eurTotal) {
+          price = `${eurTotal} €`;
+        } else if (madTotal) {
+          price = `${madTotal} MAD`;
+        }
 
         document.getElementById('display-pack').textContent = cleanPackage;
         document.getElementById('display-date').textContent = formattedDate;
         document.getElementById('display-guests').textContent = guests + (guests == 1 ? ' Guest' : ' Invités');
         document.getElementById('display-name').textContent = name;
         document.getElementById('receipt-whatsapp').textContent = whatsapp;
-        document.getElementById('receipt-price').textContent = price;
+        document.getElementById('receipt-price').innerHTML = price;
 
       } catch (e) {
         console.error('Failed to parse recent booking', e);

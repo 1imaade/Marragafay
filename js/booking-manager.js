@@ -802,7 +802,9 @@ document.addEventListener('booking-legacy-submit', async function (e) {
                 date: payload.date,
                 package_name: result.product_title || payload.product_id,
                 guests_total: Number(payload.adults || payload.guests || 0) + Number(payload.children || 0),
-                total_price: result.trusted_total_mad,
+                total_price: result.trusted_total_eur,
+                total_price_eur: result.trusted_total_eur,
+                total_price_mad: result.trusted_total_mad,
                 whatsapp: payload.phone
             }));
 
