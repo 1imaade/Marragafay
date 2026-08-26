@@ -18,14 +18,21 @@
 //  - If you add a new pricing path, convert to MAD before assigning
 //    to `bookingData.total_price`.
 // ═══════════════════════════════════════════════════════════════════
-
-const PRICE_LIST = {
-    "Basic": 35,
-    "Comfort": 49,
-    "Luxe": 89,
-    "Quad": 25,
-    "Buggy": 80,
-    "Camel": 10
+// 🇲🇦 CANONICAL PRICING REGISTRY (Single Source of Truth in MAD)
+// ═══════════════════════════════════════════════════════════════════
+// All business logic and Supabase payloads are calculated in MAD.
+const CANONICAL_PRICES_MAD = {
+    "Basic": 350,
+    "Comfort": 490,
+    "Luxe": 890,
+    "Quad Biking": 250,
+    "Quad": 250,
+    "Buggy": 800,
+    "Camel Ride": 100,
+    "Camel": 100,
+    "Dinner & Show": 250,
+    "Hot Air Balloon": 1750,
+    "Paragliding": 799
 };
 
 // ═══════════════════════════════════════════════════════════════════
@@ -346,51 +353,54 @@ document.addEventListener('submit', async function (e) {
             notes: notes
         };
 
-        // Calculate Price Logic with Dynamic Pricing support
-        let pricePerPerson = 35; // Default fallback
+        // ====================================================
+        // 💰 CANONICAL PRICING CALCULATION (MAD Base Truth)
+        // ====================================================
         const titleToCheck = bookingData.package_title || '';
+        let itemType = 'package';
+        let itemName = 'Basic'; // Default fallback
 
-        // Dynamically extract the base price from the DOM (Ultimate Source of Truth)
-        const formContainer = submitBtn ? submitBtn.closest('section') || document : document;
-        const domPriceElement = formContainer.querySelector('.text-\\[32px\\].font-bold') || formContainer.querySelector('[data-price]');
-        if (domPriceElement) {
-            const extracted = parseInt(domPriceElement.textContent.replace(/\\D/g, ''));
-            if (!isNaN(extracted) && extracted > 0) {
-                pricePerPerson = extracted;
-                console.log("💰 Extracted Base Price from DOM:", pricePerPerson);
-            }
+        // Item identification from title or URL
+        if (titleToCheck.includes('Basic') || titleToCheck.includes('Agafay Discovery') || titleToCheck.includes('Discovery') || window.location.pathname.includes('/basic')) {
+            itemType = 'package';
+            itemName = 'Basic';
+        } else if (titleToCheck.includes('Comfort') || titleToCheck.includes('Signature') || titleToCheck.includes('Marragafay Signature') || window.location.pathname.includes('/comfort')) {
+            itemType = 'package';
+            itemName = 'Comfort';
+        } else if (titleToCheck.includes('Luxe') || titleToCheck.includes('Luxury') || window.location.pathname.includes('/luxe')) {
+            itemType = 'package';
+            itemName = 'Luxe';
+        } else if (titleToCheck.includes('Quad') || window.location.pathname.includes('quad-biking')) {
+            itemType = 'activity';
+            itemName = 'Quad Biking';
+        } else if (titleToCheck.includes('Buggy') || titleToCheck.includes('البوغي') || window.location.pathname.includes('buggy')) {
+            itemType = 'activity';
+            itemName = 'Buggy';
+        } else if (titleToCheck.includes('Camel') || titleToCheck.includes('جمال') || window.location.pathname.includes('camel-ride')) {
+            itemType = 'activity';
+            itemName = 'Camel Ride';
+        } else if (titleToCheck.includes('Dinner') || titleToCheck.includes('عشاء') || window.location.pathname.includes('dinner-show')) {
+            itemType = 'activity';
+            itemName = 'Dinner & Show';
+        } else if (titleToCheck.includes('Paragliding') || titleToCheck.includes('Parapente') || titleToCheck.includes('طيران شراعي') || window.location.pathname.includes('paragliding')) {
+            itemType = 'activity';
+            itemName = 'Paragliding';
+        } else if (titleToCheck.includes('Balloon') || titleToCheck.includes('منطاد') || window.location.pathname.includes('hot-air-balloon')) {
+            itemType = 'activity';
+            itemName = 'Hot Air Balloon';
         }
 
-        // Try to get dynamic price first if function exists
+        // Canonical MAD price per person (e.g. 799 MAD for Paragliding, 800 MAD for Buggy, 350 MAD for Basic)
+        let canonicalPriceMAD = CANONICAL_PRICES_MAD[itemName] || 350;
+
+        // Try to fetch dynamic price override from Supabase pricing table if configured
         if (typeof window.getDynamicPrice === 'function') {
             try {
-                // Determine if it's a package or activity
-                let itemType = 'package';
-                let itemName = '';
-
-                // Match against known packages/activities
-                if (titleToCheck.includes('Basic') || titleToCheck.includes('Agafay Discovery') || titleToCheck.includes('Discovery')) {
-                    itemName = 'Basic';
-                } else if (titleToCheck.includes('Comfort') || titleToCheck.includes('Signature') || titleToCheck.includes('Marragafay Signature')) {
-                    itemName = 'Comfort';
-                } else if (titleToCheck.includes('Luxe') || titleToCheck.includes('Luxury')) {
-                    itemName = 'Luxe';
-                } else if (titleToCheck.includes('Quad')) {
-                    itemType = 'activity';
-                    itemName = 'Quad Biking';
-                } else if (titleToCheck.includes('Buggy')) {
-                    itemType = 'activity';
-                    itemName = 'Buggy';
-                } else if (titleToCheck.includes('Camel')) {
-                    itemType = 'activity';
-                    itemName = 'Camel Ride';
-                }
-
-                if (itemName) {
-                    const apiPrice = await window.getDynamicPrice(itemType, itemName);
-                    if (apiPrice) {
-                        pricePerPerson = apiPrice;
-                        console.log(`Dynamic API price fetched: ${pricePerPerson} for ${itemType} ${itemName}`);
+                const apiPrice = await window.getDynamicPrice(itemType, itemName);
+                if (apiPrice && !isNaN(apiPrice)) {
+                    // If the dynamic pricing API returns MAD price directly
+                    if (apiPrice > 100) {
+                        canonicalPriceMAD = apiPrice;
                     }
                 }
             } catch (error) {
@@ -398,52 +408,84 @@ document.addEventListener('submit', async function (e) {
             }
         }
 
-        // Fallback to static PRICE_LIST if DOM extraction and dynamic pricing both failed/defaulted
-        if (pricePerPerson === 35 && !domPriceElement) {
-            for (const key in PRICE_LIST) {
-                if (titleToCheck.includes(key) ||
-                    (key === 'Basic' && titleToCheck.includes('Discovery')) ||
-                    (key === 'Comfort' && titleToCheck.includes('Signature')) ||
-                    (key === 'Luxe' && titleToCheck.includes('Luxury'))) {
-                    pricePerPerson = PRICE_LIST[key];
-                    break;
+        const isQuad = (itemName === 'Quad Biking');
+        const isBuggy = (itemName === 'Buggy');
+        const isDinner = (itemName === 'Dinner & Show');
+
+        // Quad Validation: Children under 16 ride only as passengers (max 1 child per adult driver)
+        if (isQuad) {
+            if (adults < 1) {
+                if (window.Swal) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Adult Required',
+                        text: 'Children under 16 must be accompanied by at least one adult rider.',
+                        confirmButtonColor: '#523225'
+                    });
+                } else {
+                    alert('Children under 16 must be accompanied by at least one adult rider.');
                 }
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = submitBtn.dataset.originalText || 'Book now';
+                }
+                delete form.dataset.submitting;
+                return;
+            }
+            if (children > adults) {
+                if (window.Swal) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Quad Capacity Limit',
+                        text: 'Each paying rider can accompany a maximum of one child passenger under 16.',
+                        confirmButtonColor: '#523225'
+                    });
+                } else {
+                    alert('Each paying rider can accompany a maximum of one child passenger under 16.');
+                }
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = submitBtn.dataset.originalText || 'Book now';
+                }
+                delete form.dataset.submitting;
+                return;
             }
         }
 
-        // Calculate Total Price
-        // Logic: Currently treating children as full price unless specific discount logic is added here.
-        // User requested: "check if I have a discount logic, otherwise count them normally".
+        // Billable calculation:
+        // - Quad: adults * 250 (children under 16 join FREE as passengers, max 1 per adult)
+        // - Buggy: Math.max(2, totalGuests) * 800 (minimum 2 paying guests)
+        // - Dinner & Show: adults * 250 (children under 12 join FREE)
+        // - Paragliding, Camel, Balloon & Packs: totalGuests * canonicalPriceMAD
+        const billableGuests = (isQuad || isDinner) ? adults : (isBuggy ? Math.max(2, totalGuests) : totalGuests);
+        let baseTotalMAD = 0;
+        if (isQuad || isDinner) {
+            baseTotalMAD = adults * 250;
+        } else {
+            baseTotalMAD = canonicalPriceMAD * billableGuests;
+        }
 
-        let total = 0;
+        // Safely initialize optional extras in MAD (default 0 MAD)
+        let extraActivitiesPriceMAD = 0;
 
-        // Future-proof: If we add child pricing later, we can do:
-        // const childPrice = pricePerPerson * 0.5; // Example 50%
-        // total = (adults * pricePerPerson) + (children * childPrice);
+        // Calculate total in Moroccan Dirhams (MAD) for Supabase backend
+        let totalMAD = baseTotalMAD + extraActivitiesPriceMAD;
 
-        // Current Logic: Standard per-person pricing for all
-        // Dynamic Extra Activities (Future-proofing or implementation placeholder)
-        let extraActivitiesPrice = 0;
-        // Extract extras if they exist in the form
-        // Example: formData.getAll('extras').forEach(...)
+        // 🚨 BACKEND PROTECTION: Supabase bookings table stores total_price in MAD
+        bookingData.total_price = totalMAD;
 
-        let basePackageTotal = pricePerPerson * totalGuests;
-        total = basePackageTotal + extraActivitiesPrice;
+        console.log('💰 Item Name:', itemName, `(${itemType})`);
+        console.log('💰 Canonical Base Price (MAD/person):', canonicalPriceMAD);
+        console.log('💰 Billable Guests:', billableGuests, `(Total Guests: ${totalGuests})`);
+        console.log('💰 Base Total (MAD):', baseTotalMAD);
+        console.log('💰 Extras Total (MAD):', extraActivitiesPriceMAD);
+        console.log('💰 Final Calculated total_price (MAD):', bookingData.total_price);
 
-        console.log('💰 Base Package Total:', basePackageTotal, '€');
-        console.log('💰 Extra Activities Total:', extraActivitiesPrice, '€');
-        console.log('💰 Final Calculated Total:', total, '€');
-
-        // 🚨 BACKEND PROTECTION: total_price MUST be in MAD for Supabase
-        // The Admin Dashboard expects MAD values. 1 EUR = 10 MAD.
-        // Do NOT change this multiplier — see header comment at top of file.
-        bookingData.total_price = total * 10;
-
-        // Safety audit: warn if price looks like it might NOT be in MAD
+        // Safety audit: warn if price looks abnormal
         if (bookingData.total_price < 50 || bookingData.total_price > 100000) {
             console.warn(
                 '⚠️  AUDIT: total_price =', bookingData.total_price,
-                '(MAD). If this looks wrong, verify the EUR→MAD conversion.'
+                '(MAD). If this looks wrong, verify the MAD calculation.'
             );
         }
 
@@ -454,7 +496,7 @@ document.addEventListener('submit', async function (e) {
         console.log('📦 FINAL PAYLOAD BEFORE SENDING TO API');
         console.log('========================================');
         console.log('🔍 Captured Phone:', phoneNumber);
-        console.log('🔍 Captured Price:', total);
+        console.log('🔍 Captured Price (MAD):', bookingData.total_price);
         console.log('\n📧 Complete Email Payload:');
         console.log({
             name: bookingData.name,
@@ -466,7 +508,7 @@ document.addEventListener('submit', async function (e) {
             adults: bookingData.adults,
             children: bookingData.children,
             package_title: bookingData.package_title,
-            total_price: total,  // Show the actual variable being sent
+            total_price: bookingData.total_price,  // Show the actual variable being sent
             notes: bookingData.notes
         });
         console.log('========================================\n');

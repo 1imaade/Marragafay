@@ -2293,7 +2293,8 @@
       });
     });
     // Auto-close other FAQs when one opens (optional accordion behavior)
-    faqAccordion.addEventListener('show.bs.collapse', function (e) {
+    if (faqAccordion) {
+      faqAccordion.addEventListener('show.bs.collapse', function (e) {
       const openingCollapse = e.target;
       // Find other open collapses and close them
       faqHeaders.forEach(function (otherHeader) {
@@ -2304,6 +2305,7 @@
         }
       });
     });
+    }
     // Performance optimization: Debounced resize handler
     let resizeTimeout;
     window.addEventListener('resize', function () {

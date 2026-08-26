@@ -1,0 +1,1648 @@
+{
+  "$schema": "./manifest.schema.json",
+  "schemaVersion": 1,
+  "canonicalRoot": "/media/",
+  "assets": [
+    {
+      "id": "buggy-01",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-01.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": [
+        {
+          "path": "/media/activities/buggy/hero/buggy-01-640.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 640,
+            "height": 360
+          }
+        },
+        {
+          "path": "/media/activities/buggy/hero/buggy-01-960.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 960,
+            "height": 540
+          }
+        },
+        {
+          "path": "/media/activities/buggy/hero/buggy-01-1600.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 1600,
+            "height": 900
+          }
+        }
+      ]
+    },
+    {
+      "id": "buggy-02",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-02.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "buggy-03",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-03.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "buggy-04",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-04.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3024,
+        "height": 4032
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "buggy-06",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-06.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1440,
+        "height": 1689
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "buggy-07",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-07.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1440,
+        "height": 1440
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "buggy-08",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-08.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3024,
+        "height": 4032
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "buggy-09",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-09.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "buggy-05",
+      "canonicalPath": "/media/activities/buggy/gallery/buggy-05.webp",
+      "owner": "activities/buggy",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 720,
+        "height": 847
+      },
+      "alt": "Buggy driving across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-01",
+      "canonicalPath": "/media/activities/camel/gallery/camel-01.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 975,
+        "height": 1300
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-02",
+      "canonicalPath": "/media/activities/camel/gallery/camel-02.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 975,
+        "height": 1300
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-03",
+      "canonicalPath": "/media/activities/camel/gallery/camel-03.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-04",
+      "canonicalPath": "/media/activities/camel/gallery/camel-04.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-05",
+      "canonicalPath": "/media/activities/camel/gallery/camel-05.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-06",
+      "canonicalPath": "/media/activities/camel/gallery/camel-06.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 978,
+        "height": 550
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-07",
+      "canonicalPath": "/media/activities/camel/gallery/camel-07.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-08",
+      "canonicalPath": "/media/activities/camel/gallery/camel-08.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 720,
+        "height": 960
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-09",
+      "canonicalPath": "/media/activities/camel/gallery/camel-09.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3024,
+        "height": 4032
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-10",
+      "canonicalPath": "/media/activities/camel/gallery/camel-10.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3072,
+        "height": 4096
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-11",
+      "canonicalPath": "/media/activities/camel/gallery/camel-11.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3072,
+        "height": 4096
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-12",
+      "canonicalPath": "/media/activities/camel/gallery/camel-12.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1440,
+        "height": 1440
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-13",
+      "canonicalPath": "/media/activities/camel/gallery/camel-13.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3124,
+        "height": 4096
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-14",
+      "canonicalPath": "/media/activities/camel/gallery/camel-14.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3072,
+        "height": 4096
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": [
+        {
+          "path": "/media/activities/camel/hero/camel-14-640.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 640,
+            "height": 853
+          }
+        },
+        {
+          "path": "/media/activities/camel/hero/camel-14-960.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 960,
+            "height": 1280
+          }
+        },
+        {
+          "path": "/media/activities/camel/hero/camel-14-1600.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 1600,
+            "height": 2133
+          }
+        }
+      ]
+    },
+    {
+      "id": "camel-15",
+      "canonicalPath": "/media/activities/camel/gallery/camel-15.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3072,
+        "height": 4096
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-16",
+      "canonicalPath": "/media/activities/camel/gallery/camel-16.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 720,
+        "height": 960
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-17",
+      "canonicalPath": "/media/activities/camel/gallery/camel-17.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-18",
+      "canonicalPath": "/media/activities/camel/gallery/camel-18.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-19",
+      "canonicalPath": "/media/activities/camel/gallery/camel-19.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-20",
+      "canonicalPath": "/media/activities/camel/gallery/camel-20.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-21",
+      "canonicalPath": "/media/activities/camel/gallery/camel-21.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-22",
+      "canonicalPath": "/media/activities/camel/gallery/camel-22.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 977
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-23",
+      "canonicalPath": "/media/activities/camel/gallery/camel-23.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 412
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-24",
+      "canonicalPath": "/media/activities/camel/gallery/camel-24.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-25",
+      "canonicalPath": "/media/activities/camel/gallery/camel-25.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-26",
+      "canonicalPath": "/media/activities/camel/gallery/camel-26.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-27",
+      "canonicalPath": "/media/activities/camel/gallery/camel-27.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-28",
+      "canonicalPath": "/media/activities/camel/gallery/camel-28.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 412
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-29",
+      "canonicalPath": "/media/activities/camel/gallery/camel-29.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 413
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-30",
+      "canonicalPath": "/media/activities/camel/gallery/camel-30.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-31",
+      "canonicalPath": "/media/activities/camel/gallery/camel-31.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 414
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-32",
+      "canonicalPath": "/media/activities/camel/gallery/camel-32.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 413
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-33",
+      "canonicalPath": "/media/activities/camel/gallery/camel-33.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-34",
+      "canonicalPath": "/media/activities/camel/gallery/camel-34.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 734
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camel-35",
+      "canonicalPath": "/media/activities/camel/gallery/camel-35.webp",
+      "owner": "activities/camel",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Camel riding through the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "dinner-show-01",
+      "canonicalPath": "/media/activities/dinner-show/gallery/dinner-show-01.webp",
+      "owner": "activities/dinner-show",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 825
+      },
+      "alt": "Dinner and live entertainment in the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "dinner-show-02",
+      "canonicalPath": "/media/activities/dinner-show/gallery/dinner-show-02.webp",
+      "owner": "activities/dinner-show",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "alt": "Dinner and live entertainment in the Agafay desert",
+      "variants": [
+        {
+          "path": "/media/activities/dinner-show/hero/dinner-show-02-640.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 640,
+            "height": 853
+          }
+        },
+        {
+          "path": "/media/activities/dinner-show/hero/dinner-show-02-960.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 960,
+            "height": 1280
+          }
+        }
+      ]
+    },
+    {
+      "id": "dinner-show-03",
+      "canonicalPath": "/media/activities/dinner-show/gallery/dinner-show-03.webp",
+      "owner": "activities/dinner-show",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 366
+      },
+      "alt": "Dinner and live entertainment in the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "dinner-show-04",
+      "canonicalPath": "/media/activities/dinner-show/gallery/dinner-show-04.webp",
+      "owner": "activities/dinner-show",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 366
+      },
+      "alt": "Dinner and live entertainment in the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "dinner-show-05",
+      "canonicalPath": "/media/activities/dinner-show/gallery/dinner-show-05.webp",
+      "owner": "activities/dinner-show",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 414
+      },
+      "alt": "Dinner and live entertainment in the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "dinner-show-06",
+      "canonicalPath": "/media/activities/dinner-show/gallery/dinner-show-06.webp",
+      "owner": "activities/dinner-show",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 978
+      },
+      "alt": "Dinner and live entertainment in the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "dinner-show-07",
+      "canonicalPath": "/media/activities/dinner-show/gallery/dinner-show-07.webp",
+      "owner": "activities/dinner-show",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Dinner and live entertainment in the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "dinner-show-08",
+      "canonicalPath": "/media/activities/dinner-show/gallery/dinner-show-08.webp",
+      "owner": "activities/dinner-show",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 1184
+      },
+      "alt": "Dinner and live entertainment in the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-01",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-01.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 744,
+        "height": 1100
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-02",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-02.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-03",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-03.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 748,
+        "height": 1330
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-04",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-04.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 780,
+        "height": 585
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-05",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-05.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 773,
+        "height": 1250
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-06",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-06.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 780,
+        "height": 1180
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-07",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-07.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 748,
+        "height": 1330
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-08",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-08.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 771,
+        "height": 1250
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-09",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-09.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-10",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-10.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-11",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-11.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": []
+    },
+    {
+      "id": "hot-air-balloon-12",
+      "canonicalPath": "/media/activities/hot-air-balloon/gallery/hot-air-balloon-12.webp",
+      "owner": "activities/hot-air-balloon",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 780,
+        "height": 585
+      },
+      "alt": "Hot-air balloon flight over the Moroccan landscape",
+      "variants": [
+        {
+          "path": "/media/activities/hot-air-balloon/hero/hot-air-balloon-12-640.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 640,
+            "height": 480
+          }
+        }
+      ]
+    },
+    {
+      "id": "paragliding-01",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-01.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 780,
+        "height": 585
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-02",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-02.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 780,
+        "height": 585
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-03",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-03.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 780,
+        "height": 585
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-04",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-04.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-05",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-05.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-06",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-06.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-07",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-07.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-08",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-08.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-09",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-09.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 765,
+        "height": 1020
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-10",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-10.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1920,
+        "height": 1598
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": [
+        {
+          "path": "/media/activities/paragliding/hero/paragliding-10-640.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 640,
+            "height": 533
+          }
+        },
+        {
+          "path": "/media/activities/paragliding/hero/paragliding-10-960.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 960,
+            "height": 799
+          }
+        },
+        {
+          "path": "/media/activities/paragliding/hero/paragliding-10-1600.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 1600,
+            "height": 1332
+          }
+        }
+      ]
+    },
+    {
+      "id": "paragliding-11",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-11.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 950,
+        "height": 700
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-12",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-12.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 950,
+        "height": 700
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-13",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-13.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 950,
+        "height": 700
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-14",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-14.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 950,
+        "height": 700
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-15",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-15.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 210,
+        "height": 118
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "paragliding-16",
+      "canonicalPath": "/media/activities/paragliding/gallery/paragliding-16.webp",
+      "owner": "activities/paragliding",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 210,
+        "height": 118
+      },
+      "alt": "Paragliding over the desert landscape near Marrakech",
+      "variants": []
+    },
+    {
+      "id": "quad-03",
+      "canonicalPath": "/media/activities/quad/gallery/quad-03.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3024,
+        "height": 4032
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": [
+        {
+          "path": "/media/activities/quad/hero/quad-03-640.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 640,
+            "height": 853
+          }
+        },
+        {
+          "path": "/media/activities/quad/hero/quad-03-960.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 960,
+            "height": 1280
+          }
+        },
+        {
+          "path": "/media/activities/quad/hero/quad-03-1600.webp",
+          "kind": "responsive",
+          "format": "webp",
+          "dimensions": {
+            "width": 1600,
+            "height": 2133
+          }
+        }
+      ]
+    },
+    {
+      "id": "quad-02",
+      "canonicalPath": "/media/activities/quad/gallery/quad-02.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "hero"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 3024,
+        "height": 4032
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-06",
+      "canonicalPath": "/media/activities/quad/gallery/quad-06.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1024,
+        "height": 461
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-11",
+      "canonicalPath": "/media/activities/quad/gallery/quad-11.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 1024,
+        "height": 576
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-07",
+      "canonicalPath": "/media/activities/quad/gallery/quad-07.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 413
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-08",
+      "canonicalPath": "/media/activities/quad/gallery/quad-08.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 412
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-09",
+      "canonicalPath": "/media/activities/quad/gallery/quad-09.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 412
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-10",
+      "canonicalPath": "/media/activities/quad/gallery/quad-10.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-12",
+      "canonicalPath": "/media/activities/quad/gallery/quad-12.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-01",
+      "canonicalPath": "/media/activities/quad/gallery/quad-01.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "gallery"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 734
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-04",
+      "canonicalPath": "/media/activities/quad/gallery/quad-04.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "quad-05",
+      "canonicalPath": "/media/activities/quad/gallery/quad-05.webp",
+      "owner": "activities/quad",
+      "roles": [
+        "candidate"
+      ],
+      "shared": false,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Quad biking across the Agafay desert",
+      "variants": []
+    },
+    {
+      "id": "camp-01",
+      "canonicalPath": "/media/shared/camp/gallery/camp-01.webp",
+      "owner": "shared/camp",
+      "roles": [
+        "candidate"
+      ],
+      "shared": true,
+      "dimensions": {
+        "width": 3072,
+        "height": 4096
+      },
+      "alt": "Agafay camp and desert landscape",
+      "variants": []
+    },
+    {
+      "id": "camp-02",
+      "canonicalPath": "/media/shared/camp/gallery/camp-02.webp",
+      "owner": "shared/camp",
+      "roles": [
+        "candidate"
+      ],
+      "shared": true,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Agafay camp and desert landscape",
+      "variants": []
+    },
+    {
+      "id": "dining-01",
+      "canonicalPath": "/media/shared/dining/gallery/dining-01.webp",
+      "owner": "shared/dining",
+      "roles": [
+        "candidate"
+      ],
+      "shared": true,
+      "dimensions": {
+        "width": 2149,
+        "height": 2864
+      },
+      "alt": "Traditional food and dining scene in an Agafay setting",
+      "variants": []
+    },
+    {
+      "id": "pool-01",
+      "canonicalPath": "/media/shared/pool/gallery/pool-01.webp",
+      "owner": "shared/pool",
+      "roles": [
+        "candidate"
+      ],
+      "shared": true,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Pool setting with the Agafay desert landscape",
+      "variants": []
+    },
+    {
+      "id": "pool-02",
+      "canonicalPath": "/media/shared/pool/gallery/pool-02.webp",
+      "owner": "shared/pool",
+      "roles": [
+        "candidate"
+      ],
+      "shared": true,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Pool setting with the Agafay desert landscape",
+      "variants": []
+    },
+    {
+      "id": "pool-03",
+      "canonicalPath": "/media/shared/pool/gallery/pool-03.webp",
+      "owner": "shared/pool",
+      "roles": [
+        "candidate"
+      ],
+      "shared": true,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Pool setting with the Agafay desert landscape",
+      "variants": []
+    },
+    {
+      "id": "pool-04",
+      "canonicalPath": "/media/shared/pool/gallery/pool-04.webp",
+      "owner": "shared/pool",
+      "roles": [
+        "candidate"
+      ],
+      "shared": true,
+      "dimensions": {
+        "width": 550,
+        "height": 733
+      },
+      "alt": "Pool setting with the Agafay desert landscape",
+      "variants": []
+    },
+    {
+      "id": "transport-01",
+      "canonicalPath": "/media/shared/transport/gallery/transport-01.webp",
+      "owner": "shared/transport",
+      "roles": [
+        "candidate"
+      ],
+      "shared": true,
+      "dimensions": {
+        "width": 1440,
+        "height": 1689
+      },
+      "alt": "Transport vehicle in the Agafay desert",
+      "variants": []
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/media/manifest.schema.json",
+  "title": "Marragafay canonical media manifest",
+  "description": "Schema for verified web-ready assets under public/media.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "canonicalRoot", "assets"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "canonicalRoot": {
+      "const": "/media/"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "canonicalPath",
+        "owner",
+        "roles",
+        "shared",
+        "dimensions",
+        "alt",
+        "variants"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "description": "Stable identifier that does not change when delivery variants are added."
+        },
+        "canonicalPath": {
+          "type": "string",
+          "pattern": "^/media/[a-z0-9][a-z0-9/-]*\\.(?:avif|gif|jpeg|jpg|png|svg|webp)$"
+        },
+        "owner": {
+          "type": "string",
+          "pattern": "^(?:activities|packs|shared|brand|blog|seo)(?:/[a-z0-9]+(?:-[a-z0-9]+)*)*$",
+          "description": "Canonical ownership namespace, such as activities/quad or shared/pool."
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "hero",
+              "gallery",
+              "thumb",
+              "content",
+              "background",
+              "logo",
+              "icon",
+              "og",
+              "avatar",
+              "candidate"
+            ]
+          }
+        },
+        "shared": {
+          "type": "boolean",
+          "description": "True only for assets owned by the shared namespace."
+        },
+        "dimensions": {
+          "$ref": "#/$defs/dimensions"
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Real accessible alternative text; do not use a filename or placeholder."
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/variant"
+          }
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "kind", "format", "dimensions"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^/media/[a-z0-9][a-z0-9/-]*\\.(?:avif|gif|jpeg|jpg|png|svg|webp)$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["responsive", "format", "thumbnail"]
+        },
+        "format": {
+          "type": "string",
+          "enum": ["avif", "gif", "jpeg", "jpg", "png", "svg", "webp"]
+        },
+        "dimensions": {
+          "$ref": "#/$defs/dimensions"
+        }
+      }
+    }
+  }
+}
