@@ -2,81 +2,117 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Core Pages -->
   <url>
-    <loc>https://www.marragafay.com/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <loc>https://www.marragafay.com/ar</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/activities</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/packs</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/about</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/reviews</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/contact</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en" />
   </url>
 
-  <!-- Journal Index Pages (Multilingual Cluster) -->
   <url>
-    <loc>https://www.marragafay.com/en/blog</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog" />
+    <loc>https://www.marragafay.com/ar/about</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/about" />
   </url>
+
   <url>
-    <loc>https://www.marragafay.com/fr/blog</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://www.marragafay.com/ar/activities</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities" />
   </url>
+
   <url>
-    <loc>https://www.marragafay.com/es/blog</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog" />
+    <loc>https://www.marragafay.com/ar/activities/buggy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/buggy" />
   </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/activities/camel-ride</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/camel-ride" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/activities/dinner-show</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/dinner-show" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/activities/hot-air-balloon</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/hot-air-balloon" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/activities/paragliding</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/paragliding" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/activities/quad-biking</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/quad-biking" />
+  </url>
+
   <url>
     <loc>https://www.marragafay.com/ar/blog</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog" />
@@ -86,87 +122,9 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog" />
   </url>
 
-  <!-- Individual Journal Articles (Multilingual Cluster) -->
-  <url>
-    <loc>https://www.marragafay.com/en/blog/agafay-desert-guide</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/fr/blog/agafay-desert-guide</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/es/blog/agafay-desert-guide</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/ar/blog/agafay-desert-guide</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/en/blog/agafay-camel-ride</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/fr/blog/agafay-camel-ride</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/es/blog/agafay-camel-ride</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-camel-ride" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
-  </url>
   <url>
     <loc>https://www.marragafay.com/ar/blog/agafay-camel-ride</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
@@ -175,218 +133,22 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-camel-ride" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
   </url>
+
   <url>
-    <loc>https://www.marragafay.com/en/blog/berber-culture-agafay</loc>
-    <lastmod>2026-08-22</lastmod>
+    <loc>https://www.marragafay.com/ar/blog/agafay-desert-guide</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
   </url>
-  <url>
-    <loc>https://www.marragafay.com/fr/blog/berber-culture-agafay</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/es/blog/berber-culture-agafay</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/ar/blog/berber-culture-agafay</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/berber-culture-agafay" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/en/blog/marrakech-to-agafay</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/fr/blog/marrakech-to-agafay</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/es/blog/marrakech-to-agafay</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/ar/blog/marrakech-to-agafay</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/marrakech-to-agafay" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/en/blog/agafay-dinner-experience</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/fr/blog/agafay-dinner-experience</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/es/blog/agafay-dinner-experience</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/ar/blog/agafay-dinner-experience</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-dinner-experience" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/en/blog/agafay-quad-biking-guide</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/fr/blog/agafay-quad-biking-guide</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/es/blog/agafay-quad-biking-guide</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/ar/blog/agafay-quad-biking-guide</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-quad-biking-guide" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/en/blog/agafay-desert-vs-sahara</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/fr/blog/agafay-desert-vs-sahara</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
-  </url>
-  <url>
-    <loc>https://www.marragafay.com/es/blog/agafay-desert-vs-sahara</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-vs-sahara" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
-  </url>
+
   <url>
     <loc>https://www.marragafay.com/ar/blog/agafay-desert-vs-sahara</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
@@ -395,4 +157,1097 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-vs-sahara" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
   </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/blog/agafay-dinner-experience</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/blog/agafay-quad-biking-guide</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/blog/berber-culture-agafay</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/blog/marrakech-to-agafay</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/cancellation</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/cancellation" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/cancellation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/cancellation" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/cancellation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/cancellation" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/contact</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/contact" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/packages/basic</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/basic" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/packages/comfort</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/comfort" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/packages/luxe</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/luxe" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/packs</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packs" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packs" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packs" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packs" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/privacy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/privacy" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/reviews</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/reviews" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/reviews" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/reviews" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/reviews" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/ar/terms</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/terms" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/about</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/about" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/activities</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/activities/buggy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/buggy" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/activities/camel-ride</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/camel-ride" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/activities/dinner-show</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/dinner-show" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/activities/hot-air-balloon</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/hot-air-balloon" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/activities/paragliding</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/paragliding" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/activities/quad-biking</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/quad-biking" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/blog</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/blog/agafay-camel-ride</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/blog/agafay-desert-guide</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/blog/agafay-desert-vs-sahara</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/blog/agafay-dinner-experience</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/blog/agafay-quad-biking-guide</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/blog/berber-culture-agafay</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/blog/marrakech-to-agafay</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/cancellation</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/cancellation" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/cancellation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/cancellation" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/cancellation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/cancellation" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/contact</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/contact" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/packages/basic</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/basic" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/packages/comfort</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/comfort" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/packages/luxe</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/luxe" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/packs</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packs" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packs" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packs" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packs" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/privacy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/privacy" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/reviews</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/reviews" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/reviews" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/reviews" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/reviews" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/en/terms</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/terms" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/about</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/about" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/activities</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/activities/buggy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/buggy" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/activities/camel-ride</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/camel-ride" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/activities/dinner-show</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/dinner-show" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/activities/hot-air-balloon</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/hot-air-balloon" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/activities/paragliding</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/paragliding" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/activities/quad-biking</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/quad-biking" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/blog</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/blog/agafay-camel-ride</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/blog/agafay-desert-guide</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/blog/agafay-desert-vs-sahara</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/blog/agafay-dinner-experience</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/blog/agafay-quad-biking-guide</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/blog/berber-culture-agafay</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/blog/marrakech-to-agafay</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/cancellation</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/cancellation" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/cancellation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/cancellation" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/cancellation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/cancellation" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/contact</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/contact" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/packages/basic</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/basic" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/packages/comfort</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/comfort" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/packages/luxe</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/luxe" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/packs</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packs" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packs" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packs" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packs" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/privacy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/privacy" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/reviews</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/reviews" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/reviews" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/reviews" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/reviews" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/es/terms</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/terms" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/about</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/about" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/activities</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/activities/buggy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/buggy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/buggy" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/activities/camel-ride</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/camel-ride" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/camel-ride" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/activities/dinner-show</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/dinner-show" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/dinner-show" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/activities/hot-air-balloon</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/hot-air-balloon" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/hot-air-balloon" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/activities/paragliding</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/paragliding" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/paragliding" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/activities/quad-biking</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/activities/quad-biking" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/activities/quad-biking" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/blog</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/blog/agafay-camel-ride</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-camel-ride" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-camel-ride" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/blog/agafay-desert-guide</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-guide" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/blog/agafay-desert-vs-sahara</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-desert-vs-sahara" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-desert-vs-sahara" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/blog/agafay-dinner-experience</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-dinner-experience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-dinner-experience" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/blog/agafay-quad-biking-guide</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/agafay-quad-biking-guide" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/agafay-quad-biking-guide" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/blog/berber-culture-agafay</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/berber-culture-agafay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/berber-culture-agafay" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/blog/marrakech-to-agafay</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/blog/marrakech-to-agafay" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/blog/marrakech-to-agafay" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/cancellation</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/cancellation" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/cancellation" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/cancellation" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/cancellation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/cancellation" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/contact</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/contact" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/packages/basic</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/basic" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/basic" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/packages/comfort</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/comfort" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/comfort" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/packages/luxe</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packages/luxe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packages/luxe" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/packs</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packs" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packs" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packs" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/packs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/packs" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/privacy</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/privacy" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/reviews</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/reviews" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/reviews" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/reviews" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/reviews" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/reviews" />
+  </url>
+
+  <url>
+    <loc>https://www.marragafay.com/fr/terms</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.marragafay.com/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en/terms" />
+  </url>
+
 </urlset>
