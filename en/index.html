@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" lang="en">
+<html lang="en">
 
 <head>
   <link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/" />
@@ -3475,10 +3475,10 @@
       let lastTap = 0;
       let slideDirection = 'none';
       // DOM elements
-      const lightbox = document.getElementById('galleryLightbox');
-      const overlay = document.querySelector('.lightbox-overlay');
-      const container = document.querySelector('.lightbox-container');
-      const lightboxImage = document.querySelector('.lightbox-image');
+      const lightbox = document.getElementById('galleryLightbox') || document.getElementById('image-lightbox');
+      const overlay = document.querySelector('.lightbox-overlay') || lightbox;
+      const container = document.querySelector('.lightbox-container') || lightbox;
+      const lightboxImage = document.querySelector('.lightbox-image') || document.getElementById('lightbox-img');
       const closeBtn = document.querySelector('.lightbox-close');
       const prevBtn = document.querySelector('.lightbox-prev');
       const nextBtn = document.querySelector('.lightbox-next');
@@ -3491,7 +3491,7 @@
         return;
       }
       // Initialize
-      totalImagesSpan.textContent = images.length;
+      if (totalImagesSpan) totalImagesSpan.textContent = images.length;
       // Auto-hide controls functionality
       function showControls() {
         if (!controlsVisible) {
@@ -3499,7 +3499,7 @@
           closeBtn.style.opacity = '1';
           prevBtn.style.opacity = '1';
           nextBtn.style.opacity = '1';
-          currentImageSpan.parentElement.style.opacity = '1';
+          if (currentImageSpan && currentImageSpan.parentElement) currentImageSpan.parentElement.style.opacity = '1';
         }
         // Reset auto-hide timer
         clearTimeout(controlsTimeout);
@@ -3513,7 +3513,7 @@
           closeBtn.style.opacity = '0.3';
           prevBtn.style.opacity = '0.3';
           nextBtn.style.opacity = '0.3';
-          currentImageSpan.parentElement.style.opacity = '0.3';
+          if (currentImageSpan && currentImageSpan.parentElement) currentImageSpan.parentElement.style.opacity = '0.3';
         }
       }
       // Double-tap zoom functionality
@@ -3559,7 +3559,7 @@
         isAnimating = true;
         slideDirection = direction;
         // Show loader
-        loader.classList.add('active');
+        if (loader) loader.classList.add('active');
         lightboxImage.classList.add('loading');
         lightboxImage.classList.remove('loaded');
         // Add slide effect
@@ -3567,7 +3567,7 @@
           addSlideTransition(direction);
         }
         // Update counter
-        currentImageSpan.textContent = index + 1;
+        if (currentImageSpan) currentImageSpan.textContent = index + 1;
         // Load image with smooth transition
         preloadImage(images[index])
           .then(() => {
@@ -3575,7 +3575,7 @@
               lightboxImage.src = images[index];
               lightboxImage.alt = `Gallery image ${index + 1} of ${images.length}`;
               // Hide loader and show image
-              loader.classList.remove('active');
+              if (loader) loader.classList.remove('active');
               lightboxImage.classList.remove('loading');
               lightboxImage.classList.add('loaded');
               // Reset zoom if was zoomed
@@ -3594,7 +3594,7 @@
           })
           .catch(() => {
             console.error(`Failed to load image: ${images[index]}`);
-            loader.classList.remove('active');
+            if (loader) loader.classList.remove('active');
             lightboxImage.classList.remove('loading');
             isAnimating = false;
           });
@@ -3673,7 +3673,7 @@
         setTimeout(() => {
           lightbox.style.display = 'none';
           document.body.style.overflow = 'auto';
-          loader.classList.remove('active');
+          if (loader) loader.classList.remove('active');
         }, LIGHTBOX_CONFIG.animationDuration);
         // Remove keyboard listener
         document.removeEventListener('keydown', handleKeyboard);
@@ -3717,12 +3717,12 @@
         setTimeout(() => {
           lightbox.style.display = 'none';
           document.body.style.overflow = 'auto';
-          loader.classList.remove('active');
+          if (loader) loader.classList.remove('active');
           // Reset control opacity
           closeBtn.style.opacity = '1';
           prevBtn.style.opacity = '1';
           nextBtn.style.opacity = '1';
-          currentImageSpan.parentElement.style.opacity = '1';
+          if (currentImageSpan && currentImageSpan.parentElement) currentImageSpan.parentElement.style.opacity = '1';
         }, LIGHTBOX_CONFIG.animationDuration);
         // Remove keyboard listener
         document.removeEventListener('keydown', handleKeyboard);
@@ -3807,7 +3807,7 @@
         touchMoved = false;
       }
       // Initialize gallery click listeners
-      const galleryImages = document.querySelectorAll('.gallery-card img');
+      const galleryImages = document.querySelectorAll('.gallery-card img, img[alt="Marragafay Guest"]');
       galleryImages.forEach((img, index) => {
         img.style.cursor = 'pointer';
         img.addEventListener('click', () => openLightbox(index));
@@ -3840,7 +3840,7 @@
       // Enhanced error handling
       lightboxImage.addEventListener('error', () => {
         console.error(`Failed to display image: ${images[currentIndex]}`);
-        loader.classList.remove('active');
+        if (loader) loader.classList.remove('active');
         lightboxImage.classList.remove('loading');
       });
       // Performance optimization: Preload first few images
@@ -5024,7 +5024,8 @@
       });
     });
     // Auto-close other FAQs when one opens (optional accordion behavior)
-    faqAccordion.addEventListener('show.bs.collapse', function (e) {
+    if (faqAccordion) {
+      faqAccordion.addEventListener('show.bs.collapse', function (e) {
       const openingCollapse = e.target;
       // Find other open collapses and close them
       faqHeaders.forEach(function (otherHeader) {
@@ -5034,7 +5035,8 @@
           $(otherCollapse).collapse('hide');
         }
       });
-    });
+      });
+    }
     // Performance optimization: Debounced resize handler
     let resizeTimeout;
     window.addEventListener('resize', function () {

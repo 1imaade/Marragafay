@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" class="scroll-smooth" lang="en"><head>
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
   <link rel="alternate" hreflang="en" href="https://www.marragafay.com/en/packages/luxe" />
   <link rel="alternate" hreflang="fr" href="https://www.marragafay.com/fr/packages/luxe" />
   <link rel="alternate" hreflang="es" href="https://www.marragafay.com/es/packages/luxe" />
@@ -72,7 +72,7 @@
 
   <!-- TASK 1: LCP hero image preload - FIRST resource hint, before all CSS -->
   <link rel="preload" href="/images/activites/camel-mobile.webp" as="image" media="(max-width: 480px)" fetchpriority="high" type="image/webp">
-  <link rel="preload" href="/images/activites/camel.webp" as="image" media="(min-width: 481px)" fetchpriority="high" type="image/webp">
+  <link rel="preload" href="/images/activites/camel-960.webp" as="image" media="(min-width: 481px)" imagesrcset="/images/activites/camel-640.webp 640w, /images/activites/camel-960.webp 960w, /images/activites/camel-1600.webp 1600w, /images/activites/camel.webp 4160w" imagesizes="(max-width: 480px) 100vw, 66vw" fetchpriority="high" type="image/webp">
 
   <!-- TASK 4c: Critical CSS inlined to eliminate render-blocking -->
   <style>
@@ -766,7 +766,7 @@
               <source media="(max-width: 480px)" srcset="/images/activites/camel-mobile.webp">
               <picture>
               <source media="(max-width: 480px)" srcset="/images/activites/camel-mobile.webp">
-              <img src="/images/activites/camel.webp" alt="Marragafay Experience" class="absolute inset-0 w-full h-full object-cover z-0" fetchpriority="high">
+              <img src="/images/activites/camel.webp" srcset="/images/activites/camel-640.webp 640w, /images/activites/camel-960.webp 960w, /images/activites/camel-1600.webp 1600w, /images/activites/camel.webp 4160w" sizes="(max-width: 480px) 100vw, 66vw" alt="Marragafay Experience" class="absolute inset-0 w-full h-full object-cover z-0" fetchpriority="high">
             </picture>
             </picture>
             
@@ -1219,7 +1219,7 @@
         
         <!-- Main Anchor Image (Spans 2x2) -->
         <div class="col-span-2 row-span-2 md:col-span-2 md:row-span-2 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/images/gallery/gal1.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img src="/images/gallery/gal1.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         </div>
         
         <!-- Right Stack 1 -->
@@ -1228,44 +1228,44 @@
               <source media="(max-width: 480px)" srcset="/images/activites/camel-mobile.webp">
               <picture>
               <source media="(max-width: 480px)" srcset="/images/activites/camel-mobile.webp">
-              <img src="/images/activites/camel.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" fetchpriority="high">
+              <img src="/images/activites/camel.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
             </picture>
             </picture>
         </div>
         
         <!-- Right Stack 2 -->
         <div class="col-span-1 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/images/gallery/gal7.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img src="/images/gallery/gal7.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         </div>
 
         <!-- Bottom Row 1 -->
         <div class="col-span-1 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/images/profile-testimonials/Maria-Rodriguez.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img src="/images/profile-testimonials/Maria-Rodriguez.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         </div>
         
         <!-- Bottom Row 2 -->
         <div class="col-span-1 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/public/images/gallery/lux-pack/dinner.jpg" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img src="/public/images/gallery/lux-pack/dinner.jpg" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         </div>
         
         <!-- Bottom Row 3 -->
         <div class="col-span-1 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/public/images/gallery/lux-pack/show-1.jpg" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img src="/public/images/gallery/lux-pack/show-1.jpg" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         </div>
 
         <!-- Bottom Row 4 -->
         <div class="col-span-1 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/public/images/gallery/lux-pack/qu-3.jpg" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img src="/public/images/gallery/lux-pack/qu-3.jpg" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         </div>
         
         <!-- Bottom Row 5 -->
         <div class="col-span-1 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/images/gallery/gal2.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img src="/images/gallery/gal2.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         </div>
         
         <!-- Bottom Row 6 -->
         <div class="col-span-1 relative rounded-2xl overflow-hidden group bg-white/5 cursor-pointer">
-          <img src="/images/gallery/gal3.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <img src="/images/gallery/gal3.webp" alt="Marragafay Experience" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         </div>
 
       </div>
