@@ -117,8 +117,6 @@
     document.addEventListener('click', () => setTimeout(initAllFormHelpers, 300));
 })();
 
-console.log('Booking Manager Loaded');
-
 /**
  * Send Booking Email Notification
  * 
@@ -131,13 +129,6 @@ console.log('Booking Manager Loaded');
  */
 async function sendBookingEmailNotification(bookingData) {
     try {
-        console.log('📧 Sending booking email notification', {
-            hasName: Boolean(bookingData.name),
-            hasEmail: Boolean(bookingData.email),
-            hasPhone: Boolean(bookingData.phone_number),
-            product: bookingData.product_id || bookingData.package_title || 'unknown'
-        });
-
         const attribution = typeof window.MarragafayAttribution?.getBookingAttribution === 'function'
             ? window.MarragafayAttribution.getBookingAttribution()
             : undefined;
@@ -169,7 +160,6 @@ async function sendBookingEmailNotification(bookingData) {
             });
             if (response.ok) {
                 const result = await response.json();
-                console.log('✅ Booking email notification sent via', endpoint);
                 return result;
             }
         } catch (errApi) {

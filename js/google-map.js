@@ -103,7 +103,6 @@ function init() {
         // Optional: Add click listener for marker
         marker.addListener('click', function() {
             // You can add info window here if needed
-            console.log('Marker clicked:', location.name);
         });
     });
 }

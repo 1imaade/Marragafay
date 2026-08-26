@@ -144,5 +144,4 @@
     });
   });
 
-  console.log('✅ Booking Modal Ready (Image Match)');
 })();

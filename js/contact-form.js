@@ -208,9 +208,7 @@
                         body: JSON.stringify(payload)
                     });
                 }
-            } catch (errApi) {
-                console.log('API email notification attempted');
-            }
+            } catch (errApi) {}
 
             if (supabaseSaved) {
                 displaySuccess(form, t.successMsg, t.successTitle);

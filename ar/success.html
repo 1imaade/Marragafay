@@ -116,7 +116,7 @@
     .shadow-warm {
       box-shadow: 0 25px 50px -12px rgba(20, 10, 5, 0.4), 0 0 40px rgba(196, 98, 45, 0.05);
     }
-    
+
     /* Print Architecture */
     @media print {
       body, .bg-\[\#FAF5EB\] { background-color: #FFFFFF !important; }
@@ -146,7 +146,7 @@
 
   <!-- Main Content Wrapper -->
   <main id="main-content" tabindex="-1" style="outline: none;" class="w-full max-w-md md:max-w-xl mx-auto flex flex-col gap-8 animate-fade-up md:bg-white md:shadow-2xl md:shadow-[#10100E]/[0.03] md:p-12 md:rounded-[2rem] md:border md:border-[#10100E]/5">
-    
+
     <!-- The Terminal Screen -->
     <div class="w-full flex flex-col gap-2 animate-fade-up delay-400">
 
@@ -162,11 +162,11 @@
           لقد تم تسجيل طلب البعثة الخاص بك بشكل آمن. سيتصل بك فريق الكونسيرج الخاص بنا عبر تطبيق واتساب قريبًا لتأكيد التفاصيل الخاصة بك.
         </p>
       </div>
-      
+
 
       <!-- Data Rows -->
       <div class="space-y-0 w-full">
-        
+
         <!-- Row 1 -->
                 <div class="flex flex-row justify-between items-center py-3 border-b border-[#10100E]/10 last:border-0 animate-fade-up">
           <span class="font-medium text-[#10100E]/90 text-[10px] tracking-[0.15em] uppercase">خبرة</span>
@@ -184,7 +184,7 @@
           <span class="font-medium text-[#10100E]/90 text-[10px] tracking-[0.15em] uppercase">الضيوف</span>
           <span class="font-medium text-[#10100E]/80 text-sm md:text-base text-right max-w-[60%] truncate" id="display-guests">تحميل...</span>
         </div>
-        
+
         <!-- Row 4 -->
         <div class="flex flex-row justify-between items-center py-3 border-b border-[#10100E]/10 last:border-0 animate-fade-up">
           <span class="font-medium text-[#10100E]/90 text-[10px] tracking-[0.15em] uppercase">اسم الضيف</span>
@@ -211,7 +211,7 @@
 
   <!-- Sticky Bottom CTA Wrapper -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-md z-10 flex flex-col md:flex-row md:gap-4 print:hidden md:static md:bottom-auto md:left-auto md:translate-x-0 md:w-full md:max-w-xl md:mt-8">
-    
+
     <!-- Secondary CTA (Print) -->
     <button onclick="window.print()" class="w-full md:flex-1 py-3.5 rounded-xl border border-[#10100E]/20 text-[#10100E] font-medium text-[13px] md:text-sm flex justify-center items-center gap-2 mb-3 md:mb-0 hover:bg-[#10100E]/5 transition-colors">
       <svg class="w-4 h-4 text-[#10100E]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -219,7 +219,7 @@
       </svg>
       تحميل الإيصال
     </button>
-    
+
     <!-- Primary CTA (واتساب) -->
     <a href="https://wa.me/212672531624" target="_blank" rel="noopener noreferrer" class="w-full md:flex-1 flex justify-center items-center gap-2 bg-[#523225] hover:bg-[#523225]/90 text-white py-3.5 rounded-xl transition-colors duration-300">
       <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -250,7 +250,7 @@
         if (data.package_name) {
           cleanPackage = data.package_name.split('-')[0].split('|')[0].trim();
         }
-        
+
         let formattedDate = 'To be confirmed';
         if (data.date) {
             try {
@@ -259,7 +259,7 @@
                 formattedDate = data.date;
             }
         }
-        
+
         const guests = data.guests_total || '1';
         const name = data.name || 'Valued Guest';
         const whatsapp = data.whatsapp || 'N/A';
@@ -304,21 +304,21 @@
       var displaySpan = document.querySelector('#languageDropdown span');
       if(displaySpan) displaySpan.textContent = langMap[currentLang];
     }
-    
+
     // 2. Bind click events to the dropdown options
     var langOptions = document.querySelectorAll('.lang-option');
     langOptions.forEach(function(opt) {
       opt.addEventListener('click', function(e) {
         e.preventDefault();
         var selectedLang = this.getAttribute('data-lang');
-        
+
         // Lock user preference in localStorage
         localStorage.setItem('marragafay_lang', selectedLang);
-        
+
         // 3. Dynamic Path Replacement
         var currentPath = window.location.pathname;
         var pathParts = currentPath.split('/');
-        
+
         // If we are already in a language subfolder, swap it
         if (pathParts.length > 1 && ['en', 'fr', 'es', 'ar'].includes(pathParts[1])) {
           pathParts[1] = selectedLang;
@@ -326,12 +326,12 @@
           // Otherwise inject it
           pathParts.splice(1, 0, selectedLang);
         }
-        
+
         var newPath = pathParts.join('/') || '/';
         if (newPath === '/' || newPath.endsWith('/')) {
             newPath += 'index.html';
         }
-        
+
         window.location.href = newPath + window.location.search + window.location.hash;
       });
     });

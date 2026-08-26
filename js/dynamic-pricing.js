@@ -14,8 +14,6 @@
 (function () {
     'use strict';
 
-    console.log('Dynamic Pricing Manager Loaded');
-
     // ====================================================================
     // CURRENCY CONFIGURATION
     // ====================================================================
@@ -69,7 +67,6 @@
             if (cached) {
                 const parsed = JSON.parse(cached);
                 if (parsed && parsed.currency && Date.now() - parsed.ts < CURRENCY_CACHE_TTL) {
-                    console.log('Currency from cache:', parsed.currency);
                     return parsed.currency;
                 }
             }
@@ -92,7 +89,6 @@
 
             if (country && COUNTRY_CURRENCY[country]) {
                 const currency = COUNTRY_CURRENCY[country];
-                console.log('Detected country:', country, '→ currency:', currency);
                 // Cache it
                 try {
                     sessionStorage.setItem(CURRENCY_CACHE_KEY, JSON.stringify({ currency: currency, ts: Date.now() }));
@@ -100,7 +96,6 @@
                 return currency;
             }
 
-            console.log('Detected country:', country, '→ using default EUR');
         } catch (err) {
             console.warn('GeoIP failed, falling back to EUR:', err.message);
         }
@@ -337,7 +332,6 @@
             injectMadSubtitle(parent, toMAD(eurValue));
         });
 
-        console.log('Currency display updated to', currency, '(' + symbol + ')');
     }
 
     /**
@@ -359,21 +353,16 @@
     async function fetchPricing() {
         // Check cache first
         if (cacheTimestamp && (Date.now() - cacheTimestamp) < CACHE_DURATION) {
-            console.log('Using cached pricing data');
             return priceCache;
         }
 
         try {
-            console.log('Fetching pricing from Supabase...');
-
             const { data, error } = await supabaseClient
                 .from('pricing')
                 .select('*')
                 .eq('active', true); // Only fetch active prices
 
             if (error) throw error;
-
-            console.log('Pricing data fetched:', data);
 
             // Convert array to object for easy lookup
             priceCache = {};
@@ -441,7 +430,6 @@
                     currencyElement.textContent = priceData.currency;
                 }
 
-                console.log('Updated price for ' + key + ': ' + priceData.price + ' ' + priceData.currency);
             } else {
                 console.warn('No price data found for ' + key);
             }
@@ -488,7 +476,6 @@
         // 3. Re-apply currency display in case Supabase changed prices
         updatePriceDisplays(currency);
 
-        console.log('Dynamic pricing initialized successfully');
     }
 
     // Auto-initialize when DOM is ready

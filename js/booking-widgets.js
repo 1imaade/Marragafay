@@ -345,7 +345,6 @@
       $(this).attr('min', todayDate);
     });
 
-    console.log(`Date validation applied: min date set to ${todayDate}`);
   }
 
   /* ========================================= */

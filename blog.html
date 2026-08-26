@@ -11,10 +11,10 @@
             var supported = ['en', 'fr', 'es', 'ar'];
             var stored = localStorage.getItem('marragafay_lang');
             var browser = (navigator.language || navigator.userLanguage || '').split('-')[0].toLowerCase();
-            
+
             // Priority: LocalStorage -> Browser Language -> Fallback (en)
             var targetLang = supported.includes(stored) ? stored : (supported.includes(browser) ? browser : 'en');
-            
+
             // Redirect to /[lang]/blog/
             window.location.replace('/' + targetLang + '/blog/' + window.location.search + window.location.hash);
         })();
