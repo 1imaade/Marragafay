@@ -2481,18 +2481,29 @@ body.no-scroll {
     z-index: 9999;
     /* On top of everything */
     inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
+    width: 100vw;
+    width: 100dvw;
     height: 100%;
+    height: 100vh;
+    height: 100dvh;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.95);
     justify-content: center;
     align-items: center;
     overflow: hidden;
     cursor: pointer;
+    padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
 }
 
-/* Keep the enhanced homepage viewer on the same centered flex layout. */
-.lightbox.active {
+/* Keep the enhanced viewer on the same centered flex layout. */
+.lightbox.active,
+.lightbox[style*="display: block"],
+.lightbox[style*="display: flex"] {
     display: flex !important;
 }
 
@@ -2501,14 +2512,15 @@ body.no-scroll {
     display: block;
     width: auto;
     height: auto;
-    max-width: calc(100vw - 72px);
-    max-height: calc(100vh - 64px);
-    margin: 0;
+    max-width: min(90vw, calc(100vw - 80px), calc(100dvw - 80px));
+    max-height: min(85vh, calc(100vh - 80px), calc(100dvh - 80px));
+    margin: auto;
     border-radius: 8px;
     box-shadow: 0 10px 60px rgba(0, 0, 0, 0.5);
     cursor: default;
     /* Prevent closing when clicking image */
     object-fit: contain;
+    box-sizing: border-box;
 }
 
 /* Keep the four-field booking bar stable for longer localized labels. */
@@ -2609,13 +2621,14 @@ form#booking-form:has(.booking-input-cell) {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .lightbox-content {
-        max-width: calc(100vw - 56px);
-        max-height: calc(100vh - 56px);
+        max-width: min(calc(100vw - 32px), calc(100dvw - 32px));
+        max-height: min(calc(100vh - 90px), calc(100dvh - 90px));
+        margin: auto;
     }
 
     .lightbox-close {
-        top: 15px;
-        right: 15px;
+        top: max(15px, env(safe-area-inset-top, 15px));
+        right: max(15px, env(safe-area-inset-right, 15px));
         font-size: 40px;
     }
 
@@ -2626,15 +2639,20 @@ form#booking-form:has(.booking-input-cell) {
     }
 
     .lightbox-prev {
-        left: 10px;
+        left: max(10px, env(safe-area-inset-left, 10px));
     }
 
     .lightbox-next {
-        right: 10px;
+        right: max(10px, env(safe-area-inset-right, 10px));
     }
 }
 
 @media (max-width: 480px) {
+    .lightbox-content {
+        max-width: min(calc(100vw - 20px), calc(100dvw - 20px));
+        max-height: min(calc(100vh - 80px), calc(100dvh - 80px));
+        margin: auto;
+    }
 
     .lightbox-prev,
     .lightbox-next {
