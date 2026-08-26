@@ -131,7 +131,16 @@ console.log('Booking Manager Loaded');
  */
 async function sendBookingEmailNotification(bookingData) {
     try {
-        console.log('📧 Sending booking email notification for:', bookingData);
+        console.log('📧 Sending booking email notification', {
+            hasName: Boolean(bookingData.name),
+            hasEmail: Boolean(bookingData.email),
+            hasPhone: Boolean(bookingData.phone_number),
+            product: bookingData.product_id || bookingData.package_title || 'unknown'
+        });
+
+        const attribution = typeof window.MarragafayAttribution?.getBookingAttribution === 'function'
+            ? window.MarragafayAttribution.getBookingAttribution()
+            : undefined;
 
         const payload = {
             name: bookingData.name,
@@ -144,6 +153,8 @@ async function sendBookingEmailNotification(bookingData) {
             package_title: bookingData.package_title,
             total_price: bookingData.total_price,
             notes: bookingData.notes,
+            language: document.documentElement.lang || 'en',
+            ...(attribution ? { attribution } : {})
         };
 
         // Determine API endpoint (use live Vercel endpoint when testing on local dev server)
@@ -748,6 +759,9 @@ document.addEventListener('booking-legacy-submit', async function (e) {
         const guests = adults || firstValue(formData, ['guests']) || groupSize;
         const notes = firstValue(formData, ['notes', 'requests', 'message']);
         const language = document.documentElement.lang || (window.location.pathname.match(/^\/(en|fr|es|ar)(?:\/|$)/)?.[1]) || 'en';
+        const attribution = typeof window.MarragafayAttribution?.getBookingAttribution === 'function'
+            ? window.MarragafayAttribution.getBookingAttribution()
+            : undefined;
 
         return {
             product_id: productIdForForm(form, formData),
@@ -759,8 +773,41 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             children,
             guests,
             notes,
-            language
+            language,
+            ...(attribution ? { attribution } : {})
         };
+    }
+
+    function emitBookingConversion(result, payload) {
+        const bookingId = typeof result?.booking_id === 'string' ? result.booking_id : '';
+        if (!bookingId || !Array.isArray(window.dataLayer)) return;
+
+        const eventKey = `marragafay_booking_event_v1:${bookingId}`;
+        const customerTotalEur = Number(result.trusted_total_eur);
+        const accountingTotalMad = Number(result.trusted_total_mad);
+        if (!Number.isFinite(customerTotalEur) || !Number.isFinite(accountingTotalMad)) return;
+
+        let dedupeStorage = null;
+        try { dedupeStorage = window.sessionStorage; } catch {}
+        if (!dedupeStorage) {
+            try { dedupeStorage = window.localStorage; } catch {}
+        }
+        if (dedupeStorage) {
+            try {
+                if (dedupeStorage.getItem(eventKey)) return;
+                dedupeStorage.setItem(eventKey, '1');
+            } catch {}
+        }
+
+        window.dataLayer.push({
+            event: 'booking_request_submitted',
+            product_id: result.product_id,
+            product_type: result.product_type,
+            customer_total_eur: customerTotalEur,
+            accounting_total_mad: accountingTotalMad,
+            source_category: result.source_category || payload.attribution?.source_category || 'other',
+            language: payload.language
+        });
     }
 
     function showBookingError(message) {
@@ -799,6 +846,10 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             });
             const result = await response.json().catch(() => ({}));
             if (!response.ok || !result.booking_success) throw new Error(result.error || 'Unable to process booking');
+
+            // The API has already persisted the booking when this event fires.
+            // The booking id makes the event idempotent for refreshes/retries.
+            emitBookingConversion(result, payload);
 
             localStorage.setItem('recentBooking', JSON.stringify({
                 booking_id: result.booking_id,

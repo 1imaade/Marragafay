@@ -11,6 +11,10 @@ const MAX_NAME_LENGTH = 120;
 const MAX_PHONE_LENGTH = 40;
 const MAX_EMAIL_LENGTH = 254;
 const MAX_NOTES_LENGTH = 2_000;
+const MAX_ATTRIBUTION_PAGE_LENGTH = 400;
+const MAX_ATTRIBUTION_REFERRER_LENGTH = 2_000;
+const MAX_ATTRIBUTION_VALUE_LENGTH = 200;
+const MAX_ATTRIBUTION_CLICK_ID_LENGTH = 200;
 const SUPPORTED_LANGUAGES = new Set(['en', 'fr', 'es', 'ar']);
 const ALLOWED_ORIGINS = new Set([
   'https://marragafay.com',
@@ -134,6 +138,128 @@ function parseLanguage(value) {
   return language;
 }
 
+function attributionString(value, field, maxLength) {
+  if (value === undefined || value === null || value === '') return '';
+  if (typeof value !== 'string') throw new ValidationError(`${field} must be a string`);
+  const normalized = value
+    .normalize('NFKC')
+    .replace(/[\u0000-\u001F\u007F]/g, '')
+    .trim();
+  if (normalized.length > maxLength) throw new ValidationError(`${field} is too long`);
+  return normalized;
+}
+
+function attributionPath(value, field) {
+  const path = attributionString(value, field, MAX_ATTRIBUTION_PAGE_LENGTH).split(/[?#]/)[0];
+  if (!path) return '';
+  if (!path.startsWith('/') || path.startsWith('//')) throw new ValidationError(`${field} is invalid`);
+  return path;
+}
+
+function attributionReferrer(value) {
+  const referrer = attributionString(value, 'attribution.referrer', MAX_ATTRIBUTION_REFERRER_LENGTH);
+  if (!referrer) return '';
+  let url;
+  try {
+    url = new URL(referrer);
+  } catch {
+    throw new ValidationError('attribution.referrer is invalid');
+  }
+  if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) {
+    throw new ValidationError('attribution.referrer is invalid');
+  }
+  return `${url.origin}${url.pathname || '/'}`.slice(0, MAX_ATTRIBUTION_REFERRER_LENGTH);
+}
+
+function attributionTouch(raw, field) {
+  if (raw === undefined || raw === null) return null;
+  if (typeof raw !== 'object' || Array.isArray(raw)) throw new ValidationError(`${field} must be an object`);
+
+  const timestamp = attributionString(raw.first_touch_timestamp, `${field}.first_touch_timestamp`, 50);
+  if (timestamp && Number.isNaN(Date.parse(timestamp))) {
+    throw new ValidationError(`${field}.first_touch_timestamp is invalid`);
+  }
+
+  return {
+    landing_page: attributionPath(raw.landing_page, `${field}.landing_page`),
+    referrer: attributionReferrer(raw.referrer),
+    utm_source: attributionString(raw.utm_source, `${field}.utm_source`, MAX_ATTRIBUTION_VALUE_LENGTH),
+    utm_medium: attributionString(raw.utm_medium, `${field}.utm_medium`, MAX_ATTRIBUTION_VALUE_LENGTH),
+    utm_campaign: attributionString(raw.utm_campaign, `${field}.utm_campaign`, MAX_ATTRIBUTION_VALUE_LENGTH),
+    utm_term: attributionString(raw.utm_term, `${field}.utm_term`, MAX_ATTRIBUTION_VALUE_LENGTH),
+    utm_content: attributionString(raw.utm_content, `${field}.utm_content`, MAX_ATTRIBUTION_VALUE_LENGTH),
+    gclid: attributionString(raw.gclid, `${field}.gclid`, MAX_ATTRIBUTION_CLICK_ID_LENGTH),
+    fbclid: attributionString(raw.fbclid, `${field}.fbclid`, MAX_ATTRIBUTION_CLICK_ID_LENGTH),
+    language: parseLanguage(raw.language || 'en'),
+    first_touch_timestamp: timestamp,
+    session_entry_path: attributionPath(raw.session_entry_path, `${field}.session_entry_path`)
+  };
+}
+
+function hasExplicitCampaign(touch) {
+  return Boolean(
+    touch?.utm_source || touch?.utm_medium || touch?.utm_campaign ||
+    touch?.utm_term || touch?.utm_content || touch?.gclid || touch?.fbclid
+  );
+}
+
+function attributionHost(referrer) {
+  try {
+    return new URL(referrer).hostname.toLowerCase().replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
+
+function hostMatches(host, suffix) {
+  return host === suffix || host.endsWith(`.${suffix}`);
+}
+
+export function classifyAttributionSource(touch = {}) {
+  const source = String(touch.utm_source || '').trim().toLowerCase();
+  const medium = String(touch.utm_medium || '').trim().toLowerCase();
+  const host = attributionHost(touch.referrer || '');
+  const instagram = source === 'instagram' || source === 'ig' || hostMatches(host, 'instagram.com');
+  const facebook = source === 'facebook' || source === 'fb' || hostMatches(host, 'facebook.com');
+  const google = source === 'google' || /^google\.[a-z.]+$/.test(host);
+  const search = google || ['bing.com', 'yahoo.com', 'duckduckgo.com'].some((domain) => hostMatches(host, domain));
+  const paidMedium = /^(cpc|ppc|paid|paid_social|display|retargeting|sponsored)$/i.test(medium);
+
+  if (touch.gclid) return 'google_ads';
+  if (instagram) return 'instagram';
+  if (touch.fbclid) return 'facebook';
+  if (facebook) return 'facebook';
+  if (google && paidMedium) return 'google_ads';
+  if (paidMedium) return 'other_paid';
+  if (search) return 'google_organic';
+  if (!host && !hasExplicitCampaign(touch)) return 'direct';
+  if (host) return 'referral';
+  if (hasExplicitCampaign(touch)) return 'other';
+  return 'other';
+}
+
+export function normalizeAttribution(raw) {
+  if (raw === undefined || raw === null || raw === '') return null;
+  if (typeof raw !== 'object' || Array.isArray(raw)) throw new ValidationError('attribution must be an object');
+
+  const firstRaw = raw.first_touch || raw;
+  const firstTouch = attributionTouch(firstRaw, 'attribution.first_touch');
+  const lastTouch = attributionTouch(raw.last_touch, 'attribution.last_touch');
+  const bookingPage = attributionPath(raw.booking_page || raw.current_page, 'attribution.booking_page');
+  const effectiveTouch = lastTouch && hasExplicitCampaign(lastTouch) ? lastTouch : firstTouch;
+
+  if (!firstTouch && !lastTouch && !bookingPage) return null;
+
+  return {
+    version: 1,
+    source_category: classifyAttributionSource(effectiveTouch || {}),
+    first_touch_source_category: firstTouch ? classifyAttributionSource(firstTouch) : 'other',
+    first_touch: firstTouch,
+    last_touch: lastTouch && hasExplicitCampaign(lastTouch) ? lastTouch : null,
+    booking_page: bookingPage
+  };
+}
+
 function normalizeBooking(body) {
   if (!body || Array.isArray(body) || typeof body !== 'object') {
     throw new ValidationError('Request body must be an object');
@@ -150,6 +276,7 @@ function normalizeBooking(body) {
   const date = parseDate(scalarValue(body, ['date', 'booking_date']));
   const notes = safeString(scalarValue(body, ['notes', 'requests', 'message']), 'notes', MAX_NOTES_LENGTH);
   const language = parseLanguage(scalarValue(body, ['language', 'lang']));
+  const attribution = normalizeAttribution(scalarValue(body, ['attribution']));
   const children = parseCount(scalarValue(body, ['children']), 'children') ?? 0;
 
   const adultsValue = scalarValue(body, ['adults']);
@@ -173,6 +300,7 @@ function normalizeBooking(body) {
     date,
     notes,
     language,
+    attribution,
     adults,
     children,
     pricing: calculateTrustedTotal(product, adults, children)
@@ -236,7 +364,8 @@ export function buildBookingRecord(booking) {
     children: booking.children,
     total_price: booking.pricing.totalMad,
     status: 'pending',
-    payment_status: 'unpaid'
+    payment_status: 'unpaid',
+    attribution: booking.attribution
   };
 }
 
@@ -295,7 +424,9 @@ export default async function handleBooking(req, res) {
       notification_success: notification.success,
       booking_id: saved?.id ?? null,
       product_id: booking.product.id,
+      product_type: booking.product.type,
       product_title: booking.product.title,
+      source_category: booking.attribution?.source_category || null,
       trusted_total_mad: booking.pricing.totalMad,
       trusted_total_eur: booking.pricing.totalEur
     });
