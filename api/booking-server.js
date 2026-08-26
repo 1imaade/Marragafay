@@ -223,54 +223,32 @@ function getSupabaseClient() {
   });
 }
 
-function currentBookingRecord(booking) {
+export function buildBookingRecord(booking) {
   return {
     name: booking.name,
-    email: booking.email,
+    email: booking.email || null,
     phone_number: booking.phone,
     date: booking.date,
+    package_title: booking.product.title,
+    notes: booking.notes || null,
     guests: booking.pricing.totalGuests,
     adults: booking.adults,
     children: booking.children,
-    package_title: booking.product.title,
-    notes: booking.notes || null,
     total_price: booking.pricing.totalMad,
-    // Keep legacy required columns populated when a deployment has both schemas.
-    customer_name: booking.name,
-    customer_email: booking.email || '',
-    phone: booking.phone,
-    booking_date: booking.date,
-    guests_count: booking.pricing.totalGuests
+    status: 'pending',
+    payment_status: 'unpaid'
   };
-}
-
-function legacyBookingRecord(booking) {
-  return {
-    customer_name: booking.name,
-    customer_email: booking.email || '',
-    phone: booking.phone,
-    booking_date: booking.date,
-    guests_count: booking.pricing.totalGuests,
-    package_title: booking.product.title,
-    notes: booking.notes || null,
-    total_price: booking.pricing.totalMad
-  };
-}
-
-function isSchemaColumnError(error) {
-  return error && (error.code === 'PGRST204' || /column|schema cache/i.test(error.message || ''));
 }
 
 async function insertBooking(booking) {
   const supabase = getSupabaseClient();
-  const first = await supabase.from('bookings').insert(currentBookingRecord(booking)).select('id').single();
-  if (!first.error) return first.data;
-  if (!isSchemaColumnError(first.error)) throw first.error;
-
-  // Compatibility for the older schema documented in docs/archive.
-  const legacy = await supabase.from('bookings').insert(legacyBookingRecord(booking)).select('id').single();
-  if (legacy.error) throw legacy.error;
-  return legacy.data;
+  const { data, error } = await supabase
+    .from('bookings')
+    .insert(buildBookingRecord(booking))
+    .select('id')
+    .single();
+  if (error) throw error;
+  return data;
 }
 
 async function sendNotification(booking, bookingId) {
