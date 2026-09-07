@@ -4,7 +4,7 @@
 export const BOOKING_PRODUCTS = Object.freeze({
   basic: Object.freeze({ id: 'basic', type: 'package', title: 'Agafay Discovery', unitPriceMad: 350, unitPriceEur: 35 }),
   comfort: Object.freeze({ id: 'comfort', type: 'package', title: 'Marragafay Signature', unitPriceMad: 499, unitPriceEur: 49 }),
-  luxe: Object.freeze({ id: 'luxe', type: 'package', title: 'The Marragafay Luxury', unitPriceMad: 890, unitPriceEur: 89 }),
+  luxe: Object.freeze({ id: 'luxe', type: 'package', title: 'The Marragafay Luxury', unitPriceMad: 899, unitPriceEur: 89 }),
   quad: Object.freeze({ id: 'quad', type: 'activity', title: 'Quad Biking', unitPriceMad: 250, unitPriceEur: 25 }),
   buggy: Object.freeze({ id: 'buggy', type: 'activity', title: 'Buggy', unitPriceMad: 800, unitPriceEur: 80 }),
   camel: Object.freeze({ id: 'camel', type: 'activity', title: 'Camel Ride', unitPriceMad: 100, unitPriceEur: 10 }),

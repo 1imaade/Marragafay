@@ -79,6 +79,8 @@
     function formatPhoneNumber(rawNumber) {
         if (!rawNumber) return '';
         let cleaned = rawNumber.trim().replace(/[\s\-\(\)]/g, '');
+        const escapedPrefix = detectedPrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        cleaned = cleaned.replace(new RegExp(`^(?:${escapedPrefix}){2,}`), detectedPrefix);
 
         // If user already typed + or 00, format cleanly
         if (cleaned.startsWith('+')) {
@@ -114,13 +116,6 @@
             if (detectedPrefix && input.placeholder && input.placeholder.includes('+212')) {
                 input.placeholder = detectedPrefix + ' 600...';
             }
-
-            // On focus: If empty, pre-fill the detected country code
-            input.addEventListener('focus', function () {
-                if (!this.value.trim()) {
-                    this.value = detectedPrefix + ' ';
-                }
-            });
 
             // On blur: If user only left "+33 " or "+212 ", clear it
             input.addEventListener('blur', function () {

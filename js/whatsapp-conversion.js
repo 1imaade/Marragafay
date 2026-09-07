@@ -114,6 +114,14 @@
       event.button !== 0 || event.metaKey || event.ctrlKey ||
       event.shiftKey || event.altKey;
 
+    if (window.MarragafayAnalytics) {
+      window.MarragafayAnalytics.capture('whatsapp_contact_started', {
+        opens_in_new_tab: preservesNativeNavigation,
+        click_intent: true,
+        inquiry_id: link.getAttribute('data-inquiry-id') || undefined
+      });
+    }
+
     if (preservesNativeNavigation) {
       // Do not interfere with new-tab or modified-click behavior.
       reportConversion();

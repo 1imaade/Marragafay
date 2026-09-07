@@ -760,8 +760,8 @@
             <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">tonight, the desert is yours.</h1>
             <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">Your first night under the desert stars. Ride camels at golden hour and dine under the sky.</p>
 
-            <div class="flex items-center gap-3 mt-0 text-sm font-bold text-[#F6F7EA] drop-shadow-md">
-              <span class="text-orange-500">5.0/5</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">120+ reviews</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">1 Night</span>
+            <div class="flex items-center gap-2 mt-0 text-[13px] font-medium text-[#F6F7EA] drop-shadow-md">
+              <span>Central meeting point</span><span class="opacity-50">·</span><span>Confirmed availability</span><span class="opacity-50">·</span><span>Dinner &amp; show</span>
             </div>
           </div>
         </div>
@@ -792,7 +792,7 @@
                 <span class="text-[32px] font-bold text-[#523225] tracking-tight">35 €</span>
                 <span class="text-[15px] font-normal text-[#10100E]/90">/ person</span>
               </div>
-              <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">Best rate guaranteed for direct booking</span>
+              <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">Direct booking support</span>
             </div>
 
           </div>
@@ -833,9 +833,9 @@
                       <span class="text-[11px] font-normal text-[#10100E]/90 mt-0.5">Age 12+</span>
                     </div>
                     <div class="flex items-center gap-1.5">
-                      <button onclick="adjustGuests('adults', -1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">-</button>
+                      <button type="button" aria-label="Decrease adults" onclick="adjustGuests('adults', -1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">-</button>
                       <span id="adults-count" class="text-[13px] font-medium text-[#10100E] w-4 text-center">2</span>
-                      <button onclick="adjustGuests('adults', 1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">+</button>
+                      <button type="button" aria-label="Increase adults" onclick="adjustGuests('adults', 1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">+</button>
                     </div>
                   </div>
 
@@ -849,9 +849,9 @@
                       <span class="text-[11px] font-normal text-[#10100E]/90 mt-0.5">Under 12</span>
                     </div>
                     <div class="flex items-center gap-1.5">
-                      <button onclick="adjustGuests('children', -1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E]/90 cursor-not-allowed text-sm leading-none">-</button>
+                      <button type="button" aria-label="Decrease children" onclick="adjustGuests('children', -1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E]/90 cursor-not-allowed text-sm leading-none">-</button>
                       <span id="children-count" class="text-[13px] font-medium text-[#10100E] w-4 text-center">0</span>
-                      <button onclick="adjustGuests('children', 1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">+</button>
+                      <button type="button" aria-label="Increase children" onclick="adjustGuests('children', 1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">+</button>
                     </div>
                   </div>
 
@@ -909,21 +909,32 @@
               <input type="tel" name="phone" required placeholder="+212 600..." class="w-full text-[14px] font-medium text-[#10100E] placeholder:text-[#10100E]/30 bg-transparent border-none outline-none shadow-none focus:ring-0">
             </div>
 
+            <!-- 5. Conditional Pickup: Central Meeting Point Confirmation -->
+            <div class="px-4 py-2 xl:py-3 w-full xl:w-[220px] relative hover:bg-black/[0.02] transition-colors flex flex-col justify-center booking-input-cell">
+              <span class="text-[12px] font-medium text-[#10100E]/90 block mb-0 xl:mb-1">Departure point</span>
+              <label class="flex items-center gap-2 cursor-pointer select-none">
+                <input type="checkbox" name="meeting_point_confirmed" value="confirmed" required class="w-4 h-4 text-[#523225] border-[#10100E]/20 rounded focus:ring-0 cursor-pointer">
+                <span class="text-[12px] text-[#10100E] leading-tight">I understand departure is from a central Marrakech meeting point</span>
+              </label>
+            </div>
+
             <!-- Action Button -->
-            <button type="submit" class="w-full xl:w-auto bg-[#523225] text-white px-8 py-3 text-[15px] font-medium hover:bg-[#3d251b] transition-colors whitespace-nowrap rounded-b-xl rounded-t-none xl:rounded-b-none xl:rounded-r-2xl border border-[#10100E]/10 xl:border-l-0">
-              Book now
+            <button type="submit" class="w-full xl:w-auto bg-[#523225] text-white px-8 py-3 text-[15px] font-medium hover:bg-[#3d251b] transition-colors whitespace-nowrap rounded-b-xl rounded-t-none xl:rounded-b-none xl:rounded-r-2xl border border-[#10100E]/10 xl:border-l-0 min-h-[44px] flex items-center justify-center">
+              Check availability
             </button>
 
           </form>
-          <div class="hidden xl:block text-left mt-2 pl-4">
-              <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">No upfront payment required. You will pay at the end of the experience.</p>
-            </div>
+          <div class="hidden xl:block text-left mt-2 pl-4 space-y-1">
+            <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">Choose your date and send your details. We confirm availability, pickup and the final details with you on WhatsApp.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">Shared transport departing from central meeting point. No upfront payment required.</p>
+          </div>
           </div><!-- Close Form Wrapper -->
 
           </div>
 
-          <div class="w-full flex justify-start xl:hidden">
-            <p class="text-[12px] text-[#10100E]/90 font-medium text-left tracking-tight mt-2 mb-0">No upfront payment required. You will pay at the end of the experience.</p>
+          <div class="w-full flex flex-col justify-start xl:hidden mt-2 space-y-1">
+            <p class="text-[12px] text-[#10100E]/90 font-medium text-left tracking-tight mb-0">Choose your date and send your details. We confirm availability, pickup and the final details with you on WhatsApp.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal text-left tracking-tight mb-0">Shared transport departing from central meeting point. No upfront payment required.</p>
           </div>
 
         </div>
@@ -1122,13 +1133,13 @@
                 <span class="text-[14px] font-medium text-[#10100E]">Live Show: Hypnotic fire and music performance under the stars.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Pool Access: Refreshing dip and traditional mint tea on arrival.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Pool Access: Shared camp pool access and traditional mint tea on arrival.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
                 <span class="text-[14px] font-medium text-[#10100E]">Transport: Shared pickup from central Marrakech meeting point.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Guide: Bilingual professional throughout your experience.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Guide: Bilingual group host throughout your experience.</span>
               </li></ul>
           </div>
 
@@ -1209,62 +1220,6 @@
     </div>
   </section>
 
-<!-- Reviews Section -->
-<section class="w-full py-24 px-4 md:px-10 lg:px-16" style="background-color: #F6F7EA !important;">
-  <div class="w-full max-w-[1300px] mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4 md:gap-0">
-      <h2 class="text-[32px] font-bold text-[#10100E] tracking-tight m-0 leading-none">what travelers say.</h2>
-      <a href="../reviews" class="inline-flex items-center gap-1.5 text-[14px] font-medium text-[#10100E]/90 hover:text-[#10100E] transition-colors duration-300 mt-1">
-        See all reviews
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-
-    <style>
-      @media (min-width: 768px) {
-        .editorial-divider {
-          border-left: 1px solid rgba(16, 16, 14, 0.15) !important;
-        }
-      }
-    </style>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-12">
-      <!-- Review 1 -->
-      <div class="md:pr-8 lg:pr-12 flex flex-col">
-        <div class="flex gap-1 mb-5">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <p class="text-[#10100E] text-[16px] md:text-[17px] leading-[26px] md:leading-[28px] font-normal italic tracking-tight mb-6">"Incredible value for the experience. The shared transport was right on time, and the quad biking at golden hour was pure adrenaline."</p>
-        <div class="mt-auto">
-          <p class="text-[#523225] text-[14px] font-semibold uppercase tracking-wide">ELENA M.</p>
-          <p class="text-[#5c5c56] text-[12px] mt-1">Italy · March 2026 · Discovery Pack</p>
-        </div>
-      </div>
-      <!-- Review 2 -->
-      <div class="md:px-8 lg:px-12 editorial-divider flex flex-col">
-        <div class="flex gap-1 mb-5">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <p class="text-[#10100E] text-[16px] md:text-[17px] leading-[26px] md:leading-[28px] font-normal italic tracking-tight mb-6">"A must-do from Marrakech. The logistics were smooth, the camp was beautiful, and the traditional tea by the pool was incredibly refreshing."</p>
-        <div class="mt-auto">
-          <p class="text-[#523225] text-[14px] font-semibold uppercase tracking-wide">LUCAS D.</p>
-          <p class="text-[#5c5c56] text-[12px] mt-1">France · April 2026 · Discovery Pack</p>
-        </div>
-      </div>
-      <!-- Review 3 -->
-      <div class="md:pl-8 lg:pl-12 editorial-divider flex flex-col">
-        <div class="flex gap-1 mb-5">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#523225" stroke="#523225" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <p class="text-[#10100E] text-[16px] md:text-[17px] leading-[26px] md:leading-[28px] font-normal italic tracking-tight mb-6">"Exactly what we wanted for a half-day excursion. The camel ride was so peaceful, and watching the sunset over the dunes was unforgettable."</p>
-        <div class="mt-auto">
-          <p class="text-[#523225] text-[14px] font-semibold uppercase tracking-wide">CHLOE S.</p>
-          <p class="text-[#5c5c56] text-[12px] mt-1">UK · May 2026 · Discovery Pack</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
   <section class="w-full py-24 bg-[#F6F7EA] border-t border-[#e2e0d3] px-4 md:px-10 lg:px-16 flex flex-col items-center" id="marragafay-faq" style="background-color: #F6F7EA !important; padding-top: 6rem; padding-bottom: 6rem;">
     <div class="w-full max-w-[1300px] mx-auto">
@@ -1292,7 +1247,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  Your peace of mind is our priority. No upfront payment is required. All payments are processed only at the successful conclusion of your expedition.
+                  Submitting your request on the site requires no upfront payment. We check availability and confirm details via WhatsApp first, then payment is completed at the end of your experience.
                 </p>
               </div>
             </div>
@@ -1326,7 +1281,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  Our facilities include private pool access. We invite you to bring your swimwear and enjoy the amenities at your leisure.
+                  Our camp includes access to the shared swimming pool. We invite you to bring your swimwear and enjoy the pool during your free time at the camp.
                 </p>
               </div>
             </div>
@@ -1360,7 +1315,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  Your comfort is non-negotiable. All private transfers are conducted in modern, climate-controlled vehicles.
+                  Discovery transfers depart from our central Marrakech meeting point in modern, shared climate-controlled vehicles.
                 </p>
               </div>
             </div>
@@ -1426,12 +1381,12 @@
         the time is now,<br>
         the place is <span class="font-bold">agafay.</span>
       </h2>
-      <p class="text-[15px] text-white/70">Limited daily capacity. Book direct to secure your experience.</p>
+      <p class="text-[15px] text-white/70">Availability is confirmed after checking your date, group size and pickup requirements.</p>
     </div>
 
     <div class="shrink-0 w-full md:w-auto flex justify-start md:justify-end">
-      <a href="#" class="inline-flex items-center justify-center gap-2 bg-[#F9F9F8] text-[#10100E] hover:text-[#10100E] px-6 py-2.5 rounded-full text-[14px] font-semibold tracking-tight hover:bg-[#e2e0d3] transition-colors duration-300">
-        Book now 
+      <a href="#booking-form" class="inline-flex items-center justify-center gap-2 bg-[#F9F9F8] text-[#10100E] hover:text-[#10100E] px-6 py-2.5 rounded-full text-[14px] font-semibold tracking-tight hover:bg-[#e2e0d3] transition-colors duration-300">
+        Check availability
         <svg class="w-3.5 h-3.5 fill-current mt-0.5" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"></path></svg>
       </a>
     </div>
@@ -1443,7 +1398,7 @@
     <div class="max-w-7xl mx-auto">
       <div class="mb-16 overflow-hidden w-full">
         <p class="text-[12vw] sm:text-[10vw] md:text-[80px] lg:text-[120px] xl:text-[150px] leading-[0.8] tracking-tighter whitespace-nowrap font-bold uppercase mb-6 text-[#F6F7EA] -ml-1 md:-ml-2">MARRAGAFAY.</p>
-        <p class="text-[#8e8e88] text-[14px] md:text-[16px] max-w-md leading-relaxed">Redefining the Agafay stone desert experience. Uncompromising luxury, exclusive fleets, and certified local expertise.</p>
+        <p class="text-[#8e8e88] text-[14px] md:text-[16px] max-w-md leading-relaxed">Redefining the Agafay stone desert experience. Dedicated service, comfortable transport, and genuine local hospitality.</p>
       </div>
       <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 40px 0;">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[14px]">
@@ -1676,7 +1631,7 @@
           <div class="booking-section">
             <h3 style="'Playfair Display', serif; font-size: 1.5rem; color: #2c3e50; margin-bottom: 25px; border-bottom: 2px solid #d4af37; padding-bottom: 10px;">
               Book This Package</h3>
-            <form id="booking-form" onsubmit="event.preventDefault();" class="booking-form" style="background: #F6F7EA; padding: 25px; border-radius: 0; border: 2px solid #e9ecef;">
+            <form id="legacy-booking-modal-form" onsubmit="event.preventDefault();" class="booking-form" style="background: #F6F7EA; padding: 25px; border-radius: 0; border: 2px solid #e9ecef;">
               <div class="form-group" style="margin-bottom: 20px;">
                 <label for="bookingName" style="display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; font-size: 0.95rem;">Full
                   Name *</label>
@@ -1717,7 +1672,7 @@
               </div>
               <div class="form-buttons" style="text-align: center;">
                 <button type="submit" id="booking-submit-btn" class="btn-submit" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 15px 40px; border-radius: 0; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-right: 10px;">
-                  <i class="icon-calendar" style="margin-right: 8px;"></i> Book now
+                  <i class="icon-calendar" style="margin-right: 8px;"></i> Check availability
                 </button>
                 <button type="button" class="btn-cancel" style="background: #6c757d; color: white; border: none; padding: 15px 30px; border-radius: 0; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
                   Cancel
@@ -1843,7 +1798,7 @@
               </div>
               <div class="form-buttons" style="text-align: center;">
                 <button type="submit" class="btn-submit" style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 15px 40px; border-radius: 0; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-right: 10px;">
-                  <i class="icon-calendar" style="margin-right: 8px;"></i> Book now
+                  <i class="icon-calendar" style="margin-right: 8px;"></i> Check availability
                 </button>
                 <button type="button" class="btn-cancel" style="background: #6c757d; color: white; border: none; padding: 15px 30px; border-radius: 0; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
                   Cancel

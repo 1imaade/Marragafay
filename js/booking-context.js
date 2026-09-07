@@ -151,28 +151,134 @@
         return JSON.parse(JSON.stringify(value));
     }
 
-    function getBookingAttribution() {
+    const INQUIRIES_STORAGE_KEY = 'marragafay_inquiries_v1';
+
+    function generateInquiryId() {
+        return 'INQ-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+    }
+
+    function recordInquiry(data) {
+        if (!data || !data.inquiry_id) return;
+        try {
+            const raw = window.localStorage?.getItem(INQUIRIES_STORAGE_KEY);
+            const list = raw ? JSON.parse(raw) : [];
+            const filtered = Array.isArray(list) ? list.slice(-50) : [];
+            filtered.push({
+                ...clone(data),
+                recorded_at: new Date().toISOString()
+            });
+            window.localStorage?.setItem(INQUIRIES_STORAGE_KEY, JSON.stringify(filtered));
+        } catch {}
+    }
+
+    function getBookingAttribution(extraContext = {}) {
         const stored = capture();
         const effectiveTouch = stored.last_touch && hasCampaign(stored.last_touch)
             ? stored.last_touch
             : stored.first_touch;
         const bookingPage = normalizePath(window.location.pathname || '/');
+        const inquiryId = extraContext.inquiry_id || generateInquiryId();
 
-        return {
+        const attribution = {
             version: VERSION,
+            inquiry_id: inquiryId,
             source_category: classifySource(effectiveTouch),
             first_touch: clone(stored.first_touch),
             last_touch: stored.last_touch ? clone(stored.last_touch) : null,
-            booking_page: bookingPage
+            booking_page: bookingPage,
+            cta_location: extraContext.cta_location || undefined,
+            pack_presented: extraContext.pack_presented || undefined,
+            final_requested_pack: extraContext.final_requested_pack || undefined,
+            pickup_context: extraContext.pickup_context || undefined
         };
+
+        recordInquiry(attribution);
+        return attribution;
     }
 
     window.MarragafayAttribution = Object.freeze({
         storageKey: STORAGE_KEY,
+        inquiriesKey: INQUIRIES_STORAGE_KEY,
         classifySource,
         capture,
+        generateInquiryId,
+        recordInquiry,
         getBookingAttribution
     });
 
     capture();
+})(window, document);
+
+// Queue manual captures until the asynchronously loaded browser client is ready.
+// This site has no user accounts, so these actions intentionally remain personless.
+(function (window) {
+    'use strict';
+
+    window.MarragafayAnalytics = {
+        capture(event, properties) {
+            if (window.posthog) {
+                window.posthog.capture(event, properties);
+                return;
+            }
+            window.addEventListener('posthog:ready', (readyEvent) => {
+                readyEvent.detail.capture(event, properties);
+            }, { once: true });
+        }
+    };
+})(window);
+
+// The static site retrieves its public browser configuration from the Vercel
+// runtime, allowing PostHog to be initialized once without embedding values in
+// the generated HTML files.
+(function (window, document) {
+    'use strict';
+
+    // Ensure window.posthog exists as a safe no-op shim so calls like window.posthog?.capture() never throw
+    window.posthog = window.posthog || {
+        capture: function () {},
+        identify: function () {},
+        reset: function () {},
+        get_distinct_id: function () { return ''; },
+        onFeatureFlags: function () {},
+        isFeatureEnabled: function () { return false; }
+    };
+
+    fetch('/api/posthog-config')
+        .then((response) => {
+            if (!response.ok || response.status === 204) return null;
+            return response.json().catch(() => null);
+        })
+        .then((config) => {
+            if (!config || !config.host || !config.token) return;
+
+            const script = document.createElement('script');
+            script.async = true;
+            script.crossOrigin = 'anonymous';
+            script.src = `${config.host.replace('.i.posthog.com', '-assets.i.posthog.com')}/static/array.js`;
+            script.onload = () => {
+                try {
+                    if (window.posthog && typeof window.posthog.init === 'function') {
+                        window.posthog.init(config.token, {
+                            api_host: config.host,
+                            defaults: '2026-05-30',
+                            capture_exceptions: {
+                                capture_unhandled_errors: true,
+                                capture_unhandled_rejections: true,
+                                capture_console_errors: false
+                            }
+                        });
+                        window.dispatchEvent(new CustomEvent('posthog:ready', { detail: window.posthog }));
+                    }
+                } catch (initErr) {
+                    console.warn('[PostHog] Init warning:', initErr);
+                }
+            };
+            script.onerror = () => {
+                console.warn('[PostHog] Script failed to load (possibly blocked by client/adblocker). Analytics disabled.');
+            };
+            document.head.appendChild(script);
+        })
+        .catch((error) => {
+            console.warn('[PostHog] Config unavailable, analytics gracefully disabled:', error?.message || error);
+        });
 })(window, document);

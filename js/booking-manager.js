@@ -47,6 +47,8 @@
     function formatInternationalNumber(raw) {
         if (!raw) return '';
         let cleaned = raw.trim().replace(/[\s\-\(\)]/g, '');
+        const escapedPrefix = detectedPrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        cleaned = cleaned.replace(new RegExp(`^(?:${escapedPrefix}){2,}`), detectedPrefix);
         if (cleaned.startsWith('+')) return cleaned;
         if (cleaned.startsWith('00')) return '+' + cleaned.substring(2);
         if (cleaned.startsWith('0')) return detectedPrefix + ' ' + cleaned.substring(1);
@@ -69,12 +71,6 @@
                 input.style.direction = 'ltr';
                 input.style.textAlign = 'right';
             }
-
-            input.addEventListener('focus', function () {
-                if (!this.value.trim()) {
-                    this.value = detectedPrefix + ' ';
-                }
-            });
 
             input.addEventListener('blur', function () {
                 if (this.value.trim() === detectedPrefix || this.value.trim() === '+') {
@@ -734,6 +730,214 @@ document.addEventListener('booking-legacy-submit', async function (e) {
         return '';
     }
 
+    const VALIDATION_MESSAGES = {
+        en: {
+            dateRequired: 'Please select an upcoming date.',
+            guestsRequired: 'At least 1 adult guest is required.',
+            nameRequired: 'Please enter your full name.',
+            phoneRequired: 'Please enter a valid WhatsApp number with country code.',
+            meetingRequired: 'Please confirm that you can reach the central Marrakech meeting point.',
+            hotelRequired: 'Please enter your hotel or Riad name in Marrakech.',
+            checkingAvailability: 'Checking availability...'
+        },
+        fr: {
+            dateRequired: 'Veuillez sélectionner une date à venir.',
+            guestsRequired: 'Au moins 1 adulte est requis.',
+            nameRequired: 'Veuillez saisir votre nom et prénom.',
+            phoneRequired: 'Veuillez entrer un numéro WhatsApp valide avec indicatif.',
+            meetingRequired: 'Veuillez confirmer que vous pouvez rejoindre le point de rencontre.',
+            hotelRequired: 'Veuillez indiquer le nom de votre hôtel ou Riad à Marrakech.',
+            checkingAvailability: 'Vérification de la disponibilité...'
+        },
+        es: {
+            dateRequired: 'Por favor, selecciona una fecha válida posterior a hoy.',
+            guestsRequired: 'Se requiere al menos 1 adulto.',
+            nameRequired: 'Por favor, introduce tu nombre completo.',
+            phoneRequired: 'Por favor, introduce un número de WhatsApp válido con prefijo.',
+            meetingRequired: 'Por favor, confirma que puedes llegar al punto de encuentro.',
+            hotelRequired: 'Por favor, introduce el nombre de tu hotel o Riad.',
+            checkingAvailability: 'Comprobando disponibilidad...'
+        },
+        ar: {
+            dateRequired: 'يرجى اختيار تاريخ قادم.',
+            guestsRequired: 'يجب تحديد شخص بالغ واحد على الأقل.',
+            nameRequired: 'يرجى إدخال الاسم الكامل.',
+            phoneRequired: 'يرجى إدخال رقم واتساب صالح مع رمز الدولة.',
+            meetingRequired: 'يرجى تأكيد إمكانية الوصول إلى نقطة التجمع في مراكش.',
+            hotelRequired: 'يرجى إدخال اسم الفندق أو الرياض في مراكش.',
+            checkingAvailability: 'جاري التحقق من التوفر...'
+        }
+    };
+
+    function currentLanguage() {
+        const docLang = (document.documentElement.lang || '').toLowerCase().split('-')[0];
+        const pathMatch = window.location.pathname.match(/^\/(en|fr|es|ar)(?:\/|$)/);
+        const lang = pathMatch ? pathMatch[1] : docLang;
+        return ['en', 'fr', 'es', 'ar'].includes(lang) ? lang : 'en';
+    }
+
+    function clearFieldError(input) {
+        if (!input) return;
+        input.removeAttribute('aria-invalid');
+        const container = input.closest('.booking-input-cell, .form-group, div');
+        const errorEl = container?.querySelector('.form-inline-error');
+        if (errorEl) errorEl.remove();
+    }
+
+    function showFieldError(input, message) {
+        if (!input) return;
+        input.setAttribute('aria-invalid', 'true');
+        const container = input.closest('.booking-input-cell, .form-group, div') || input.parentElement;
+        if (!container) return;
+        let errorEl = container.querySelector('.form-inline-error');
+        if (!errorEl) {
+            errorEl = document.createElement('p');
+            errorEl.className = 'form-inline-error text-[11px] text-[#dc2626] font-medium mt-1 mb-0 leading-tight';
+            errorEl.setAttribute('role', 'alert');
+            container.appendChild(errorEl);
+        }
+        errorEl.textContent = message;
+
+        const clearHandler = function () {
+            clearFieldError(input);
+            input.removeEventListener('input', clearHandler);
+            input.removeEventListener('change', clearHandler);
+        };
+        input.addEventListener('input', clearHandler);
+        input.addEventListener('change', clearHandler);
+    }
+
+    function validateBookingFormInline(form, productId) {
+        const lang = currentLanguage();
+        const t = VALIDATION_MESSAGES[lang] || VALIDATION_MESSAGES.en;
+        let isValid = true;
+        let firstInvalidInput = null;
+
+        // 1. Validate Date
+        const dateInput = form.querySelector('input[type="date"], input[name="date"], input[name="booking_date"]');
+        if (dateInput) {
+            clearFieldError(dateInput);
+            const dateVal = (dateInput.value || '').trim();
+            const today = new Date().toISOString().split('T')[0];
+            if (!dateVal || dateVal < today) {
+                isValid = false;
+                showFieldError(dateInput, t.dateRequired);
+                if (!firstInvalidInput) firstInvalidInput = dateInput;
+            }
+        }
+
+        // 2. Validate Guests
+        const hiddenAdults = form.querySelector('input[name="adults"]');
+        const guestsTrigger = form.querySelector('#guests-trigger') || form.querySelector('#guests-wrapper');
+        if (hiddenAdults) {
+            const count = parseInt(hiddenAdults.value, 10);
+            if (isNaN(count) || count < 1) {
+                isValid = false;
+                if (guestsTrigger) showFieldError(guestsTrigger, t.guestsRequired);
+                if (!firstInvalidInput) firstInvalidInput = guestsTrigger;
+            }
+        }
+
+        // 3. Validate Name
+        const nameInput = form.querySelector('input[name="name"], input[name="full_name"]');
+        if (nameInput) {
+            clearFieldError(nameInput);
+            if (!nameInput.value || nameInput.value.trim().length < 2) {
+                isValid = false;
+                showFieldError(nameInput, t.nameRequired);
+                if (!firstInvalidInput) firstInvalidInput = nameInput;
+            }
+        }
+
+        // 4. Validate WhatsApp Phone
+        const phoneInput = form.querySelector('input[name="phone"], input[name="phone_number"], input[type="tel"]');
+        if (phoneInput) {
+            clearFieldError(phoneInput);
+            const rawPhone = (phoneInput.value || '').trim();
+            const digits = rawPhone.replace(/\D/g, '');
+            if (!rawPhone || digits.length < 7) {
+                isValid = false;
+                showFieldError(phoneInput, t.phoneRequired);
+                if (!firstInvalidInput) firstInvalidInput = phoneInput;
+            }
+        }
+
+        // 5. Conditional Pickup Validation
+        const isBasic = productId === 'basic' || productId.includes('discovery');
+        const isComfort = productId === 'comfort' || productId.includes('signature');
+        const isLuxe = productId === 'luxe' || productId.includes('luxury');
+
+        if (isBasic) {
+            const meetingCheckbox = form.querySelector('input[name="meeting_point_confirmed"]');
+            if (meetingCheckbox && !meetingCheckbox.checked) {
+                isValid = false;
+                showFieldError(meetingCheckbox, t.meetingRequired);
+                if (!firstInvalidInput) firstInvalidInput = meetingCheckbox;
+            }
+        } else if (isComfort || isLuxe) {
+            const hotelInput = form.querySelector('input[name="pickup_location"], input[name="hotel"], input[name="hotel_name"]');
+            if (hotelInput) {
+                clearFieldError(hotelInput);
+                if (!hotelInput.value || hotelInput.value.trim().length < 2) {
+                    isValid = false;
+                    showFieldError(hotelInput, t.hotelRequired);
+                    if (!firstInvalidInput) firstInvalidInput = hotelInput;
+                }
+            }
+        }
+
+        if (!isValid && firstInvalidInput && typeof firstInvalidInput.focus === 'function') {
+            firstInvalidInput.focus();
+        }
+
+        return isValid;
+    }
+
+    function saveFormDraft(form) {
+        if (!form || !form.id) return;
+        try {
+            const formData = new FormData(form);
+            const draft = {};
+            for (const [key, val] of formData.entries()) {
+                draft[key] = val;
+            }
+            sessionStorage.setItem('marragafay_draft_' + form.id, JSON.stringify(draft));
+        } catch {}
+    }
+
+    function restoreFormDraft(form) {
+        if (!form || !form.id) return;
+        try {
+            const raw = sessionStorage.getItem('marragafay_draft_' + form.id);
+            if (!raw) return;
+            const draft = JSON.parse(raw);
+            for (const [key, val] of Object.entries(draft)) {
+                const el = form.elements[key];
+                if (!el) continue;
+                if (el.type === 'checkbox') {
+                    el.checked = Boolean(val);
+                } else if (el.type !== 'file') {
+                    el.value = val;
+                }
+            }
+            const hiddenAdults = form.querySelector('[name="adults"]');
+            const hiddenChildren = form.querySelector('[name="children"]');
+            if (hiddenAdults) {
+                const adultCountEl = document.getElementById('adults-count');
+                if (adultCountEl) adultCountEl.textContent = hiddenAdults.value;
+            }
+            if (hiddenChildren) {
+                const childCountEl = document.getElementById('children-count');
+                if (childCountEl) childCountEl.textContent = hiddenChildren.value;
+            }
+            const summary = document.getElementById('guest-summary');
+            if (summary && hiddenAdults) {
+                const total = Number(hiddenAdults.value || 2) + Number(hiddenChildren?.value || 0);
+                summary.textContent = total + (total === 1 ? ' Guest' : ' Guests');
+            }
+        } catch {}
+    }
+
     function formPayload(form) {
         const formData = new FormData(form);
         const phoneInput = form.querySelector('input[name="phone"], input[name="phone_number"], input[type="tel"]');
@@ -748,13 +952,43 @@ document.addEventListener('booking-legacy-submit', async function (e) {
         const children = firstValue(formData, ['children']) || '0';
         const guests = adults || firstValue(formData, ['guests']) || groupSize;
         const notes = firstValue(formData, ['notes', 'requests', 'message']);
-        const language = document.documentElement.lang || (window.location.pathname.match(/^\/(en|fr|es|ar)(?:\/|$)/)?.[1]) || 'en';
+        const language = currentLanguage();
+        const productId = productIdForForm(form, formData);
+
+        const pickupLocation = firstValue(formData, ['pickup_location', 'hotel', 'hotel_name', 'hotel_or_riad']);
+        const meetingConfirmed = form.querySelector('input[name="meeting_point_confirmed"]')?.checked;
+        const privateReqs = firstValue(formData, ['private_requirements', 'private_notes', 'requirements']);
+
+        let pickupContext = '';
+        if (productId === 'basic' || productId.includes('discovery')) {
+            pickupContext = meetingConfirmed
+                ? 'Central Marrakech meeting point confirmed (shared pickup)'
+                : 'Central Marrakech meeting point (shared pickup)';
+        } else if (productId === 'comfort' || productId.includes('signature')) {
+            pickupContext = pickupLocation
+                ? `Hotel/Riad: ${pickupLocation} (shared door-to-door, subject to vehicle access)`
+                : 'Shared door-to-door transport (subject to vehicle access)';
+        } else if (productId === 'luxe' || productId.includes('luxury')) {
+            pickupContext = pickupLocation
+                ? `Hotel/Riad: ${pickupLocation}${privateReqs ? ' | Private preferences to check: ' + privateReqs : ''}`
+                : (privateReqs ? `Private preferences to check: ${privateReqs}` : 'Private elements to be confirmed');
+        } else if (pickupLocation) {
+            pickupContext = pickupLocation;
+        }
+
+        const extraContext = {
+            cta_location: form.dataset.ctaLocation || form.id || 'booking_form',
+            pack_presented: productId,
+            final_requested_pack: productId,
+            pickup_context: pickupContext
+        };
+
         const attribution = typeof window.MarragafayAttribution?.getBookingAttribution === 'function'
-            ? window.MarragafayAttribution.getBookingAttribution()
+            ? window.MarragafayAttribution.getBookingAttribution(extraContext)
             : undefined;
 
         return {
-            product_id: productIdForForm(form, formData),
+            product_id: productId,
             name: firstValue(formData, ['full_name', 'name']),
             email: firstValue(formData, ['email']),
             phone,
@@ -762,6 +996,7 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             adults: adults || undefined,
             children,
             guests,
+            pickup: pickupContext || undefined,
             notes,
             language,
             ...(attribution ? { attribution } : {})
@@ -770,7 +1005,7 @@ document.addEventListener('booking-legacy-submit', async function (e) {
 
     function emitBookingConversion(result, payload) {
         const bookingId = typeof result?.booking_id === 'string' ? result.booking_id : '';
-        if (!bookingId || !Array.isArray(window.dataLayer)) return;
+        if (!bookingId) return;
 
         const eventKey = `marragafay_booking_event_v1:${bookingId}`;
         const customerTotalEur = Number(result.trusted_total_eur);
@@ -789,22 +1024,28 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             } catch {}
         }
 
-        window.dataLayer.push({
-            event: 'booking_request_submitted',
+        const properties = {
+            inquiry_id: payload.attribution?.inquiry_id || undefined,
             product_id: result.product_id,
             product_type: result.product_type,
             customer_total_eur: customerTotalEur,
             accounting_total_mad: accountingTotalMad,
             source_category: result.source_category || payload.attribution?.source_category || 'other',
-            language: payload.language
-        });
+            language: payload.language,
+            inquiry_intent: true
+        };
+
+        if (Array.isArray(window.dataLayer)) {
+            window.dataLayer.push({ event: 'booking_request_submitted', ...properties });
+        }
+        window.MarragafayAnalytics?.capture('booking_request_submitted', properties);
     }
 
     function showBookingError(message) {
         if (window.Swal) {
-            window.Swal.fire({ title: 'Booking unavailable', text: message || 'Please try again or contact us directly.', icon: 'error', confirmButtonColor: '#bc6c25' });
+            window.Swal.fire({ title: 'Availability check note', text: message || 'Please try again or contact us directly on WhatsApp.', icon: 'error', confirmButtonColor: '#523225' });
         } else {
-            window.alert(message || 'Please try again or contact us directly.');
+            window.alert(message || 'Please try again or contact us directly on WhatsApp.');
         }
     }
 
@@ -816,33 +1057,68 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             showBookingError('This option is currently available by direct contact only.');
             return;
         }
-        if (form.dataset.submitting === 'true') return;
+
+        const productId = productIdForForm(form, new FormData(form));
+        if (!validateBookingFormInline(form, productId)) {
+            event.preventDefault();
+            return;
+        }
+
+        if (form.dataset.submitting === 'true') {
+            event.preventDefault();
+            return;
+        }
         event.preventDefault();
         form.dataset.submitting = 'true';
 
         const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton?.innerText || '';
+        const originalHtml = submitButton?.innerHTML || '';
+        const lang = currentLanguage();
+        const loadingText = (VALIDATION_MESSAGES[lang] || VALIDATION_MESSAGES.en).checkingAvailability;
+
         if (submitButton) {
             submitButton.disabled = true;
-            submitButton.innerText = 'Processing...';
+            submitButton.innerHTML = `<span class="inline-flex items-center justify-center gap-2"><svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${loadingText}</span>`;
         }
 
         try {
             const payload = formPayload(form);
-            const response = await fetch('/api/booking', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const result = await response.json().catch(() => ({}));
-            if (!response.ok || !result.booking_success) throw new Error(result.error || 'Unable to process booking');
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            let result = null;
 
-            // The API has already persisted the booking when this event fires.
-            // The booking id makes the event idempotent for refreshes/retries.
+            // 1. Primary attempt: relative /api/booking
+            try {
+                const response = await fetch('/api/booking', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (isLocal && (response.status === 405 || response.status === 404)) {
+                    console.warn(`[Booking] Local static server returned ${response.status}. Attempting API bridge failover...`);
+                } else {
+                    const parsed = await response.json().catch(() => ({}));
+                    if (response.ok && parsed.booking_success) {
+                        result = parsed;
+                    } else if (response.ok === false && response.status !== 405 && response.status !== 404) {
+                        throw new Error(parsed.error || 'Unable to check availability');
+                    }
+                }
+            } catch (errPrimary) {
+                if (!isLocal) throw errPrimary;
+            }
+
+            if (!result || !result.booking_success) {
+                throw new Error(isLocal
+                    ? 'Local booking API is not running. Start the project with npm run dev.'
+                    : (result?.error || 'Unable to check availability'));
+            }
+
             emitBookingConversion(result, payload);
 
-            localStorage.setItem('recentBooking', JSON.stringify({
+            const recentBookingData = {
                 booking_id: result.booking_id,
+                inquiry_id: payload.attribution?.inquiry_id,
                 name: payload.name,
                 date: payload.date,
                 package_name: result.product_title || payload.product_id,
@@ -852,8 +1128,15 @@ document.addEventListener('booking-legacy-submit', async function (e) {
                 customer_currency: 'EUR',
                 accounting_currency: 'MAD',
                 total_price: result.trusted_total_eur,
-                whatsapp: payload.phone
-            }));
+                whatsapp: payload.phone,
+                pickup_context: payload.pickup || payload.attribution?.pickup_context
+            };
+            localStorage.setItem('recentBooking', JSON.stringify(recentBookingData));
+            sessionStorage.setItem('recentBooking', JSON.stringify(recentBookingData));
+
+            if (form.id) {
+                sessionStorage.removeItem('marragafay_draft_' + form.id);
+            }
 
             const slotKey = form.dataset.slotsKey;
             if (slotKey && typeof window.decrementSlotCount === 'function') window.decrementSlotCount(slotKey);
@@ -868,8 +1151,28 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             form.dataset.submitting = 'false';
             if (submitButton) {
                 submitButton.disabled = false;
-                submitButton.innerText = originalText;
+                submitButton.innerHTML = originalHtml;
             }
         }
     });
+
+    // Enforce type="button" on all non-submit buttons & restore drafts
+    function initBookingForms() {
+        document.querySelectorAll('.booking-form, #bookingForm, #booking-form, #booking-form-activity').forEach(form => {
+            form.querySelectorAll('button').forEach(btn => {
+                if (btn.getAttribute('type') !== 'submit') {
+                    btn.setAttribute('type', 'button');
+                }
+            });
+            restoreFormDraft(form);
+            form.addEventListener('input', () => saveFormDraft(form));
+            form.addEventListener('change', () => saveFormDraft(form));
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initBookingForms);
+    } else {
+        initBookingForms();
+    }
 })();

@@ -211,6 +211,11 @@
             } catch (errApi) {}
 
             if (supabaseSaved) {
+                window.MarragafayAnalytics?.capture('contact_inquiry_submitted', {
+                    language: lang,
+                    has_planned_date: Boolean(date),
+                    party_size: Number(guests) || undefined
+                });
                 displaySuccess(form, t.successMsg, t.successTitle);
                 form.reset();
             } else {

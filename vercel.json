@@ -11,6 +11,8 @@
     { "src": "/api/public/send-booking-email", "dest": "/api/booking.js" },
     { "src": "/api/send-booking-email", "dest": "/api/booking.js" },
     { "src": "/api/(.*)", "dest": "/api/$1.js" },
+    { "src": "^/$", "headers": { "Location": "/en" }, "status": 308 },
+    { "src": "^/index\\.html$", "headers": { "Location": "/en" }, "status": 308 },
     { "src": "/activities", "dest": "/activities.html" },
     { "src": "/en/activities", "dest": "/en/activities.html" },
     { "src": "/fr/activities", "dest": "/fr/activities.html" },

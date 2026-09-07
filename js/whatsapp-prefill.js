@@ -49,45 +49,61 @@
    * (NOT yet encoded).  Line-breaks are represented as \n.
    */
   var TEMPLATES = {
-    fr: function (pack) {
+    ar: function (pack, ref) {
+      return (
+        'مرحباً Marragafay!\n' +
+        'أود التحقق من توفر ' + pack + '.\n' +
+        'التفاصيل:\n' +
+        '- التاريخ:\n' +
+        '- عدد الأفراد:' +
+        (ref ? '\nRef: ' + ref : '')
+      );
+    },
+    fr: function (pack, ref) {
       return (
         'Bonjour Marragafay !\n' +
-        'Je souhaite réserver le ' + pack + '.\n' +
+        'Je souhaite vérifier la disponibilité pour ' + pack + '.\n' +
         'Mes détails :\n' +
         '- Date :\n' +
-        '- Personnes :'
+        '- Personnes :' +
+        (ref ? '\nRef: ' + ref : '')
       );
     },
-    es: function (pack) {
+    es: function (pack, ref) {
       return (
-        '¡Hola Marragafay! Quiero reservar el ' + pack + '.\n' +
+        '¡Hola Marragafay! Quiero consultar disponibilidad para ' + pack + '.\n' +
         'Mis datos:\n' +
         '- Fecha:\n' +
-        '- Personas:'
+        '- Personas:' +
+        (ref ? '\nRef: ' + ref : '')
       );
     },
-    pt: function (pack) {
+    pt: function (pack, ref) {
       return (
-        'Olá Marragafay! Quero reservar o ' + pack + '.\n' +
+        'Olá Marragafay! Quero verificar disponibilidade para ' + pack + '.\n' +
         'Meus detalhes:\n' +
         '- Data:\n' +
-        '- Pessoas:'
+        '- Pessoas:' +
+        (ref ? '\nRef: ' + ref : '')
       );
     },
-    de: function (pack) {
+    de: function (pack, ref) {
       return (
-        'Hallo Marragafay! Ich möchte das ' + pack + ' buchen.\n' +
+        'Hallo Marragafay! Ich möchte die Verfügbarkeit für ' + pack + ' prüfen.\n' +
         'Meine Details:\n' +
         '- Datum:\n' +
-        '- Gäste:'
+        '- Gäste:' +
+        (ref ? '\nRef: ' + ref : '')
       );
     },
-    en: function (pack) {
+    en: function (pack, ref) {
       return (
-        'Hello Marragafay! I want to book the ' + pack + '.\n' +
+        'Hello Marragafay!\n' +
+        'I would like to check availability for ' + pack + '.\n' +
         'My details:\n' +
         '- Date:\n' +
-        '- Guests:'
+        '- Guests:' +
+        (ref ? '\nRef: ' + ref : '')
       );
     }
   };
@@ -160,7 +176,21 @@
     var lang = normaliseLang(rawLang);
 
     var packName = resolvePackName(btn);
-    var message  = TEMPLATES[lang](packName);
+    var inquiryId = btn.getAttribute('data-inquiry-id');
+    if (!inquiryId && window.MarragafayAttribution && typeof window.MarragafayAttribution.generateInquiryId === 'function') {
+      inquiryId = window.MarragafayAttribution.generateInquiryId();
+      btn.setAttribute('data-inquiry-id', inquiryId);
+      window.MarragafayAttribution.recordInquiry({
+        inquiry_id: inquiryId,
+        source_category: 'whatsapp_handoff',
+        pack_presented: packName,
+        final_requested_pack: packName,
+        cta_location: btn.id || btn.className || 'whatsapp_button',
+        language: lang
+      });
+    }
+
+    var message  = TEMPLATES[lang](packName, inquiryId);
     var encoded  = encodeURIComponent(message);
 
     return 'https://wa.me/' + PHONE + '?text=' + encoded;

@@ -15,7 +15,7 @@
   - 🇫🇷 French (`/fr/`)
   - 🇪🇸 Spanish (`/es/`)
   - 🇲🇦 Arabic (`/ar/`) with RTL layout
-- ⚡ **Zero-Latency Language Routing:** Root `index.html` acts as a fast language router detecting user preferences.
+- ⚡ **Crawlable Canonical Entry:** The deployment redirects `/` and `/index.html` server-side to the English homepage at `/en`; language-specific pages remain available under their localized paths.
 - 📱 **Mobile-First Luxury UX:** Custom booking modals, responsive image lightboxes, testimonials carousel, and interactive review system.
 - 💬 **Direct Lead Generation:** WhatsApp deep-links with pre-filled booking details & Supabase integration for booking inquiries and reviews.
 
@@ -25,7 +25,7 @@
 
 ```text
 marragafay.com/
-├── index.html            # Ultra-fast client-side language router
+├── index.html            # Inert fallback; deployment redirect is configured in vercel.json
 ├── vercel.json           # Vercel deployment configuration & security headers
 ├── .gitignore            # Hardened git ignore (prevents secret leaks)
 │
@@ -69,6 +69,11 @@ marragafay.com/
 The site is configured for automatic deployment via **Vercel** as a static website:
 - **Build Command:** Static (no server build step needed for standard HTML pages).
 - **Security Headers:** Configured in `vercel.json` (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`).
+
+## Local funnel testing
+
+Run `npm run dev` from the project root and open `http://127.0.0.1:5501`.
+The local booking endpoint runs in an explicit safe dry-run mode: it validates the complete request and response flow without inserting a Supabase row or sending an email. Do not use a static-only Live Server for booking QA because it cannot execute `/api/*` functions.
 
 ---
 

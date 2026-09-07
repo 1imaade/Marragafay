@@ -732,7 +732,7 @@
 
           <!-- Subtitle -->
           <p class="text-white/80 max-w-xl text-[16px] md:text-[18px] leading-[28px]" style="font-family: 'Lay Grotesk', sans-serif;">
-            Mots non filtrés de vrais invités. Pas de curation, pas de montage – juste des récits honnêtes de ce que signifie vivre Agafay avec Marragafay.
+            Les avis sont publiés ici uniquement après vérification de leur source par Marragafay.
           </p>
         </div>
       </section>
@@ -754,7 +754,7 @@
                 <!-- Nom et prénom -->
                 <div class="flex flex-col mb-8">
                   <label for="review-name" class="text-xs font-bold uppercase tracking-widest text-[#10100E]/90 mb-2">Nom et prénom</label>
-                  <input type="text" id="review-name" name="name" required placeholder="e.g. James Whitmore" class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none" />
+                  <input type="text" id="review-name" name="name" required placeholder="Votre nom complet" class="w-full bg-transparent border-0 border-b border-[#10100E]/20 py-3 text-[#10100E] placeholder:text-[#10100E]/30 focus:ring-0 focus:outline-none focus:border-b-2 focus:border-[#10100E] rounded-none appearance-none" />
                 </div>
 
                 <!-- Select Expérience -->
@@ -805,7 +805,7 @@
 
                 <!-- Submit -->
                 <button type="submit" id="review-submit-btn" class="w-full bg-[#272724] text-[#F6F7EA] text-[12px] font-semibold uppercase tracking-[0.15em] py-4 px-6 border-none cursor-pointer hover:bg-[#10100E] transition-colors duration-300" style="border-radius: 0;">
-                  Soumettre l'avis
+                  Envoyer pour vérification sur WhatsApp
                 </button>
                 <p id="review-form-message" class="text-[13px] mt-2 hidden"></p>
               </form>
@@ -832,80 +832,59 @@
           </div>
         </div>
       </section>
-
-      <!-- Star Notation JS -->
+      <!-- Star Rating JS -->
       <script>
         document.addEventListener('DOMContentLoaded', function () {
-          const stars = document.querySelectorAll('.star-btn');
+          const copy = {
+            en: { rating: 'Please select a rating.', missing: 'Please complete the required fields.', opening: 'Opening WhatsApp so our team can verify your review…', intro: 'Review verification request' },
+            fr: { rating: 'Veuillez sélectionner une note.', missing: 'Veuillez remplir les champs obligatoires.', opening: 'Ouverture de WhatsApp pour permettre à notre équipe de vérifier votre avis…', intro: 'Demande de vérification d’avis' },
+            es: { rating: 'Seleccione una puntuación.', missing: 'Complete los campos obligatorios.', opening: 'Abriendo WhatsApp para que nuestro equipo pueda verificar su reseña…', intro: 'Solicitud de verificación de reseña' },
+            ar: { rating: 'يرجى اختيار التقييم.', missing: 'يرجى إكمال الحقول المطلوبة.', opening: 'سيتم فتح واتساب حتى يتمكن فريقنا من التحقق من تقييمك…', intro: 'طلب التحقق من التقييم' }
+          };
+          const lang = (document.documentElement.lang || 'en').split('-')[0];
+          const t = copy[lang] || copy.en;
+          const stars = Array.from(document.querySelectorAll('.star-btn'));
           const ratingInput = document.getElementById('review-rating');
-          let currentNotation = 0;
-
-          stars.forEach(function (star) {
-            star.addEventListener('click', function () {
-              currentNotation = parseInt(this.getAttribute('data-value'));
-              ratingInput.value = currentNotation;
-              updateStars();
-            });
-
-            star.addEventListener('mouseenter', function () {
-              const hoverVal = parseInt(this.getAttribute('data-value'));
-              highlightStars(hoverVal);
-            });
-
-            star.addEventListener('mouseleave', function () {
-              highlightStars(currentNotation);
-            });
-          });
-
-          function highlightStars(count) {
-            stars.forEach(function (s) {
-              const val = parseInt(s.getAttribute('data-value'));
-              const icon = s.querySelector('.star-icon');
-              if (val <= count) {
-                icon.classList.add('fill-current');
-                icon.classList.remove('fill-transparent');
-              } else {
-                icon.classList.remove('fill-current');
-                icon.classList.add('fill-transparent');
-              }
-            });
-          }
-
-          function updateStars() {
-            highlightStars(currentNotation);
-          }
-
-          // Form submission handler (placeholder)
           const form = document.getElementById('review-form');
           const msg = document.getElementById('review-form-message');
-          form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            if (currentNotation === 0) {
-              msg.textContent = 'Please select a rating before submitting.';
+          if (!form || !ratingInput || !msg) return;
+
+          function paint(value) {
+            stars.forEach((star) => {
+              const icon = star.querySelector('.star-icon');
+              const active = Number(star.dataset.value) <= value;
+              icon.classList.toggle('fill-current', active);
+              icon.classList.toggle('fill-transparent', !active);
+            });
+          }
+
+          stars.forEach((star) => star.addEventListener('click', function () {
+            ratingInput.value = this.dataset.value;
+            paint(Number(this.dataset.value));
+          }));
+
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (!form.reportValidity()) {
+              msg.textContent = t.missing;
               msg.className = 'text-[13px] mt-2 text-[#FF5A36]';
-              msg.classList.remove('hidden');
               return;
             }
-            // Simulate submission
-            const btn = document.getElementById('review-submit-btn');
-            btn.textContent = 'Submitting…';
-            btn.disabled = true;
-            btn.style.opacity = '0.6';
-
-            setTimeout(function () {
-              msg.textContent = 'Thank you. Your review has been submitted and will appear after approval.';
-              msg.className = 'text-[13px] mt-2 text-[#10100E]/70';
-              msg.classList.remove('hidden');
-              btn.textContent = 'Submitted';
-              form.reset();
-              currentNotation = 0;
-              updateStars();
-              setTimeout(function () {
-                btn.textContent = 'Submit Review';
-                btn.disabled = false;
-                btn.style.opacity = '1';
-              }, 3000);
-            }, 1200);
+            if (Number(ratingInput.value) < 1) {
+              msg.textContent = t.rating;
+              msg.className = 'text-[13px] mt-2 text-[#FF5A36]';
+              return;
+            }
+            const message = [
+              t.intro,
+              'Name: ' + document.getElementById('review-name').value.trim(),
+              'Experience: ' + document.getElementById('review-experience').value,
+              'Rating: ' + ratingInput.value + '/5',
+              'Review: ' + document.getElementById('review-text').value.trim()
+            ].join('\n');
+            msg.textContent = t.opening;
+            msg.className = 'text-[13px] mt-2 text-[#10100E]/70';
+            window.open('https://wa.me/212672531624?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
           });
         });
       </script>
@@ -1218,7 +1197,7 @@
               <div class="form-buttons" style="text-align: center;">
                 <button type="submit" id="booking-submit-btn" class="btn-submit"
                   style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 15px 40px; border-radius: 0; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-right: 10px;">
-                  <i class="icon-calendar" style="margin-right: 8px;"></i> Réservez maintenant
+                  <i class="icon-calendar" style="margin-right: 8px;"></i> Vérifier la disponibilité
                 </button>
                 <button type="button" class="btn-cancel"
                   style="background: #6c757d; color: white; border: none; padding: 15px 30px; border-radius: 0; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
@@ -1376,7 +1355,7 @@
               <div class="form-buttons" style="text-align: center;">
                 <button type="submit" class="btn-submit"
                   style="background: linear-gradient(45deg, #d4af37, #b8860b); color: white; border: none; padding: 15px 40px; border-radius: 0; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-right: 10px;">
-                  <i class="icon-calendar" style="margin-right: 8px;"></i> Réservez maintenant
+                  <i class="icon-calendar" style="margin-right: 8px;"></i> Vérifier la disponibilité
                 </button>
                 <button type="button" class="btn-cancel"
                   style="background: #6c757d; color: white; border: none; padding: 15px 30px; border-radius: 0; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
@@ -1730,90 +1709,18 @@
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const baseReviews = [
-      {
-        name: "J. & C. Whitmore",
-        date: "London, UK · March 2026 · Luxury Private Expérience",
-        text: "We have done desert experiences on four continents. This was the first time the vehicle was cleaner at the end of the briefing than it was in the photos online. Pickup was on time to the minute, our guide spoke three languages, and he knew a route through the Agafay that I have seen nowhere else. The dinner afterward was not an afterthought. It was a serious meal.",
-        rating: 5
-      },
-      {
-        name: "F. Al-Rasheed",
-        date: "Dubai, UAE · February 2026 · Corporate Group · Pack Signature",
-        text: "I organized this as a private excursion for four executives visiting Marrakech for a board offsite. The logistics were handled without a single point of friction — hotel pickup coordinated with our schedule, vehicles ready on arrival, individual briefings for each guest before we departed. The ATVs were visibly new. Not 'well-maintained.' New.",
-        rating: 5
-      },
-      {
-        name: "L. Bernhardt",
-        date: "New York, USA · April 2026 · Solo Private · Pack Luxe",
-        text: "I was skeptical. Desert experiences in Morocco are frequently oversold and underdelivered. What I found with Marragafay was the opposite: understated marketing, exceptional execution. The guide arrived 8 minutes early. The route took us to a ridge I had not seen in any photograph of the Agafay. I will bring my clients here without hesitation.",
-        rating: 5
-      },
-      {
-        name: "M. Dubois",
-        date: "Paris, France · May 2026 · Couples Retreat · Buggy des dunes",
-        text: "The silence was absolute. Our guide understood exactly when to lead and when to let us experience the desert without commentary. The machinery was flawless, the tea stop was perfectly timed at sunset, and the absence of other tourist groups made it feel entirely exclusive.",
-        rating: 5
-      },
-      {
-        name: "A. Rossi",
-        date: "Milan, Italy · January 2026 · Private Charter · Pack Découverte",
-        text: "Impeccable from start to finish. We requested a custom route that bypassed the usual tourist camps, and the team delivered a technically demanding, visually stunning ride. The attention to safety detail without compromising the thrill of the drive is a balance very few operators achieve.",
-        rating: 5
-      }
-    ];
-
-    const allReviews = [];
-    for (let i = 0; i < 10; i++) {
-      baseReviews.forEach(r => allReviews.push(r));
-    }
-
-    const reviewsGrid = document.getElementById('reviews-grid');
-    const loadMoreBtn = document.getElementById('load-more-btn');
-    if (!reviewsGrid || !loadMoreBtn) return;
-
-    let currentIndex = 0;
-    const batchSize = 4;
-
-    function renderReviews() {
-      const slice = allReviews.slice(currentIndex, currentIndex + batchSize);
-
-      slice.forEach(review => {
-        const starsHTML = Array(review.rating).fill('<svg width="14" height="14" viewBox="0 0 24 24" fill="#10100E" stroke="#10100E" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>').join('');
-
-        const reviewHTML = `
-          <div class="review-card opacity-0 translate-y-8 transition-all duration-[800ms] ease-out border-t border-[#10100E]/10 pt-8 pb-10">
-            <div class="flex gap-1 mb-5">
-              ${starsHTML}
-            </div>
-            <p class="text-[#10100E] text-[16px] md:text-[17px] leading-[26px] md:leading-[28px] font-normal italic tracking-tight mb-6">"${review.text}"</p>
-            <p class="text-[#10100E] text-[14px] font-semibold uppercase tracking-wide">${review.name}</p>
-            <p class="text-[#5c5c56] text-[12px] mt-1">${review.date}</p>
-          </div>
-        `;
-        reviewsGrid.insertAdjacentHTML('beforeend', reviewHTML);
-      });
-
-      const newCards = document.querySelectorAll('.review-card.opacity-0');
-      newCards.forEach((card, index) => {
-          setTimeout(() => {
-              card.classList.remove('opacity-0', 'translate-y-8');
-              card.classList.add('opacity-100', 'translate-y-0');
-          }, index * 150); // 150ms stagger effect
-      });
-
-      currentIndex += batchSize;
-
-      if (currentIndex >= allReviews.length) {
-        loadMoreBtn.style.display = 'none';
-      }
-    }
-
-    loadMoreBtn.addEventListener('click', renderReviews);
-
-    // Initial render
-    renderReviews();
+  document.addEventListener('DOMContentLoaded', function () {
+    const copy = {
+      en: 'Verified guest reviews will appear here after source validation.',
+      fr: 'Les avis vérifiés apparaîtront ici après validation de leur source.',
+      es: 'Las reseñas verificadas aparecerán aquí después de validar su fuente.',
+      ar: 'ستظهر تقييمات الضيوف هنا بعد التحقق من مصدرها.'
+    };
+    const lang = (document.documentElement.lang || 'en').split('-')[0];
+    const grid = document.getElementById('reviews-grid');
+    const loadMore = document.getElementById('load-more-btn');
+    if (grid) grid.innerHTML = '<p class="text-[#5c5c56] text-[15px] leading-[24px]">' + (copy[lang] || copy.en) + '</p>';
+    if (loadMore) loadMore.style.display = 'none';
   });
 </script>
 

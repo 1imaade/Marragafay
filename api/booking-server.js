@@ -21,14 +21,29 @@ const ALLOWED_ORIGINS = new Set([
   'https://www.marragafay.com',
   'http://localhost:3000',
   'http://localhost:5500',
-  'http://127.0.0.1:5500'
+  'http://127.0.0.1:5500',
+  'http://localhost:5501',
+  'http://127.0.0.1:5501'
 ]);
+
+function isLocalDevOrigin(origin) {
+  if (!origin) return false;
+  try {
+    const parsed = new URL(origin);
+    return (parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1') &&
+      (parsed.protocol === 'http:' || parsed.protocol === 'https:');
+  } catch {
+    return false;
+  }
+}
 
 class ValidationError extends Error {}
 
 function setCorsHeaders(req, res) {
   const origin = req.headers?.origin;
-  if (ALLOWED_ORIGINS.has(origin)) res.setHeader('Access-Control-Allow-Origin', origin);
+  if (origin && (ALLOWED_ORIGINS.has(origin) || isLocalDevOrigin(origin))) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With');
   res.setHeader('Vary', 'Origin');
@@ -248,15 +263,26 @@ export function normalizeAttribution(raw) {
   const bookingPage = attributionPath(raw.booking_page || raw.current_page, 'attribution.booking_page');
   const effectiveTouch = lastTouch && hasExplicitCampaign(lastTouch) ? lastTouch : firstTouch;
 
-  if (!firstTouch && !lastTouch && !bookingPage) return null;
+  const inquiryId = attributionString(raw.inquiry_id, 'attribution.inquiry_id', 100);
+  const ctaLocation = attributionString(raw.cta_location, 'attribution.cta_location', 100);
+  const packPresented = attributionString(raw.pack_presented, 'attribution.pack_presented', 100);
+  const finalRequestedPack = attributionString(raw.final_requested_pack, 'attribution.final_requested_pack', 100);
+  const pickupContext = attributionString(raw.pickup_context, 'attribution.pickup_context', 500);
+
+  if (!firstTouch && !lastTouch && !bookingPage && !inquiryId) return null;
 
   return {
     version: 1,
+    inquiry_id: inquiryId || null,
     source_category: classifyAttributionSource(effectiveTouch || {}),
     first_touch_source_category: firstTouch ? classifyAttributionSource(firstTouch) : 'other',
     first_touch: firstTouch,
     last_touch: lastTouch && hasExplicitCampaign(lastTouch) ? lastTouch : null,
-    booking_page: bookingPage
+    booking_page: bookingPage,
+    cta_location: ctaLocation || null,
+    pack_presented: packPresented || null,
+    final_requested_pack: finalRequestedPack || null,
+    pickup_context: pickupContext || null
   };
 }
 
@@ -274,9 +300,14 @@ function normalizeBooking(body) {
   const phone = parsePhone(scalarValue(body, ['phone_number', 'phone']));
   const email = parseEmail(scalarValue(body, ['email']));
   const date = parseDate(scalarValue(body, ['date', 'booking_date']));
-  const notes = safeString(scalarValue(body, ['notes', 'requests', 'message']), 'notes', MAX_NOTES_LENGTH);
+  const pickup = safeString(scalarValue(body, ['pickup', 'pickup_context', 'pickup_location', 'hotel', 'hotel_name']), 'pickup', 500);
+  const rawNotes = safeString(scalarValue(body, ['notes', 'requests', 'message']), 'notes', MAX_NOTES_LENGTH);
+  const notes = pickup ? (rawNotes ? `Pickup: ${pickup}\nNotes: ${rawNotes}` : `Pickup: ${pickup}`) : rawNotes;
   const language = parseLanguage(scalarValue(body, ['language', 'lang']));
   const attribution = normalizeAttribution(scalarValue(body, ['attribution']));
+  if (attribution && pickup && !attribution.pickup_context) {
+    attribution.pickup_context = pickup;
+  }
   const children = parseCount(scalarValue(body, ['children']), 'children') ?? 0;
 
   const adultsValue = scalarValue(body, ['adults']);
@@ -339,6 +370,8 @@ function buildEmailHtml(booking) {
       <tr><td style="padding:6px 0;color:#71717A;">Booking Date</td><td style="padding:6px 0;font-weight:600;">${safeDate}</td></tr>
       <tr><td style="padding:6px 0;color:#71717A;">Guests</td><td style="padding:6px 0;">${booking.adults} Adults, ${booking.children} Children</td></tr>
       <tr><td style="padding:6px 0;color:#71717A;">Language</td><td style="padding:6px 0;">${safeLanguage}</td></tr>
+      ${booking.attribution?.inquiry_id ? `<tr><td style="padding:6px 0;color:#71717A;">Inquiry Ref</td><td style="padding:6px 0;font-weight:600;">${htmlEscape(booking.attribution.inquiry_id)}</td></tr>` : ''}
+      ${booking.attribution?.pickup_context ? `<tr><td style="padding:6px 0;color:#71717A;">Pickup</td><td style="padding:6px 0;font-weight:600;">${htmlEscape(booking.attribution.pickup_context)}</td></tr>` : ''}
     </table><div style="background:#FAFAFA;border:1px solid #E4E4E7;border-radius:6px;padding:12px 16px;margin-bottom:20px;"><strong>Total Amount</strong><span style="float:right;font-size:18px;">${booking.pricing.totalEur} € <span style="font-size:13px;color:#71717A;font-weight:normal;">(${booking.pricing.totalMad} MAD)</span></span></div><div style="white-space:pre-wrap;background:#F8F8F8;padding:10px 14px;border-radius:4px;margin-bottom:20px;">${safeNotes}</div>${waAction}</div>
   </div></body></html>`;
 }
@@ -349,6 +382,10 @@ function getSupabaseClient() {
   return createClient(SUPABASE_URL, serviceRoleKey, {
     auth: { persistSession: false, autoRefreshToken: false }
   });
+}
+
+function isSafeLocalDryRun() {
+  return process.env.NODE_ENV !== 'production' && process.env.MARRAGAFAY_DEV_MODE === 'dry-run';
 }
 
 export function buildBookingRecord(booking) {
@@ -370,6 +407,9 @@ export function buildBookingRecord(booking) {
 }
 
 async function insertBooking(booking) {
+  if (isSafeLocalDryRun()) {
+    return { id: `local-dry-run-${booking.attribution?.inquiry_id || Date.now()}` };
+  }
   const supabase = getSupabaseClient();
   const { data, error } = await supabase
     .from('bookings')
@@ -381,6 +421,7 @@ async function insertBooking(booking) {
 }
 
 async function sendNotification(booking, bookingId) {
+  if (isSafeLocalDryRun()) return { success: false, reason: 'dry_run' };
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return { success: false, reason: 'not_configured' };
 
@@ -428,7 +469,8 @@ export default async function handleBooking(req, res) {
       product_title: booking.product.title,
       source_category: booking.attribution?.source_category || null,
       trusted_total_mad: booking.pricing.totalMad,
-      trusted_total_eur: booking.pricing.totalEur
+      trusted_total_eur: booking.pricing.totalEur,
+      dry_run: isSafeLocalDryRun()
     });
   } catch (error) {
     if (error instanceof ValidationError) {
