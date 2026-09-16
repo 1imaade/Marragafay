@@ -25,40 +25,40 @@
       const dictionaries = {
         en: {
           experiencesPacks: [
-        { label: 'Marragafay Signature Agafay Escape', href: 'packages/comfort' },
-        { label: 'Marragafay VIP Luxury Desert Retreat', href: 'packages/luxe' },
-        { label: 'Marragafay Complete Discovery Expedition', href: 'packages/basic' },
-      ],
-      experiencesActivities: [
-        { label: 'Marragafay Extreme Quad Biking Adventure', href: 'activities/quad-biking' },
-        { label: 'Marragafay Traditional Camel Ride Trek', href: 'activities/camel-ride' },
-        { label: 'Marragafay Dune Buggy Adrenaline Safari', href: 'activities/buggy' },
-        { label: 'Marragafay Sunrise Hot Air Balloon Flight', href: 'activities/hot-air-balloon' },
-        { label: 'Marragafay Atlas Mountains Paragliding', href: 'activities/paragliding' },
-        { label: 'Marragafay Nomadic Desert Dinner & Show', href: 'activities/dinner-show' },
-      ],
-      brand: [
-        { label: 'About Marragafay', href: 'about' },
-        { label: 'Customer Reviews', href: 'reviews' },
-        { label: 'Our Blog', href: 'blog' },
-        { label: 'Careers', href: 'about' },
-        { label: 'FAQ', href: 'about' },
-      ],
-      packs: [
-        { label: 'Agafay Discovery Pack', href: 'packages/basic' },
-        { label: 'VIP Luxury Escape', href: 'packages/luxe' },
-        { label: 'Romantic Sunset Pack', href: 'packages/comfort' },
-      ],
-      booking: [
-        { label: 'Book an Experience', href: 'packs', arrow: true },
-        { label: 'Contact Concierge', href: 'contact', arrow: true },
-      ],
+            { label: 'Agafay Evening Experience', href: 'packages/basic' },
+            { label: 'Private Agafay Evening', href: 'packages/comfort' },
+            { label: 'Agafay & Atlas — Full-Day Quad', href: 'packages/luxe' },
+          ],
+          experiencesActivities: [
+            { label: 'Marragafay Extreme Quad Biking Adventure', href: 'activities/quad-biking' },
+            { label: 'Marragafay Traditional Camel Ride Trek', href: 'activities/camel-ride' },
+            { label: 'Marragafay Dune Buggy Adrenaline Safari', href: 'activities/buggy' },
+            { label: 'Marragafay Sunrise Hot Air Balloon Flight', href: 'activities/hot-air-balloon' },
+            { label: 'Marragafay Atlas Mountains Paragliding', href: 'activities/paragliding' },
+            { label: 'Marragafay Nomadic Desert Dinner & Show', href: 'activities/dinner-show' },
+          ],
+          brand: [
+            { label: 'About Marragafay', href: 'about' },
+            { label: 'Customer Reviews', href: 'reviews' },
+            { label: 'Our Blog', href: 'blog' },
+            { label: 'Careers', href: 'about' },
+            { label: 'FAQ', href: 'about' },
+          ],
+          packs: [
+            { label: 'Agafay Evening Experience (Standard)', href: 'packages/basic' },
+            { label: 'Private Agafay Evening', href: 'packages/comfort' },
+            { label: 'Agafay & Atlas — Full-Day Quad (Private+)', href: 'packages/luxe' },
+          ],
+          booking: [
+            { label: 'Book an Experience', href: 'packs', arrow: true },
+            { label: 'Contact Concierge', href: 'contact', arrow: true },
+          ],
         },
         fr: {
           experiencesPacks: [
-            { label: 'Signature Marragafay Escapade Agafay', href: 'packages/comfort' },
-            { label: 'Retraite VIP Luxe dans le Désert', href: 'packages/luxe' },
-            { label: 'Expédition Découverte Complète', href: 'packages/basic' },
+            { label: 'Expérience Soirée Agafay', href: 'packages/basic' },
+            { label: 'Soirée Privée à Agafay', href: 'packages/comfort' },
+            { label: 'Agafay & Atlas — Journée Complète Quad', href: 'packages/luxe' },
           ],
           experiencesActivities: [
             { label: 'Aventure Extrême en Quad', href: 'activities/quad-biking' },
@@ -76,9 +76,9 @@
             { label: 'FAQ', href: 'about' },
           ],
           packs: [
-            { label: 'Pack Découverte Agafay', href: 'packages/basic' },
-            { label: 'Escapade VIP Luxe', href: 'packages/luxe' },
-            { label: 'Pack Coucher de Soleil Romantique', href: 'packages/comfort' },
+            { label: 'Expérience Soirée Agafay (Standard)', href: 'packages/basic' },
+            { label: 'Soirée Privée à Agafay', href: 'packages/comfort' },
+            { label: 'Agafay & Atlas — Journée Complète Quad (Private+)', href: 'packages/luxe' },
           ],
           booking: [
             { label: 'Réserver une Expérience', href: 'packs', arrow: true },
@@ -87,9 +87,9 @@
         },
         es: {
           experiencesPacks: [
-            { label: 'Marragafay Escapada Signature Agafay', href: 'packages/comfort' },
-            { label: 'Retiro VIP de Lujo en el Desierto', href: 'packages/luxe' },
-            { label: 'Expedición de Descubrimiento Completo', href: 'packages/basic' },
+            { label: 'Experiencia de Tarde en Agafay', href: 'packages/basic' },
+            { label: 'Tarde Privada en Agafay', href: 'packages/comfort' },
+            { label: 'Agafay y Atlas — Día Completo en Quad', href: 'packages/luxe' },
           ],
           experiencesActivities: [
             { label: 'Aventura Extrema en Quad', href: 'activities/quad-biking' },
@@ -107,9 +107,9 @@
             { label: 'Preguntas Frecuentes', href: 'about' },
           ],
           packs: [
-            { label: 'Paquete Descubrimiento Agafay', href: 'packages/basic' },
-            { label: 'Escapada VIP de Lujo', href: 'packages/luxe' },
-            { label: 'Paquete Atardecer Romántico', href: 'packages/comfort' },
+            { label: 'Experiencia de Tarde en Agafay (Standard)', href: 'packages/basic' },
+            { label: 'Tarde Privada en Agafay', href: 'packages/comfort' },
+            { label: 'Agafay y Atlas — Día Completo en Quad (Private+)', href: 'packages/luxe' },
           ],
           booking: [
             { label: 'Reservar una Experiencia', href: 'packs', arrow: true },
@@ -118,9 +118,9 @@
         },
         ar: {
           experiencesPacks: [
-            { label: 'بصمة مراكفاي: ملاذ أكفاي', href: 'packages/comfort' },
-            { label: 'ملاذ فاخر في الصحراء لكبار الشخصيات', href: 'packages/luxe' },
-            { label: 'رحلة استكشاف كاملة', href: 'packages/basic' },
+            { label: 'تجربة أمسية أجافي', href: 'packages/basic' },
+            { label: 'أمسية أجافي الخاصة', href: 'packages/comfort' },
+            { label: 'أجافي والأطلس — يوم كامل كواد', href: 'packages/luxe' },
           ],
           experiencesActivities: [
             { label: 'مغامرة الدراجات الرباعية', href: 'activities/quad-biking' },
@@ -138,9 +138,9 @@
             { label: 'الأسئلة الشائعة', href: 'about' },
           ],
           packs: [
-            { label: 'باقة اكتشاف أكفاي', href: 'packages/basic' },
-            { label: 'ملاذ فاخر لكبار الشخصيات', href: 'packages/luxe' },
-            { label: 'باقة غروب الشمس الرومانسية', href: 'packages/comfort' },
+            { label: 'تجربة أمسية أجافي (قياسية)', href: 'packages/basic' },
+            { label: 'أمسية أجافي الخاصة', href: 'packages/comfort' },
+            { label: 'أجافي والأطلس — يوم كامل كواد (خاصة بلس)', href: 'packages/luxe' },
           ],
           booking: [
             { label: 'احجز تجربة', href: 'packs', arrow: true },

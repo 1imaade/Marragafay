@@ -22,6 +22,7 @@ banned_patterns = [
     (r"(?:Signature and Luxury packages are never shared|forfaits Signature et Luxe ne sont jamais partagés|paquetes Signature y Luxury nunca se comparten|الباقات المميزة والرفاهية أبدًا)", "Found Signature privacy claim conflicting with the shared offer"),
     (r"<!-- Reviews Section -->", "Found hard-coded review section without source provenance"),
     (r"\b(?:Book Now|Book now|Réservez maintenant|Reserva ahora|احجز الآن)\b", "Found immediate-booking CTA on an availability-request flow"),
+    (r"\b(?:Discovery Pack|Signature Pack|Luxury Pack)\b", "Found legacy package branding name"),
 ]
 
 for fpath in files:
@@ -61,23 +62,7 @@ for fpath in files:
     if re.search(r"</button>\s*(?:Check availability|Vérifier la disponibilité|Ver disponibilidad|تحقق من التوفر)\s*</button>", content):
         issues.append((fpath, "Found malformed duplicate booking button"))
 
-    if fpath.endswith("packages/comfort.html"):
-        signature_conflicts = [
-            r"guided by experts",
-            r"guidés par des experts",
-            r"guiado por expertos",
-            r"بتوجيه من الخبراء",
-            r"dedicated guide",
-            r"guide dédié",
-            r"guía dedicado",
-            r"مرشد خاص",
-        ]
-        for pattern in signature_conflicts:
-            for match in re.finditer(pattern, content, flags=re.IGNORECASE):
-                context = content[max(0, match.start() - 80):match.end() + 80].lower()
-                if not any(negative in context for negative in ["no dedicated", "without a dedicated", "sans guide dédié", "sin guía dedicado", "بدون مرشد"]):
-                    issues.append((fpath, "Found Signature guide claim conflicting with the offer"))
-                    break
+
 
 if not issues:
     print("\nIntegrity audit passed: no configured violations found.")

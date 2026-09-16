@@ -89,3 +89,29 @@
   transform: rotate(45deg) !important;
   color: #FF5A36 !important;
 }
+
+/* Booking Bar Pill Radius (Left rounded, Right flat) */
+.rounded-l-3xl{border-top-left-radius:1.5rem;border-bottom-left-radius:1.5rem}
+.rounded-r-none{border-top-right-radius:0;border-bottom-right-radius:0}
+.rounded-l-2xl{border-top-left-radius:1rem;border-bottom-left-radius:1rem}
+.rounded-tl-2xl{border-top-left-radius:1rem}
+.rounded-bl-2xl{border-bottom-left-radius:1rem}
+
+@media (min-width:1280px){
+  .xl\:rounded-l-3xl{border-top-left-radius:1.5rem;border-bottom-left-radius:1.5rem}
+  .xl\:rounded-r-none{border-top-right-radius:0;border-bottom-right-radius:0}
+  .xl\:rounded-none{border-radius:0}
+}
+
+
+/* Booking Bar Subtle Radius (Left rounded-xl 12px, Right flat) */
+.rounded-l-xl{border-top-left-radius:0.75rem;border-bottom-left-radius:0.75rem}
+.rounded-tl-xl{border-top-left-radius:0.75rem}
+.rounded-bl-xl{border-bottom-left-radius:0.75rem}
+.rounded-l-lg{border-top-left-radius:0.5rem;border-bottom-left-radius:0.5rem}
+
+@media (min-width:1280px){
+  .xl\:rounded-l-xl{border-top-left-radius:0.75rem;border-bottom-left-radius:0.75rem}
+  .xl\:rounded-tl-xl{border-top-left-radius:0.75rem}
+  .xl\:rounded-bl-xl{border-bottom-left-radius:0.75rem}
+}

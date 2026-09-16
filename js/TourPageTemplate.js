@@ -661,19 +661,21 @@ const TourPageTemplate = (function () {
               <thead>
                 <tr>
                   <th>Feature</th>
-                  <th>Discovery<br><span class="package-price"><span>35 €</span></span></th>
-                  <th class="col-signature">Signature<br><span class="package-price"><span>49 €</span></span></th>
-                  <th>Luxury<br><span class="package-price"><span>89 €</span></span></th>
+                  <th>Standard<br><span class="package-price"><span>45 €</span></span></th>
+                  <th class="col-signature">Private<br><span class="package-price"><span>75 €</span></span></th>
+                  <th>Private+<br><span class="package-price"><span>119 €</span></span></th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>Transport</td><td>Meeting point only</td><td class="col-signature">Door-to-door</td><td>Private VIP van</td></tr>
-                <tr><td>Quad Biking</td><td>1 hour</td><td class="col-signature">1 hour</td><td>1 hour 30 min</td></tr>
-                <tr><td>Camel Ride</td><td>20 minutes</td><td class="col-signature">30 minutes</td><td>45 minutes private</td></tr>
-                <tr><td>Dinner</td><td>Shared traditional dinner</td><td class="col-signature">Shared traditional dinner</td><td>Private table exclusive dinner</td></tr>
-                <tr><td>Show Access</td><td>General seating</td><td class="col-signature">General seating</td><td>VIP front-row seating</td></tr>
-                <tr><td>Private Guide</td><td>No</td><td class="col-signature">No</td><td>Yes, dedicated guide</td></tr>
-                <tr><td>Pool Access</td><td>Yes</td><td class="col-signature">Yes</td><td>Yes, priority access</td></tr>
+                <tr><td>Timing</td><td>15:30 — 22:00</td><td class="col-signature">15:30 — 22:00</td><td>09:00 — 22:00 (Full-Day)</td></tr>
+                <tr><td>Transport</td><td>Shared pickup & return</td><td class="col-signature">Private round-trip transfer</td><td>Private round-trip transfer</td></tr>
+                <tr><td>Quad Biking</td><td>1 hour</td><td class="col-signature">1 hour 30 min (private)</td><td>3 hours exploration (Agafay & Atlas)</td></tr>
+                <tr><td>Camel Ride</td><td>20 minutes</td><td class="col-signature">20 minutes</td><td>45 minutes</td></tr>
+                <tr><td>Meals</td><td>Moroccan dinner</td><td class="col-signature">Moroccan dinner + soft drink</td><td>Moroccan lunch + dinner + drinks</td></tr>
+                <tr><td>Live Show</td><td>Fire & music show</td><td class="col-signature">Fire & music show</td><td>Fire & music show</td></tr>
+                <tr><td>Dedicated Guide</td><td>Shared</td><td class="col-signature">Yes, dedicated guide</td><td>Yes, dedicated full-day guide</td></tr>
+                <tr><td>Gifts & Extras</td><td>Bottled water</td><td class="col-signature">Desert scarf + Moroccan sweets</td><td>Desert scarf + Moroccan sweets</td></tr>
+                <tr><td>Pool & Tea</td><td>Yes</td><td class="col-signature">Yes</td><td>Yes</td></tr>
               </tbody>
             </table>
           </div>

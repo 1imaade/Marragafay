@@ -1,6 +1,6 @@
 /**
- * COMFORT PACK DATA
- * Data configuration for the Comfort Pack tour page
+ * COMFORT PACK DATA (PRIVATE)
+ * Data configuration for the Private Pack tour page
  */
 
 const comfortPackData = {
@@ -16,22 +16,23 @@ const comfortPackData = {
         '../images/slide4.jpg'
     ],
     heroTitle: 'Agafay',
-    heroHighlight: 'Comfort Pack',
+    heroHighlight: 'Private Pack',
     breadcrumbParent: 'Packs',
     breadcrumbParentLink: '../packs.html',
-    breadcrumbCurrent: 'Comfort Pack',
+    breadcrumbCurrent: 'Private Agafay Evening',
 
     // Header Info
     rating: '5.0',
     reviewCount: '95',
-    title: 'Marragafay Signature',
-    description: 'Elevate your desert experience with our premium Comfort Pack. Enjoy extended adventures, enhanced amenities, and exclusive access to the finest aspects of Agafay Desert.',
+    title: 'Private Agafay Evening',
+    label: 'PRIVATE',
+    description: 'Elevate your desert evening with our fully Private experience. Featuring private door-to-door transfer, 1h30 private quad, 20min camel trek, dedicated guide, desert scarf to keep, Moroccan dinner, live show, and Moroccan sweets.',
 
     // Highlights
     highlights: [
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
-            text: 'Duration: 6 Hours'
+            text: 'Schedule: 15:30 — 22:00'
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
@@ -39,11 +40,11 @@ const comfortPackData = {
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
-            text: 'Private Guide'
+            text: 'Guide: Dedicated Guide Included'
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>',
-            text: 'Transport: Door-to-Door Pickup'
+            text: 'Transport: Private Round-Trip Transfer'
         }
     ],
 
@@ -51,52 +52,47 @@ const comfortPackData = {
     timeline: [
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>',
-            title: 'Private Pickup & Welcome Tea',
-            description: 'Begin with a luxury private transfer from your hotel and traditional mint tea ceremony at our premium desert lounge.'
+            title: '15:30 — Private Transfer & Desert Welcome',
+            description: 'Enjoy seamless, private round-trip transportation directly from your Marrakech hotel or riad to our desert camp.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
-            title: 'Extended Quad & Buggy Adventure (2 Hours)',
-            description: 'Experience both quad biking AND buggy driving through the Agafay dunes. Professional instruction and premium equipment included.'
+            title: '1h30 Private Quad Biking',
+            description: 'Extended 90-minute private quad biking session with your dedicated guide navigating scenic dunes and private desert tracks.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-            title: 'Golden Hour Camel Trek (45 Min)',
-            description: 'Extended camel journey through the desert during the golden hour, with photo stops and refreshments along the way.'
-        },
-        {
-            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
-            title: '5-Course Dinner & Premium Show',
-            description: 'Indulge in a gourmet 5-course traditional Moroccan feast in our exclusive VIP tent, featuring live music, belly dancing, and fire show.'
-        },
-        {
-            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
-            title: 'Stargazing & Return',
-            description: 'End your evening with a guided stargazing session using professional telescopes before your comfortable return journey.'
+            title: '20min Camel Trek & Sunset Pause',
+            description: 'Tranquil 20-minute camel trek with a dedicated pause at a prime vantage point to watch the Agafay sunset.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>',
-            title: 'Pool Access & Traditional Moroccan Tea',
-            description: 'Relax by the pool and enjoy a refreshing cup of traditional Moroccan mint tea, the perfect way to end your desert adventure.'
+            title: 'Pool Access, Mint Tea & Desert Scarf',
+            description: 'Relax by the pool with Moroccan mint tea, receive an authentic desert scarf (cheche) to wear and keep, and enjoy bottled water + soft drinks.'
+        },
+        {
+            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
+            title: 'Moroccan Dinner, Live Show & Moroccan Sweets',
+            description: 'Delicious traditional Moroccan dinner paired with live Gnawa music, fire performers, and sweet pastries before private return at 22:00.'
         }
     ],
 
     // Inclusions
     inclusions: [
-        'Private Hotel Transfer',
-        '2 Hours Quad & Buggy',
-        '45 Min Camel Trek',
-        '5-Course Gourmet Dinner',
-        'Premium Live Shows',
-        'Professional Photography',
-        'Stargazing Experience',
-        'Traditional Tea Ceremony',
-        'Premium Safety Equipment',
-        'Complimentary Beverages',
-        'Pool Access & Traditional Moroccan Tea'
+        'Private round-trip transfer',
+        '1h30 private quad',
+        '20min camel',
+        'Pool + mint tea',
+        'Sunset pause',
+        'Dinner + live show',
+        'Dedicated guide',
+        'Desert scarf to wear & keep',
+        'Bottled water + soft drink',
+        'Moroccan sweets',
+        'Safety gear & briefing'
     ],
 
-    notIncluded: 'Alcoholic Beverages, Personal Purchases, Tips (Optional).',
+    notIncluded: 'Personal purchases, gratuities (optional).',
 
     // Gallery
     galleryImages: [
@@ -106,5 +102,5 @@ const comfortPackData = {
     ],
 
     // Pricing
-    price: '49 €'
+    price: '75 €'
 };

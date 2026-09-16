@@ -51,14 +51,14 @@
   <title>Paquetes y Excursiones al Desierto de Agafay Marrakech | Marragafay</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Compare nuestros paquetes todo incluido para el desierto de Agafay: Pack Signature, VIP Privado y Discovery con quad, camello, piscina y cena espectáculo.">
-  <meta name="keywords" content="desierto de agafay, Marrakech Excursions, Marragafay, Desert Dinner, Quad Biking">
+  <meta name="description" content="Compare nuestros paquetes todo incluido para el desierto de Agafay: Standard, Private, Private+ y Buggy con quad, camello, piscina y cena espectáculo.">
+  <meta name="keywords" content="desierto de agafay, Marrakech Excursions, Marragafay, Desert Dinner, Quad Biking, Buggy Agafay">
   <meta property="og:title" content="Paquetes y Excursiones al Desierto de Agafay Marrakech | Marragafay">
-  <meta property="og:description" content="Compare nuestros paquetes todo incluido para el desierto de Agafay: Pack Signature, VIP Privado y Discovery con quad, camello, piscina y cena espectáculo.">
+  <meta property="og:description" content="Compare nuestros paquetes todo incluido para el desierto de Agafay: Standard, Private, Private+ y Buggy con quad, camello, piscina y cena espectáculo.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Paquetes y Excursiones al Desierto de Agafay Marrakech | Marragafay">
-  <meta name="twitter:description" content="Compare nuestros paquetes todo incluido para el desierto de Agafay: Pack Signature, VIP Privado y Discovery con quad, camello, piscina y cena espectáculo.">
+  <meta name="twitter:description" content="Compare nuestros paquetes todo incluido para el desierto de Agafay: Standard, Private, Private+ y Buggy con quad, camello, piscina y cena espectáculo.">
   <meta name="google-site-verification" content="bamVos41fgswgcgtQoBGzbYihLKMpzhQOS7PiAlnm-M" />
   <meta name="facebook-domain-verification" content="ie0eyu39g9logo846tr4cgli13tp1f" />
 
@@ -805,10 +805,10 @@
       text-decoration: none;
     }
 
-    /* Grid — 3 fixed-width columns */
+    /* Grid — 3 columns (3 on line 1, remaining on line 2) */
     .pkg-grid {
       display: grid;
-      grid-template-columns: repeat(3, 384px);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
@@ -819,7 +819,7 @@
       }
 
       .pkg-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .pkg-card {
@@ -845,7 +845,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 16px;
-      width: 384px;
+      width: 100%;
       height: 511.98px;
       display: block;
       text-decoration: none;
@@ -897,16 +897,16 @@
       font-weight: 600;
       letter-spacing: 0px;
       color: #523225;
-      text-transform: lowercase;
+      text-transform: uppercase;
       margin-bottom: 4px;
     }
 
     .pkg-card-title {
       font-family: "Lay Grotesk", Inter, "Helvetica Neue", Arial, sans-serif;
-      font-size: 30px;
-      line-height: 36px;
+      font-size: 26px;
+      line-height: 32px;
       font-weight: 600;
-      letter-spacing: -0.6px;
+      letter-spacing: -0.5px;
       color: #F6F7EA;
       text-transform: capitalize;
       margin: 0 0 8px 0;
@@ -914,8 +914,8 @@
 
     .pkg-card-desc {
       font-family: "Lay Grotesk", Inter, "Helvetica Neue", Arial, sans-serif;
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 13px;
+      line-height: 19px;
       font-weight: 400;
       letter-spacing: 0px;
       color: rgba(246, 247, 234, 0.70);
@@ -959,45 +959,56 @@
       <!-- Cards -->
       <div class="pkg-grid">
 
-        <!-- Card 1 — Descubrimiento de Agafay -->
+        <!-- Card 1 — Standard (Agafay Evening Experience) -->
         <a href="packages/basic" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <img src="/images/packs/pack-basic.webp" alt="Descubrimiento de Agafay" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-basic.webp" alt="Agafay Evening Experience" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">experiencia de entrada</div>
-            <h3 class="pkg-card-title">Descubrimiento de Agafay</h3>
-            <p class="pkg-card-desc">1h Quad &middot; Camel Ride &middot; Dinner &amp; Show &middot; Pool &amp; Tea</p>
-            <div class="pkg-card-cta">Discover package &#9658;</div>
+            <div class="pkg-card-tag">STANDARD &middot; 45€ / pers</div>
+            <h3 class="pkg-card-title">Agafay Evening Experience</h3>
+            <p class="pkg-card-desc">15:30 — 22:00 &middot; Traslado Compartido &middot; 1h Quad &middot; 20min Camello &middot; Cena y Show</p>
+            <div class="pkg-card-cta">Descubrir paquete &#9658;</div>
           </div>
         </a>
 
-        <!-- Card 2 — Firma Marragafay -->
+        <!-- Card 2 — Private (Private Agafay Evening) -->
         <a href="packages/comfort" class="pkg-card" data-aos="fade-up" data-aos-duration="1000"
           data-aos-delay="200">
-          <img src="/images/packs/pack-comfort.webp" alt="Firma Marragafay" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-comfort.webp" alt="Private Agafay Evening" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">más popular</div>
-            <h3 class="pkg-card-title">Firma Marragafay</h3>
-            <p class="pkg-card-desc">Door-to-Door &middot; 1h Quad &middot; Camel Ride &middot; Dinner &amp; Show
-              &middot; Pool &amp; Tea</p>
-            <div class="pkg-card-cta">Discover package &#9658;</div>
+            <div class="pkg-card-tag">PRIVATE &middot; 75€ / pers</div>
+            <h3 class="pkg-card-title">Private Agafay Evening</h3>
+            <p class="pkg-card-desc">15:30 — 22:00 &middot; Traslado Privado &middot; 1h30 Quad &middot; 20min Camello &middot; Guía &middot; Cena</p>
+            <div class="pkg-card-cta">Descubrir paquete &#9658;</div>
           </div>
         </a>
 
-        <!-- Card 3 — El lujo de Marragafay -->
+        <!-- Card 3 — Private+ (Agafay & Atlas — Full-Day Quad) -->
         <a href="packages/luxe" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <img src="/images/packs/pack-luxury.webp" alt="El lujo de Marragafay" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-luxury.webp" alt="Agafay & Atlas — Full-Day Quad" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">vip privado</div>
-            <h3 class="pkg-card-title">El lujo de Marragafay</h3>
-            <p class="pkg-card-desc">VIP Transport &middot; Private Quad &middot; Camel Ride &middot; Dinner &amp; Show
-            </p>
-            <div class="pkg-card-cta">Discover package &#9658;</div>
+            <div class="pkg-card-tag">PRIVATE+ &middot; 119€ / pers</div>
+            <h3 class="pkg-card-title">Agafay & Atlas — Full-Day Quad</h3>
+            <p class="pkg-card-desc">09:00 — 22:00 &middot; Traslado Privado &middot; 3h Quad &middot; Almuerzo y Cena &middot; 45min Camello &middot; Guía</p>
+            <div class="pkg-card-cta">Descubrir paquete &#9658;</div>
+          </div>
+        </a>
+
+        <!-- Card 4 — Buggy (Private Agafay Buggy Experience) -->
+        <a href="activities/buggy" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+          <img src="/images/activites/buggy.webp" alt="Private Agafay Buggy Experience" class="pkg-card-img" loading="lazy"
+            decoding="async">
+          <div class="pkg-card-gradient"></div>
+          <div class="pkg-card-content">
+            <div class="pkg-card-tag">BUGGY &middot; 129€ / pers</div>
+            <h3 class="pkg-card-title">Private Agafay Buggy Experience</h3>
+            <p class="pkg-card-desc">1h Buggy Privado (2 pers/buggy, min 2) &middot; Traslado Privado &middot; 20min Camello &middot; Cena y Show</p>
+            <div class="pkg-card-cta">Descubrir paquete &#9658;</div>
           </div>
         </a>
 
@@ -1076,7 +1087,7 @@
   <!-- testimonials.js removed -->
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<a href="https://wa.me/212672531624?text=Hello%20Marragafay,%20I%20am%20interested%20in%20the%20Discovery%20Pack." 
+<a href="https://wa.me/212672531624?text=Hola%20Marragafay,%20quisiera%20consultar%20sobre%20los%20paquetes%20del%20desierto%20de%20Agafay." 
    target="_blank"
    aria-label="Contact Marragafay Concierge on WhatsApp" class="fixed bottom-6 right-6 z-[100] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl hover:scale-110 transition-transform duration-300">
   <svg class="w-7 h-7 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">

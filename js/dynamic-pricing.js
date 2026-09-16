@@ -116,11 +116,12 @@
 
     // Canonical single source of truth in Moroccan Dirhams (MAD)
     const CANONICAL_PRICES_MAD = {
-        'package_Basic': 350,
-        'package_Comfort': 490,
-        'package_Luxe': 890,
+        'package_Basic': 450,
+        'package_Comfort': 750,
+        'package_Luxe': 1190,
+        'package_Buggy': 1290,
         'activity_Quad Biking': 250,
-        'activity_Buggy': 800,
+        'activity_Buggy': 1290,
         'activity_Camel Ride': 100,
         'activity_Dinner & Show': 250,
         'activity_Hot Air Balloon': 1750,

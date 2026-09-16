@@ -51,14 +51,14 @@
   <title>باقات وعروض رحلات صحراء أكافاي من مراكش | مراكافاي</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="تصفح باقات الرحلات الشاملة في صحراء أكافاي من مراكش: باقة سيغنتشر، باقة VIP الخاصة، وباقة الاستكشاف مع الكواد والجمال والعشاء الفاخر.">
-  <meta name="keywords" content="صحراء أجافاي, Marrakech Excursions, Marragafay, Desert Dinner, Quad Biking">
+  <meta name="description" content="تصفح باقات الرحلات الشاملة في صحراء أكافاي من مراكش: القياسية، الخاصة، الخاصة بلس، والباغي مع الكواد والجمال والعشاء الفاخر.">
+  <meta name="keywords" content="صحراء أجافاي, Marrakech Excursions, Marragafay, Desert Dinner, Quad Biking, باغي أكافاي">
   <meta property="og:title" content="باقات وعروض رحلات صحراء أكافاي من مراكش | مراكافاي">
-  <meta property="og:description" content="تصفح باقات الرحلات الشاملة في صحراء أكافاي من مراكش: باقة سيغنتشر، باقة VIP الخاصة، وباقة الاستكشاف مع الكواد والجمال والعشاء الفاخر.">
+  <meta property="og:description" content="تصفح باقات الرحلات الشاملة في صحراء أكافاي من مراكش: القياسية، الخاصة، الخاصة بلس، والباغي مع الكواد والجمال والعشاء الفاخر.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="باقات وعروض رحلات صحراء أكافاي من مراكش | مراكافاي">
-  <meta name="twitter:description" content="تصفح باقات الرحلات الشاملة في صحراء أكافاي من مراكش: باقة سيغنتشر، باقة VIP الخاصة، وباقة الاستكشاف مع الكواد والجمال والعشاء الفاخر.">
+  <meta name="twitter:description" content="تصفح باقات الرحلات الشاملة في صحراء أكافاي من مراكش: القياسية، الخاصة، الخاصة بلس، والباغي مع الكواد والجمال والعشاء الفاخر.">
   <meta name="google-site-verification" content="bamVos41fgswgcgtQoBGzbYihLKMpzhQOS7PiAlnm-M" />
   <meta name="facebook-domain-verification" content="ie0eyu39g9logo846tr4cgli13tp1f" />
 
@@ -805,10 +805,10 @@
       text-decoration: none;
     }
 
-    /* Grid — 3 fixed-width columns */
+    /* Grid — 3 columns (3 on line 1, remaining on line 2) */
     .pkg-grid {
       display: grid;
-      grid-template-columns: repeat(3, 384px);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
@@ -819,7 +819,7 @@
       }
 
       .pkg-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .pkg-card {
@@ -845,7 +845,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 16px;
-      width: 384px;
+      width: 100%;
       height: 511.98px;
       display: block;
       text-decoration: none;
@@ -897,16 +897,16 @@
       font-weight: 600;
       letter-spacing: 0px;
       color: #523225;
-      text-transform: lowercase;
+      text-transform: uppercase;
       margin-bottom: 4px;
     }
 
     .pkg-card-title {
       font-family: "Lay Grotesk", Inter, "Helvetica Neue", Arial, sans-serif;
-      font-size: 30px;
-      line-height: 36px;
+      font-size: 24px;
+      line-height: 32px;
       font-weight: 600;
-      letter-spacing: -0.6px;
+      letter-spacing: -0.5px;
       color: #F6F7EA;
       text-transform: capitalize;
       margin: 0 0 8px 0;
@@ -914,8 +914,8 @@
 
     .pkg-card-desc {
       font-family: "Lay Grotesk", Inter, "Helvetica Neue", Arial, sans-serif;
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 13px;
+      line-height: 19px;
       font-weight: 400;
       letter-spacing: 0px;
       color: rgba(246, 247, 234, 0.70);
@@ -959,45 +959,56 @@
       <!-- Cards -->
       <div class="pkg-grid">
 
-        <!-- Card 1 — اكتشاف أجافي -->
+        <!-- Card 1 — القياسية (Agafay Evening Experience) -->
         <a href="packages/basic" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <img src="/images/packs/pack-basic.webp" alt="اكتشاف أجافي" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-basic.webp" alt="تجربة أمسية أجافي" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">تجربة الدخول</div>
-            <h3 class="pkg-card-title">اكتشاف أجافي</h3>
-            <p class="pkg-card-desc">1h Quad &middot; Camel Ride &middot; Dinner &amp; Show &middot; Pool &amp; Tea</p>
-            <div class="pkg-card-cta">Discover package &#9658;</div>
+            <div class="pkg-card-tag">STANDARD &middot; 45€ / للشخص</div>
+            <h3 class="pkg-card-title">تجربة أمسية أجافي</h3>
+            <p class="pkg-card-desc">15:30 — 22:00 &middot; نقل مشترك &middot; 1h كواد &middot; 20min جمل &middot; عشاء وعرض حي</p>
+            <div class="pkg-card-cta">اكتشف الباقة &#9658;</div>
           </div>
         </a>
 
-        <!-- Card 2 — توقيع مراغفاي -->
+        <!-- Card 2 — الخاصة (Private Agafay Evening) -->
         <a href="packages/comfort" class="pkg-card" data-aos="fade-up" data-aos-duration="1000"
           data-aos-delay="200">
-          <img src="/images/packs/pack-comfort.webp" alt="توقيع مراغفاي" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-comfort.webp" alt="أمسية أجافي الخاصة" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">الأكثر شعبية</div>
-            <h3 class="pkg-card-title">توقيع مراغفاي</h3>
-            <p class="pkg-card-desc">Door-to-Door &middot; 1h Quad &middot; Camel Ride &middot; Dinner &amp; Show
-              &middot; Pool &amp; Tea</p>
-            <div class="pkg-card-cta">Discover package &#9658;</div>
+            <div class="pkg-card-tag">PRIVATE &middot; 75€ / للشخص</div>
+            <h3 class="pkg-card-title">أمسية أجافي الخاصة</h3>
+            <p class="pkg-card-desc">15:30 — 22:00 &middot; نقل خاص &middot; 1h30 كواد خاص &middot; 20min جمل &middot; مرشد خاص &middot; عشاء</p>
+            <div class="pkg-card-cta">اكتشف الباقة &#9658;</div>
           </div>
         </a>
 
-        <!-- Card 3 — المراغافي الفاخرة -->
+        <!-- Card 3 — الخاصة بلس (Agafay & Atlas — Full-Day Quad) -->
         <a href="packages/luxe" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <img src="/images/packs/pack-luxury.webp" alt="المراغافي الفاخرة" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-luxury.webp" alt="أجافي والأطلس — يوم كامل كواد" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">كبار الشخصيات الخاصة</div>
-            <h3 class="pkg-card-title">المراغافي الفاخرة</h3>
-            <p class="pkg-card-desc">VIP Transport &middot; Private Quad &middot; Camel Ride &middot; Dinner &amp; Show
-            </p>
-            <div class="pkg-card-cta">Discover package &#9658;</div>
+            <div class="pkg-card-tag">PRIVATE+ &middot; 119€ / للشخص</div>
+            <h3 class="pkg-card-title">أجافي والأطلس — يوم كامل كواد</h3>
+            <p class="pkg-card-desc">09:00 — 22:00 &middot; نقل خاص &middot; 3h كواد &middot; غداء وعشاء &middot; 45min جمل &middot; مرشد خاص</p>
+            <div class="pkg-card-cta">اكتشف الباقة &#9658;</div>
+          </div>
+        </a>
+
+        <!-- Card 4 — الباغي (Private Agafay Buggy Experience) -->
+        <a href="activities/buggy" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+          <img src="/images/activites/buggy.webp" alt="تجربة باغي أجافي الخاصة" class="pkg-card-img" loading="lazy"
+            decoding="async">
+          <div class="pkg-card-gradient"></div>
+          <div class="pkg-card-content">
+            <div class="pkg-card-tag">BUGGY &middot; 129€ / للشخص</div>
+            <h3 class="pkg-card-title">تجربة باغي أجافي الخاصة</h3>
+            <p class="pkg-card-desc">1h باغي خاص (شخصين بالمركبة، شخصين كحد أدنى) &middot; نقل خاص &middot; 20min جمل &middot; عشاء وعرض</p>
+            <div class="pkg-card-cta">اكتشف الباقة &#9658;</div>
           </div>
         </a>
 
@@ -1076,7 +1087,7 @@
   <!-- testimonials.js removed -->
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<a href="https://wa.me/212672531624?text=Hello%20Marragafay,%20I%20am%20interested%20in%20the%20Discovery%20Pack." 
+<a href="https://wa.me/212672531624?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D9%85%D8%B1%D8%A7%D8%BA%D9%81%D8%A7%D9%8A%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%A7%D9%82%D8%A7%D8%AA%20%D8%B5%D8%AD%D8%B1%D8%A7%D8%A1%20%D8%A3%D9%83%D8%A7%D9%81%D8%A7%D9%8A." 
    target="_blank"
    aria-label="Contact Marragafay Concierge on WhatsApp" class="fixed bottom-6 right-6 z-[100] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl hover:scale-110 transition-transform duration-300">
   <svg class="w-7 h-7 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">

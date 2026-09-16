@@ -32,13 +32,16 @@ test.before(() => {
 
 test('catalog totals use authoritative pack pricing', () => {
   assert.deepEqual(calculateTrustedTotal(resolveProduct('basic'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 700, totalEur: 70
+    totalGuests: 2, billableGuests: 2, totalMad: 900, totalEur: 90
   });
   assert.deepEqual(calculateTrustedTotal(resolveProduct('comfort'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 998, totalEur: 98
+    totalGuests: 2, billableGuests: 2, totalMad: 1500, totalEur: 150
   });
   assert.deepEqual(calculateTrustedTotal(resolveProduct('luxe'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 1798, totalEur: 178
+    totalGuests: 2, billableGuests: 2, totalMad: 2380, totalEur: 238
+  });
+  assert.deepEqual(calculateTrustedTotal(resolveProduct('buggy'), 2, 0), {
+    totalGuests: 2, billableGuests: 2, totalMad: 2580, totalEur: 258
   });
 });
 
@@ -52,21 +55,21 @@ test('valid request completes the local dry-run flow with attribution', async ()
     adults: 2,
     children: 0,
     language: 'en',
-    pickup: 'QA Riad (shared door-to-door, subject to vehicle access)',
+    pickup: 'QA Riad (private round-trip transfer)',
     attribution: {
       inquiry_id: 'INQ-LOCAL-QA',
       booking_page: '/en/packages/comfort.html',
       pack_presented: 'comfort',
       final_requested_pack: 'comfort',
-      pickup_context: 'QA Riad (shared door-to-door, subject to vehicle access)'
+      pickup_context: 'QA Riad (private round-trip transfer)'
     }
   });
 
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.booking_success, true);
   assert.equal(res.body.dry_run, true);
-  assert.equal(res.body.trusted_total_mad, 998);
-  assert.equal(res.body.trusted_total_eur, 98);
+  assert.equal(res.body.trusted_total_mad, 1500);
+  assert.equal(res.body.trusted_total_eur, 150);
   assert.match(res.body.booking_id, /^local-dry-run-/);
 });
 

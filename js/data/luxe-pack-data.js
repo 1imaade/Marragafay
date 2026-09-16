@@ -1,6 +1,6 @@
 /**
- * LUXE PACK DATA
- * Data configuration for the Luxe Pack tour page
+ * LUXE PACK DATA (PRIVATE+)
+ * Data configuration for the Private+ Pack tour page
  */
 
 const luxePackData = {
@@ -16,34 +16,35 @@ const luxePackData = {
         '../images/slide4.jpg'
     ],
     heroTitle: 'Agafay',
-    heroHighlight: 'Luxe Pack',
+    heroHighlight: 'Private+ Pack',
     breadcrumbParent: 'Packs',
     breadcrumbParentLink: '../packs.html',
-    breadcrumbCurrent: 'Luxe Pack',
+    breadcrumbCurrent: 'Agafay & Atlas — Full-Day Quad',
 
     // Header Info
     rating: '5.0',
     reviewCount: '78',
-    title: 'The Marragafay Luxury',
-    description: 'The ultimate desert luxury experience. An exclusive, all-encompassing journey featuring the finest adventures, gourmet dining, and VIP treatment throughout your entire desert escape.',
+    title: 'Agafay & Atlas — Full-Day Quad',
+    label: 'PRIVATE+',
+    description: 'The ultimate full-day desert & mountain exploration. 09:00 to 22:00 full-day itinerary featuring private round-trip transfer, 3h private quad exploration across Agafay & Atlas route, Moroccan lunch, pool, 45min camel ride, sunset pause, dinner, live show, dedicated full-day guide, desert scarf, Moroccan sweets, and beverages.',
 
     // Highlights
     highlights: [
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
-            text: 'Duration: Full Day (8 Hours)'
+            text: 'Schedule: 09:00 — 22:00 (Full Day)'
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
-            text: 'Location: Exclusive Agafay Area'
+            text: 'Route: Agafay Desert & Atlas Foothills'
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
-            text: 'Personal Concierge'
+            text: 'Guide: Dedicated Full-Day Guide'
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>',
-            text: 'Luxury SUV Transport'
+            text: 'Transport: Private Round-Trip Transfer'
         }
     ],
 
@@ -51,63 +52,49 @@ const luxePackData = {
     timeline: [
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>',
-            title: 'VIP Pickup & Breakfast',
-            description: 'Luxury SUV pickup from your riad/hotel with champagne welcome and gourmet breakfast at our exclusive desert pavilion.'
+            title: '09:00 — Private Morning Pickup',
+            description: 'Private round-trip transfer from your hotel/riad to begin your full-day expedition.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
-            title: 'All-Access Adventure (3 Hours)',
-            description: 'Unlimited quad biking, buggy racing, and dune bashing with your personal instructor. All premium equipment and refreshments included.'
-        },
-        {
-            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
-            title: 'Luxury Lounge & Spa Treatment',
-            description: 'Relax in our air-conditioned premium lounge with traditional hammam spa treatment, massage, and afternoon tea service.'
-        },
-        {
-            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-            title: 'Private Camel Caravan (45 Min)',
-            description: 'Exclusive private camel caravan with your personal guide, photographer, and Berber storyteller through untouched desert landscapes.'
+            title: '3h Private Quad Exploration (Agafay & Atlas Route)',
+            description: 'Extensive 3-hour private quad adventure exploring remote Agafay canyons and Atlas mountain trails accompanied by your full-day guide.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
-            title: 'Chef\'s Table Dinner Experience',
-            description: 'Private dining experience with our master chef preparing an exclusive 7-course tasting menu featuring rare Moroccan ingredients and wine pairing.'
+            title: 'Moroccan Lunch & Pool Relaxation',
+            description: 'Authentic Moroccan lunch served at camp, followed by refreshing pool access and traditional mint tea.'
         },
         {
-            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
-            title: 'Private Entertainment & Return',
-            description: 'Exclusive live performance by renowned Moroccan artists, bonfire ceremony, and luxury vehicle return with complimentary photo album.'
+            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+            title: '45min Camel Trek & Sunset Pause',
+            description: 'Extended 45-minute camel trek through pristine dunes with a dedicated sunset pause.'
         },
         {
-            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>',
-            title: 'Pool Access & Traditional Moroccan Tea',
-            description: 'Relax by the pool and enjoy a refreshing cup of traditional Moroccan mint tea, the perfect way to end your desert adventure.'
+            icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
+            title: 'Dinner + Live Show & Return (22:00)',
+            description: 'Celebratory multi-course Moroccan dinner with live music and fire show, dessert sweets, and private transfer back to Marrakech.'
         }
     ],
 
     // Inclusions
     inclusions: [
-        'Luxury SUV Transfer',
-        'Personal Concierge Service',
-        'Gourmet Breakfast',
-        '3 Hours All Activities',
-        'Spa & Hammam Treatment',
-        '45 Min Private Camel Trek',
-        '7-Course Chef\'s Dinner',
-        'Premium Wine Pairing',
-        'Private Entertainment',
-        'Professional Photography',
-        'Stargazing with Astronomer',
-        'Photo Album & Video',
-        'All Premium Equipment',
-        'Unlimited Beverages',
-        'Private Guide Included',
-        'VIP Seating for the Show (Best Place)',
-        'Pool Access & Traditional Moroccan Tea'
+        'Private round-trip transfer',
+        '3h private quad exploration',
+        'Agafay & Atlas route',
+        'Moroccan lunch',
+        'Pool + mint tea',
+        '45min camel',
+        'Sunset pause',
+        'Dinner + live show',
+        'Dedicated full-day guide',
+        'Desert scarf to wear & keep',
+        'Bottled water + soft drink',
+        'Moroccan sweets',
+        'Safety gear & briefing'
     ],
 
-    notIncluded: 'Personal Purchases, Gratuities (at your discretion).',
+    notIncluded: 'Personal purchases, gratuities (optional).',
 
     // Gallery
     galleryImages: [
@@ -117,5 +104,5 @@ const luxePackData = {
     ],
 
     // Pricing
-    price: '89 €'
+    price: '119 €'
 };
