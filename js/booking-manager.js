@@ -94,6 +94,25 @@
             const dateInputs = document.querySelectorAll('input[type="date"]');
             dateInputs.forEach(input => {
                 input.min = today;
+                if (!input.dataset.pickerInit) {
+                    input.dataset.pickerInit = 'true';
+                    const triggerPicker = () => {
+                        try {
+                            if (typeof input.showPicker === 'function') {
+                                input.showPicker();
+                            }
+                        } catch (err) {}
+                    };
+                    input.addEventListener('click', triggerPicker);
+                    const parentLabel = input.closest('label');
+                    if (parentLabel) {
+                        parentLabel.addEventListener('click', (e) => {
+                            if (e.target !== input) {
+                                triggerPicker();
+                            }
+                        });
+                    }
+                }
             });
         } catch (e) {}
     }

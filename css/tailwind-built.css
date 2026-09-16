@@ -115,3 +115,17 @@
   .xl\:rounded-tl-xl{border-top-left-radius:0.75rem}
   .xl\:rounded-bl-xl{border-bottom-left-radius:0.75rem}
 }
+
+
+/* Mobile Date Input Fix for iOS & Android */
+input[type="date"] {
+  min-height: 24px;
+  display: block;
+}
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+  min-height: 1.2em;
+}
+[dir="rtl"] input[type="date"]::-webkit-date-and-time-value {
+  text-align: right;
+}

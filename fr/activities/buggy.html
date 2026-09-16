@@ -842,10 +842,10 @@
             <form id="booking-form" onsubmit="event.preventDefault();" class="flex flex-col xl:flex-row items-stretch bg-white border border-[#10100E]/15 rounded-xl rounded-r-none xl:rounded-l-xl xl:rounded-r-none w-full xl:w-auto">
 
             <!-- 1. Date Input -->
-            <div class="px-3.5 py-2.5 xl:py-3 w-full xl:w-[135px] relative cursor-pointer hover:bg-black/[0.02] transition-colors flex flex-col justify-center booking-input-cell rounded-tl-xl rounded-bl-none xl:rounded-l-xl xl:rounded-r-none">
-              <span class="text-[12px] font-medium text-[#10100E]/70 block mb-1">Date</span>
-              <input type="date" name="date" required class="w-full text-[15px] font-medium text-[#10100E] bg-transparent cursor-pointer appearance-none border-none outline-none shadow-none focus:ring-0 p-0">
-            </div>
+            <label class="px-3.5 py-2.5 xl:py-3 w-full xl:w-[135px] relative cursor-pointer hover:bg-black/[0.02] transition-colors flex flex-col justify-center booking-input-cell rounded-tl-xl rounded-bl-none xl:rounded-l-xl xl:rounded-r-none">
+              <span class="text-[12px] font-medium text-[#10100E]/70 block mb-1 select-none">Date</span>
+              <input type="date" name="date" required class="w-full text-[15px] font-medium text-[#10100E] bg-transparent cursor-pointer border-none outline-none shadow-none focus:ring-0 p-0 min-h-[24px]">
+            </label>
 
             <!-- Invités Input & Custom Popup -->
             <div id="guests-wrapper" class="px-3 py-2.5 xl:py-3 w-full xl:w-[105px] relative cursor-pointer hover:bg-black/[0.02] transition-colors flex flex-col justify-center booking-input-cell" style="z-index:50;">
@@ -905,7 +905,7 @@
                 var popover = document.getElementById('guests-popover-wrapper');
                 var chevron = document.getElementById('guests-chevron');
 
-                document.getElementById('guests-trigger').addEventListener('click', function(e) {
+                document.getElementById('guests-wrapper').addEventListener('click', function(e) {
                   e.stopPropagation();
                   open = !open;
                   popover.style.visibility = open ? 'visible' : 'hidden';
@@ -937,16 +937,16 @@
             </script>
 
             <!-- 3. Name Input -->
-            <div class="px-3 py-2.5 xl:py-3 w-full xl:w-[115px] relative hover:bg-black/[0.02] transition-colors flex flex-col justify-center booking-input-cell">
-              <span class="text-[12px] font-medium text-[#10100E]/70 block mb-1">Nom et prénom</span>
-              <input type="text" name="name" required placeholder="John Doe" class="w-full text-[15px] font-medium text-[#10100E] placeholder:text-[#10100E]/30 bg-transparent border-none outline-none shadow-none focus:ring-0 p-0">
-            </div>
+            <label class="px-3 py-2.5 xl:py-3 w-full xl:w-[115px] relative hover:bg-black/[0.02] transition-colors flex flex-col justify-center booking-input-cell cursor-text">
+              <span class="text-[12px] font-medium text-[#10100E]/70 block mb-1 select-none">Nom et prénom</span>
+              <input type="text" name="name" required placeholder="John Doe" class="w-full text-[15px] font-medium text-[#10100E] placeholder:text-[#10100E]/30 bg-transparent border-none outline-none shadow-none focus:ring-0 p-0 min-h-[24px]">
+            </label>
 
             <!-- 4. WhatsApp Input -->
-            <div class="px-3.5 py-2.5 xl:py-3 w-full xl:w-[135px] relative hover:bg-black/[0.02] transition-colors flex flex-col justify-center booking-input-cell">
-              <span class="text-[12px] font-medium text-[#10100E]/70 block mb-1">WhatsApp</span>
-              <input type="tel" name="phone" required placeholder="+212 600..." class="w-full text-[15px] font-medium text-[#10100E] placeholder:text-[#10100E]/30 bg-transparent border-none outline-none shadow-none focus:ring-0 p-0">
-            </div>
+            <label class="px-3.5 py-2.5 xl:py-3 w-full xl:w-[135px] relative hover:bg-black/[0.02] transition-colors flex flex-col justify-center booking-input-cell cursor-text">
+              <span class="text-[12px] font-medium text-[#10100E]/70 block mb-1 select-none">WhatsApp</span>
+              <input type="tel" name="phone" required placeholder="+212 600..." class="w-full text-[15px] font-medium text-[#10100E] placeholder:text-[#10100E]/30 bg-transparent border-none outline-none shadow-none focus:ring-0 p-0 min-h-[24px]">
+            </label>
 
             <!-- Action Button -->
             <button type="submit" class="w-full xl:w-auto bg-[#523225] text-white px-5 py-4 text-[15px] font-medium hover:bg-[#3d251b] transition-colors whitespace-nowrap rounded-none border border-[#10100E]/15 xl:border-l-0 flex items-center justify-center">
