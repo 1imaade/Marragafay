@@ -413,11 +413,6 @@ async function insertBooking(booking) {
     return { id: `local-dry-run-${booking.attribution?.inquiry_id || Date.now()}` };
   }
   const secretKey = getSupabaseSecretKey();
-  console.info('Supabase booking request:', JSON.stringify({
-    runtime: 'node_serverless',
-    explicit_user_agent: true,
-    credential_header: 'apikey_only'
-  }));
   const response = await fetch(`${SUPABASE_URL}/rest/v1/bookings?select=id`, {
     method: 'POST',
     headers: {
