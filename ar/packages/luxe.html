@@ -645,9 +645,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -810,9 +810,9 @@
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
               <a href="#" class="text-[#EAE8E3]/90 hover:text-white transition-colors duration-300">الخبرات</a>
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
-              <span class="text-[#EAE8E3]/90">خاصة بلس</span>
+              <span class="text-[#EAE8E3]/90" data-product="private-plus" data-field="name">الخاصة بلس</span>
             </nav>
-            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">أجافي والأطلس — يوم كامل كواد</h1>
+            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3" data-product="private-plus" data-field="title">أجافي والأطلس — يوم كامل كواد</h1>
             <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">تجربة فاخرة مصممة حسب مجموعتك مع عناصر خاصة. يتم التحقق من النقل والمرشدين والترتيبات الحصرية وتأكيدها للتاريخ المطلوب.</p>
 
             <div class="flex items-center gap-2 mt-0 text-[13px] font-medium text-[#F6F7EA] drop-shadow-md">
@@ -844,7 +844,8 @@
             <div>
               <div class="flex items-baseline gap-2">
                 <span class="text-[15px] font-normal text-[#10100E]/90">ابتداء من</span>
-                <span class="text-[32px] font-bold text-[#523225] tracking-tight">119 €</span>
+                <span class="text-[32px] font-bold text-[#523225] tracking-tight" data-product="private-plus" data-field="price-eur">119 €</span>
+                <span class="text-[13px] font-normal text-[#10100E]/60 ml-1" data-product="private-plus" data-field="price-mad" data-format="parentheses">(1190 درهم)</span>
                 <span class="text-[15px] font-normal text-[#10100E]/90">/ شخص</span>
               </div>
               <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">مساعدة مباشرة لإتمام طلبك</span>
@@ -1163,37 +1164,49 @@
 
 
           <div class="mb-8 mt-6">
-            <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">ما هو مدرج</h4>
-            <ul class="space-y-3"><li class="flex items-start gap-3">
+            <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">ما تشمله الباقة</h4>
+            <ul class="space-y-3" data-product="private-plus" data-field="inclusions"><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">رباعية خاصة: مغامرة ممتدة لمدة ساعة ونصف بدون مجموعات (تخضع لتأكيد التوفر التشغيلي).</span>
+                <span class="text-[14px] font-medium text-[#10100E]">النقل: نقل خاص ذهاباً وإياباً من مقر إقامتك في مراكش.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">ركوب الجمال الخاص: رحلة مدتها 45 دقيقة مع مرشد مخصص لمجموعتك.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">استكشاف كواد ليوم كامل: 3 ساعات من القيادة بين مسارات أكافاي وسفوح الأطلس.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">عشاء حصري: طاولة عشاء خاصة تحت السماء المفتوحة.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">مرشد خاص مخصص: مرشد مهني خاص مخصص طوال اليوم.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">عرض حي VIP: مقاعد مميزة في الصفوف الأولى لعرض النار والموسيقى.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">غداء مغربي تقليدي يُقدم أثناء الجولة.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">الدخول إلى حمام السباحة: استخدام حمام السباحة في المخيم وحفل الشاي بالنعناع.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">ركوب الجمال: جولة لمدة 45 دقيقة في قلب الصحراء.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">نقل خاص VIP: سيارة خاصة مخصصة وفق جدولك الزمني (تخضع لتأكيد التوفر التشغيلي).</span>
+                <span class="text-[14px] font-medium text-[#10100E]">استراحة تصوير مخصصة لمشاهدة غروب الشمس في الأفق الصحراوي.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">دليل شخصي: مرشد مخصص حصرياً لمجموعتك طوال الأمسية.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">الدخول إلى مسبح المخيم والشاي المغربي التقليدي بالنعناع.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">عشاء مغربي تقليدي متكامل على ضوء الشموع مع حلويات.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">عرض حي: استعراض آكلي النار وموسيقى حية تحت النجوم.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المشروبات: مياه معدنية ومشروب غازي مشمولان.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">تجهيزات كاملة: خوذات ونظارات واقية وجلسة إرشادية احترافية.</span>
               </li></ul>
           </div>
 
 
           <div class="mt-8">
-            <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">غير متضمنة</h4>
+            <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">غير مشمول</h4>
             <ul class="space-y-3"><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">مشروبات إضافية</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المصاريف الشخصية، الإكراميات الاختيارية، المشروبات الإضافية أو الكحولية.</span>
               </li></ul>
           </div>
 
@@ -2207,6 +2220,8 @@
   });
 </script>
 
+  <script defer src="/js/product-localization.js"></script>
+  <script defer src="/js/product-data.js"></script>
   <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

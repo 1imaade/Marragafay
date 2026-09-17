@@ -78,19 +78,26 @@ const comfortPackData = {
     ],
 
     // Inclusions
-    inclusions: [
-        'Private round-trip transfer',
-        '1h30 private quad',
-        '20min camel',
-        'Pool + mint tea',
-        'Sunset pause',
-        'Dinner + live show',
-        'Dedicated guide',
-        'Desert scarf to wear & keep',
-        'Bottled water + soft drink',
-        'Moroccan sweets',
-        'Safety gear & briefing'
-    ],
+    get inclusions() {
+        if (typeof window !== 'undefined' && window.ProductData) {
+            var p = window.ProductData.getProduct('private');
+            if (p && Array.isArray(p.includes)) return p.includes;
+        }
+        return [
+            'Private hotel / riad transfer',
+            '1h30 private quad session',
+            '20min camel ride',
+            'Pool access & Moroccan mint tea',
+            'Sunset photo pause',
+            'Traditional Moroccan dinner',
+            'Live fire & music show',
+            'Dedicated guide',
+            'Desert scarf to wear & keep',
+            'Bottled water + soft drink',
+            'Moroccan sweets',
+            'Safety gear & briefing'
+        ];
+    },
 
     notIncluded: 'Personal purchases, gratuities (optional).',
 
@@ -102,5 +109,11 @@ const comfortPackData = {
     ],
 
     // Pricing
-    price: '75 €'
+    get price() {
+        if (typeof window !== 'undefined' && window.ProductData) {
+            var p = window.ProductData.getProduct('private');
+            if (p && p.priceEUR) return p.priceEUR + ' €';
+        }
+        return '75 €';
+    }
 };

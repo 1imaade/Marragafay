@@ -644,9 +644,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -794,13 +794,13 @@
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
               <a href="../activities" class="text-[#EAE8E3]/90 hover:text-white transition-colors duration-300">أنشطة</a>
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
-              <span class="text-[#EAE8E3]/90">مغامرة البوغي في صحراء أكافاي</span>
+              <span class="text-[#EAE8E3]/90" data-product="buggy" data-field="name">بوغي</span>
             </nav>
-            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">مغامرة البوغي في صحراء أكافاي</h1>
-            <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">مغامرة بوغي موجهة لمدة ساعة واحدة مع معدات السلامة، إرشادات القيادة، دخول المسبح والشاي المغربي بالنعناع.</p>
+            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3" data-product="buggy" data-field="title">تجربة البوغي الخاصة بأكافاي</h1>
+            <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">تجربة صحراوية خاصة كاملة تشمل نقلاً خاصاً ذهاباً وإياباً من مراكش، وجولة بوغي خاصة لمدة ساعة عبر مسارات أكافاي، وجولة ركوب الجمال عند الغروب لمدة 20 دقيقة، والاسترخاء بمسبح المخيم، وعشاءً مغربياً تقليدياً مع عرض حي تحت النجوم.</p>
 
             <div class="flex items-center gap-3 mt-0 text-sm font-bold text-[#F6F7EA] drop-shadow-md">
-              <span class="text-orange-500">5.0/5</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">أكثر من 180 تقييم</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">1 ساعة</span>
+              <span class="text-[#EAE8E3]/90" data-product="buggy" data-field="duration">توقيت مرن</span><span class="opacity-50">·</span><span class="font-normal text-[#EAE8E3]/90" data-product="buggy" data-field="transport">نقل خاص ذهاباً وإياباً</span><span class="opacity-50">·</span><span class="font-normal text-[#EAE8E3]/90">عشاء وعرض</span>
             </div>
           </div>
         </div>
@@ -827,11 +827,12 @@
           <div class="flex items-center gap-6 w-full 2xl:w-auto justify-between 2xl:justify-start">
             <div>
               <div class="flex items-baseline gap-2">
-                <span class="text-[15px] font-normal text-[#10100E]/90">ابتداء من</span>
-                <span class="text-[32px] font-bold text-[#523225] tracking-tight">129 €</span>
-                <span class="text-[15px] font-normal text-[#10100E]/90">/ شخص</span>
+                <span class="text-[15px] font-normal text-[#10100E]/90">ابتداءً من</span>
+                <span class="text-[32px] font-bold text-[#523225] tracking-tight" data-product="buggy" data-field="price-eur">129 €</span>
+                <span class="text-[15px] font-normal text-[#10100E]/90">/ للشخص</span>
+                <span class="text-[13px] font-normal text-[#10100E]/60 ml-1" data-product="buggy" data-field="price-mad" data-format="parentheses">(1290 درهم)</span>
               </div>
-              <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">مساعدة مباشرة · نقطة الانطلاق في أكافاي</span>
+              <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">مساعدة مباشرة · نقل خاص مشمول</span>
             </div>
 
           </div>
@@ -955,14 +956,16 @@
 
           </form>
           <div class="hidden xl:block text-left mt-2 pl-4">
-              <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">الحد الأدنى ضيفان دافعان (ضيف واحد = 1600 درهم). خدمة نقل خاصة ذهاباً وإياباً من مراكش: 1199 درهم/شخص. لا يلزم الدفع المسبق.</p>
+              <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">اختر تاريخ رحلتك وأرسل بياناتك. سنقوم بتأكيد التوفر وموقع النقل والتفاصيل النهائية معك مباشرة عبر واتساب.</p>
+              <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">السعر 129€ للشخص الواحد على أساس مشاركة شخصين لمركبة بوغي ذات مقعدين (الحد الأدنى شخصان). يشمل النقل الخاص ذهاباً وإياباً من فندقك أو رياضك في مراكش. لا يلزم الدفع المسبق.</p>
             </div>
           </div><!-- Close Form Wrapper -->
 
           </div>
 
           <div class="w-full flex justify-start xl:hidden">
-            <p class="text-[12px] text-[#10100E]/90 font-medium text-left tracking-tight mt-2 mb-0">الحد الأدنى ضيفان دافعان (ضيف واحد = 1600 درهم). خدمة نقل خاصة ذهاباً وإياباً من مراكش: 1199 درهم/شخص. لا يلزم الدفع المسبق.</p>
+            <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">اختر تاريخ رحلتك وأرسل بياناتك. سنقوم بتأكيد التوفر وموقع النقل والتفاصيل النهائية معك مباشرة عبر واتساب.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">السعر 129€ للشخص الواحد على أساس مشاركة شخصين لمركبة بوغي ذات مقعدين (الحد الأدنى شخصان). يشمل النقل الخاص ذهاباً وإياباً من فندقك أو رياضك في مراكش. لا يلزم الدفع المسبق.</p>
           </div>
 
         </div>
@@ -1011,13 +1014,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 1</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">الوصول وإرشادات السلامة</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">انطلاق ونقل خاص (توقيت مرن)</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">استقبال من الفريق في نقطة الانطلاق بأكافاي، استلام الخوذة ومعدات السلامة، وشرح مفصل لعناصر التحكم وتعليمات القيادة الآمنة.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">نقل خاص ذهاباً وإياباً من فندقك أو رياضك في مراكش لبداية مريحة وخاصة لتجربتك الصحراوية.</p>
               </div>
             </div>
             </div>
@@ -1030,13 +1033,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 2</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">انطلاق مغامرة البوغي</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">مغامرة بوغي خاصة (ساعة واحدة)</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">الانطلاق في جولة إرشادية لمدة ساعة واحدة بمركبة البوغي عبر تضاريس صحراء أكافاي الرائعة.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">ساعة كاملة من المغامرة بالبوغي عبر مسارات صحراء أكافاي برفقة مرشدك الخاص (مركبة واحدة لكل شخصين)، مع معدات السلامة وإرشادات الأمان.</p>
               </div>
             </div>
             </div>
@@ -1049,13 +1052,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 3</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">مشاركة القيادة</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">ركوب الجمل واستراحة غروب الشمس</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">يمكن للضيفين تبادل القيادة بالتناوب خلال الجولة، أو تخصيص سائق ومرافق.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">استمتع بجولة ركوب جمل هادئة لمدة 20 دقيقة عبر كثبان الصحراء، تليها استراحة مخصصة لالتقاط صور تذكارية عند غروب الشمس.</p>
               </div>
             </div>
             </div>
@@ -1068,13 +1071,70 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 4</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">الاسترخاء في المخيم</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">المسبح والشاي المغربي</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">العودة إلى نقطة البداية للاستمتاع بالشاي المغربي بالنعناع المجاني والدخول إلى المسبح قبل أو بعد الجولة.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">استرخِ بجانب مسبح المخيم وتناول الشاي المغربي التقليدي بالنعناع قبل موعد العشاء.</p>
+              </div>
+            </div>
+            </div>
+          </div><div class="relative flex flex-row items-stretch pb-8 md:pb-10 group">
+            <div class="relative w-4 md:w-6 flex flex-col items-center flex-shrink-0 pt-[6px]">
+               <span class="itinerary-dot relative z-10 w-2.5 h-2.5 rounded-full bg-[#523225] flex-shrink-0 transition-all duration-300 ease-in-out origin-center"></span>
+               <div class="absolute top-[16px] -bottom-[38px] md:-bottom-[46px] left-1/2 -translate-x-1/2 w-[1.5px] bg-[#523225] group-last:hidden timeline-line"></div>
+            </div>
+            <div class="flex-1 pl-3 md:pl-4">
+            <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
+              <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
+                <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 5</div>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">عشاء مغربي تقليدي</h3>
+              </div>
+              <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
+              <div class="overflow-hidden min-h-0">
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">تذوق عشاءً مغربياً أصيلاً يضم الطواجن الشهية والمقبلات والحلويات الموسمية تحت سماء الصحراء.</p>
+              </div>
+            </div>
+            </div>
+          </div><div class="relative flex flex-row items-stretch pb-8 md:pb-10 group">
+            <div class="relative w-4 md:w-6 flex flex-col items-center flex-shrink-0 pt-[6px]">
+               <span class="itinerary-dot relative z-10 w-2.5 h-2.5 rounded-full bg-[#523225] flex-shrink-0 transition-all duration-300 ease-in-out origin-center"></span>
+               <div class="absolute top-[16px] -bottom-[38px] md:-bottom-[46px] left-1/2 -translate-x-1/2 w-[1.5px] bg-[#523225] group-last:hidden timeline-line"></div>
+            </div>
+            <div class="flex-1 pl-3 md:pl-4">
+            <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
+              <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
+                <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 6</div>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">عرض حي وموسيقى</h3>
+              </div>
+              <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
+              <div class="overflow-hidden min-h-0">
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">عش أجواء عرض ثقافي ساحر تحت النجوم يجمع بين موسيقى كناوة الحية واستعراضات النار المذهلة.</p>
+              </div>
+            </div>
+            </div>
+          </div><div class="relative flex flex-row items-stretch pb-8 md:pb-10 group">
+            <div class="relative w-4 md:w-6 flex flex-col items-center flex-shrink-0 pt-[6px]">
+               <span class="itinerary-dot relative z-10 w-2.5 h-2.5 rounded-full bg-[#523225] flex-shrink-0 transition-all duration-300 ease-in-out origin-center"></span>
+               <div class="absolute top-[16px] -bottom-[38px] md:-bottom-[46px] left-1/2 -translate-x-1/2 w-[1.5px] bg-[#523225] group-last:hidden timeline-line"></div>
+            </div>
+            <div class="flex-1 pl-3 md:pl-4">
+            <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
+              <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
+                <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 7</div>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">العودة الخاصة</h3>
+              </div>
+              <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
+              <div class="overflow-hidden min-h-0">
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">نقل خاص للعودة إلى فندقك أو رياضك في مراكش بعد أمسية استثنائية لا تُنسى في صحراء أكافاي.</p>
               </div>
             </div>
             </div>
@@ -1090,33 +1150,36 @@
 
           <div class="mb-8 mt-6">
             <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">ما هو مشمول</h4>
-            <ul class="space-y-3"><li class="flex items-start gap-3">
+            <ul class="space-y-3" data-product="buggy" data-field="inclusions"><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">مغامرة بوغي لمدة ساعة واحدة</span>
+                <span class="text-[14px] font-medium text-[#10100E]">نقل خاص ذهاباً وإياباً من الفندق أو الرياض</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">مركبة بوغي بمقعدين</span>
+                <span class="text-[14px] font-medium text-[#10100E]">ساعة كاملة جولة بوغي خاصة ومستقلة</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">مسار صحراوي بإرشاد وتوجيه</span>
+                <span class="text-[14px] font-medium text-[#10100E]">مركبة بوغي واحدة لكل ضيفين</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">إرشادات وتعليمات السلامة</span>
+                <span class="text-[14px] font-medium text-[#10100E]">جولة ركوب الجمال لمدة 20 دقيقة</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">نصائح عملية للقيادة</span>
+                <span class="text-[14px] font-medium text-[#10100E]">دخول المسبح وشاي مغربي تقليدي بالنعناع</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">خوذة ومعدات السلامة</span>
+                <span class="text-[14px] font-medium text-[#10100E]">استراحة تصوير لمشهد غروب الشمس</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">إمكانية القيادة التشاركية</span>
+                <span class="text-[14px] font-medium text-[#10100E]">عشاء مغربي تقليدي فاخر</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">شاي مغربي بالنعناع مجاناً</span>
+                <span class="text-[14px] font-medium text-[#10100E]">عرض حي للشهب النارية والموسيقى</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">دخول مجاني إلى المسبح</span>
+                <span class="text-[14px] font-medium text-[#10100E]">مرشد سياحي خاص ومخصص</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">مياه معدنية معبأة ومعدات السلامة</span>
               </li></ul>
           </div>
 
@@ -1125,10 +1188,7 @@
             <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">غير مشمول</h4>
             <ul class="space-y-3"><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">النقل من مراكش (التجربة القياسية تبدأ من نقطة اللقاء في أكافاي. نقل خاص متوفر: 1199 درهم/شخص.)</span>
-              </li><li class="flex items-start gap-3 opacity-90">
-                <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">المصاريف الشخصية والإكراميات</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المصاريف الشخصية، الإكراميات الاختيارية، والمشروبات الإضافية.</span>
               </li></ul>
           </div>
 
@@ -1263,7 +1323,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  لا. التجربة القياسية بسعر 800 درهم للشخص تبدأ من نقطة اللقاء في صحراء أكافاي. تتوفر خدمة نقل خاصة ذهاباً وإياباً من مراكش بسعر 1199 درهم للشخص (بحد أدنى ضيفين دافعين).
+                  نعم. النقل الخاص ذهاباً وإياباً من فندقك أو رياضك في مراكش مشمول بالكامل في سعر 129€ للشخص (رهن بإمكانية وصول المركبة).
                 </p>
               </div>
             </div>
@@ -1272,7 +1332,7 @@
             <div class="cursor-pointer group faq-item" style="padding-top: 0.875rem; padding-bottom: 0.875rem; border-bottom: 1px solid rgba(16, 16, 14, 0.1);">
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h3 class="font-medium text-[#10100E] group-hover:text-[#523225] transition-colors" style="font-size: 18px; letter-spacing: -0.025em; color: #10100E; margin: 0;">
-                  هل يمكن لشخص واحد الحجز بمفرده؟
+                  ما هو الحد الأدنى لعدد المشاركين؟
                 </h3>
                 <span class="font-light text-[#523225] transition-transform duration-300 faq-icon" style="font-size: 24px; color: #523225; margin-left: 1.5rem; flex-shrink: 0; text-align: right; width: 24px;">
                   +
@@ -1280,7 +1340,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  نعم، ولكن الحد الأدنى لقيمة الحجز يعادل ضيفين دافعين. وبالتالي، فإن حجز البوغي فقط لضيف واحد تبلغ تكلفته 1600 درهم (أو 2398 درهم مع النقل الخاص).
+                  تتطلب باقة البوغي حداً أدنى لشخصين (129€ للشخص الواحد، شخصان في كل مركبة بوغي).
                 </p>
               </div>
             </div>
@@ -2138,6 +2198,8 @@
   });
 </script>
 
+  <script defer src="/js/product-localization.js"></script>
+  <script defer src="/js/product-data.js"></script>
   <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

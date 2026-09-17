@@ -65,7 +65,7 @@
   <meta name="google-site-verification" content="bamVos41fgswgcgtQoBGzbYihLKMpzhQOS7PiAlnm-M" />
   <meta name="facebook-domain-verification" content="ie0eyu39g9logo846tr4cgli13tp1f" />
 
-  <!-- TASK 4a: Google Fonts - preload + async non-render-blocking -->  
+  <!-- TASK 4a: Google Fonts - preload + async non-render-blocking -->
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap"></noscript>
@@ -2121,9 +2121,9 @@
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">STANDARD &middot; 45€ / guest</div>
+            <div class="pkg-card-tag" data-product="standard" data-field="tag">STANDARD &middot; 45€ / guest</div>
             <h3 class="pkg-card-title">Agafay Evening Experience</h3>
-            <p class="pkg-card-desc">15:30 — 22:00 &middot; Shared Transfer &middot; 1h Quad &middot; 20min Camel &middot; Dinner &amp; Show</p>
+            <p class="pkg-card-desc" data-product="standard" data-field="card-summary">15:30 — 22:00 &middot; Shared Transfer &middot; 1h Quad &middot; 20min Camel &middot; Dinner &amp; Show</p>
             <div class="pkg-card-cta">View Standard Pack &#9658;</div>
           </div>
         </a>
@@ -2135,9 +2135,9 @@
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">PRIVATE &middot; 75€ / guest</div>
+            <div class="pkg-card-tag" data-product="private" data-field="tag">PRIVATE &middot; 75€ / guest</div>
             <h3 class="pkg-card-title">Private Agafay Evening</h3>
-            <p class="pkg-card-desc">15:30 — 22:00 &middot; Private Transfer &middot; 1h30 Quad &middot; 20min Camel &middot; Guide &middot; Dinner &amp; Show</p>
+            <p class="pkg-card-desc" data-product="private" data-field="card-summary">15:30 — 22:00 &middot; Private Transfer &middot; 1h30 Quad &middot; 20min Camel &middot; Guide &middot; Dinner &amp; Show</p>
             <div class="pkg-card-cta">View Private Pack &#9658;</div>
           </div>
         </a>
@@ -2148,9 +2148,9 @@
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">PRIVATE+ &middot; 119€ / guest</div>
+            <div class="pkg-card-tag" data-product="private-plus" data-field="tag">PRIVATE+ &middot; 119€ / guest</div>
             <h3 class="pkg-card-title">Agafay & Atlas — Full-Day Quad</h3>
-            <p class="pkg-card-desc">09:00 — 22:00 &middot; Private Transfer &middot; 3h Quad &middot; Lunch &amp; Dinner &middot; 45min Camel &middot; Guide</p>
+            <p class="pkg-card-desc" data-product="private-plus" data-field="card-summary">09:00 — 22:00 &middot; Private Transfer &middot; 3h Quad &middot; Lunch &amp; Dinner &middot; 45min Camel &middot; Guide</p>
             <div class="pkg-card-cta">View Private+ Pack &#9658;</div>
           </div>
         </a>
@@ -2471,7 +2471,7 @@
             <p class="activities-editorial-card-desc">High-speed off-road exploration designed for adrenaline seekers.
               Conquer the toughest terrains in absolute safety.</p>
             <div class="activities-editorial-card-footer">
-              <span class="activities-editorial-card-price">From 129€ / person</span>
+              <span class="activities-editorial-card-price" data-product="buggy" data-field="from-price">From 129€ / person</span>
               <span class="activities-editorial-card-link">View buggy details <span
                   class="activities-editorial-card-icon"><svg class="w-4 h-4 ml-1 inline-block fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/></svg></span></span>
             </div>
@@ -3021,7 +3021,7 @@
   <!-- testimonials.js removed -->
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<a href="https://wa.me/212672531624?text=Hello%20Marragafay,%20I%20am%20interested%20in%20the%20Discovery%20Pack." 
+<a href="https://wa.me/212672531624?text=Hello%20Marragafay,%20I%20am%20interested%20in%20booking%20an%20experience."
    target="_blank"
    aria-label="Contact Marragafay Concierge on WhatsApp" class="fixed bottom-6 right-6 z-[100] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl hover:scale-110 transition-transform duration-300">
   <svg class="w-7 h-7 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
@@ -3958,7 +3958,7 @@
         title: 'Agafay Buggy Adventure Marrakech',
         description: 'Conquer the desert terrain in style with our powerful off-road buggies! Experience the ultimate adventure as you navigate through challenging dunes, rocky paths, and stunning desert landscapes. Perfect for thrill-seekers looking for an adrenaline-pumping Moroccan desert experience.',
         image: '/images/activites/buggy.webp',
-        price: '80 €',
+        price: '129 €',
         priceLabel: '/person',
         duration: '2-4 hours',
         difficulty: 'Moderate to Challenging',
@@ -4376,6 +4376,7 @@
   <img class="lightbox-content" id="lightbox-img" alt="Full screen view">
 </div>
 <script defer src="/js/global-lightbox.js"></script>
+<script defer src="/js/product-data.js"></script>
 <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

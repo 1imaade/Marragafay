@@ -644,9 +644,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -803,13 +803,13 @@
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
               <a href="#" class="text-[#EAE8E3]/90 hover:text-white transition-colors duration-300">الخبرات</a>
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
-              <span class="text-[#EAE8E3]/90">حزمة الاكتشاف</span>
+              <span class="text-[#EAE8E3]/90" data-product="standard" data-field="name">القياسية</span>
             </nav>
-            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">جولة استكشاف صحراء أكافاي</h1>
+            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3" data-product="standard" data-field="title">تجربة أمسية أجافي</h1>
             <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">المدخل المثالي لاكتشاف سحر صحراء أكافاي في نصف يوم. مغامرة كواد ممتعة عبر التلال وجولة على الجمال مع إطلالة خلابة على جبال الأطلس الكبير.</p>
 
             <div class="flex items-center gap-2 mt-0 text-[13px] font-medium text-[#F6F7EA] drop-shadow-md">
-              <span>نقطة انطلاق مركزية</span><span class="opacity-50">·</span><span>توفر مؤكد</span><span class="opacity-50">·</span><span>عشاء وعرض</span>
+              <span class="text-[#EAE8E3]/90" data-product="standard" data-field="transport">نقل مشترك من وإلى الفندق / الرياض</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90" data-product="standard" data-field="duration">15:30 — 22:00</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">عشاء وعرض حي</span>
             </div>
           </div>
         </div>
@@ -837,7 +837,8 @@
             <div>
               <div class="flex items-baseline gap-2">
                 <span class="text-[15px] font-normal text-[#10100E]/90">ابتداء من</span>
-                <span class="text-[32px] font-bold text-[#523225] tracking-tight">45 €</span>
+                <span class="text-[32px] font-bold text-[#523225] tracking-tight" data-product="standard" data-field="price-eur">45 €</span>
+                <span class="text-[13px] font-normal text-[#10100E]/60 ml-1" data-product="standard" data-field="price-mad" data-format="parentheses">(450 درهم)</span>
                 <span class="text-[15px] font-normal text-[#10100E]/90">/ شخص</span>
               </div>
               <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">مساعدة مباشرة لإتمام طلبك</span>
@@ -964,7 +965,7 @@
           </form>
           <div class="hidden xl:block text-left mt-2 pl-4 space-y-1">
             <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">اختر تاريخك وأرسل بياناتك. نؤكد التوفر ونقطة الانطلاق والتفاصيل النهائية معك عبر واتساب.</p>
-            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">نقل مشترك من نقطة تجمع مركزية. لا يلزم أي دفع مسبق.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">نقل مشترك مع التوصيل من وإلى الفندق أو الرياض في مراكش. لا يلزم أي دفع مسبق.</p>
           </div>
           </div><!-- Close Form Wrapper -->
 
@@ -972,7 +973,7 @@
 
           <div class="w-full flex flex-col justify-start xl:hidden mt-2 space-y-1">
             <p class="text-[12px] text-[#10100E]/90 font-medium text-left tracking-tight mb-0">اختر تاريخك وأرسل بياناتك. نؤكد التوفر ونقطة الانطلاق والتفاصيل النهائية معك عبر واتساب.</p>
-            <p class="text-[11px] text-[#10100E]/70 font-normal text-left tracking-tight mb-0">نقل مشترك من نقطة تجمع مركزية. لا يلزم أي دفع مسبق.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal text-left tracking-tight mb-0">نقل مشترك مع التوصيل من وإلى الفندق أو الرياض في مراكش. لا يلزم أي دفع مسبق.</p>
           </div>
 
         </div>
@@ -1021,13 +1022,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 1</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">وصول النقل</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">15:30 — استقبال مشترك ووصول</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">نقطة الالتقاء من وسط مراكش لبداية خالية من المتاعب لأمسيتك الصحراوية.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">نقل مشترك من فندقك أو رياضك في مراكش لبداية مريحة وخالية من المتاعب لأمسيتك الصحراوية.</p>
               </div>
             </div>
             </div>
@@ -1135,13 +1136,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">الخطوة 7</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">عودة النقل</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">22:00 — نقل العودة المشترك</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">النزول إلى نقطة الالتقاء المركزية في مراكش بعد أمسية لا تُنسى تحت نجوم الصحراء.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">نقل مشترك للعودة إلى فندقك أو رياضك في مراكش في تمام الساعة 22:00 بعد أمسية لا تُنسى.</p>
               </div>
             </div>
             </div>
@@ -1156,37 +1157,43 @@
 
 
           <div class="mb-8 mt-6">
-            <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">ما هو مدرج</h4>
-            <ul class="space-y-3"><li class="flex items-start gap-3">
+            <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">ما تشمله الباقة</h4>
+            <ul class="space-y-3" data-product="standard" data-field="inclusions"><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">المغامرة الرباعية: ساعة واحدة عبر التلال الصحراوية.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">النقل: نقل مشترك من وإلى الفندق أو الرياض في مراكش.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">ركوب الجمال: 20 دقيقة خلال غروب الشمس الذهبي.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">مغامرة الكواد: جولة كواد لمدة ساعة واحدة عبر تلال أكافاي.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">عشاء مغربي: أطباق تقليدية أصيلة تحت السماء المفتوحة.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">ركوب الجمال: جولة لمدة 20 دقيقة عند غروب الشمس فوق التلال.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">عرض حي: عرض النار والموسيقى تحت النجوم.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">دخول المسبح والشاي المغربي التقليدي بالنعناع.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">الدخول إلى حمام السباحة: استخدام حمام السباحة المشترك والشاي المغربي بالنعناع.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">استراحة تصوير مخصصة لمشاهدة غروب الشمس في الأفق الصحراوي.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">النقل: نقل مشترك من نقطة انطلاق مركزية بمراكش.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">عشاء مغربي تقليدي فاخر على ضوء الشموع.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">المضيف/الدليل: دليل جماعي ثنائي اللغة طوال التجربة.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">عرض حي: استعراض آكلي النار وموسيقى بربرية حية.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المشروبات: مياه معدنية معبأة متوفرة طوال التجربة.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المعدات والسلامة: خوذات وشاش وسترات وإرشادات سلامة احترافية.</span>
               </li></ul>
           </div>
 
 
           <div class="mt-8">
-            <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">غير متضمنة</h4>
+            <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">غير مشمول</h4>
             <ul class="space-y-3"><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">مشروبات إضافية</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المصاريف الشخصية، الإكراميات الاختيارية، المشروبات الإضافية.</span>
               </li></ul>
           </div>
 
@@ -1353,7 +1360,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  راحتك تهمنا. يتم النقل المشترك انطلاقاً من نقطة تجمع مركزية في مراكش داخل مركبات حديثة ومكيفة.
+                  توفر باقة القياسية نقلاً مشتركاً مريحاً يشمل الاستقبال والعودة من فندقك أو رياضك في مركبات حديثة ومكيفة.
                 </p>
               </div>
             </div>
@@ -2194,6 +2201,8 @@
   });
 </script>
 
+  <script defer src="/js/product-localization.js"></script>
+  <script defer src="/js/product-data.js"></script>
   <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

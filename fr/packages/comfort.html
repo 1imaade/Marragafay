@@ -644,9 +644,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -803,13 +803,13 @@
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
               <a href="#" class="text-[#EAE8E3]/90 hover:text-white transition-colors duration-300">Expériences</a>
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
-              <span class="text-[#EAE8E3]/90">Privée</span>
+              <span class="text-[#EAE8E3]/90" data-product="private" data-field="name">Privé</span>
             </nav>
-            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">Excursion Désert d'Agafay avec Quad, Dromadaire & Dîner</h1>
+            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3" data-product="private" data-field="title">Soirée Privée à Agafay</h1>
             <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">Vivez l'expérience incontournable du désert d'Agafay au départ de Marrakech. Transfert inclus, 1h de quad sur les pistes minérales, balade en dromadaire au coucher du soleil et dîner spectacle féerique sous les étoiles.</p>
 
             <div class="flex items-center gap-3 mt-0 text-sm font-bold text-[#F6F7EA] drop-shadow-md">
-              <span class="text-[#EAE8E3]/90">Coucher de soleil</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Transport porte-à-porte</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Dîner & Spectacle</span>
+              <span class="text-[#EAE8E3]/90">Expérience Privée</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90" data-product="private" data-field="transport">Transfert privé aller-retour</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90" data-product="private" data-field="duration">15:30 — 22:00</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Dîner &amp; Spectacle</span>
             </div>
           </div>
         </div>
@@ -837,7 +837,8 @@
             <div>
               <div class="flex items-baseline gap-2">
                 <span class="text-[15px] font-normal text-[#10100E]/90">À partir de</span>
-                <span class="text-[32px] font-bold text-[#523225] tracking-tight">75 €</span>
+                <span class="text-[32px] font-bold text-[#523225] tracking-tight" data-product="private" data-field="price-eur">75 €</span>
+                <span class="text-[13px] font-normal text-[#10100E]/60 ml-1" data-product="private" data-field="price-mad" data-format="parentheses">(750 MAD)</span>
                 <span class="text-[15px] font-normal text-[#10100E]/90">/ personne</span>
               </div>
               <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">Assistance directe pour votre demande</span>
@@ -964,7 +965,7 @@
           </form>
           <div class="hidden xl:block text-left mt-2 pl-4 space-y-1">
             <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">Choisissez votre date et envoyez vos coordonnées. Nous confirmons la disponibilité, le lieu de prise en charge et les détails finaux avec vous sur WhatsApp.</p>
-            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">Transport partagé porte-à-porte sous réserve d'accessibilité (point de rencontre accessible proche pour les ruelles étroites). Aucun paiement initial requis.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">Transport privé aller-retour porte-à-porte depuis votre hébergement à Marrakech. Aucun paiement initial requis.</p>
           </div>
           </div><!-- Close Form Wrapper -->
 
@@ -972,7 +973,7 @@
 
           <div class="w-full flex flex-col justify-start xl:hidden mt-2 px-1 space-y-1 text-left">
             <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">Choisissez votre date et envoyez vos coordonnées. Nous confirmons la disponibilité, le lieu de prise en charge et les détails finaux avec vous sur WhatsApp.</p>
-            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">Transport partagé porte-à-porte sous réserve d'accessibilité (point de rencontre accessible proche pour les ruelles étroites). Aucun paiement initial requis.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">Transport privé aller-retour porte-à-porte depuis votre hébergement à Marrakech. Aucun paiement initial requis.</p>
           </div>
 
         </div>
@@ -1027,7 +1028,7 @@
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Transport partagé depuis votre hôtel à Marrakech pour un début confortable et sans tracas de votre expérience dans le désert.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Transfert privé aller-retour depuis votre hôtel ou riad à Marrakech pour un début exclusif et sans tracas de votre soirée dans le désert.</p>
               </div>
             </div>
             </div>
@@ -1157,24 +1158,36 @@
 
           <div class="mb-8 mt-6">
             <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">ce qui est inclus</h4>
-            <ul class="space-y-3"><li class="flex items-start gap-3">
+            <ul class="space-y-3" data-product="private" data-field="inclusions"><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Séance en quad : 1 heure exaltante sur les pistes du désert.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Transport : Transfert privé aller-retour depuis votre hôtel / riad.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Balade à dos de chameau : trajet de 30 minutes au coucher du soleil à travers les dunes.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Session quad exclusive : 1h30 de quad privé dans le désert d'Agafay.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Dîner marocain : Repas traditionnel complet au cœur du désert.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Guide dédié : Guide professionnel privé accompagnant votre groupe.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Spectacle en direct : Spectacle de feu et de musique sous les étoiles.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Balade à dos de dromadaire : 20 min au coucher du soleil sur les crêtes.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Accès piscine : Détente à la piscine partagée du camp.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Accès piscine &amp; thé à la menthe marocain traditionnel.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Transport porte-à-porte : Prise en charge et retour partagés depuis votre hôtel/riad (sous réserve d'accessibilité).</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Pause coucher de soleil dédiée face à l'horizon désertique.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Dîner marocain traditionnel complet aux chandelles.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Spectacle en direct : Cracheurs de feu et musique berbère live.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Rafraîchissements : Eau minérale en bouteille incluse.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Équipement &amp; sécurité : Casques, charlottes et briefing professionnel.</span>
               </li></ul>
           </div>
 
@@ -1183,10 +1196,7 @@
             <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">non inclus</h4>
             <ul class="space-y-3"><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Service de guide : Aucun guide inclus (expérience indépendante avec moniteurs de sécurité sur place).</span>
-              </li><li class="flex items-start gap-3 opacity-90">
-                <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Boissons supplémentaires</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Dépenses personnelles, pourboires facultatifs, boissons supplémentaires.</span>
               </li></ul>
           </div>
 
@@ -2223,6 +2233,8 @@
   });
 </script>
 
+  <script defer src="/js/product-localization.js"></script>
+  <script defer src="/js/product-data.js"></script>
   <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

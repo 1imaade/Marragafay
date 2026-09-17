@@ -62,7 +62,7 @@
   <meta name="google-site-verification" content="bamVos41fgswgcgtQoBGzbYihLKMpzhQOS7PiAlnm-M" />
   <meta name="facebook-domain-verification" content="ie0eyu39g9logo846tr4cgli13tp1f" />
 
-  <!-- TASK 4a: Google Fonts - preload + async non-render-blocking -->  
+  <!-- TASK 4a: Google Fonts - preload + async non-render-blocking -->
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap"></noscript>
@@ -646,9 +646,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -726,7 +726,7 @@
         <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-16">
           <!-- Badges -->
           <div class="flex items-center gap-2 mb-6">
-            <span class="bg-[#f6f7ea] text-[#272724] px-3 py-1 rounded-full text-[10px] font-semibold tracking-wide" style="font-family: 'Lay Grotesk', sans-serif;">10 paquetes</span>
+            <span class="bg-[#f6f7ea] text-[#272724] px-3 py-1 rounded-full text-[10px] font-semibold tracking-wide" style="font-family: 'Lay Grotesk', sans-serif;">4 paquetes</span>
           </div>
 
           <!-- Title -->
@@ -953,7 +953,7 @@
           <h2 class="pkg-title">nuestros paquetes</h2>
           <p class="pkg-subtitle">Experiencias en el desierto con todo incluido. Diseñado para el viajero exigente.</p>
         </div>
-        <a href="packs" class="pkg-all-link">All packages &#9658;</a>
+        <a href="packs" class="pkg-all-link">Todos los paquetes &#9658;</a>
       </div>
 
       <!-- Cards -->
@@ -961,13 +961,13 @@
 
         <!-- Card 1 — Standard (Agafay Evening Experience) -->
         <a href="packages/basic" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <img src="/images/packs/pack-basic.webp" alt="Agafay Evening Experience" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-basic.webp" alt="Experiencia de Tarde en Agafay" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">STANDARD &middot; 45€ / pers</div>
-            <h3 class="pkg-card-title">Agafay Evening Experience</h3>
-            <p class="pkg-card-desc">15:30 — 22:00 &middot; Traslado Compartido &middot; 1h Quad &middot; 20min Camello &middot; Cena y Show</p>
+            <div class="pkg-card-tag" data-product="standard" data-field="tag">ESTÁNDAR &middot; 45€ / pers</div>
+            <h3 class="pkg-card-title" data-product="standard" data-field="title">Experiencia de Tarde en Agafay</h3>
+            <p class="pkg-card-desc" data-product="standard" data-field="card-summary">15:30 — 22:00 &middot; Traslado Compartido &middot; 1h Quad &middot; 20min Camello &middot; Cena y Show</p>
             <div class="pkg-card-cta">Descubrir paquete &#9658;</div>
           </div>
         </a>
@@ -975,39 +975,39 @@
         <!-- Card 2 — Private (Private Agafay Evening) -->
         <a href="packages/comfort" class="pkg-card" data-aos="fade-up" data-aos-duration="1000"
           data-aos-delay="200">
-          <img src="/images/packs/pack-comfort.webp" alt="Private Agafay Evening" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-comfort.webp" alt="Tarde Privada en Agafay" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">PRIVATE &middot; 75€ / pers</div>
-            <h3 class="pkg-card-title">Private Agafay Evening</h3>
-            <p class="pkg-card-desc">15:30 — 22:00 &middot; Traslado Privado &middot; 1h30 Quad &middot; 20min Camello &middot; Guía &middot; Cena</p>
+            <div class="pkg-card-tag" data-product="private" data-field="tag">PRIVADO &middot; 75€ / pers</div>
+            <h3 class="pkg-card-title" data-product="private" data-field="title">Tarde Privada en Agafay</h3>
+            <p class="pkg-card-desc" data-product="private" data-field="card-summary">15:30 — 22:00 &middot; Traslado Privado &middot; 1h30 Quad &middot; 20min Camello &middot; Guía &middot; Cena y Show</p>
             <div class="pkg-card-cta">Descubrir paquete &#9658;</div>
           </div>
         </a>
 
         <!-- Card 3 — Private+ (Agafay & Atlas — Full-Day Quad) -->
         <a href="packages/luxe" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <img src="/images/packs/pack-luxury.webp" alt="Agafay & Atlas — Full-Day Quad" class="pkg-card-img" loading="lazy"
+          <img src="/images/packs/pack-luxury.webp" alt="Agafay y Atlas — Día Completo en Quad" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">PRIVATE+ &middot; 119€ / pers</div>
-            <h3 class="pkg-card-title">Agafay & Atlas — Full-Day Quad</h3>
-            <p class="pkg-card-desc">09:00 — 22:00 &middot; Traslado Privado &middot; 3h Quad &middot; Almuerzo y Cena &middot; 45min Camello &middot; Guía</p>
+            <div class="pkg-card-tag" data-product="private-plus" data-field="tag">PRIVADO+ &middot; 119€ / pers</div>
+            <h3 class="pkg-card-title" data-product="private-plus" data-field="title">Agafay y Atlas — Día Completo en Quad</h3>
+            <p class="pkg-card-desc" data-product="private-plus" data-field="card-summary">09:00 — 22:00 &middot; Traslado Privado &middot; 3h Quad &middot; Almuerzo y Cena &middot; 45min Camello &middot; Guía</p>
             <div class="pkg-card-cta">Descubrir paquete &#9658;</div>
           </div>
         </a>
 
         <!-- Card 4 — Buggy (Private Agafay Buggy Experience) -->
         <a href="activities/buggy" class="pkg-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-          <img src="/images/activites/buggy.webp" alt="Private Agafay Buggy Experience" class="pkg-card-img" loading="lazy"
+          <img src="/images/activites/buggy.webp" alt="Experiencia Privada en Buggy en Agafay" class="pkg-card-img" loading="lazy"
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">BUGGY &middot; 129€ / pers</div>
-            <h3 class="pkg-card-title">Private Agafay Buggy Experience</h3>
-            <p class="pkg-card-desc">1h Buggy Privado (2 pers/buggy, min 2) &middot; Traslado Privado &middot; 20min Camello &middot; Cena y Show</p>
+            <div class="pkg-card-tag" data-product="buggy" data-field="tag">BUGGY &middot; 129€ / pers</div>
+            <h3 class="pkg-card-title" data-product="buggy" data-field="title">Experiencia Privada en Buggy en Agafay</h3>
+            <p class="pkg-card-desc" data-product="buggy" data-field="card-summary">Horarios Flexibles &middot; Traslado Privado &middot; 1h Buggy (2 pers/buggy) &middot; 20min Camello &middot; Cena y Show</p>
             <div class="pkg-card-cta">Descubrir paquete &#9658;</div>
           </div>
         </a>
@@ -1087,7 +1087,7 @@
   <!-- testimonials.js removed -->
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<a href="https://wa.me/212672531624?text=Hola%20Marragafay,%20quisiera%20consultar%20sobre%20los%20paquetes%20del%20desierto%20de%20Agafay." 
+<a href="https://wa.me/212672531624?text=Hola%20Marragafay,%20quisiera%20consultar%20sobre%20los%20paquetes%20del%20desierto%20de%20Agafay."
    target="_blank"
    aria-label="Contact Marragafay Concierge on WhatsApp" class="fixed bottom-6 right-6 z-[100] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl hover:scale-110 transition-transform duration-300">
   <svg class="w-7 h-7 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
@@ -1824,6 +1824,8 @@
   <img class="lightbox-content" id="lightbox-img" alt="Full screen view">
 </div>
 <script defer src="/js/global-lightbox.js"></script>
+<script defer src="/js/product-localization.js"></script>
+<script defer src="/js/product-data.js"></script>
 <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

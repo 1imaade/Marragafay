@@ -62,7 +62,7 @@
   <meta name="google-site-verification" content="bamVos41fgswgcgtQoBGzbYihLKMpzhQOS7PiAlnm-M" />
   <meta name="facebook-domain-verification" content="ie0eyu39g9logo846tr4cgli13tp1f" />
 
-  <!-- TASK 4a: Google Fonts - preload + async non-render-blocking -->  
+  <!-- TASK 4a: Google Fonts - preload + async non-render-blocking -->
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap"></noscript>
@@ -646,9 +646,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -726,7 +726,7 @@
         <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-16">
           <!-- Badges -->
           <div class="flex items-center gap-2 mb-6">
-            <span class="bg-[#f6f7ea] text-[#272724] px-3 py-1 rounded-full text-[10px] font-semibold tracking-wide" style="font-family: 'Lay Grotesk', sans-serif;">10 packs</span>
+            <span class="bg-[#f6f7ea] text-[#272724] px-3 py-1 rounded-full text-[10px] font-semibold tracking-wide" style="font-family: 'Lay Grotesk', sans-serif;">4 packs</span>
           </div>
 
           <!-- Title -->
@@ -965,9 +965,9 @@
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">STANDARD &middot; 45€ / guest</div>
+            <div class="pkg-card-tag" data-product="standard" data-field="tag">STANDARD &middot; 45€ / guest</div>
             <h3 class="pkg-card-title">Agafay Evening Experience</h3>
-            <p class="pkg-card-desc">15:30 — 22:00 &middot; Shared Transfer &middot; 1h Quad &middot; 20min Camel &middot; Dinner &amp; Show</p>
+            <p class="pkg-card-desc" data-product="standard" data-field="card-summary">15:30 — 22:00 &middot; Shared Transfer &middot; 1h Quad &middot; 20min Camel &middot; Dinner &amp; Show</p>
             <div class="pkg-card-cta">Discover package &#9658;</div>
           </div>
         </a>
@@ -979,9 +979,9 @@
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">PRIVATE &middot; 75€ / guest</div>
+            <div class="pkg-card-tag" data-product="private" data-field="tag">PRIVATE &middot; 75€ / guest</div>
             <h3 class="pkg-card-title">Private Agafay Evening</h3>
-            <p class="pkg-card-desc">15:30 — 22:00 &middot; Private Transfer &middot; 1h30 Quad &middot; 20min Camel &middot; Guide &middot; Dinner &amp; Show</p>
+            <p class="pkg-card-desc" data-product="private" data-field="card-summary">15:30 — 22:00 &middot; Private Transfer &middot; 1h30 Quad &middot; 20min Camel &middot; Guide &middot; Dinner &amp; Show</p>
             <div class="pkg-card-cta">Discover package &#9658;</div>
           </div>
         </a>
@@ -992,9 +992,9 @@
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">PRIVATE+ &middot; 119€ / guest</div>
+            <div class="pkg-card-tag" data-product="private-plus" data-field="tag">PRIVATE+ &middot; 119€ / guest</div>
             <h3 class="pkg-card-title">Agafay & Atlas — Full-Day Quad</h3>
-            <p class="pkg-card-desc">09:00 — 22:00 &middot; Private Transfer &middot; 3h Quad &middot; Lunch &amp; Dinner &middot; 45min Camel &middot; Guide</p>
+            <p class="pkg-card-desc" data-product="private-plus" data-field="card-summary">09:00 — 22:00 &middot; Private Transfer &middot; 3h Quad &middot; Lunch &amp; Dinner &middot; 45min Camel &middot; Guide</p>
             <div class="pkg-card-cta">Discover package &#9658;</div>
           </div>
         </a>
@@ -1005,9 +1005,9 @@
             decoding="async">
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
-            <div class="pkg-card-tag">BUGGY &middot; 129€ / guest</div>
+            <div class="pkg-card-tag" data-product="buggy" data-field="tag">BUGGY &middot; 129€ / guest</div>
             <h3 class="pkg-card-title">Private Agafay Buggy Experience</h3>
-            <p class="pkg-card-desc">1h Private Buggy (2 guests/buggy, min 2) &middot; Private Transfer &middot; 20min Camel &middot; Dinner &amp; Show</p>
+            <p class="pkg-card-desc" data-product="buggy" data-field="card-summary">Flexible Departure &middot; Private Transfer &middot; 1h Buggy (2 guests/buggy) &middot; 20min Camel &middot; Dinner &amp; Show</p>
             <div class="pkg-card-cta">Discover package &#9658;</div>
           </div>
         </a>
@@ -1087,7 +1087,7 @@
   <!-- testimonials.js removed -->
 
 <!-- WHATSAPP FLOATING BUTTON -->
-<a href="https://wa.me/212672531624?text=Hello%20Marragafay,%20I%20would%20like%20to%20inquire%20about%20your%20Agafay%20Desert%20packages." 
+<a href="https://wa.me/212672531624?text=Hello%20Marragafay,%20I%20would%20like%20to%20inquire%20about%20your%20Agafay%20Desert%20packages."
    target="_blank"
    aria-label="Contact Marragafay Concierge on WhatsApp" class="fixed bottom-6 right-6 z-[100] flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl hover:scale-110 transition-transform duration-300">
   <svg class="w-7 h-7 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
@@ -1826,6 +1826,7 @@
   <img class="lightbox-content" id="lightbox-img" alt="Full screen view">
 </div>
 <script defer src="/js/global-lightbox.js"></script>
+<script defer src="/js/product-data.js"></script>
 <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

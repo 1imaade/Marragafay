@@ -1,6 +1,14 @@
 // Trusted server-side booking catalog and pricing rules.
 // Keep customer-supplied titles and prices out of this module's authority.
 
+// ============================================================================
+// LOCAL FALLBACK PRICING CATALOG
+// Supabase (public.pricing) is the primary real-time authority.
+// This catalog serves as the offline / network safety fallback.
+// IMPORTANT: Whenever production pricing changes in Supabase,
+// this fallback matrix MUST also be updated concurrently to prevent
+// pricing drift during Supabase outages.
+// ============================================================================
 export const BOOKING_PRODUCTS = Object.freeze({
   basic: Object.freeze({ id: 'basic', type: 'package', title: 'Agafay Evening Experience', unitPriceMad: 450, unitPriceEur: 45 }),
   comfort: Object.freeze({ id: 'comfort', type: 'package', title: 'Private Agafay Evening', unitPriceMad: 750, unitPriceEur: 75 }),
@@ -17,13 +25,20 @@ const PRODUCT_ALIASES = Object.freeze({
   basic: 'basic', standard: 'basic', discovery: 'basic', 'agafay-discovery': 'basic',
   'agafay discovery': 'basic', 'marragafay discovery': 'basic',
   'agafay evening experience': 'basic', 'agafay-evening-experience': 'basic',
+  'standard pack': 'basic', 'standard-pack': 'basic',
+  'discovery pack': 'basic', 'discovery-pack': 'basic',
   comfort: 'comfort', private: 'comfort', signature: 'comfort', premium: 'comfort', 'marragafay signature': 'comfort',
   'private agafay evening': 'comfort', 'private-agafay-evening': 'comfort',
+  'private pack': 'comfort', 'private-pack': 'comfort',
+  'signature pack': 'comfort', 'signature-pack': 'comfort',
   luxe: 'luxe', luxury: 'luxe', 'private+': 'luxe', 'private plus': 'luxe', 'private-plus': 'luxe', vip: 'luxe', 'the marragafay luxury': 'luxe',
   'agafay & atlas — full-day quad': 'luxe', 'agafay & atlas - full-day quad': 'luxe', 'agafay-atlas-full-day-quad': 'luxe',
   'agafay and atlas full day quad': 'luxe', 'agafay & atlas': 'luxe',
+  'luxury pack': 'luxe', 'luxury-pack': 'luxe',
+  'private+ pack': 'luxe', 'private-plus pack': 'luxe', 'private-plus-pack': 'luxe',
   quad: 'quad', 'quad-biking': 'quad', 'quad biking': 'quad', 'quad agafay adventure': 'quad',
   buggy: 'buggy', 'private agafay buggy experience': 'buggy', 'private-agafay-buggy-experience': 'buggy', 'agafay buggy adventure marrakech': 'buggy',
+  'buggy tour': 'buggy', 'buggy-tour': 'buggy', 'buggy experience': 'buggy', 'buggy-experience': 'buggy',
   camel: 'camel', 'camel-ride': 'camel', 'camel ride': 'camel', 'agafay camel ride marrakech': 'camel',
   paragliding: 'paragliding', parapente: 'paragliding',
   balloon: 'hot-air-balloon', 'hot-air-balloon': 'hot-air-balloon', 'hot air balloon': 'hot-air-balloon',
@@ -35,6 +50,8 @@ function normalizeKey(value) {
   return typeof value === 'string' ? value.trim().toLowerCase().replace(/\s+/g, ' ') : '';
 }
 
+export { resolveServerProduct } from './server-product-data.js';
+
 export function resolveProduct(value) {
   const key = normalizeKey(value).replace(/_/g, '-');
   const productId = PRODUCT_ALIASES[key];
@@ -42,6 +59,7 @@ export function resolveProduct(value) {
 }
 
 export function calculateTrustedTotal(product, adults, children) {
+  if (!product) return null;
   const totalGuests = adults + children;
   let billableGuests = totalGuests;
 
@@ -51,10 +69,13 @@ export function calculateTrustedTotal(product, adults, children) {
     billableGuests = Math.max(2, totalGuests);
   }
 
+  const unitMad = product.unitPriceMad ?? product.priceMAD ?? 0;
+  const unitEur = product.unitPriceEur ?? product.priceEUR ?? 0;
+
   return {
     totalGuests,
     billableGuests,
-    totalMad: product.unitPriceMad * billableGuests,
-    totalEur: product.unitPriceEur * billableGuests
+    totalMad: unitMad * billableGuests,
+    totalEur: unitEur * billableGuests
   };
 }

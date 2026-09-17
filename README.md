@@ -75,6 +75,14 @@ The site is configured for automatic deployment via **Vercel** as a static websi
 Run `npm run dev` from the project root and open `http://127.0.0.1:5501`.
 The local booking endpoint runs in an explicit safe dry-run mode: it validates the complete request and response flow without inserting a Supabase row or sending an email. Do not use a static-only Live Server for booking QA because it cannot execute `/api/*` functions.
 
+## 📋 Pricing Update Checklist
+
+Whenever package or activity pricing changes:
+1. **Update Supabase**: Update `price` and `price_eur` in `public.pricing`.
+2. **Update Fallback Catalog**: Update corresponding `unitPriceMad` and `unitPriceEur` in `api/booking-catalog.js` to ensure the offline safety floor stays synchronized.
+3. **Verify Frontend**: Confirm dynamic pricing hydrates across `/en/packs`, `/en/packages/*`, `/en/activities/*`, and the homepage.
+4. **Run Verification**: Run `node --test` to ensure all booking calculation and integrity checks pass.
+
 ---
 
 ## 🛠️ Developer & AI Agent Guidelines

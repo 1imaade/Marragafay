@@ -980,17 +980,21 @@ document.addEventListener('booking-legacy-submit', async function (e) {
 
         let pickupContext = '';
         if (productId === 'basic' || productId.includes('discovery')) {
-            pickupContext = meetingConfirmed
-                ? 'Central Marrakech meeting point confirmed (shared pickup)'
-                : 'Central Marrakech meeting point (shared pickup)';
+            pickupContext = pickupLocation
+                ? `Hotel/Riad: ${pickupLocation} (shared hotel/riad pickup & return)`
+                : 'Shared hotel/riad pickup & return';
         } else if (productId === 'comfort' || productId.includes('signature')) {
             pickupContext = pickupLocation
-                ? `Hotel/Riad: ${pickupLocation} (shared door-to-door, subject to vehicle access)`
-                : 'Shared door-to-door transport (subject to vehicle access)';
+                ? `Hotel/Riad: ${pickupLocation} (private hotel/riad transfer)`
+                : 'Private hotel/riad transfer';
         } else if (productId === 'luxe' || productId.includes('luxury')) {
             pickupContext = pickupLocation
                 ? `Hotel/Riad: ${pickupLocation}${privateReqs ? ' | Private preferences to check: ' + privateReqs : ''}`
-                : (privateReqs ? `Private preferences to check: ${privateReqs}` : 'Private elements to be confirmed');
+                : (privateReqs ? `Private preferences to check: ${privateReqs}` : 'Private hotel/riad transfer');
+        } else if (productId === 'buggy') {
+            pickupContext = pickupLocation
+                ? `Hotel/Riad: ${pickupLocation} (private hotel/riad transfer)`
+                : 'Private hotel/riad transfer';
         } else if (pickupLocation) {
             pickupContext = pickupLocation;
         }

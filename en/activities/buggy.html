@@ -644,9 +644,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -687,7 +687,7 @@
   "image": [
     "https://www.marragafay.com/media/activities/buggy/gallery/buggy-01.webp"
   ],
-  "description": "1-hour guided Buggy adventure with safety gear, driving tips, pool access and Moroccan mint tea.",
+  "description": "Complete private Agafay desert experience with private round-trip transfer, 1-hour buggy ride, camel trek, pool access, and Moroccan dinner show.",
   "sku": "MAR-ACTIVITIES/BUGGY",
   "brand": {
     "@type": "Brand",
@@ -794,13 +794,13 @@
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
               <a href="../activities" class="text-[#EAE8E3]/90 hover:text-white transition-colors duration-300">Activities</a>
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
-              <span class="text-[#EAE8E3]/90">Buggy Adventure in Agafay Desert</span>
+              <span class="text-[#EAE8E3]/90" data-product="buggy" data-field="name">Buggy</span>
             </nav>
             <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">Private Agafay Buggy Experience</h1>
-            <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">1-hour guided Buggy adventure with safety gear, driving tips, pool access and Moroccan mint tea.</p>
+            <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">Complete private desert experience including private round-trip transfer from Marrakech, a 1-hour private buggy ride across desert trails, 20-minute sunset camel trek, camp pool relaxation, and an authentic Moroccan dinner show under the stars.</p>
 
             <div class="flex items-center gap-3 mt-0 text-sm font-bold text-[#F6F7EA] drop-shadow-md">
-              <span class="text-orange-500">5.0/5</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">180+ reviews</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">1 Hour</span>
+              <span class="text-[#EAE8E3]/90" data-product="buggy" data-field="duration">Flexible Departure</span><span class="opacity-50">·</span><span class="font-normal text-[#EAE8E3]/90" data-product="buggy" data-field="transport">Private Round-Trip Transfer</span><span class="opacity-50">·</span><span class="font-normal text-[#EAE8E3]/90">Dinner &amp; Show</span>
             </div>
           </div>
         </div>
@@ -828,10 +828,11 @@
             <div>
               <div class="flex items-baseline gap-2">
                 <span class="text-[15px] font-normal text-[#10100E]/90">Starting at</span>
-                <span class="text-[32px] font-bold text-[#523225] tracking-tight">129 €</span>
+                <span class="text-[32px] font-bold text-[#523225] tracking-tight" data-product="buggy" data-field="price-eur">129 €</span>
                 <span class="text-[15px] font-normal text-[#10100E]/90">/ person</span>
+                <span class="text-[13px] font-normal text-[#10100E]/60 ml-1" data-product="buggy" data-field="price-mad" data-format="parentheses">(1290 MAD)</span>
               </div>
-              <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">Direct request support · Agafay meeting point</span>
+              <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">Direct booking support · Private Transfer Included</span>
             </div>
 
           </div>
@@ -872,9 +873,9 @@
                       <span class="text-[11px] font-normal text-[#10100E]/90 mt-0.5">Age 12+</span>
                     </div>
                     <div class="flex items-center gap-1.5">
-                      <button onclick="adjustGuests('adults', -1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">-</button>
+                      <button type="button" aria-label="Decrease adults" onclick="adjustGuests('adults', -1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">-</button>
                       <span id="adults-count" class="text-[13px] font-medium text-[#10100E] w-4 text-center">2</span>
-                      <button onclick="adjustGuests('adults', 1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">+</button>
+                      <button type="button" aria-label="Increase adults" onclick="adjustGuests('adults', 1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">+</button>
                     </div>
                   </div>
 
@@ -888,9 +889,9 @@
                       <span class="text-[11px] font-normal text-[#10100E]/90 mt-0.5">Under 12</span>
                     </div>
                     <div class="flex items-center gap-1.5">
-                      <button onclick="adjustGuests('children', -1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E]/90 cursor-not-allowed text-sm leading-none">-</button>
+                      <button type="button" aria-label="Decrease children" onclick="adjustGuests('children', -1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E]/90 cursor-not-allowed text-sm leading-none">-</button>
                       <span id="children-count" class="text-[13px] font-medium text-[#10100E] w-4 text-center">0</span>
-                      <button onclick="adjustGuests('children', 1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">+</button>
+                      <button type="button" aria-label="Increase children" onclick="adjustGuests('children', 1)" class="w-7 h-7 rounded-full border border-[#10100E]/20 flex items-center justify-center text-[#10100E] hover:border-[#10100E] hover:bg-black/5 transition-colors text-sm leading-none">+</button>
                     </div>
                   </div>
 
@@ -954,15 +955,17 @@
             </button>
 
           </form>
-          <div class="hidden xl:block text-left mt-2 pl-4">
-              <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">Min. 2 paying guests (1 guest = 1,600 MAD). Private Marrakech round-trip transfer available: 1,199 MAD/person. No upfront payment required.</p>
+          <div class="hidden xl:block text-left mt-2 pl-4 space-y-1">
+              <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">Choose your date and send your details. We confirm availability, pickup and the final details with you on WhatsApp.</p>
+              <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">Price is 129€ per person based on 2 guests sharing one 2-seat buggy (min. 2 guests). Private round-trip transfer from your Marrakech hotel or riad is included. No upfront payment required.</p>
             </div>
           </div><!-- Close Form Wrapper -->
 
           </div>
 
-          <div class="w-full flex justify-start xl:hidden">
-            <p class="text-[12px] text-[#10100E]/90 font-medium text-left tracking-tight mt-2 mb-0">Min. 2 paying guests (1 guest = 1,600 MAD). Private Marrakech round-trip transfer available: 1,199 MAD/person. No upfront payment required.</p>
+          <div class="w-full flex flex-col justify-start xl:hidden mt-2 px-1 space-y-1 text-left">
+            <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">Choose your date and send your details. We confirm availability, pickup and the final details with you on WhatsApp.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">Price is 129€ per person based on 2 guests sharing one 2-seat buggy (min. 2 guests). Private round-trip transfer from your Marrakech hotel or riad is included. No upfront payment required.</p>
           </div>
 
         </div>
@@ -1011,13 +1014,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 1</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Arrival &amp; Safety Briefing</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Private Pickup (Flexible Timing)</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Meet the team at the Agafay starting point, receive your helmet and safety equipment, and learn the essential driving controls and safety instructions.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Private round-trip transfer from your hotel or riad in Marrakech for an exclusive and comfortable start to your desert experience.</p>
               </div>
             </div>
             </div>
@@ -1030,13 +1033,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 2</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Start Your Buggy Adventure</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Private Buggy Session (1 Hour)</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Begin a guided one-hour Buggy ride through the Agafay desert landscape.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">1 hour of private buggy adventure across Agafay Desert trails with your dedicated guide (2 guests per buggy), including safety gear and briefing.</p>
               </div>
             </div>
             </div>
@@ -1049,13 +1052,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 3</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Share the Drive</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Camel Ride &amp; Sunset Pause</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Two guests can alternate driving during the session, or choose one driver and one passenger.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Experience a peaceful 20-minute camel trek across the desert dunes, followed by a dedicated sunset photo pause.</p>
               </div>
             </div>
             </div>
@@ -1068,13 +1071,70 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 4</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Relax at the Camp</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Pool &amp; Tea</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Return to the starting point and enjoy complimentary Moroccan mint tea and pool access before or after your ride.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Relax at the camp pool and enjoy traditional Moroccan mint tea before dinner.</p>
+              </div>
+            </div>
+            </div>
+          </div><div class="relative flex flex-row items-stretch pb-8 md:pb-10 group">
+            <div class="relative w-4 md:w-6 flex flex-col items-center flex-shrink-0 pt-[6px]">
+               <span class="itinerary-dot relative z-10 w-2.5 h-2.5 rounded-full bg-[#523225] flex-shrink-0 transition-all duration-300 ease-in-out origin-center"></span>
+               <div class="absolute top-[16px] -bottom-[38px] md:-bottom-[46px] left-1/2 -translate-x-1/2 w-[1.5px] bg-[#523225] group-last:hidden timeline-line"></div>
+            </div>
+            <div class="flex-1 pl-3 md:pl-4">
+            <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
+              <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
+                <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 5</div>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Dinner</h3>
+              </div>
+              <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
+              <div class="overflow-hidden min-h-0">
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Savor an authentic Moroccan dinner with tagines, salads, and seasonal desserts under the desert sky.</p>
+              </div>
+            </div>
+            </div>
+          </div><div class="relative flex flex-row items-stretch pb-8 md:pb-10 group">
+            <div class="relative w-4 md:w-6 flex flex-col items-center flex-shrink-0 pt-[6px]">
+               <span class="itinerary-dot relative z-10 w-2.5 h-2.5 rounded-full bg-[#523225] flex-shrink-0 transition-all duration-300 ease-in-out origin-center"></span>
+               <div class="absolute top-[16px] -bottom-[38px] md:-bottom-[46px] left-1/2 -translate-x-1/2 w-[1.5px] bg-[#523225] group-last:hidden timeline-line"></div>
+            </div>
+            <div class="flex-1 pl-3 md:pl-4">
+            <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
+              <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
+                <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 6</div>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Live Show</h3>
+              </div>
+              <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
+              <div class="overflow-hidden min-h-0">
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Immerse yourself in an enchanting cultural show under the stars, combining live Gnawa music and spectacular fire performances.</p>
+              </div>
+            </div>
+            </div>
+          </div><div class="relative flex flex-row items-stretch pb-8 md:pb-10 group">
+            <div class="relative w-4 md:w-6 flex flex-col items-center flex-shrink-0 pt-[6px]">
+               <span class="itinerary-dot relative z-10 w-2.5 h-2.5 rounded-full bg-[#523225] flex-shrink-0 transition-all duration-300 ease-in-out origin-center"></span>
+               <div class="absolute top-[16px] -bottom-[38px] md:-bottom-[46px] left-1/2 -translate-x-1/2 w-[1.5px] bg-[#523225] group-last:hidden timeline-line"></div>
+            </div>
+            <div class="flex-1 pl-3 md:pl-4">
+            <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
+              <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
+                <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 7</div>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Private Return</h3>
+              </div>
+              <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
+              <div class="overflow-hidden min-h-0">
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Private drop-off back to your hotel in Marrakech after an unforgettable evening under the desert stars.</p>
               </div>
             </div>
             </div>
@@ -1090,33 +1150,36 @@
 
           <div class="mb-8 mt-6">
             <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">what's included</h4>
-            <ul class="space-y-3"><li class="flex items-start gap-3">
+            <ul class="space-y-3" data-product="buggy" data-field="inclusions"><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">1-Hour Buggy Adventure</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Private Hotel / Riad Transfer: Dedicated round-trip transfer from your accommodation.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Two-Seat Buggy</span>
+                <span class="text-[14px] font-medium text-[#10100E]">1h Private Buggy Ride: 2-seat buggy session for 2 guests with dedicated guide.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Guided Desert Route</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Dedicated Guide: Personal professional guide accompanying your buggy session and desert stay.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Safety Briefing</span>
+                <span class="text-[14px] font-medium text-[#10100E]">20min Camel Ride: Scenic camel trek through the Agafay stone desert.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Practical Driving Tips</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Sunset Photo Pause: Dedicated panoramic photo stop at golden hour.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Helmet &amp; Safety Equipment</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Pool Access &amp; Mint Tea: Desert camp pool access and welcoming Moroccan mint tea.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Shared Driving Option</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Moroccan Dinner: Full authentic Moroccan dinner under the desert sky.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Complimentary Moroccan Mint Tea</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Live Fire &amp; Music Show: Traditional live musical performance and fire show.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Complimentary Pool Access</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Bottled Water: Refreshing bottled water included.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Safety Gear &amp; Briefing: Helmets, goggles, and comprehensive safety briefing.</span>
               </li></ul>
           </div>
 
@@ -1125,10 +1188,10 @@
             <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">not included</h4>
             <ul class="space-y-3"><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Marrakech Transport (Standard experience starts from Agafay meeting point. Private transfer available: 1,199 MAD/person.)</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Personal expenses / Additional alcoholic beverages</span>
               </li><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Personal Expenses &amp; Tips</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Additional Drinks outside included bottled water</span>
               </li></ul>
           </div>
 
@@ -1263,7 +1326,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  No. The standard 1290 MAD/person experience starts from the Agafay meeting point. Private Marrakech round-trip transport is available for 1,199 MAD/person (minimum 2 paying guests).
+                  Yes. Private round-trip transfer from your Marrakech hotel or riad is fully included in the 129€ per person price (subject to vehicle accessibility).
                 </p>
               </div>
             </div>
@@ -1272,7 +1335,7 @@
             <div class="cursor-pointer group faq-item" style="padding-top: 0.875rem; padding-bottom: 0.875rem; border-bottom: 1px solid rgba(16, 16, 14, 0.1);">
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h3 class="font-medium text-[#10100E] group-hover:text-[#523225] transition-colors" style="font-size: 18px; letter-spacing: -0.025em; color: #10100E; margin: 0;">
-                  Can one person book?
+                  What is the minimum group size?
                 </h3>
                 <span class="font-light text-[#523225] transition-transform duration-300 faq-icon" style="font-size: 24px; color: #523225; margin-left: 1.5rem; flex-shrink: 0; text-align: right; width: 24px;">
                   +
@@ -1280,7 +1343,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  Yes, but the minimum booking value is equivalent to two paying guests. A solo Buggy Only booking therefore costs 1,600 MAD (or 2,398 MAD with private transfer).
+                  The Buggy package requires a minimum of 2 guests (129€ per guest, 2 guests per buggy).
                 </p>
               </div>
             </div>
@@ -1297,7 +1360,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  Yes. Complimentary Moroccan mint tea and complimentary pool access at the camp are included before or after your Buggy ride.
+                  Yes. Complimentary Moroccan mint tea and pool access at the camp are included, as well as an authentic Moroccan dinner and live fire &amp; music show.
                 </p>
               </div>
             </div>
@@ -2141,6 +2204,7 @@
   });
 </script>
 
+  <script defer src="/js/product-data.js"></script>
   <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

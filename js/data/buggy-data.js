@@ -27,20 +27,33 @@ const buggyRidingData = {
         { icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>', title: '20min Camel Ride & Sunset Pause', description: 'Scenic camel ride and sunset pause overlooking the desert horizon.' },
         { icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>', title: 'Dinner, Live Show & Pool Access', description: 'Relax by the pool with mint tea followed by a traditional Moroccan dinner with live music and fire performance.' }
     ],
-    inclusions: [
-        '1h private buggy',
-        '2 guests per buggy (minimum 2 guests)',
-        'Private round-trip transfer',
-        '20min camel ride',
-        'Pool access + mint tea',
-        'Sunset pause',
-        'Moroccan dinner + live show',
-        'Dedicated guide',
-        'Bottled water',
-        'Safety gear & briefing',
-        'Flexible departure subject to availability'
-    ],
+    // Inclusions
+    get inclusions() {
+        if (typeof window !== 'undefined' && window.ProductData) {
+            var p = window.ProductData.getProduct('buggy');
+            if (p && Array.isArray(p.includes)) return p.includes;
+        }
+        return [
+            'Private hotel / riad transfer',
+            '1h private buggy ride',
+            'One buggy for two guests',
+            '20min camel ride',
+            'Pool access & Moroccan mint tea',
+            'Sunset photo pause',
+            'Traditional Moroccan dinner',
+            'Live fire & music show',
+            'Dedicated guide',
+            'Bottled water included',
+            'Safety gear & briefing'
+        ];
+    },
     notIncluded: 'Personal purchases, gratuities (optional).',
     galleryImages: ['/images/activites/buggy.webp', '/gallery-pages/buggy/bug-1.jpg', '/gallery-pages/buggy/bug-2.jpg', '/gallery-pages/buggy/bug-3.jpg'],
-    price: '129 €'
+    get price() {
+        if (typeof window !== 'undefined' && window.ProductData) {
+            var p = window.ProductData.getProduct('buggy');
+            if (p && p.priceEUR) return p.priceEUR + ' €';
+        }
+        return '129 €';
+    }
 };

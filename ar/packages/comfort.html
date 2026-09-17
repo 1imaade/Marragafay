@@ -644,9 +644,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -805,7 +805,7 @@
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
               <span class="text-[#EAE8E3]/90">الخاصة</span>
             </nav>
-            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">رحلة صحراء أكافاي مع كواد، ركوب الجمال وعشاء بدوي</h1>
+            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3" data-product="private" data-field="title">أمسية أجافي الخاصة</h1>
             <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">عش تجربة صحراوية لا تُنسى في صحراء أكافاي انطلاقاً من مراكش. تشمل النقل من فندقك، قيادة الكواد عبر المسارات الحجرية، جولة على الجمال وقت الغروب، وعشاءً مغربياً أصيلاً تحت قبة النجوم.</p>
 
             <div class="flex items-center gap-2 mt-0 text-[13px] font-medium text-[#F6F7EA] drop-shadow-md">
@@ -837,7 +837,8 @@
             <div>
               <div class="flex items-baseline gap-2">
                 <span class="text-[15px] font-normal text-[#10100E]/90">ابتداء من</span>
-                <span class="text-[32px] font-bold text-[#523225] tracking-tight">75 €</span>
+                <span class="text-[32px] font-bold text-[#523225] tracking-tight" data-product="private" data-field="price-eur">75 €</span>
+                <span class="text-[13px] font-normal text-[#10100E]/60 ml-1" data-product="private" data-field="price-mad" data-format="parentheses">(750 درهم)</span>
                 <span class="text-[15px] font-normal text-[#10100E]/90">/ شخص</span>
               </div>
               <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">مساعدة مباشرة لإتمام طلبك</span>
@@ -964,7 +965,7 @@
           </form>
           <div class="hidden xl:block text-left mt-2 pl-4 space-y-1">
             <p class="text-[12px] text-[#10100E]/90 font-medium tracking-tight mb-0">اختر تاريخك وأرسل بياناتك. نؤكد التوفر ونقطة الانطلاق والتفاصيل النهائية معك عبر واتساب.</p>
-            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">نقل مشترك من الباب إلى الباب حسب إمكانية وصول المركبة (نقطة قريبة في حال وجود أزقة ضيقة). لا يلزم أي دفع مسبق.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal tracking-tight mb-0">نقل خاص ذهاباً وإياباً من الباب إلى الباب من مقر إقامتك في مراكش. لا يلزم أي دفع مسبق.</p>
           </div>
           </div><!-- Close Form Wrapper -->
 
@@ -972,7 +973,7 @@
 
           <div class="w-full flex flex-col justify-start xl:hidden mt-2 space-y-1">
             <p class="text-[12px] text-[#10100E]/90 font-medium text-left tracking-tight mb-0">اختر تاريخك وأرسل بياناتك. نؤكد التوفر ونقطة الانطلاق والتفاصيل النهائية معك عبر واتساب.</p>
-            <p class="text-[11px] text-[#10100E]/70 font-normal text-left tracking-tight mb-0">نقل مشترك من الباب إلى الباب حسب إمكانية وصول المركبة (نقطة قريبة في حال وجود أزقة ضيقة). لا يلزم أي دفع مسبق.</p>
+            <p class="text-[11px] text-[#10100E]/70 font-normal text-left tracking-tight mb-0">نقل خاص ذهاباً وإياباً من الباب إلى الباب من مقر إقامتك في مراكش. لا يلزم أي دفع مسبق.</p>
           </div>
 
         </div>
@@ -1027,7 +1028,7 @@
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">وسائل نقل مشتركة من فندقك في مراكش لبداية مريحة وخالية من المتاعب لتجربتك الصحراوية.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">نقل خاص ذهاباً وإياباً من فندقك أو رياضك في مراكش لبداية حصرية وخالية من المتاعب لأمسيتك الصحراوية.</p>
               </div>
             </div>
             </div>
@@ -1156,37 +1157,46 @@
 
 
           <div class="mb-8 mt-6">
-            <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">ما هو مدرج</h4>
-            <ul class="space-y-3"><li class="flex items-start gap-3">
+            <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">ما تشمله الباقة</h4>
+            <ul class="space-y-3" data-product="private" data-field="inclusions"><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">المغامرة الرباعية: ساعة واحدة عبر التلال الصحراوية.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">النقل: نقل خاص ذهاباً وإياباً من وإلى الفندق / الرياض.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">ركوب الجمال: 30 دقيقة خلال غروب الشمس الذهبي.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">جلسة كواد حصرية: ساعة ونصف (1h30) من قيادة الكواد الخاص في صحراء أكافاي.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">عشاء مغربي: وجبة تقليدية متكاملة في قلب الصحراء.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">مرشد خاص مخصص: مرشد مهني خاص يرافق مجموعتك.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">عرض حي: عرض النار والموسيقى تحت النجوم.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">ركوب الجمال: جولة لمدة 20 دقيقة عند غروب الشمس فوق التلال.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">الدخول إلى حمام السباحة: استخدام حمام السباحة المشترك والشاي المغربي بالنعناع.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">دخول المسبح والشاي المغربي التقليدي بالنعناع.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">نقل مشترك من الباب إلى الباب: التوصيل من وإلى فندقك أو رياضك (أو أقرب نقطة وصول آمنة للمركبة).</span>
+                <span class="text-[14px] font-medium text-[#10100E]">استراحة تصوير مخصصة لمشاهدة غروب الشمس في الأفق الصحراوي.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">عشاء مغربي تقليدي كامل وفاخر على ضوء الشموع.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">عرض حي: استعراض آكلي النار وموسيقى بربرية حية.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المشروبات: مياه معدنية معبأة متوفرة طوال التجربة.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المعدات والسلامة: خوذات وشاش وسترات وإرشادات سلامة احترافية.</span>
               </li></ul>
           </div>
 
 
           <div class="mt-8">
-            <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">غير متضمنة</h4>
+            <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">غير مشمول</h4>
             <ul class="space-y-3"><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">لا يشمل مرشداً سياحياً (تجربة حرة ومستقلة)</span>
-              </li><li class="flex items-start gap-3 opacity-90">
-                <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">مشروبات إضافية</span>
+                <span class="text-[14px] font-medium text-[#10100E]">المصاريف الشخصية، الإكراميات الاختيارية، المشروبات الإضافية.</span>
               </li></ul>
           </div>
 
@@ -2200,6 +2210,8 @@
   });
 </script>
 
+  <script defer src="/js/product-localization.js"></script>
+  <script defer src="/js/product-data.js"></script>
   <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

@@ -2,7 +2,7 @@
 // Database persistence is the booking result; notification delivery is secondary.
 
 import { createClient } from '@supabase/supabase-js';
-import { calculateTrustedTotal, resolveProduct } from './booking-catalog.js';
+import { calculateTrustedTotal, resolveProduct, resolveServerProduct } from './booking-catalog.js';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://bgjohquanepghmlmdiyd.supabase.co';
 const MAX_BODY_BYTES = 32 * 1024;
@@ -286,12 +286,12 @@ export function normalizeAttribution(raw) {
   };
 }
 
-function normalizeBooking(body) {
+async function normalizeBooking(body) {
   if (!body || Array.isArray(body) || typeof body !== 'object') {
     throw new ValidationError('Request body must be an object');
   }
 
-  const product = resolveProduct(scalarValue(body, [
+  const product = await resolveServerProduct(scalarValue(body, [
     'product_id', 'productId', 'product', 'package_title', 'package'
   ]));
   if (!product) throw new ValidationError('product_id is invalid');
@@ -361,10 +361,15 @@ function buildEmailHtml(booking) {
     ? `<a href="${safeWaUrl}" target="_blank" rel="noopener" style="display:block;text-align:center;background:#18181B;color:#FFF;font-size:13px;font-weight:600;padding:11px 20px;border-radius:6px;text-decoration:none;">Contact Customer on WhatsApp ↗</a>`
     : '';
 
+  const isFallback = booking.product.source === 'fallback';
+  const fallbackBanner = isFallback
+    ? '<div style="background:#FEF3C7;border:1px solid #F59E0B;color:#92400E;padding:8px 12px;border-radius:4px;margin-bottom:14px;font-size:12px;font-weight:bold;">⚠️ NOTICE: Fallback pricing was used for this booking because Supabase pricing was unavailable.</div>'
+    : '';
+
   return `<!DOCTYPE html><html><body style="margin:0;padding:24px 12px;background:#F4F4F5;font-family:Arial,sans-serif;color:#18181B;">
   <div style="max-width:480px;margin:0 auto;background:#FFF;border:1px solid #E4E4E7;border-top:3px solid #18181B;border-radius:8px;overflow:hidden;">
     <div style="padding:20px 24px 16px;background:#FAFAFA;border-bottom:1px solid #F4F4F5;"><div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#71717A;">MARRAGAFAY BOOKING</div><div style="font-size:16px;font-weight:700;margin-top:2px;">${safeProductTitle}</div></div>
-    <div style="padding:20px 24px 22px;"><table style="width:100%;border-collapse:collapse;margin-bottom:18px;">
+    <div style="padding:20px 24px 22px;">${fallbackBanner}<table style="width:100%;border-collapse:collapse;margin-bottom:18px;">
       <tr><td style="padding:6px 0;width:110px;color:#71717A;">Customer</td><td style="padding:6px 0;font-weight:600;">${safeName}</td></tr>
       <tr><td style="padding:6px 0;color:#71717A;">WhatsApp</td><td style="padding:6px 0;font-weight:600;">${waUrl ? `<a href="${safeWaUrl}" style="color:#18181B;">${safePhone}</a>` : safePhone}</td></tr>
       <tr><td style="padding:6px 0;color:#71717A;">Booking Date</td><td style="padding:6px 0;font-weight:600;">${safeDate}</td></tr>
@@ -425,6 +430,9 @@ async function sendNotification(booking, bookingId) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return { success: false, reason: 'not_configured' };
 
+  const isFallback = booking.product.source === 'fallback';
+  const subjectPrefix = isFallback ? '[FALLBACK PRICING] ' : '';
+
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 8_000);
   try {
@@ -436,7 +444,7 @@ async function sendNotification(booking, bookingId) {
         from: 'Marragafay Bookings <onboarding@resend.dev>',
         to: [process.env.NOTIFICATION_EMAIL || 'marragafay@gmail.com'],
         ...(booking.email ? { reply_to: booking.email } : {}),
-        subject: `BOOKING: ${booking.product.title} - ${booking.name} (${booking.pricing.totalEur} € / ${booking.pricing.totalMad} MAD)`,
+        subject: `${subjectPrefix}BOOKING: ${booking.product.title} - ${booking.name} (${booking.pricing.totalEur} € / ${booking.pricing.totalMad} MAD)`,
         html: buildEmailHtml(booking),
         headers: { 'X-Marragafay-Booking-Id': String(bookingId || '') }
       })
@@ -456,7 +464,7 @@ export default async function handleBooking(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ booking_success: false, error: 'Method Not Allowed' });
 
   try {
-    const booking = normalizeBooking(parseJsonBody(req));
+    const booking = await normalizeBooking(parseJsonBody(req));
     const saved = await insertBooking(booking);
     const notification = await sendNotification(booking, saved?.id);
 
@@ -470,6 +478,7 @@ export default async function handleBooking(req, res) {
       source_category: booking.attribution?.source_category || null,
       trusted_total_mad: booking.pricing.totalMad,
       trusted_total_eur: booking.pricing.totalEur,
+      pricing_source: booking.product.source || 'fallback',
       dry_run: isSafeLocalDryRun()
     });
   } catch (error) {

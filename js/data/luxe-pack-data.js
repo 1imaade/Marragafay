@@ -78,21 +78,27 @@ const luxePackData = {
     ],
 
     // Inclusions
-    inclusions: [
-        'Private round-trip transfer',
-        '3h private quad exploration',
-        'Agafay & Atlas route',
-        'Moroccan lunch',
-        'Pool + mint tea',
-        '45min camel',
-        'Sunset pause',
-        'Dinner + live show',
-        'Dedicated full-day guide',
-        'Desert scarf to wear & keep',
-        'Bottled water + soft drink',
-        'Moroccan sweets',
-        'Safety gear & briefing'
-    ],
+    get inclusions() {
+        if (typeof window !== 'undefined' && window.ProductData) {
+            var p = window.ProductData.getProduct('private-plus');
+            if (p && Array.isArray(p.includes)) return p.includes;
+        }
+        return [
+            'Private hotel / riad transfer',
+            '3h private quad exploration across Agafay & the Atlas',
+            'Traditional Moroccan lunch',
+            'Pool access & Moroccan mint tea',
+            '45min camel ride',
+            'Sunset pause',
+            'Traditional Moroccan dinner',
+            'Live fire & music show',
+            'Dedicated full-day guide',
+            'Desert scarf to wear & keep',
+            'Bottled water + soft drink',
+            'Moroccan sweets',
+            'Safety gear & briefing'
+        ];
+    },
 
     notIncluded: 'Personal purchases, gratuities (optional).',
 
@@ -104,5 +110,11 @@ const luxePackData = {
     ],
 
     // Pricing
-    price: '119 €'
+    get price() {
+        if (typeof window !== 'undefined' && window.ProductData) {
+            var p = window.ProductData.getProduct('private-plus');
+            if (p && p.priceEUR) return p.priceEUR + ' €';
+        }
+        return '119 €';
+    }
 };

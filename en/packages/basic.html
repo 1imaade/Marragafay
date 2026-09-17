@@ -644,9 +644,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -803,13 +803,13 @@
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
               <a href="#" class="text-[#EAE8E3]/90 hover:text-white transition-colors duration-300">Experiences</a>
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
-              <span class="text-[#EAE8E3]/90">Standard</span>
+              <span class="text-[#EAE8E3]/90" data-product="standard" data-field="name">Standard</span>
             </nav>
             <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">Agafay Evening Experience</h1>
             <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">An accessible and thrilling half-day introduction to Morocco's stone desert. Ride high-performance quads across barren hills and experience a peaceful camel trek with mountain views.</p>
 
             <div class="flex items-center gap-3 mt-0 text-sm font-bold text-[#F6F7EA] drop-shadow-md">
-              <span class="text-[#EAE8E3]/90">Half-Day Tour</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Shared Departure</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Central Meeting Point</span>
+              <span class="text-[#EAE8E3]/90" data-product="standard" data-field="transport">Shared Hotel/Riad Pickup</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90" data-product="standard" data-field="duration">15:30 — 22:00</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Dinner &amp; Show</span>
             </div>
           </div>
         </div>
@@ -837,8 +837,9 @@
             <div>
               <div class="flex items-baseline gap-2">
                 <span class="text-[15px] font-normal text-[#10100E]/90">Starting at</span>
-                <span class="text-[32px] font-bold text-[#523225] tracking-tight">45 €</span>
+                <span class="text-[32px] font-bold text-[#523225] tracking-tight" data-product="standard" data-field="price-eur">45 €</span>
                 <span class="text-[15px] font-normal text-[#10100E]/90">/ person</span>
+                <span class="text-[13px] font-normal text-[#10100E]/60 ml-1" data-product="standard" data-field="price-mad" data-format="parentheses">(450 MAD)</span>
               </div>
               <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">Direct booking support</span>
             </div>
@@ -1021,13 +1022,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 1</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Transport Arrival</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">15:30 — Shared Pickup &amp; Arrival</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Meeting point pickup from central Marrakech for a hassle-free start to your desert evening.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Shared pickup from your hotel or riad in Marrakech for a comfortable and hassle-free start to your desert evening.</p>
               </div>
             </div>
             </div>
@@ -1040,13 +1041,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 2</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Quad Session</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Quad Biking Adventure (1 Hour)</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Discover wild and arid expanses, guided by experts for a safe experience. Enjoy the feeling of freedom while exploring this unique setting, in an exciting and memorable atmosphere.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Navigate the desert dunes and lunar trails on a 1-hour quad biking ride across Agafay. Safety gear and briefing included.</p>
               </div>
             </div>
             </div>
@@ -1059,13 +1060,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 3</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Camel Ride</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Camel Trek &amp; Sunset Photo Pause (20 Min)</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Experience a unique journey through the golden dunes of the Agafay desert, discovering and admiration. Admire the natural beauty of this magical place, away from the bustle, in a peaceful and serene atmosphere.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Experience a peaceful 20-minute camel trek across the desert ridgeline with a dedicated stop for sunset photos.</p>
               </div>
             </div>
             </div>
@@ -1078,13 +1079,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 4</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Pool &amp; Tea</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Pool Access &amp; Mint Tea</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Relax by the pool and enjoy a refreshing cup of traditional Moroccan mint tea, the perfect complement to your desert adventure.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Relax by the pool and enjoy a refreshing cup of traditional Moroccan mint tea and bottled water.</p>
               </div>
             </div>
             </div>
@@ -1097,13 +1098,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 5</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Dinner</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Traditional Moroccan Dinner</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Savor an authentic Moroccan dinner surrounded by desert landscapes. Discover the rich flavors of traditional cuisine, with expertly prepared dishes, from fragrant tagines to delicate pastries.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Savor an authentic Moroccan dinner surrounded by desert landscapes, featuring traditional tagines and local specialties.</p>
               </div>
             </div>
             </div>
@@ -1116,13 +1117,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 6</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Live Show</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Live Fire &amp; Music Show</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Let yourself be carried away by the beauty and energy of this unique show, for an unforgettable memory. Immerse yourself in an enchanting cultural show under the stars, combining live music, traditional dance and artistic ambiance.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Let yourself be carried away by live Berber music and an enchanting fire performance under the stars.</p>
               </div>
             </div>
             </div>
@@ -1135,13 +1136,13 @@
             <div class="flex flex-row justify-between items-center md:block w-full itinerary-header cursor-pointer md:cursor-auto">
               <div class="flex flex-row items-baseline gap-2 md:block itinerary-text-group transition-transform duration-300 ease-in-out origin-left">
                 <div class="itinerary-step text-[18px] font-semibold text-[#523225] tracking-tight capitalize mb-0 md:mb-1">STEP 7</div>
-                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">Transport Return</h3>
+                <h3 class="itinerary-title text-[12px] font-semibold text-[#10100E] tracking-widest uppercase mb-1 md:mb-2">22:00 — Shared Return Transfer</h3>
               </div>
               <svg class="w-4 h-4 text-[#523225] inline-block md:hidden transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
             <div class="grid transition-all duration-300 ease-in-out md:!grid-rows-[1fr] md:!opacity-100 grid-rows-[0fr] opacity-0 itinerary-content">
               <div class="overflow-hidden min-h-0">
-                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Drop-off at the central meeting point in Marrakech after an unforgettable evening under the desert stars.</p>
+                <p class="text-[15px] text-[#5c5c56] leading-[26px] max-w-[500px]">Shared return transfer back to your Marrakech hotel or riad at 22:00 after an unforgettable evening.</p>
               </div>
             </div>
             </div>
@@ -1157,27 +1158,33 @@
 
           <div class="mb-8 mt-6">
             <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">what's included</h4>
-            <ul class="space-y-3"><li class="flex items-start gap-3">
+            <ul class="space-y-3" data-product="standard" data-field="inclusions"><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Quad Adventure: 1 hour of pure desert freedom on quad bike.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Transport: Shared hotel / riad pickup &amp; return.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Camel Ride: 20-minute journey as the desert turns golden at sunset.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Quad Adventure: 1h quad ride across Agafay dunes.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Moroccan Dinner: Traditional dishes served under an open sky.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Camel Ride: 20min camel ride across the desert ridgeline.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Live Show: Hypnotic fire and music performance under the stars.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Pool Access: Relaxing pool access &amp; authentic Moroccan mint tea.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Pool Access: Refreshing dip and traditional mint tea on arrival.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Sunset Pause: Dedicated sunset photo pause over the desert horizon.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Transport: Shared pickup from central Marrakech meeting point.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Moroccan Dinner: Traditional multi-course Moroccan dinner.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Guide: Bilingual professional throughout your experience.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Live Show: Spectacular fire show and live Berber music.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Refreshments: Bottled water included.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Safety &amp; Briefing: Safety gear, helmets, and expert briefing.</span>
               </li></ul>
           </div>
 
@@ -1186,7 +1193,7 @@
             <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">not included</h4>
             <ul class="space-y-3"><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Additional Drinks</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Personal purchases, optional tips, extra drinks.</span>
               </li></ul>
           </div>
 
@@ -1353,7 +1360,7 @@
               </div>
               <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 faq-content" style="margin-top: 0.5rem;">
                 <p class="text-[#5c5c56] min-h-0" style="font-size: 14px; line-height: 1.375; max-width: 42rem; color: #5c5c56; padding-right: 2rem; padding-bottom: 0.5rem; margin: 0;">
-                  Standard transfers depart from our central Marrakech meeting point or shared hotel/riad pickup in modern, shared climate-controlled vehicles.
+                  Standard transfers provide comfortable shared hotel or riad pickup & return in modern, climate-controlled vehicles.
                 </p>
               </div>
             </div>
@@ -2214,6 +2221,7 @@
   });
 </script>
 
+  <script defer src="/js/product-data.js"></script>
   <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)

@@ -78,17 +78,23 @@ const basicPackData = {
     ],
 
     // Inclusions
-    inclusions: [
-        'Shared hotel/riad pickup & return',
-        '1h quad biking',
-        '20min camel ride',
-        'Pool access & Moroccan mint tea',
-        'Sunset photo pause',
-        'Traditional Moroccan dinner',
-        'Live fire & music show',
-        'Bottled water',
-        'Safety gear & briefing'
-    ],
+    get inclusions() {
+        if (typeof window !== 'undefined' && window.ProductData) {
+            var p = window.ProductData.getProduct('standard');
+            if (p && Array.isArray(p.includes)) return p.includes;
+        }
+        return [
+            'Shared hotel/riad pickup & return',
+            '1h quad biking',
+            '20min camel ride',
+            'Pool access & Moroccan mint tea',
+            'Sunset photo pause',
+            'Traditional Moroccan dinner',
+            'Live fire & music show',
+            'Bottled water',
+            'Safety gear & briefing'
+        ];
+    },
 
     notIncluded: 'Personal purchases, optional tips, extra drinks.',
 
@@ -100,5 +106,11 @@ const basicPackData = {
     ],
 
     // Pricing
-    price: '45 €'
+    get price() {
+        if (typeof window !== 'undefined' && window.ProductData) {
+            var p = window.ProductData.getProduct('standard');
+            if (p && p.priceEUR) return p.priceEUR + ' €';
+        }
+        return '45 €';
+    }
 };

@@ -645,9 +645,9 @@
       font-family: 'Clash Grotesk', sans-serif !important;
     }
     /* Enforce solid background color for the navbar */
-    #ftco-navbar, 
-    #ftco-navbar.scrolled, 
-    #ftco-navbar.awake, 
+    #ftco-navbar,
+    #ftco-navbar.scrolled,
+    #ftco-navbar.awake,
     #ftco-navbar.sleep {
       background-color: #F6F7EA !important;
       background: #F6F7EA !important;
@@ -810,13 +810,13 @@
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
               <a href="#" class="text-[#EAE8E3]/90 hover:text-white transition-colors duration-300">Experiencias</a>
               <span class="text-[#EAE8E3]/90 mx-2.5">/</span>
-              <span class="text-[#EAE8E3]/90">El lujo de Marragafay</span>
+              <span class="text-[#EAE8E3]/90" data-product="private-plus" data-field="name">Privado+</span>
             </nav>
-            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3">Agafay y Atlas — Día Completo en Quad</h1>
+            <h1 class="text-[42px] md:text-[64px] font-medium text-[#F6F7EA] tracking-tight leading-[1.05] mb-3" data-product="private-plus" data-field="title">Agafay y Atlas — Día Completo en Quad</h1>
             <p class="text-[14px] md:text-[15px] text-white/75 leading-relaxed font-normal mb-2 max-w-2xl drop-shadow-md">Una experiencia Luxury a medida con elementos privados para su grupo. El transporte, los guías y los detalles exclusivos se verifican y confirman para la fecha solicitada.</p>
 
             <div class="flex items-center gap-3 mt-0 text-sm font-medium text-[#F6F7EA] drop-shadow-md">
-              <span class="text-amber-400">Elementos privados</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Confirmación bajo solicitud</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Cena y Espectáculo</span>
+              <span class="text-[#EAE8E3]/90">Día Completo (<span data-product="private-plus" data-field="duration">09:00–22:00</span>)</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90" data-product="private-plus" data-field="transport">Traslado privado de ida y vuelta</span><span class="opacity-50">·</span><span class="font-normal text-[#F6F7EA]/90">Almuerzo, Cena y Show</span>
             </div>
           </div>
         </div>
@@ -844,7 +844,8 @@
             <div>
               <div class="flex items-baseline gap-2">
                 <span class="text-[15px] font-normal text-[#10100E]/90">A partir de</span>
-                <span class="text-[32px] font-bold text-[#523225] tracking-tight">119 €</span>
+                <span class="text-[32px] font-bold text-[#523225] tracking-tight" data-product="private-plus" data-field="price-eur">119 €</span>
+                <span class="text-[13px] font-normal text-[#10100E]/60 ml-1" data-product="private-plus" data-field="price-mad" data-format="parentheses">(1190 MAD)</span>
                 <span class="text-[15px] font-normal text-[#10100E]/90">/ persona</span>
               </div>
               <span class="text-[13px] font-normal text-[#10100E]/90 mt-1 block">Asistencia directa para su solicitud</span>
@@ -1164,27 +1165,39 @@
 
           <div class="mb-8 mt-6">
             <h4 class="text-[12px] font-bold text-[#523225] lowercase tracking-widest mb-4">qué está incluido</h4>
-            <ul class="space-y-3"><li class="flex items-start gap-3">
+            <ul class="space-y-3" data-product="private-plus" data-field="inclusions"><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Sesión de Quad: Aventura dedicada en quad por el desierto (sujeto a confirmación de fecha).</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Transporte: Traslado privado de ida y vuelta desde su alojamiento en Marrakech.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Paseo en camello: Travesía al atardecer por las dunas.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Expedición en quad de día completo: 3h explorando pistas de Agafay y estribaciones del Atlas.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Cena marroquí: Menú gourmet completo servido en el campamento en el desierto.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Guía dedicado: Guía profesional privado dedicado durante toda la jornada.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Acceso al espectáculo: Asientos reservados para el espectáculo de fuego y música.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Almuerzo marroquí tradicional servido durante la excursión.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Acceso a la piscina del campamento: Servicios incluidos y ceremonia tradicional de té marroquí.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Paseo en camello: 45 min en el corazón del desierto.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Transporte privado: Vehículo dedicado puerta a puerta (sujeto a accesibilidad del vehículo y confirmación operativa).</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Parada panorámica para fotos al atardecer frente al horizonte del desierto.</span>
               </li><li class="flex items-start gap-3">
                 <span class="text-[#523225] font-black mt-0.5">+</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Guía / Anfitrión dedicado: Confirmado con los detalles de su solicitud de paquete privado.</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Acceso a la piscina del campamento y té de menta marroquí tradicional.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Cena marroquí tradicional completa a la luz de las velas con postres.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Espectáculo en vivo: Espectáculo de fuego y música en directo bajo las estrellas.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Refrescos: Agua mineral y un refresco incluidos.</span>
+              </li><li class="flex items-start gap-3">
+                <span class="text-[#523225] font-black mt-0.5">+</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Equipamiento completo: Cascos, gafas protectoras y sesión de seguridad experta.</span>
               </li></ul>
           </div>
 
@@ -1193,7 +1206,7 @@
             <h4 class="text-[12px] font-bold text-[#10100E]/90 lowercase tracking-widest mb-4">no incluido</h4>
             <ul class="space-y-3"><li class="flex items-start gap-3 opacity-90">
                 <span class="text-[#10100E] font-black mt-0.5">-</span>
-                <span class="text-[14px] font-medium text-[#10100E]">Bebidas Adicionales</span>
+                <span class="text-[14px] font-medium text-[#10100E]">Gastos personales, propinas opcionales, bebidas alcohólicas o adicionales.</span>
               </li></ul>
           </div>
 
@@ -2208,6 +2221,8 @@
   });
 </script>
 
+  <script defer src="/js/product-localization.js"></script>
+  <script defer src="/js/product-data.js"></script>
   <script defer src="/js/dynamic-pricing.js"></script>
 <script>
   // Initialize lightbox for Owl Carousel gallery (if it exists on home page)
