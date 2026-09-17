@@ -5,7 +5,7 @@
 import { BOOKING_PRODUCTS, resolveProduct as resolveFallbackProduct } from './booking-catalog.js';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://bgjohquanepghmlmdiyd.supabase.co';
-const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJnam9ocXVhbmVwZ2htbG1kaXlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2ODI3ODIsImV4cCI6MjA3OTI1ODc4Mn0.O1II649nWTZLgChPDOhITaBd3CJaALE2DZ-otzqG4N8';
+const SUPABASE_PUBLISHABLE_KEY = process.env.SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_i3RLdEPI2p-B_CYrEw6dlw_3bKe9gzh';
 
 // Stable UUIDs for primary packages
 export const STABLE_SUPABASE_IDS = Object.freeze({
@@ -97,8 +97,8 @@ async function fetchSupabasePricingRows(timeoutMs = 2500) {
       method: 'GET',
       signal: controller.signal,
       headers: {
-        apikey: SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        apikey: SUPABASE_PUBLISHABLE_KEY,
+        Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
         'Content-Type': 'application/json'
       }
     });

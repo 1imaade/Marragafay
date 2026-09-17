@@ -12,7 +12,7 @@
     'use strict';
 
     var SUPABASE_URL = 'https://bgjohquanepghmlmdiyd.supabase.co';
-    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJnam9ocXVhbmVwZ2htbG1kaXlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2ODI3ODIsImV4cCI6MjA3OTI1ODc4Mn0.O1II649nWTZLgChPDOhITaBd3CJaALE2DZ-otzqG4N8';
+    var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_i3RLdEPI2p-B_CYrEw6dlw_3bKe9gzh';
 
     // ====================================================================
     // CANONICAL FALLBACK MATRIX (OFFICIAL SOURCE OF TRUTH)
@@ -274,8 +274,8 @@
 
                     var fetchRes = await fetch(endpoint, {
                         headers: {
-                            'apikey': SUPABASE_ANON_KEY,
-                            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
+                            'apikey': SUPABASE_PUBLISHABLE_KEY,
+                            'Authorization': 'Bearer ' + SUPABASE_PUBLISHABLE_KEY
                         },
                         signal: controller ? controller.signal : undefined
                     });
