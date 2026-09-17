@@ -463,11 +463,17 @@ export default async function handleBooking(req, res) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ booking_success: false, error: 'Method Not Allowed' });
 
+  let stage = 'request_parsing';
   try {
-    const booking = await normalizeBooking(parseJsonBody(req));
+    const body = parseJsonBody(req);
+    stage = 'product_resolution_and_pricing';
+    const booking = await normalizeBooking(body);
+    stage = 'supabase_booking_insert';
     const saved = await insertBooking(booking);
+    stage = 'notification_email';
     const notification = await sendNotification(booking, saved?.id);
 
+    stage = 'response_serialization';
     return res.status(200).json({
       booking_success: true,
       notification_success: notification.success,
@@ -485,7 +491,12 @@ export default async function handleBooking(req, res) {
     if (error instanceof ValidationError) {
       return res.status(400).json({ booking_success: false, error: error.message });
     }
-    console.error('Booking endpoint failure:', error?.code || error?.name || 'internal_error');
+    console.error('Booking endpoint failure:', JSON.stringify({
+      stage,
+      code: error?.code || null,
+      name: error?.name || 'Error',
+      message: typeof error?.message === 'string' ? error.message.slice(0, 240) : 'internal_error'
+    }));
     return res.status(500).json({ booking_success: false, error: 'Unable to process booking' });
   }
 }
