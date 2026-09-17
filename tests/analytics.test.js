@@ -97,3 +97,11 @@ test('provider failure never throws or blocks event capture', () => {
   window.posthog.capture = () => { throw new Error('blocked provider'); };
   assert.doesNotThrow(() => analytics.capture('whatsapp_click', { product_id: 'standard' }));
 });
+
+test('inquiry id persists for the visitor journey', () => {
+  const { window } = createAnalytics();
+  const first = window.MarragafayAttribution.generateInquiryId();
+  const second = window.MarragafayAttribution.generateInquiryId();
+  assert.match(first, /^INQ-/);
+  assert.equal(second, first);
+});

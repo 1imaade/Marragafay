@@ -152,9 +152,17 @@
     }
 
     const INQUIRIES_STORAGE_KEY = 'marragafay_inquiries_v1';
+    const INQUIRY_ID_KEY = 'marragafay_inquiry_id_v1';
 
     function generateInquiryId() {
-        return 'INQ-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+        try {
+            const existing = window.localStorage?.getItem(INQUIRY_ID_KEY) || window.sessionStorage?.getItem(INQUIRY_ID_KEY);
+            if (existing) return existing;
+        } catch {}
+        const id = 'INQ-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+        try { window.localStorage?.setItem(INQUIRY_ID_KEY, id); } catch {}
+        try { window.sessionStorage?.setItem(INQUIRY_ID_KEY, id); } catch {}
+        return id;
     }
 
     function recordInquiry(data) {
@@ -202,6 +210,7 @@
         classifySource,
         capture,
         generateInquiryId,
+        inquiryIdKey: INQUIRY_ID_KEY,
         recordInquiry,
         getBookingAttribution
     });
