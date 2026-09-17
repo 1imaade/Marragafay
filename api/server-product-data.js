@@ -206,7 +206,7 @@ function buildFallbackProduct(canonicalKey, fallbackProduct) {
   });
 }
 
-export async function resolveServerProduct(identifier) {
+export async function resolveServerProduct(identifier, observability = {}) {
   const canonicalKey = normalizeCanonicalKey(identifier);
   if (!canonicalKey) return null;
 
@@ -232,16 +232,10 @@ export async function resolveServerProduct(identifier) {
     if (validProduct) {
       return validProduct;
     }
-    console.warn(
-      '[MARRAGAFAY][PRICING] Supabase unavailable — fallback pricing used',
-      canonicalKey
-    );
+    console.warn('[MARRAGAFAY][PRICING] Supabase unavailable — fallback pricing used', JSON.stringify({ event: 'pricing_fallback', product_id: canonicalKey, request_id: observability.requestId || null, reason_category: 'invalid_supabase_product' }));
   } catch (err) {
     // Supabase failure or timeout - safely fall back to local catalog
-    console.warn(
-      '[MARRAGAFAY][PRICING] Supabase unavailable — fallback pricing used',
-      canonicalKey
-    );
+    console.warn('[MARRAGAFAY][PRICING] Supabase unavailable — fallback pricing used', JSON.stringify({ event: 'pricing_fallback', product_id: canonicalKey, request_id: observability.requestId || null, reason_category: err?.name === 'AbortError' ? 'timeout' : 'supabase_unavailable' }));
   }
 
   // Safe local fallback

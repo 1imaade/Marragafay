@@ -1051,17 +1051,14 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             inquiry_id: payload.attribution?.inquiry_id || undefined,
             product_id: result.product_id,
             product_type: result.product_type,
-            customer_total_eur: customerTotalEur,
-            accounting_total_mad: accountingTotalMad,
+            guest_count: Number(payload.adults || payload.guests || 0) + Number(payload.children || 0),
+            trusted_total_eur: customerTotalEur,
+            trusted_total_mad: accountingTotalMad,
+            pricing_source: result.pricing_source,
             source_category: result.source_category || payload.attribution?.source_category || 'other',
-            language: payload.language,
-            inquiry_intent: true
+            locale: payload.language
         };
-
-        if (Array.isArray(window.dataLayer)) {
-            window.dataLayer.push({ event: 'booking_request_submitted', ...properties });
-        }
-        window.MarragafayAnalytics?.capture('booking_request_submitted', properties);
+        window.MarragafayAnalytics?.capture('booking_success', properties, `booking_success:${bookingId}`);
     }
 
     function showBookingError(message) {
@@ -1106,6 +1103,11 @@ document.addEventListener('booking-legacy-submit', async function (e) {
 
         try {
             const payload = formPayload(form);
+            window.MarragafayAnalytics?.capture('booking_submit', {
+                product_id: productId,
+                guest_count: Number(payload.adults || payload.guests || 0) + Number(payload.children || 0),
+                locale: lang
+            }, `booking_submit:${location.pathname}:${form.id || 'form'}`);
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             let result = null;
 
@@ -1169,6 +1171,11 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             window.location.href = target;
         } catch (error) {
             console.error('Booking submission failed:', error?.message || 'request_failed');
+            window.MarragafayAnalytics?.capture('booking_failure', {
+                product_id: productId,
+                error_stage: 'client_submission',
+                safe_error_code: 'client_request_failed'
+            }, `booking_failure:${location.pathname}:${form.id || 'form'}`);
             showBookingError(error?.message);
         } finally {
             form.dataset.submitting = 'false';

@@ -209,23 +209,143 @@
     capture();
 })(window, document);
 
-// Queue manual captures until the asynchronously loaded browser client is ready.
-// This site has no user accounts, so these actions intentionally remain personless.
-(function (window) {
+// One privacy-safe, provider-neutral event contract for the static site.
+// PostHog and the existing GTM dataLayer are sinks; neither is required for
+// commercial actions to continue.
+(function (window, document) {
     'use strict';
 
-    window.MarragafayAnalytics = {
-        capture(event, properties) {
-            if (window.posthog) {
-                window.posthog.capture(event, properties);
-                return;
+    const EVENTS = Object.freeze([
+        'product_view', 'pack_cta_click', 'whatsapp_click', 'booking_open',
+        'booking_start', 'booking_submit', 'booking_success', 'booking_failure'
+    ]);
+    const PRODUCT_IDS = new Set(['standard', 'private', 'private-plus', 'buggy']);
+    const DEDUPE_EVENTS = new Set(['product_view', 'booking_submit', 'booking_success', 'booking_failure']);
+    const SESSION_KEY = 'marragafay_analytics_session_v1';
+    const sent = new Set();
+
+    function safeString(value, max = 200) {
+        return typeof value === 'string' ? value.replace(/[\u0000-\u001F\u007F]/g, '').trim().slice(0, max) : undefined;
+    }
+
+    function sessionId() {
+        try {
+            let value = window.sessionStorage.getItem(SESSION_KEY);
+            if (!value) {
+                value = `s_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
+                window.sessionStorage.setItem(SESSION_KEY, value);
             }
-            window.addEventListener('posthog:ready', (readyEvent) => {
-                readyEvent.detail.capture(event, properties);
-            }, { once: true });
-        }
-    };
-})(window);
+            return value;
+        } catch { return 's_ephemeral'; }
+    }
+
+    function locale() {
+        const value = (document.documentElement?.lang || 'en').toLowerCase().split('-')[0];
+        return ['en', 'fr', 'es', 'ar'].includes(value) ? value : 'en';
+    }
+
+    function attribution() {
+        try {
+            const value = window.MarragafayAttribution?.capture?.();
+            const touch = value?.last_touch || value?.first_touch || {};
+            return {
+                source_category: safeString(window.MarragafayAttribution?.classifySource?.(touch) || 'direct', 40),
+                utm_source: safeString(touch.utm_source, 100),
+                utm_medium: safeString(touch.utm_medium, 100),
+                utm_campaign: safeString(touch.utm_campaign, 200),
+                utm_term: safeString(touch.utm_term, 200),
+                utm_content: safeString(touch.utm_content, 200),
+                gclid: safeString(touch.gclid, 200),
+                fbclid: safeString(touch.fbclid, 200),
+                referrer_category: safeString(window.MarragafayAttribution?.classifySource?.({ referrer: touch.referrer }) || 'direct', 40)
+            };
+        } catch { return { source_category: 'other', referrer_category: 'other' }; }
+    }
+
+    function productId(value) {
+        const normalized = safeString(value, 60)?.toLowerCase().replace(/\s+/g, '-');
+        const aliases = { basic: 'standard', comfort: 'private', luxe: 'private-plus', 'private+': 'private-plus' };
+        const canonical = aliases[normalized] || normalized;
+        return PRODUCT_IDS.has(canonical) ? canonical : undefined;
+    }
+
+    function capture(event, properties = {}, dedupeKey) {
+        if (!EVENTS.includes(event)) return false;
+        const key = dedupeKey || (DEDUPE_EVENTS.has(event) ? `${event}:${location.pathname}:${properties.product_id || ''}` : null);
+        if (key && sent.has(key)) return false;
+        if (key) sent.add(key);
+
+        const source = attribution();
+        const payload = {
+            event,
+            timestamp: new Date().toISOString(),
+            session_id: sessionId(),
+            locale: locale(),
+            page_path: safeString(window.location.pathname || '/', 400),
+            ...source,
+            ...properties
+        };
+        Object.keys(payload).forEach((key) => {
+            if (payload[key] === undefined || payload[key] === null || payload[key] === '') delete payload[key];
+        });
+
+        try { if (Array.isArray(window.dataLayer)) window.dataLayer.push(payload); } catch {}
+        try {
+            if (window.MarragafayAnalytics.debug) console.debug('[MarragafayAnalytics]', payload);
+            if (typeof window.posthog?.capture === 'function') window.posthog.capture(event, payload);
+        } catch {}
+        return true;
+    }
+
+    function productFrom(element) {
+        const node = element?.closest?.('[data-product]') || element;
+        return productId(node?.getAttribute?.('data-product')) || productId(document.querySelector('[data-product]')?.getAttribute('data-product'));
+    }
+
+    function ctaLocation(element) {
+        return safeString(element?.dataset?.ctaLocation || element?.id || element?.getAttribute?.('aria-label') || 'cta', 100);
+    }
+
+    function initTracking() {
+        const products = new Set();
+        document.querySelectorAll('[data-product]').forEach((element) => {
+            const id = productId(element.getAttribute('data-product'));
+            if (id) products.add(id);
+        });
+        products.forEach((id) => capture('product_view', { product_id: id }, `product_view:${location.pathname}:${id}`));
+
+        document.addEventListener('click', (event) => {
+            const element = event.target?.closest?.('a,button');
+            if (!element) return;
+            const href = element.getAttribute('href') || '';
+            const isWhatsApp = /(^|:)\/\/(wa\.me|(?:[^/]+\.)?whatsapp\.com)\b/i.test(href);
+            if (isWhatsApp) return;
+            const isCommercial = element.matches('[data-package], [data-product], .booking-btn, #cta-book-now, .btn-reserve, [href*="/packages/"]');
+            if (isCommercial) capture('pack_cta_click', {
+                product_id: productFrom(element),
+                cta_location: ctaLocation(element)
+            });
+        }, { passive: true });
+
+        const scanVisibleBookingForms = () => document.querySelectorAll('.booking-form, #bookingForm, #booking-form, #booking-form-activity').forEach((form) => {
+            if (form.offsetParent !== null) capture('booking_open', { product_id: productFrom(form), cta_location: ctaLocation(form) }, `booking_open:${location.pathname}:${form.id || 'form'}`);
+            if (form.dataset.analyticsBound === 'true') return;
+            form.dataset.analyticsBound = 'true';
+            let started = false;
+            form.addEventListener('input', () => {
+                if (!started) { started = true; capture('booking_start', { product_id: productFrom(form) }, `booking_start:${location.pathname}:${form.id || 'form'}`); }
+            }, { passive: true });
+        });
+        scanVisibleBookingForms();
+
+        // Modal booking forms can be injected or become visible after a CTA.
+        document.addEventListener('click', () => window.setTimeout(scanVisibleBookingForms, 0), { passive: true });
+    }
+
+    window.MarragafayAnalytics = { EVENTS, PRODUCT_IDS, capture, productId, debug: false };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initTracking, { once: true });
+    else initTracking();
+})(window, document);
 
 // The static site retrieves its public browser configuration from the Vercel
 // runtime, allowing PostHog to be initialized once without embedding values in

@@ -115,7 +115,9 @@
       event.shiftKey || event.altKey;
 
     if (window.MarragafayAnalytics) {
-      window.MarragafayAnalytics.capture('whatsapp_contact_started', {
+      window.MarragafayAnalytics.capture('whatsapp_click', {
+        product_id: link.closest('[data-product]')?.getAttribute('data-product') || undefined,
+        cta_location: link.dataset.ctaLocation || link.id || 'whatsapp_button',
         opens_in_new_tab: preservesNativeNavigation,
         click_intent: true,
         inquiry_id: link.getAttribute('data-inquiry-id') || undefined

@@ -2,6 +2,7 @@
 // Database persistence is the booking result; notification delivery is secondary.
 
 import { calculateTrustedTotal, resolveProduct, resolveServerProduct } from './booking-catalog.js';
+import { randomUUID } from 'node:crypto';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://bgjohquanepghmlmdiyd.supabase.co';
 const MAX_BODY_BYTES = 32 * 1024;
@@ -285,14 +286,14 @@ export function normalizeAttribution(raw) {
   };
 }
 
-async function normalizeBooking(body) {
+async function normalizeBooking(body, requestId) {
   if (!body || Array.isArray(body) || typeof body !== 'object') {
     throw new ValidationError('Request body must be an object');
   }
 
   const product = await resolveServerProduct(scalarValue(body, [
     'product_id', 'productId', 'product', 'package_title', 'package'
-  ]));
+  ]), { requestId });
   if (!product) throw new ValidationError('product_id is invalid');
 
   const name = safeString(scalarValue(body, ['name', 'full_name']), 'name', MAX_NAME_LENGTH, true);
@@ -474,18 +475,21 @@ export default async function handleBooking(req, res) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ booking_success: false, error: 'Method Not Allowed' });
 
+  const requestId = String(req.headers?.['x-request-id'] || req.headers?.['x-vercel-id'] || randomUUID()).slice(0, 120);
+  const startedAt = Date.now();
   let stage = 'request_parsing';
+  console.log(JSON.stringify({ event: 'booking_request', request_id: requestId, stage, method: req.method }));
   try {
     const body = parseJsonBody(req);
     stage = 'product_resolution_and_pricing';
-    const booking = await normalizeBooking(body);
+    const booking = await normalizeBooking(body, requestId);
     stage = 'supabase_booking_insert';
     const saved = await insertBooking(booking);
     stage = 'notification_email';
     const notification = await sendNotification(booking, saved?.id);
 
     stage = 'response_serialization';
-    return res.status(200).json({
+    const response = {
       booking_success: true,
       notification_success: notification.success,
       booking_id: saved?.id ?? null,
@@ -497,14 +501,21 @@ export default async function handleBooking(req, res) {
       trusted_total_eur: booking.pricing.totalEur,
       pricing_source: booking.product.source || 'fallback',
       dry_run: isSafeLocalDryRun()
-    });
+    };
+    console.log(JSON.stringify({ event: 'booking_completed', request_id: requestId, stage: 'response_serialization', product_id: booking.product.canonicalKey || response.product_id, locale: booking.language, pricing_source: response.pricing_source, guest_count: booking.pricing.totalGuests, status: 200, duration_ms: Date.now() - startedAt }));
+    return res.status(200).json(response);
   } catch (error) {
     if (error instanceof ValidationError) {
+      console.warn(JSON.stringify({ event: 'booking_failure', request_id: requestId, stage, code: 'VALIDATION_ERROR', status: 400, duration_ms: Date.now() - startedAt }));
       return res.status(400).json({ booking_success: false, error: error.message });
     }
     console.error('Booking endpoint failure:', JSON.stringify({
+      event: 'booking_failure',
+      request_id: requestId,
       stage,
       code: error?.code || null,
+      status: 500,
+      duration_ms: Date.now() - startedAt,
       name: error?.name || 'Error',
       message: typeof error?.message === 'string' ? error.message.slice(0, 240) : 'internal_error'
     }));
