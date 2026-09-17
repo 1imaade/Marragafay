@@ -1,7 +1,6 @@
 // Authoritative server-side booking flow.
 // Database persistence is the booking result; notification delivery is secondary.
 
-import { createClient } from '@supabase/supabase-js';
 import { calculateTrustedTotal, resolveProduct, resolveServerProduct } from './booking-catalog.js';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://bgjohquanepghmlmdiyd.supabase.co';
@@ -381,12 +380,10 @@ function buildEmailHtml(booking) {
   </div></body></html>`;
 }
 
-function getSupabaseClient() {
+function getSupabaseSecretKey() {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!serviceRoleKey) throw new Error('SUPABASE_SERVICE_ROLE_KEY is not configured');
-  return createClient(SUPABASE_URL, serviceRoleKey, {
-    auth: { persistSession: false, autoRefreshToken: false }
-  });
+  return serviceRoleKey;
 }
 
 function isSafeLocalDryRun() {
@@ -415,13 +412,26 @@ async function insertBooking(booking) {
   if (isSafeLocalDryRun()) {
     return { id: `local-dry-run-${booking.attribution?.inquiry_id || Date.now()}` };
   }
-  const supabase = getSupabaseClient();
-  const { data, error } = await supabase
-    .from('bookings')
-    .insert(buildBookingRecord(booking))
-    .select('id')
-    .single();
-  if (error) throw error;
+  const secretKey = getSupabaseSecretKey();
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/bookings?select=id`, {
+    method: 'POST',
+    headers: {
+      apikey: secretKey,
+      'Content-Type': 'application/json',
+      Prefer: 'return=representation'
+    },
+    body: JSON.stringify(buildBookingRecord(booking))
+  });
+
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) {
+    const error = new Error(payload?.message || `Supabase booking insert returned HTTP ${response.status}`);
+    error.code = payload?.code || `HTTP_${response.status}`;
+    throw error;
+  }
+
+  const data = Array.isArray(payload) ? payload[0] : payload;
+  if (!data?.id) throw new Error('Supabase booking insert returned no id');
   return data;
 }
 
