@@ -413,10 +413,16 @@ async function insertBooking(booking) {
     return { id: `local-dry-run-${booking.attribution?.inquiry_id || Date.now()}` };
   }
   const secretKey = getSupabaseSecretKey();
+  console.info('Supabase booking request:', JSON.stringify({
+    runtime: 'node_serverless',
+    explicit_user_agent: true,
+    credential_header: 'apikey_only'
+  }));
   const response = await fetch(`${SUPABASE_URL}/rest/v1/bookings?select=id`, {
     method: 'POST',
     headers: {
       apikey: secretKey,
+      'User-Agent': 'Marragafay-Booking-Server/1.0',
       'Content-Type': 'application/json',
       Prefer: 'return=representation'
     },
