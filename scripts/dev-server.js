@@ -128,9 +128,10 @@ const server = createServer(async (req, rawRes) => {
       res.end('Method Not Allowed');
       return;
     }
-    if (url.pathname === '/' || url.pathname === '/index.html') {
+    if (url.pathname === '/' || url.pathname === '/index.html' || /^\/packages\/luxe(?:\.html)?\/?$/.test(url.pathname)) {
       res.statusCode = 308;
-      res.setHeader('Location', `/en${url.search}`);
+      const destination = url.pathname.startsWith('/packages/luxe') ? '/en/packages/luxe' : '/en';
+      res.setHeader('Location', `${destination}${url.search}`);
       res.end();
       return;
     }

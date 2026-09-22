@@ -300,15 +300,19 @@ test('10. Target pages expose complete canonical SEO and product bindings', () =
     });
 });
 
-test('11. Root routing has no independent legacy homepage', () => {
+test('11. Root and legacy luxury routes redirect to localized pages', () => {
     assert.equal(fs.existsSync(path.join(ROOT, 'index.html')), false, 'root index.html must not remain as a homepage');
     const vercel = JSON.parse(fs.readFileSync(path.join(ROOT, 'vercel.json'), 'utf-8'));
     const routes = vercel.routes;
     assert.deepEqual(routes.find(route => route.src === '^/$'), { src: '^/$', headers: { Location: '/en' }, status: 308 });
     assert.deepEqual(routes.find(route => route.src === '^/index\\.html$'), { src: '^/index\\.html$', headers: { Location: '/en' }, status: 308 });
+    assert.deepEqual(routes.find(route => route.src === '^/packages/luxe$'), { src: '^/packages/luxe$', headers: { Location: '/en/packages/luxe' }, status: 308 });
+    assert.deepEqual(routes.find(route => route.src === '^/packages/luxe\\.html$'), { src: '^/packages/luxe\\.html$', headers: { Location: '/en/packages/luxe' }, status: 308 });
     const devServer = fs.readFileSync(path.join(ROOT, 'scripts/dev-server.js'), 'utf-8');
     assert.match(devServer, /url\.pathname === '\/' \|\| url\.pathname === '\/index\.html'/);
-    assert.match(devServer, /setHeader\('Location', `\/en\$\{url\.search\}`\)/);
+    assert.ok(devServer.includes("|| /^\\/packages\\/luxe(?:\\.html)?\\/?$/.test(url.pathname)"));
+    assert.ok(devServer.includes("const destination = url.pathname.startsWith('/packages/luxe') ? '/en/packages/luxe' : '/en'"));
+    assert.ok(devServer.includes("res.setHeader('Location', `${destination}${url.search}`)"));
 });
 
 test('12. Product facts are not reintroduced by active homepage package literals', () => {

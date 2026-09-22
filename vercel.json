@@ -13,6 +13,8 @@
     { "src": "/api/(.*)", "dest": "/api/$1.js" },
     { "src": "^/$", "headers": { "Location": "/en" }, "status": 308 },
     { "src": "^/index\\.html$", "headers": { "Location": "/en" }, "status": 308 },
+    { "src": "^/packages/luxe$", "headers": { "Location": "/en/packages/luxe" }, "status": 308 },
+    { "src": "^/packages/luxe\\.html$", "headers": { "Location": "/en/packages/luxe" }, "status": 308 },
     { "src": "/activities", "dest": "/activities.html" },
     { "src": "/en/activities", "dest": "/en/activities.html" },
     { "src": "/fr/activities", "dest": "/fr/activities.html" },
