@@ -300,19 +300,37 @@ test('10. Target pages expose complete canonical SEO and product bindings', () =
     });
 });
 
-test('11. Root and legacy luxury routes redirect to localized pages', () => {
+test('11. Root and unlocalized product routes redirect to English pages', () => {
     assert.equal(fs.existsSync(path.join(ROOT, 'index.html')), false, 'root index.html must not remain as a homepage');
     const vercel = JSON.parse(fs.readFileSync(path.join(ROOT, 'vercel.json'), 'utf-8'));
     const routes = vercel.routes;
     assert.deepEqual(routes.find(route => route.src === '^/$'), { src: '^/$', headers: { Location: '/en' }, status: 308 });
     assert.deepEqual(routes.find(route => route.src === '^/index\\.html$'), { src: '^/index\\.html$', headers: { Location: '/en' }, status: 308 });
-    assert.deepEqual(routes.find(route => route.src === '^/packages/luxe$'), { src: '^/packages/luxe$', headers: { Location: '/en/packages/luxe' }, status: 308 });
-    assert.deepEqual(routes.find(route => route.src === '^/packages/luxe\\.html$'), { src: '^/packages/luxe\\.html$', headers: { Location: '/en/packages/luxe' }, status: 308 });
+    const legacyRoutes = [
+        ['/packs/?', '/en/packs', ['/packs', '/packs.html']],
+        ['/packs\\.html', '/en/packs', ['/packs', '/packs.html']],
+        ['/packages/basic/?', '/en/packages/basic', ['/packages/basic', '/packages/basic.html']],
+        ['/packages/basic\\.html', '/en/packages/basic', ['/packages/basic', '/packages/basic.html']],
+        ['/packages/comfort/?', '/en/packages/comfort', ['/packages/comfort', '/packages/comfort.html']],
+        ['/packages/comfort\\.html', '/en/packages/comfort', ['/packages/comfort', '/packages/comfort.html']],
+        ['/packages/luxe/?', '/en/packages/luxe', ['/packages/luxe', '/packages/luxe.html']],
+        ['/packages/luxe\\.html', '/en/packages/luxe', ['/packages/luxe', '/packages/luxe.html']],
+        ['/activities/buggy/?', '/en/activities/buggy', ['/activities/buggy', '/activities/buggy.html']],
+        ['/activities/buggy\\.html', '/en/activities/buggy', ['/activities/buggy', '/activities/buggy.html']]
+    ];
+    legacyRoutes.forEach(([pathPattern, destination]) => {
+        const src = `^${pathPattern}$`;
+        assert.deepEqual(routes.find(route => route.src === src), { src, headers: { Location: destination }, status: 308 });
+    });
     const devServer = fs.readFileSync(path.join(ROOT, 'scripts/dev-server.js'), 'utf-8');
     assert.match(devServer, /url\.pathname === '\/' \|\| url\.pathname === '\/index\.html'/);
-    assert.ok(devServer.includes("|| /^\\/packages\\/luxe(?:\\.html)?\\/?$/.test(url.pathname)"));
-    assert.ok(devServer.includes("const destination = url.pathname.startsWith('/packages/luxe') ? '/en/packages/luxe' : '/en'"));
     assert.ok(devServer.includes("res.setHeader('Location', `${destination}${url.search}`)"));
+    legacyRoutes.forEach(([, destination, paths]) => {
+        paths.forEach(pathname => {
+            const target = `['${pathname}', '${destination}']`;
+            assert.ok(devServer.includes(target), `dev server must redirect ${pathname} to ${destination}`);
+        });
+    });
 });
 
 test('12. Product facts are not reintroduced by active homepage package literals', () => {

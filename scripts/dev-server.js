@@ -6,6 +6,18 @@ import handleBooking from '../api/booking-server.js';
 import handlePosthogConfig from '../api/posthog-config.js';
 
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
+const englishRedirects = new Map([
+  ['/packs', '/en/packs'],
+  ['/packs.html', '/en/packs'],
+  ['/packages/basic', '/en/packages/basic'],
+  ['/packages/basic.html', '/en/packages/basic'],
+  ['/packages/comfort', '/en/packages/comfort'],
+  ['/packages/comfort.html', '/en/packages/comfort'],
+  ['/packages/luxe', '/en/packages/luxe'],
+  ['/packages/luxe.html', '/en/packages/luxe'],
+  ['/activities/buggy', '/en/activities/buggy'],
+  ['/activities/buggy.html', '/en/activities/buggy']
+]);
 const portFlag = process.argv.indexOf('--port');
 const requestedPort = portFlag >= 0 ? process.argv[portFlag + 1] : undefined;
 const port = Number(requestedPort || process.env.MARRAGAFAY_DEV_PORT || 5501);
@@ -128,9 +140,12 @@ const server = createServer(async (req, rawRes) => {
       res.end('Method Not Allowed');
       return;
     }
-    if (url.pathname === '/' || url.pathname === '/index.html' || /^\/packages\/luxe(?:\.html)?\/?$/.test(url.pathname)) {
+    const unlocalizedPathname = url.pathname.length > 1 ? url.pathname.replace(/\/$/, '') : url.pathname;
+    const destination = url.pathname === '/' || url.pathname === '/index.html'
+      ? '/en'
+      : englishRedirects.get(unlocalizedPathname);
+    if (destination) {
       res.statusCode = 308;
-      const destination = url.pathname.startsWith('/packages/luxe') ? '/en/packages/luxe' : '/en';
       res.setHeader('Location', `${destination}${url.search}`);
       res.end();
       return;
