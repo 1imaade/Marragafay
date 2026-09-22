@@ -3636,62 +3636,27 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Package data - easily customizable for future changes
-    const packageData = {
-      basic: {
-        title: 'Agafay Evening Experience',
-        link: 'packages/basic',
-        description: 'Paquete de tarde esencial con todo incluido en Agafay. Incluye traslado compartido desde Marrakech, 1h quad, 20min paseo en camello, acceso a piscina, té a la menta, pausa para fotos al atardecer, cena marroquí y espectáculo en vivo.',
-        image: '/images/packs/pack-basic.webp',
-        price: '45 €',
-        priceLabel: '/pers',
-        inclusions: [
-          'Recogida y regreso compartidos hotel/riad (15:30 — 22:00)',
-          '1h de aventura en quad con equipo de seguridad',
-          '20min paseo en camello & pausa para fotos al atardecer',
-          'Acceso a piscina & té marroquí con menta',
-          'Cena tradicional marroquí',
-          'Espectáculo de fuego y música en vivo',
-          'Agua embotellada & sesión informativa de seguridad'
-        ]
-      },
-      comfort: {
-        title: 'Private Agafay Evening',
-        link: 'packages/comfort',
-        description: 'Tarde privada exclusiva en Agafay con traslado privado puerta a puerta, 1h30 quad privado, 20min paseo en camello, guía dedicado, pañuelo del desierto de regalo, dulces marroquíes y cena espectáculo completa.',
-        image: '/images/packs/pack-comfort.webp',
-        price: '75 €',
-        priceLabel: '/pers',
-        inclusions: [
-          'Traslado privado de ida y vuelta (15:30 — 22:00)',
-          '1h30 sesión privada de quad',
-          '20min paseo en camello & pausa al atardecer',
-          'Acceso a piscina & té marroquí con menta',
-          'Cena marroquí + espectáculo de fuego y música en vivo',
-          'Guía dedicado durante toda la velada',
-          'Pañuelo del desierto para usar y conservar',
-          'Agua mineral + refresco & dulces marroquíes'
-        ]
-      },
-      luxury: {
-        title: 'Agafay & Atlas — Full-Day Quad',
-        link: 'packages/luxe',
-        description: 'La mejor experiencia de día completo entre el desierto y las montañas de 09:00 a 22:00. Incluye traslado privado, 3h de exploración privada en quad por Agafay y el Atlas, almuerzo marroquí, piscina, 45min camello, atardecer, cena espectáculo y guía dedicado.',
-        image: '/images/packs/pack-luxury.webp',
-        price: '119 €',
-        priceLabel: '/pers',
-        inclusions: [
-          'Traslado privado de ida y vuelta (09:00 — 22:00)',
-          '3h exploración privada en quad (ruta Agafay y Atlas)',
-          'Almuerzo tradicional marroquí & cena con espectáculo en vivo',
-          'Acceso a piscina & té marroquí con menta',
-          '45min paseo en camello & pausa al atardecer',
-          'Guía dedicado de día completo & pañuelo del desierto',
-          'Agua mineral + refresco & dulces marroquíes',
-          'Equipo completo de seguridad y sesión informativa'
-        ]
-      }
-    };
+    // Package modal data resolves from the shared ProductData source at open time.
+    const PACKAGE_PRODUCT_IDS = { basic: 'standard', comfort: 'private', luxury: 'private-plus' };
+    const PACKAGE_PAGE_PATHS = { basic: 'packages/basic', comfort: 'packages/comfort', luxury: 'packages/luxe' };
+    function buildPackageData(packageType) {
+      const productId = PACKAGE_PRODUCT_IDS[packageType];
+      const product = window.ProductData && window.ProductData.getLocalizedProduct
+        ? window.ProductData.getLocalizedProduct(productId, document.documentElement.lang)
+        : null;
+      if (!product) return null;
+      const locale = (document.documentElement.lang || 'en').slice(0, 2);
+      const priceLabel = { en: '/guest', fr: '/pers', es: '/pers', ar: '/للشخص' }[locale] || '/guest';
+      return {
+        title: product.title || product.name,
+        link: PACKAGE_PAGE_PATHS[packageType],
+        description: (product.includes || []).join(' · '),
+        image: packageType === 'basic' ? '/images/packs/pack-basic.webp' : packageType === 'comfort' ? '/images/packs/pack-comfort.webp' : '/images/packs/pack-luxury.webp',
+        price: product.priceEUR + ' €',
+        priceLabel: priceLabel,
+        inclusions: product.includes || []
+      };
+    }
     // Modal elements
     const modal = document.getElementById('packageModal');
     const modalOverlay = modal.querySelector('.modal-overlay');
@@ -3705,7 +3670,6 @@
     const inclusionsList = modal.querySelector('.inclusions-list');
     // Form elements
     const bookingForm = modal.querySelector('.booking-form');
-    const PACKAGE_PRODUCT_IDS = { basic: 'basic', comfort: 'comfort', luxury: 'luxe' };
     const formButtons = modal.querySelector('.form-buttons');
     // Clickable cards
     const clickableCards = document.querySelectorAll('.clickable-card');
@@ -3714,7 +3678,7 @@
     // Open modal function
     function openModal(packageType) {
       currentPackage = packageType;
-      const data = packageData[packageType];
+      const data = buildPackageData(packageType);
       if (data) {
         const productId = PACKAGE_PRODUCT_IDS[packageType] || '';
         bookingForm.dataset.productId = productId;
@@ -3812,7 +3776,7 @@
       }
       // Simulate booking submission (replace with actual API call)
       // Show success message
-      alert(`Thank you for your interest in our ${packageData[currentPackage].title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
+      alert(`Thank you for your interest in our ${buildPackageData(currentPackage).title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
       // Close modal and reset form
       closeModal();
       this.reset();

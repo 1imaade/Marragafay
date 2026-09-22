@@ -118,6 +118,8 @@ test('4. Canonical product facts (EUR/MAD/timing) align identically across all 4
             }
             assert.ok(prod.transport, `Transport must be localized for ${k} in ${loc}`);
             assert.ok(Array.isArray(prod.includes) && prod.includes.length >= 9, `Inclusions for ${k} in ${loc} must be complete`);
+            assert.ok(prod.cardSummary.includes(prod.facts.quadDuration), `Quad duration for ${k} in ${loc} must come from canonical facts`);
+            assert.ok(prod.cardSummary.includes(prod.facts.camelDuration), `Camel duration for ${k} in ${loc} must come from canonical facts`);
         });
     });
 });
@@ -260,5 +262,59 @@ test('9. Arabic pages preserve dir="rtl" and language declaration', () => {
             html.includes('lang="ar"'),
             `ar/${relPath} must declare lang="ar"`
         );
+    });
+});
+
+test('10. Target pages expose complete canonical SEO and product bindings', () => {
+    const targets = [
+        ['index.html', null],
+        ['packs.html', null],
+        ['packages/basic.html', 'standard'],
+        ['packages/comfort.html', 'private'],
+        ['packages/luxe.html', 'private-plus'],
+        ['activities/buggy.html', 'buggy']
+    ];
+    const requiredFields = ['title', 'name', 'duration', 'transport', 'inclusions', 'price-eur', 'price-mad'];
+
+    targets.forEach(([relPath, productKey]) => {
+        const slug = relPath === 'index.html' ? '' : relPath.replace(/\.html$/, '');
+        LOCALES.forEach(loc => {
+            const html = fs.readFileSync(path.join(ROOT, loc, relPath), 'utf-8');
+            const canonical = `https://www.marragafay.com/${loc}${slug ? '/' + slug : ''}`;
+            assert.ok(html.includes(`<link rel="canonical" href="${canonical}">`), `${loc}/${relPath} canonical must be ${canonical}`);
+            LOCALES.forEach(hloc => {
+                const alternateSlug = slug ? '/' + slug : '';
+                const expected = `https://www.marragafay.com/${hloc}${alternateSlug}`;
+                assert.ok(html.includes(`<link rel="alternate" hreflang="${hloc}" href="${expected}">`), `${loc}/${relPath} must link ${hloc}`);
+            });
+            const defaultSlug = slug ? '/' + slug : '';
+            assert.ok(html.includes(`<link rel="alternate" hreflang="x-default" href="https://www.marragafay.com/en${defaultSlug}">`), `${loc}/${relPath} must link x-default`);
+            assert.match(html, /data-lang="(?:en|fr|es|ar)"/, `${loc}/${relPath} must expose language switcher options`);
+
+            if (productKey) {
+                requiredFields.forEach(field => {
+                    assert.ok(html.includes(`data-product="${productKey}"`) && html.includes(`data-field="${field}"`), `${loc}/${relPath} must bind ${productKey}.${field}`);
+                });
+            }
+        });
+    });
+});
+
+test('11. Root routing has no independent legacy homepage', () => {
+    assert.equal(fs.existsSync(path.join(ROOT, 'index.html')), false, 'root index.html must not remain as a homepage');
+    const vercel = JSON.parse(fs.readFileSync(path.join(ROOT, 'vercel.json'), 'utf-8'));
+    const routes = vercel.routes;
+    assert.deepEqual(routes.find(route => route.src === '^/$'), { src: '^/$', headers: { Location: '/en' }, status: 308 });
+    assert.deepEqual(routes.find(route => route.src === '^/index\\.html$'), { src: '^/index\\.html$', headers: { Location: '/en' }, status: 308 });
+    const devServer = fs.readFileSync(path.join(ROOT, 'scripts/dev-server.js'), 'utf-8');
+    assert.match(devServer, /url\.pathname === '\/' \|\| url\.pathname === '\/index\.html'/);
+    assert.match(devServer, /setHeader\('Location', `\/en\$\{url\.search\}`\)/);
+});
+
+test('12. Product facts are not reintroduced by active homepage package literals', () => {
+    LOCALES.forEach(loc => {
+        const html = fs.readFileSync(path.join(ROOT, loc, 'index.html'), 'utf-8');
+        assert.doesNotMatch(html, /const\s+packageData\s*=/, `${loc}/index.html must resolve modal products from ProductData`);
+        assert.match(html, /function\s+buildPackageData\(packageType\)/, `${loc}/index.html must resolve modal products through ProductData`);
     });
 });

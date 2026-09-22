@@ -24,10 +24,12 @@
             key: 'standard',
             type: 'package',
             name: 'Standard',
+            title: 'Agafay Evening Experience',
             priceEUR: 45,
             priceMAD: 450,
             duration: '15:30–22:00',
             transport: 'Shared hotel / riad pickup & return',
+            facts: { transportMode: 'shared', quadDuration: '1h', camelDuration: '20min' },
             cardSummary: '15:30 — 22:00 · Shared Transfer · 1h Quad · 20min Camel · Dinner & Show',
             includes: [
                 'Shared hotel / riad pickup & return',
@@ -48,10 +50,12 @@
             key: 'private',
             type: 'package',
             name: 'Private',
+            title: 'Private Agafay Evening',
             priceEUR: 75,
             priceMAD: 750,
             duration: '15:30–22:00',
             transport: 'Private hotel / riad transfer',
+            facts: { transportMode: 'private', quadDuration: '1h30', camelDuration: '20min' },
             cardSummary: '15:30 — 22:00 · Private Transfer · 1h30 Quad · 20min Camel · Guide · Dinner & Show',
             includes: [
                 'Private hotel / riad transfer',
@@ -75,10 +79,12 @@
             key: 'private-plus',
             type: 'package',
             name: 'Private+',
+            title: 'Agafay & Atlas — Full-Day Quad',
             priceEUR: 119,
             priceMAD: 1190,
             duration: '09:00–22:00',
             transport: 'Private hotel / riad transfer',
+            facts: { transportMode: 'private', quadDuration: '3h', camelDuration: '45min' },
             cardSummary: '09:00 — 22:00 · Private Transfer · 3h Quad · Lunch & Dinner · 45min Camel · Guide',
             includes: [
                 'Private hotel / riad transfer',
@@ -103,10 +109,12 @@
             key: 'buggy',
             type: 'package',
             name: 'Buggy',
+            title: 'Private Agafay Buggy Experience',
             priceEUR: 129,
             priceMAD: 1290,
             duration: 'Flexible',
             transport: 'Private hotel / riad transfer',
+            facts: { transportMode: 'private', quadDuration: '1h', camelDuration: '20min' },
             cardSummary: 'Flexible Departure · Private Transfer · 1h Buggy (2 guests/buggy) · 20min Camel · Dinner & Show',
             includes: [
                 'Private hotel / riad transfer',
@@ -227,10 +235,12 @@
             key: canonicalKey,
             type: 'package',
             name: fb.name, // Use canonical title capitalization
+            title: fb.title,
             priceEUR: priceEUR,
             priceMAD: priceMAD,
             duration: row.duration || fb.duration,
             transport: transport,
+            facts: clone(fb.facts || {}),
             cardSummary: fb.cardSummary,
             includes: includes,
             description: row.description || fb.description,
@@ -399,7 +409,7 @@
             return base;
         }
 
-        var locFields = engine.getLocalizedFields(base.key, loc);
+        var locFields = engine.getLocalizedFields(base.key, loc, base);
         if (!locFields) return base;
 
         var localized = clone(base);
@@ -511,23 +521,25 @@
     }
 
     function renderInclusionsList(ulElement, includesList) {
-        // Build items while preserving existing CSS classes and styling structure
-        var existingItems = ulElement.querySelectorAll('li');
-        if (existingItems.length === includesList.length) {
-            // Update text nodes directly to prevent breaking child SVGs or badges
-            existingItems.forEach(function (li, idx) {
-                var textSpan = li.querySelector('span.text-\\[14px\\]') || li.querySelector('span:last-child') || li;
-                var itemText = includesList[idx];
-                // Keep "Transport: ", "Quad Adventure: " category prefixes if already present in text
-                var current = textSpan.textContent.trim();
-                var prefixMatch = current.match(/^([^:]+:)\s*(.*)$/);
-                if (prefixMatch && !itemText.startsWith(prefixMatch[1])) {
-                    textSpan.textContent = prefixMatch[1] + ' ' + itemText;
-                } else {
-                    textSpan.textContent = itemText;
-                }
-            });
+        // Reconcile the static shell with the canonical list before replacing text.
+        // Locales previously had different list lengths, which prevented hydration.
+        var existingItems = Array.prototype.slice.call(ulElement.querySelectorAll(':scope > li'));
+        var template = existingItems[0];
+        if (!template) return;
+
+        while (existingItems.length < includesList.length) {
+            var clone = template.cloneNode(true);
+            ulElement.appendChild(clone);
+            existingItems.push(clone);
         }
+        while (existingItems.length > includesList.length) {
+            existingItems.pop().remove();
+        }
+
+        existingItems.forEach(function (li, idx) {
+            var textSpan = li.querySelector('span[class*="text-[14px]"]') || li.querySelector('span:last-child') || li;
+            textSpan.textContent = includesList[idx];
+        });
     }
 
     // ====================================================================

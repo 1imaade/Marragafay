@@ -1,455 +1,161 @@
 /**
- * Marragafay Multilingual Product Presentation Layer
- *
- * Provides natural localized presentation strings for English, French, Spanish, and Arabic.
- * Factual data (prices, durations, transport type, inclusions count, rules) remains strictly
- * canonical in ProductData; this module only handles natural localized presentation.
+ * Marragafay multilingual product presentation.
+ * ProductData owns all product facts; this module only supplies language.
  */
-
 (function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        define([], factory);
-    } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory();
-    } else {
-        root.ProductLocalization = factory();
-    }
+    if (typeof define === 'function' && define.amd) define([], factory);
+    else if (typeof module === 'object' && module.exports) module.exports = factory();
+    else root.ProductLocalization = factory();
 }(typeof self !== 'undefined' ? self : this, function () {
     'use strict';
 
-    var LOCALIZED_DATA = {
+    // No prices, durations, transport rules, or inclusion facts live here.
+    var COPY = {
         en: {
-            standard: {
-                name: 'Standard',
-                title: 'Agafay Evening Experience',
-                transport: 'Shared hotel / riad pickup & return',
-                duration: '15:30–22:00',
-                cardSummary: '15:30 — 22:00 · Shared Transfer · 1h Quad · 20min Camel · Dinner & Show',
-                tag: 'STANDARD · 45€ / guest',
-                fromPrice: 'From 45€ / person',
-                cta: 'View Standard Pack ►',
-                includes: [
-                    'Shared hotel / riad pickup & return',
-                    '1h quad ride across Agafay',
-                    '20min camel ride',
-                    'Pool access & Moroccan mint tea',
-                    'Sunset photo pause',
-                    'Traditional Moroccan dinner',
-                    'Live fire & music show',
-                    'Bottled water included',
-                    'Safety gear & briefing'
-                ]
-            },
-            private: {
-                name: 'Private',
-                title: 'Private Agafay Evening',
-                transport: 'Private hotel / riad transfer',
-                duration: '15:30–22:00',
-                cardSummary: '15:30 — 22:00 · Private Transfer · 1h30 Quad · 20min Camel · Guide · Dinner & Show',
-                tag: 'PRIVATE · 75€ / guest',
-                fromPrice: 'From 75€ / person',
-                cta: 'View Private Pack ►',
-                includes: [
-                    'Private hotel / riad transfer',
-                    '1h30 private quad session',
-                    '20min camel ride',
-                    'Pool access & Moroccan mint tea',
-                    'Sunset photo pause',
-                    'Traditional Moroccan dinner',
-                    'Live fire & music show',
-                    'Dedicated guide',
-                    'Desert scarf to wear & keep',
-                    'Bottled water + soft drink',
-                    'Moroccan sweets',
-                    'Safety gear & briefing'
-                ]
-            },
-            'private-plus': {
-                name: 'Private+',
-                title: 'Agafay & Atlas — Full-Day Quad',
-                transport: 'Private hotel / riad transfer',
-                duration: '09:00–22:00',
-                cardSummary: '09:00 — 22:00 · Private Transfer · 3h Quad · Lunch & Dinner · 45min Camel · Guide',
-                tag: 'PRIVATE+ · 119€ / guest',
-                fromPrice: 'From 119€ / person',
-                cta: 'View Private+ Pack ►',
-                includes: [
-                    'Private hotel / riad transfer',
-                    '3h private quad exploration across Agafay & the Atlas',
-                    'Traditional Moroccan lunch',
-                    'Pool access & Moroccan mint tea',
-                    '45min camel ride',
-                    'Sunset pause',
-                    'Traditional Moroccan dinner',
-                    'Live fire & music show',
-                    'Dedicated full-day guide',
-                    'Desert scarf to wear & keep',
-                    'Bottled water + soft drink',
-                    'Moroccan sweets',
-                    'Safety gear & briefing'
-                ]
-            },
-            buggy: {
-                name: 'Buggy',
-                title: 'Private Agafay Buggy Experience',
-                transport: 'Private hotel / riad transfer',
-                duration: 'Flexible',
-                cardSummary: 'Flexible Departure · Private Transfer · 1h Buggy (2 guests/buggy) · 20min Camel · Dinner & Show',
-                tag: 'BUGGY · 129€ / guest',
-                fromPrice: 'From 129€ / person',
-                cta: 'Discover Buggy Experience ►',
-                includes: [
-                    'Private hotel / riad transfer',
-                    '1h private buggy ride',
-                    'One buggy for two guests',
-                    '20min camel ride',
-                    'Pool access & Moroccan mint tea',
-                    'Sunset photo pause',
-                    'Traditional Moroccan dinner',
-                    'Live fire & music show',
-                    'Dedicated guide',
-                    'Bottled water included',
-                    'Safety gear & briefing'
-                ]
-            }
+            standard: ['Standard', 'Agafay Evening Experience', 'View Standard Pack ►'],
+            private: ['Private', 'Private Agafay Evening', 'View Private Pack ►'],
+            'private-plus': ['Private+', 'Agafay & Atlas — Full-Day Quad', 'View Private+ Pack ►'],
+            buggy: ['Buggy', 'Private Agafay Buggy Experience', 'Discover Buggy Experience ►']
         },
-
         fr: {
-            standard: {
-                name: 'Standard',
-                title: 'Expérience Soirée Agafay',
-                transport: 'Prise en charge et retour partagés depuis votre hôtel ou riad',
-                duration: '15:30–22:00',
-                cardSummary: '15:30 — 22:00 · Transfert Partagé · 1h Quad · 20min Dromadaire · Dîner & Spectacle',
-                tag: 'STANDARD · 45€ / pers',
-                fromPrice: 'À partir de 45€ / personne',
-                cta: 'Découvrir le forfait ►',
-                includes: [
-                    'Prise en charge et retour partagés depuis votre hôtel ou riad',
-                    '1h de quad à travers le désert d\'Agafay',
-                    '20 min de balade à dos de dromadaire',
-                    'Accès piscine & thé à la menthe marocain',
-                    'Pause photo au coucher du soleil',
-                    'Dîner marocain traditionnel',
-                    'Spectacle vivant de feu et musique',
-                    'Eau minérale en bouteille',
-                    'Équipement de sécurité & briefing'
-                ]
-            },
-            private: {
-                name: 'Privé',
-                title: 'Soirée Privée à Agafay',
-                transport: 'Transfert privé aller-retour depuis votre hôtel ou riad',
-                duration: '15:30–22:00',
-                cardSummary: '15:30 — 22:00 · Transfert Privé · 1h30 Quad · 20min Dromadaire · Guide · Dîner & Spectacle',
-                tag: 'PRIVÉ · 75€ / pers',
-                fromPrice: 'À partir de 75€ / personne',
-                cta: 'Découvrir le forfait ►',
-                includes: [
-                    'Transfert privé aller-retour depuis votre hôtel ou riad',
-                    '1h30 de session privée en quad',
-                    '20 min de balade à dos de dromadaire',
-                    'Accès piscine & thé à la menthe marocain',
-                    'Pause photo au coucher du soleil',
-                    'Dîner marocain traditionnel',
-                    'Spectacle vivant de feu et musique',
-                    'Guide dédié',
-                    'Chèche du désert offert à porter et garder',
-                    'Eau en bouteille + boisson sans alcool',
-                    'Pâtisseries marocaines',
-                    'Équipement de sécurité & briefing'
-                ]
-            },
-            'private-plus': {
-                name: 'Privé+',
-                title: 'Agafay & Atlas — Journée Complète Quad',
-                transport: 'Transfert privé aller-retour depuis votre hôtel ou riad',
-                duration: '09:00–22:00',
-                cardSummary: '09:00 — 22:00 · Transfert Privé · 3h Quad · Déjeuner & Dîner · 45min Dromadaire · Guide',
-                tag: 'PRIVÉ+ · 119€ / pers',
-                fromPrice: 'À partir de 119€ / personne',
-                cta: 'Découvrir le forfait ►',
-                includes: [
-                    'Transfert privé aller-retour depuis votre hôtel ou riad',
-                    '3h d\'exploration privée en quad à travers Agafay et l\'Atlas',
-                    'Déjeuner marocain traditionnel',
-                    'Accès piscine & thé à la menthe marocain',
-                    '45 min de balade à dos de dromadaire',
-                    'Pause coucher de soleil',
-                    'Dîner marocain traditionnel',
-                    'Spectacle vivant de feu et musique',
-                    'Guide dédié pour la journée complète',
-                    'Chèche du désert offert à porter et garder',
-                    'Eau en bouteille + boisson sans alcool',
-                    'Pâtisseries marocaines',
-                    'Équipement de sécurité & briefing'
-                ]
-            },
-            buggy: {
-                name: 'Buggy',
-                title: 'Expérience Privée en Buggy à Agafay',
-                transport: 'Transfert privé aller-retour depuis votre hôtel ou riad',
-                duration: 'Flexible',
-                cardSummary: 'Horaires Flexibles · Transfert Privé · 1h Buggy (2 pers/buggy) · 20min Dromadaire · Dîner & Spectacle',
-                tag: 'BUGGY · 129€ / pers',
-                fromPrice: 'À partir de 129€ / personne',
-                cta: 'Découvrir l\'expérience buggy ►',
-                includes: [
-                    'Transfert privé aller-retour depuis votre hôtel ou riad',
-                    '1h de balade privée en buggy',
-                    'Un buggy pour deux personnes',
-                    '20 min de balade à dos de dromadaire',
-                    'Accès piscine & thé à la menthe marocain',
-                    'Pause photo au coucher du soleil',
-                    'Dîner marocain traditionnel',
-                    'Spectacle vivant de feu et musique',
-                    'Guide dédié',
-                    'Eau minérale en bouteille',
-                    'Équipement de sécurité & briefing'
-                ]
-            }
+            standard: ['Standard', 'Expérience Soirée Agafay', 'Découvrir le forfait ►'],
+            private: ['Privé', 'Soirée Privée à Agafay', 'Découvrir le forfait ►'],
+            'private-plus': ['Privé+', 'Agafay & Atlas — Journée Complète Quad', 'Découvrir le forfait ►'],
+            buggy: ['Buggy', 'Expérience Privée en Buggy à Agafay', 'Découvrir l\'expérience buggy ►']
         },
-
         es: {
-            standard: {
-                name: 'Estándar',
-                title: 'Experiencia Nocturna en Agafay',
-                transport: 'Recogida y regreso compartidos desde su hotel o riad',
-                duration: '15:30–22:00',
-                cardSummary: '15:30 — 22:00 · Traslado Compartido · 1h Quad · 20min Camello · Cena y Espectáculo',
-                tag: 'ESTÁNDAR · 45€ / pers',
-                fromPrice: 'Desde 45€ / persona',
-                cta: 'Descubrir el paquete ►',
-                includes: [
-                    'Recogida y regreso compartidos desde su hotel o riad',
-                    '1h de paseo en quad por Agafay',
-                    '20 min de paseo en camello',
-                    'Acceso a la piscina y té de menta marroquí',
-                    'Pausa fotográfica al atardecer',
-                    'Cena tradicional marroquí',
-                    'Espectáculo en vivo de fuego y música',
-                    'Agua mineral embotellada',
-                    'Equipo de seguridad e instrucciones'
-                ]
-            },
-            private: {
-                name: 'Privado',
-                title: 'Velada Privada en Agafay',
-                transport: 'Traslado privado de ida y vuelta desde su hotel o riad',
-                duration: '15:30–22:00',
-                cardSummary: '15:30 — 22:00 · Traslado Privado · 1h30 Quad · 20min Camello · Guía · Cena y Espectáculo',
-                tag: 'PRIVADO · 75€ / pers',
-                fromPrice: 'Desde 75€ / persona',
-                cta: 'Descubrir el paquete ►',
-                includes: [
-                    'Traslado privado de ida y vuelta desde su hotel o riad',
-                    '1h30 de sesión privada en quad',
-                    '20 min de paseo en camello',
-                    'Acceso a la piscina y té de menta marroquí',
-                    'Pausa fotográfica al atardecer',
-                    'Cena tradicional marroquí',
-                    'Espectáculo en vivo de fuego y música',
-                    'Guía exclusivo dedicado',
-                    'Pañuelo del desierto de regalo',
-                    'Agua embotellada + refresco',
-                    'Dulces tradicionales marroquíes',
-                    'Equipo de seguridad e instrucciones'
-                ]
-            },
-            'private-plus': {
-                name: 'Privado+',
-                title: 'Agafay y Atlas — Día Completo en Quad',
-                transport: 'Traslado privado de ida y vuelta desde su hotel o riad',
-                duration: '09:00–22:00',
-                cardSummary: '09:00 — 22:00 · Traslado Privado · 3h Quad · Almuerzo y Cena · 45min Camello · Guía',
-                tag: 'PRIVADO+ · 119€ / pers',
-                fromPrice: 'Desde 119€ / persona',
-                cta: 'Descubrir el paquete ►',
-                includes: [
-                    'Traslado privado de ida y vuelta desde su hotel o riad',
-                    '3h de exploración privada en quad por Agafay y el Atlas',
-                    'Almuerzo tradicional marroquí',
-                    'Acceso a la piscina y té de menta marroquí',
-                    '45 min de paseo en camello',
-                    'Pausa al atardecer',
-                    'Cena tradicional marroquí',
-                    'Espectáculo en vivo de fuego y música',
-                    'Guía dedicado de jornada completa',
-                    'Pañuelo del desierto de regalo',
-                    'Agua embotellada + refresco',
-                    'Dulces tradicionales marroquíes',
-                    'Equipo de seguridad e instrucciones'
-                ]
-            },
-            buggy: {
-                name: 'Buggy',
-                title: 'Experiencia Privada en Buggy por Agafay',
-                transport: 'Traslado privado de ida y vuelta desde su hotel o riad',
-                duration: 'Flexible',
-                cardSummary: 'Salida Flexible · Traslado Privado · 1h Buggy (2 pers/buggy) · 20min Camello · Cena y Espectáculo',
-                tag: 'BUGGY · 129€ / pers',
-                fromPrice: 'Desde 129€ / persona',
-                cta: 'Descubrir experiencia en buggy ►',
-                includes: [
-                    'Traslado privado de ida y vuelta desde su hotel o riad',
-                    '1h de paseo privado en buggy',
-                    'Un buggy para dos personas',
-                    '20 min de paseo en camello',
-                    'Acceso a la piscina y té de menta marroquí',
-                    'Pausa fotográfica al atardecer',
-                    'Cena tradicional marroquí',
-                    'Espectáculo en vivo de fuego y música',
-                    'Guía dedicado',
-                    'Agua mineral embotellada',
-                    'Equipo de seguridad e instrucciones'
-                ]
-            }
+            standard: ['Estándar', 'Experiencia Nocturna en Agafay', 'Descubrir el paquete ►'],
+            private: ['Privado', 'Velada Privada en Agafay', 'Descubrir el paquete ►'],
+            'private-plus': ['Privado+', 'Agafay y Atlas — Día Completo en Quad', 'Descubrir el paquete ►'],
+            buggy: ['Buggy', 'Experiencia Privada en Buggy por Agafay', 'Descubrir experiencia en buggy ►']
         },
-
         ar: {
-            standard: {
-                name: 'القياسية',
-                title: 'تجربة أمسية أكافاي',
-                transport: 'نقل مشترك ذهاباً وإياباً من الفندق أو الرياض',
-                duration: '15:30–22:00',
-                cardSummary: '15:30 — 22:00 · نقل مشترك · ساعة كواد · 20 دقيقة جمل · عشاء وعرض',
-                tag: 'القياسية · 45€ / للضيف',
-                fromPrice: 'ابتداءً من 45€ / للشخص',
-                cta: 'استكشف الباقة ◄',
-                includes: [
-                    'نقل مشترك ذهاباً وإياباً من الفندق أو الرياض',
-                    'ساعة كاملة من قيادة الكواد عبر صحراء أكافاي',
-                    'جولة ركوب الجمال لمدة 20 دقيقة',
-                    'دخول المسبح وشاي مغربي تقليدي بالنعناع',
-                    'استراحة تصوير لمشهد غروب الشمس',
-                    'عشاء مغربي تقليدي فاخر',
-                    'عرض حي للشهب النارية والموسيقى',
-                    'مياه معدنية معبأة',
-                    'معدات السلامة وإرشادات الأمان الكاملة'
-                ]
-            },
-            private: {
-                name: 'الخاصة',
-                title: 'أمسية أكافاي الخاصة',
-                transport: 'نقل خاص ذهاباً وإياباً من الفندق أو الرياض',
-                duration: '15:30–22:00',
-                cardSummary: '15:30 — 22:00 · نقل خاص · 1h30 كواد · 20 دقيقة جمل · مرشد خاص · عشاء وعرض',
-                tag: 'الخاصة · 75€ / للضيف',
-                fromPrice: 'ابتداءً من 75€ / للشخص',
-                cta: 'استكشف الباقة ◄',
-                includes: [
-                    'نقل خاص ذهاباً وإياباً من الفندق أو الرياض',
-                    'ساعة ونصف قيادة خاصة ومستقلة للكواد',
-                    'جولة ركوب الجمال لمدة 20 دقيقة',
-                    'دخول المسبح وشاي مغربي تقليدي بالنعناع',
-                    'استراحة تصوير لمشهد غروب الشمس',
-                    'عشاء مغربي تقليدي فاخر',
-                    'عرض حي للشهب النارية والموسيقى',
-                    'مرشد سياحي خاص ومخصص لمجموعتكم',
-                    'وشاح صحراوي أصيل هدية لارتدائه والاحتفاظ به',
-                    'مياه معبأة ومشروبات غازية منعشة',
-                    'حلويات مغربية تقليدية فاخرة',
-                    'معدات السلامة وإرشادات الأمان الكاملة'
-                ]
-            },
-            'private-plus': {
-                name: 'خاصة+',
-                title: 'أكافاي والأطلس — يوم كامل كواد',
-                transport: 'نقل خاص ذهاباً وإياباً من الفندق أو الرياض',
-                duration: '09:00–22:00',
-                cardSummary: '09:00 — 22:00 · نقل خاص · 3 ساعات كواد · غداء وعشاء · 45 دقيقة جمل · مرشد',
-                tag: 'خاصة+ · 119€ / للضيف',
-                fromPrice: 'ابتداءً من 119€ / للشخص',
-                cta: 'استكشف الباقة ◄',
-                includes: [
-                    'نقل خاص ذهاباً وإياباً من الفندق أو الرياض',
-                    '3 ساعات استكشاف خاص بالكواد عبر أكافاي وجبال الأطلس',
-                    'وجبة غداء مغربية تقليدية كاملة',
-                    'دخول المسبح وشاي مغربي تقليدي بالنعناع',
-                    'جولة ركوب الجمال لمدة 45 دقيقة',
-                    'استراحة غروب الشمس في موقع مميز',
-                    'عشاء مغربي تقليدي فاخر',
-                    'عرض حي للشهب النارية والموسيقى',
-                    'مرشد سياحي مخصص طوال اليوم',
-                    'وشاح صحراوي أصيل هدية لارتدائه والاحتفاظ به',
-                    'مياه معبأة ومشروبات غازية منعشة',
-                    'حلويات مغربية تقليدية فاخرة',
-                    'معدات السلامة وإرشادات الأمان الكاملة'
-                ]
-            },
-            buggy: {
-                name: 'بوغي',
-                title: 'تجربة البوغي الخاصة بأكافاي',
-                transport: 'نقل خاص ذهاباً وإياباً من الفندق أو الرياض',
-                duration: 'توقيت مرن',
-                cardSummary: 'انطلاق مرن · نقل خاص · ساعة بوغي (مركبة لضيفين) · 20 دقيقة جمل · عشاء وعرض',
-                tag: 'بوغي · 129€ / للضيف',
-                fromPrice: 'ابتداءً من 129€ / للشخص',
-                cta: 'استكشف تجربة البوغي ◄',
-                includes: [
-                    'نقل خاص ذهاباً وإياباً من الفندق أو الرياض',
-                    'ساعة كاملة جولة بوغي خاصة ومستقلة',
-                    'مركبة بوغي واحدة لكل ضيفين',
-                    'جولة ركوب الجمال لمدة 20 دقيقة',
-                    'دخول المسبح وشاي مغربي تقليدي بالنعناع',
-                    'استراحة تصوير لمشهد غروب الشمس',
-                    'عشاء مغربي تقليدي فاخر',
-                    'عرض حي للشهب النارية والموسيقى',
-                    'مرشد سياحي خاص ومخصص',
-                    'مياه معدنية معبأة',
-                    'معدات السلامة وإرشادات الأمان الكاملة'
-                ]
-            }
+            standard: ['القياسية', 'تجربة أمسية أكافاي', 'استكشف الباقة ◄'],
+            private: ['الخاصة', 'أمسية أكافاي الخاصة', 'استكشف الباقة ◄'],
+            'private-plus': ['خاصة+', 'أكافاي والأطلس — يوم كامل كواد', 'استكشف الباقة ◄'],
+            buggy: ['بوغي', 'تجربة البوغي الخاصة بأكافاي', 'استكشف تجربة البوغي ◄']
+        }
+    };
+
+    // Language-only sentence frames. Numeric and operational values are injected from ProductData.
+    var WORDS = {
+        en: {
+            shared: 'Shared hotel / riad pickup & return', private: 'Private hotel / riad transfer',
+            quad: '{d} quad ride across Agafay', quadPrivate: '{d} private quad session',
+            quadPlus: '{d} private quad exploration across Agafay & the Atlas', buggy: '{d} private buggy ride',
+            camel: '{d} camel ride', pool: 'Pool access & Moroccan mint tea', sunset: 'Sunset photo pause',
+            dinner: 'Traditional Moroccan dinner', show: 'Live fire & music show', guide: 'Dedicated guide',
+            fullGuide: 'Dedicated full-day guide', scarf: 'Desert scarf to wear & keep',
+            water: 'Bottled water included', softDrink: 'Bottled water + soft drink', sweets: 'Moroccan sweets',
+            safety: 'Safety gear & briefing', lunch: 'Traditional Moroccan lunch',
+            transferShared: 'Shared Transfer', transferPrivate: 'Private Transfer',
+            quadLabel: 'Quad', camelLabel: 'Camel', buggyLabel: 'Buggy', guideLabel: 'Guide',
+            lunchDinner: 'Lunch & Dinner', dinnerShow: 'Dinner & Show', twoGuests: '2 guests/buggy'
+        },
+        fr: {
+            shared: 'Prise en charge et retour partagés depuis votre hôtel ou riad', private: 'Transfert privé aller-retour depuis votre hôtel ou riad',
+            quad: 'Sortie de quad de {d} à travers le désert d\'Agafay', quadPrivate: 'Session privée en quad de {d}',
+            quadPlus: 'Exploration privée en quad de {d} à travers Agafay et l\'Atlas', buggy: 'Balade privée en buggy de {d}',
+            camel: 'Balade à dos de dromadaire de {d}', pool: 'Accès piscine & thé à la menthe marocain', sunset: 'Pause photo au coucher du soleil',
+            dinner: 'Dîner marocain traditionnel', show: 'Spectacle vivant de feu et musique', guide: 'Guide dédié',
+            fullGuide: 'Guide dédié pour la journée complète', scarf: 'Chèche du désert offert à porter et garder',
+            water: 'Eau minérale en bouteille', softDrink: 'Eau en bouteille + boisson sans alcool', sweets: 'Pâtisseries marocaines',
+            safety: 'Équipement de sécurité & briefing', lunch: 'Déjeuner marocain traditionnel',
+            transferShared: 'Transfert Partagé', transferPrivate: 'Transfert Privé',
+            quadLabel: 'Quad', camelLabel: 'Dromadaire', buggyLabel: 'Buggy', guideLabel: 'Guide',
+            lunchDinner: 'Déjeuner & Dîner', dinnerShow: 'Dîner & Spectacle', twoGuests: '2 pers/buggy'
+        },
+        es: {
+            shared: 'Recogida y regreso compartidos desde su hotel o riad', private: 'Traslado privado de ida y vuelta desde su hotel o riad',
+            quad: 'Paseo en quad de {d} por Agafay', quadPrivate: 'Sesión privada de quad de {d}',
+            quadPlus: 'Exploración privada en quad de {d} por Agafay y el Atlas', buggy: 'Paseo privado en buggy de {d}',
+            camel: 'Paseo en camello de {d}', pool: 'Acceso a la piscina y té de menta marroquí', sunset: 'Pausa fotográfica al atardecer',
+            dinner: 'Cena tradicional marroquí', show: 'Espectáculo en vivo de fuego y música', guide: 'Guía exclusivo dedicado',
+            fullGuide: 'Guía dedicado de jornada completa', scarf: 'Pañuelo del desierto de regalo',
+            water: 'Agua mineral embotellada', softDrink: 'Agua embotellada + refresco', sweets: 'Dulces tradicionales marroquíes',
+            safety: 'Equipo de seguridad e instrucciones', lunch: 'Almuerzo tradicional marroquí',
+            transferShared: 'Traslado Compartido', transferPrivate: 'Traslado Privado',
+            quadLabel: 'Quad', camelLabel: 'Camello', buggyLabel: 'Buggy', guideLabel: 'Guía',
+            lunchDinner: 'Almuerzo y Cena', dinnerShow: 'Cena y Espectáculo', twoGuests: '2 pers/buggy'
+        },
+        ar: {
+            shared: 'نقل مشترك ذهاباً وإياباً من الفندق أو الرياض', private: 'نقل خاص ذهاباً وإياباً من الفندق أو الرياض',
+            quad: 'قيادة كواد لمدة {d} عبر صحراء أكافاي', quadPrivate: 'جلسة كواد خاصة لمدة {d}',
+            quadPlus: 'استكشاف خاص بالكواد لمدة {d} عبر أكافاي وجبال الأطلس', buggy: 'جولة بوغي خاصة لمدة {d}',
+            camel: 'جولة ركوب الجمال لمدة {d}', pool: 'دخول المسبح وشاي مغربي تقليدي بالنعناع', sunset: 'استراحة تصوير لمشهد غروب الشمس',
+            dinner: 'عشاء مغربي تقليدي فاخر', show: 'عرض حي للنار والموسيقى', guide: 'مرشد سياحي خاص ومخصص',
+            fullGuide: 'مرشد سياحي مخصص طوال اليوم', scarf: 'وشاح صحراوي أصيل هدية لارتدائه والاحتفاظ به',
+            water: 'مياه معدنية معبأة', softDrink: 'مياه معبأة ومشروب غازي', sweets: 'حلويات مغربية تقليدية فاخرة',
+            safety: 'معدات السلامة وإرشادات الأمان الكاملة', lunch: 'وجبة غداء مغربية تقليدية كاملة',
+            transferShared: 'نقل مشترك', transferPrivate: 'نقل خاص',
+            quadLabel: 'كواد', camelLabel: 'جمل', buggyLabel: 'بوغي', guideLabel: 'مرشد',
+            lunchDinner: 'غداء وعشاء', dinnerShow: 'عشاء وعرض', twoGuests: 'مركبة لضيفين'
         }
     };
 
     var UI_STRINGS = {
-        en: {
-            allPackages: 'All packages ►',
-            currencyMad: 'MAD',
-            perGuest: '/ guest',
-            perPerson: '/ person',
-            from: 'From'
-        },
-        fr: {
-            allPackages: 'Tous les forfaits ►',
-            currencyMad: 'MAD',
-            perGuest: '/ pers',
-            perPerson: '/ personne',
-            from: 'À partir de'
-        },
-        es: {
-            allPackages: 'Todos los paquetes ►',
-            currencyMad: 'MAD',
-            perGuest: '/ pers',
-            perPerson: '/ persona',
-            from: 'Desde'
-        },
-        ar: {
-            allPackages: 'جميع الباقات ◄',
-            currencyMad: 'درهم',
-            perGuest: '/ للضيف',
-            perPerson: '/ للشخص',
-            from: 'ابتداءً من'
-        }
+        en: { allPackages: 'All packages ►', currencyMad: 'MAD', perGuest: '/ guest', perPerson: '/ person', from: 'From' },
+        fr: { allPackages: 'Tous les forfaits ►', currencyMad: 'MAD', perGuest: '/ pers', perPerson: '/ personne', from: 'À partir de' },
+        es: { allPackages: 'Todos los paquetes ►', currencyMad: 'MAD', perGuest: '/ pers', perPerson: '/ persona', from: 'Desde' },
+        ar: { allPackages: 'جميع الباقات ◄', currencyMad: 'درهم', perGuest: '/ للضيف', perPerson: '/ للشخص', from: 'ابتداءً من' }
     };
 
     function normalizeLocale(rawLocale) {
         if (!rawLocale || typeof rawLocale !== 'string') return 'en';
-        var norm = rawLocale.trim().toLowerCase().slice(0, 2);
-        if (norm === 'fr' || norm === 'es' || norm === 'ar') return norm;
-        return 'en';
+        var locale = rawLocale.trim().toLowerCase().slice(0, 2);
+        return ['fr', 'es', 'ar'].indexOf(locale) !== -1 ? locale : 'en';
     }
 
-    function getLocalizedFields(canonicalKey, locale) {
+    function format(template, values) {
+        return String(template).replace(/\{(\w+)\}/g, function (_, key) {
+            return values[key] == null ? '' : values[key];
+        });
+    }
+
+    function getLocalizedFields(canonicalKey, locale, product) {
         var loc = normalizeLocale(locale);
-        var table = LOCALIZED_DATA[loc] || LOCALIZED_DATA.en;
-        return table[canonicalKey] || null;
+        var copy = COPY[loc][canonicalKey] || COPY.en[canonicalKey];
+        var words = WORDS[loc] || WORDS.en;
+        var facts = (product && product.facts) || {};
+        var values = { d: facts.quadDuration || '' };
+        var transport = facts.transportMode === 'shared' ? words.shared : words.private;
+        var includes;
+
+        if (canonicalKey === 'standard') {
+            includes = [transport, format(words.quad, values), format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.water, words.safety];
+        } else if (canonicalKey === 'private') {
+            includes = [transport, format(words.quadPrivate, values), format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.guide, words.scarf, words.softDrink, words.sweets, words.safety];
+        } else if (canonicalKey === 'private-plus') {
+            includes = [transport, format(words.quadPlus, values), words.lunch, words.pool, format(words.camel, { d: facts.camelDuration }), words.sunset, words.dinner, words.show, words.fullGuide, words.scarf, words.softDrink, words.sweets, words.safety];
+        } else {
+            includes = [transport, format(words.buggy, values), words.twoGuests, format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.guide, words.water, words.safety];
+        }
+
+        var ui = UI_STRINGS[loc] || UI_STRINGS.en;
+        var price = product && product.priceEUR;
+        var duration = product && product.duration || '';
+        var cardSummary;
+        if (canonicalKey === 'standard') {
+            cardSummary = duration + ' · ' + (facts.transportMode === 'shared' ? words.transferShared : words.transferPrivate) + ' · ' + facts.quadDuration + ' ' + words.quadLabel + ' · ' + facts.camelDuration + ' ' + words.camelLabel + ' · ' + words.dinnerShow;
+        } else if (canonicalKey === 'private') {
+            cardSummary = duration + ' · ' + words.transferPrivate + ' · ' + facts.quadDuration + ' ' + words.quadLabel + ' · ' + facts.camelDuration + ' ' + words.camelLabel + ' · ' + words.guideLabel + ' · ' + words.dinnerShow;
+        } else if (canonicalKey === 'private-plus') {
+            cardSummary = duration + ' · ' + words.transferPrivate + ' · ' + facts.quadDuration + ' ' + words.quadLabel + ' · ' + words.lunchDinner + ' · ' + facts.camelDuration + ' ' + words.camelLabel + ' · ' + words.guideLabel;
+        } else {
+            cardSummary = duration + ' · ' + words.transferPrivate + ' · ' + facts.quadDuration + ' ' + words.buggyLabel + ' (' + words.twoGuests + ') · ' + facts.camelDuration + ' ' + words.camelLabel + ' · ' + words.dinnerShow;
+        }
+
+        return {
+            name: copy[0], title: copy[1], cta: copy[2],
+            transport: transport, duration: duration, cardSummary: cardSummary,
+            tag: copy[0].toUpperCase() + ' · ' + (price == null ? '' : price + '€') + ' ' + ui.perGuest,
+            fromPrice: ui.from + ' ' + (price == null ? '' : price + '€') + ' ' + ui.perPerson,
+            includes: includes
+        };
     }
 
     function getUiString(key, locale) {
-        var loc = normalizeLocale(locale);
-        var table = UI_STRINGS[loc] || UI_STRINGS.en;
+        var table = UI_STRINGS[normalizeLocale(locale)] || UI_STRINGS.en;
         return table[key] || '';
     }
 
@@ -457,7 +163,7 @@
         normalizeLocale: normalizeLocale,
         getLocalizedFields: getLocalizedFields,
         getUiString: getUiString,
-        LOCALIZED_DATA: LOCALIZED_DATA,
+        LOCALIZED_DATA: COPY,
         UI_STRINGS: UI_STRINGS
     });
 }));

@@ -3635,60 +3635,27 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Package data - easily customizable for future changes
-    const packageData = {
-      basic: {
-        title: 'تجربة أمسية أجافي (STANDARD)',
-        link: 'packages/basic',
-        description: 'التجربة الكلاسيكية لأمسية صحراء أجافي مع النقل المشترك، جولة الكواد، ركوب الجمال، عشاء مغربي فاخر وعرض فلكلوري حي تحت النجوم.',
-        image: '/images/packs/pack-basic.webp',
-        price: '45 €',
-        priceLabel: '/للشخص',
-        inclusions: [
-          'نقل مشترك ذهابًا وإيابًا من الفندق/الرياض (15:30 — 22:00)',
-          'ساعة واحدة (1h) جولة كواد بالصحراء مع معدات السلامة',
-          '20 دقيقة ركوب الجمال بالزي التقليدي',
-          'استراحة مسبح وشاي مغربي بالنعناع مع وقفة لغروب الشمس',
-          'عشاء مغربي تقليدي فاخر',
-          'عرض موسيقي وعرض نار حي متكامل',
-          'مياه معبأة ومعدات السلامة الكاملة'
-        ]
-      },
-      comfort: {
-        title: 'أمسية أجافي الخاصة (PRIVATE)',
-        link: 'packages/comfort',
-        description: 'تجربة متميزة بالكامل مع نقل خاص ذهابًا وإيابًا، جولة كواد خاصة ممتدة لمدة ساعة ونصف مع مرشد مخصص، وشاح صحراوي كهدية، وضيافة مغربية أصيلة.',
-        image: '/images/packs/pack-comfort.webp',
-        price: '75 €',
-        priceLabel: '/للشخص',
-        inclusions: [
-          'نقل خاص ذهابًا وإيابًا حصري لمجموعتك (15:30 — 22:00)',
-          'ساعة ونصف (1h30) كواد خاص مع مرشد مخصص',
-          '20 دقيقة ركوب الجمال بالزي الصحراوي',
-          'استراحة مسبح وشاي بالنعناع مع وقفة لغروب الشمس',
-          'عشاء مغربي كامل وعرض نار وموسيقى حي',
-          'وشاح صحراوي لارتدائه والاحتفاظ به كهدية',
-          'مياه معبأة، مشروبات غازية، وحلويات مغربية'
-        ]
-      },
-      luxury: {
-        title: 'أجافي والأطلس — يوم كامل كواد (PRIVATE+)',
-        link: 'packages/luxe',
-        description: 'المغامرة الاستكشافية الكبرى ليوم كامل: 3 ساعات كواد خاصة تجمع تلال صحراء أجافي وسفوح جبال الأطلس، مع غداء وعشاء وعرض حي كامل.',
-        image: '/images/packs/pack-luxury.webp',
-        price: '119 €',
-        priceLabel: '/للشخص',
-        inclusions: [
-          'نقل خاص ذهابًا وإيابًا طوال اليوم (09:00 — 22:00)',
-          '3 ساعات استكشاف كواد خاص (مسار أجافي وسفوح الأطلس)',
-          'مرشد خاص متفرغ لك طوال اليوم',
-          'غداء مغربي تقليدي في قلب الصحراء',
-          'استراحة مسبح، شاي مغربي، و45 دقيقة ركوب جمل',
-          'عشاء صحراوي فاخر وعرض نار وموسيقى حي',
-          'وشاح صحراوي، حلويات مغربية، مياه ومشروبات'
-        ]
-      }
-    };
+    // Package modal data resolves from the shared ProductData source at open time.
+    const PACKAGE_PRODUCT_IDS = { basic: 'standard', comfort: 'private', luxury: 'private-plus' };
+    const PACKAGE_PAGE_PATHS = { basic: 'packages/basic', comfort: 'packages/comfort', luxury: 'packages/luxe' };
+    function buildPackageData(packageType) {
+      const productId = PACKAGE_PRODUCT_IDS[packageType];
+      const product = window.ProductData && window.ProductData.getLocalizedProduct
+        ? window.ProductData.getLocalizedProduct(productId, document.documentElement.lang)
+        : null;
+      if (!product) return null;
+      const locale = (document.documentElement.lang || 'en').slice(0, 2);
+      const priceLabel = { en: '/guest', fr: '/pers', es: '/pers', ar: '/للشخص' }[locale] || '/guest';
+      return {
+        title: product.title || product.name,
+        link: PACKAGE_PAGE_PATHS[packageType],
+        description: (product.includes || []).join(' · '),
+        image: packageType === 'basic' ? '/images/packs/pack-basic.webp' : packageType === 'comfort' ? '/images/packs/pack-comfort.webp' : '/images/packs/pack-luxury.webp',
+        price: product.priceEUR + ' €',
+        priceLabel: priceLabel,
+        inclusions: product.includes || []
+      };
+    }
     // Modal elements
     const modal = document.getElementById('packageModal');
     const modalOverlay = modal.querySelector('.modal-overlay');
@@ -3702,7 +3669,6 @@
     const inclusionsList = modal.querySelector('.inclusions-list');
     // Form elements
     const bookingForm = modal.querySelector('.booking-form');
-    const PACKAGE_PRODUCT_IDS = { basic: 'basic', comfort: 'comfort', luxury: 'luxe' };
     const formButtons = modal.querySelector('.form-buttons');
     // Clickable cards
     const clickableCards = document.querySelectorAll('.clickable-card');
@@ -3711,7 +3677,7 @@
     // Open modal function
     function openModal(packageType) {
       currentPackage = packageType;
-      const data = packageData[packageType];
+      const data = buildPackageData(packageType);
       if (data) {
         const productId = PACKAGE_PRODUCT_IDS[packageType] || '';
         bookingForm.dataset.productId = productId;
@@ -3809,7 +3775,7 @@
       }
       // Simulate booking submission (replace with actual API call)
       // Show success message
-      alert(`Thank you for your interest in our ${packageData[currentPackage].title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
+      alert(`Thank you for your interest in our ${buildPackageData(currentPackage).title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
       // Close modal and reset form
       closeModal();
       this.reset();

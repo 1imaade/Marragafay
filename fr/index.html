@@ -3628,62 +3628,27 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Package data - easily customizable for future changes
-    const packageData = {
-      basic: {
-        title: 'Agafay Evening Experience',
-        link: 'packages/basic',
-        description: 'Forfait soirée tout compris essentiel à Agafay. Comprend transfert partagé depuis Marrakech, 1h quad, 20min dromadaire, accès piscine, thé à la menthe, pause photo coucher de soleil, dîner marocain et spectacle live.',
-        image: '/images/packs/pack-basic.webp',
-        price: '45 €',
-        priceLabel: '/pers',
-        inclusions: [
-          'Prise en charge & retour partagés hôtel/riad (15h30 — 22h00)',
-          '1h de quad avec équipement de sécurité',
-          '20min balade à dromadaire & pause coucher de soleil',
-          'Accès piscine & thé marocain à la menthe',
-          'Dîner traditionnel marocain',
-          'Spectacle feu et musique en direct',
-          'Bouteille d\'eau & briefing de sécurité'
-        ]
-      },
-      comfort: {
-        title: 'Private Agafay Evening',
-        link: 'packages/comfort',
-        description: 'Soirée privée exclusive à Agafay avec transfert privé dédié aller-retour, 1h30 quad privé, 20min dromadaire, guide dédié, chèche du désert offert, pâtisseries marocaines et dîner spectacle.',
-        image: '/images/packs/pack-comfort.webp',
-        price: '75 €',
-        priceLabel: '/pers',
-        inclusions: [
-          'Transfert privé aller-retour (15h30 — 22h00)',
-          '1h30 session quad privée',
-          '20min balade à dromadaire & pause coucher de soleil',
-          'Accès piscine & thé marocain à la menthe',
-          'Dîner marocain + spectacle live & feu',
-          'Guide dédié tout au long de la soirée',
-          'Chèche du désert à porter et à conserver',
-          'Eau minérale + boisson gazeuse & pâtisseries marocaines'
-        ]
-      },
-      luxury: {
-        title: 'Agafay & Atlas — Full-Day Quad',
-        link: 'packages/luxe',
-        description: 'L\'expérience ultime journée complète désert et montagnes de 09h00 à 22h00. Transfert privé, 3h exploration quad privée à travers Agafay et l\'Atlas, déjeuner marocain, piscine, 45min dromadaire, coucher de soleil, dîner spectacle et guide dédié.',
-        image: '/images/packs/pack-luxury.webp',
-        price: '119 €',
-        priceLabel: '/pers',
-        inclusions: [
-          'Transfert privé aller-retour (09h00 — 22h00)',
-          '3h exploration quad privée (route Agafay & Atlas)',
-          'Déjeuner traditionnel marocain & dîner spectacle',
-          'Accès piscine & thé marocain à la menthe',
-          '45min balade à dromadaire & pause coucher de soleil',
-          'Guide dédié journée complète & chèche du désert',
-          'Eau minérale + boisson gazeuse & pâtisseries marocaines',
-          'Équipement de sécurité complet & briefing'
-        ]
-      }
-    };
+    // Package modal data resolves from the shared ProductData source at open time.
+    const PACKAGE_PRODUCT_IDS = { basic: 'standard', comfort: 'private', luxury: 'private-plus' };
+    const PACKAGE_PAGE_PATHS = { basic: 'packages/basic', comfort: 'packages/comfort', luxury: 'packages/luxe' };
+    function buildPackageData(packageType) {
+      const productId = PACKAGE_PRODUCT_IDS[packageType];
+      const product = window.ProductData && window.ProductData.getLocalizedProduct
+        ? window.ProductData.getLocalizedProduct(productId, document.documentElement.lang)
+        : null;
+      if (!product) return null;
+      const locale = (document.documentElement.lang || 'en').slice(0, 2);
+      const priceLabel = { en: '/guest', fr: '/pers', es: '/pers', ar: '/للشخص' }[locale] || '/guest';
+      return {
+        title: product.title || product.name,
+        link: PACKAGE_PAGE_PATHS[packageType],
+        description: (product.includes || []).join(' · '),
+        image: packageType === 'basic' ? '/images/packs/pack-basic.webp' : packageType === 'comfort' ? '/images/packs/pack-comfort.webp' : '/images/packs/pack-luxury.webp',
+        price: product.priceEUR + ' €',
+        priceLabel: priceLabel,
+        inclusions: product.includes || []
+      };
+    }
     // Modal elements
     const modal = document.getElementById('packageModal');
     const modalOverlay = modal.querySelector('.modal-overlay');
@@ -3697,7 +3662,6 @@
     const inclusionsList = modal.querySelector('.inclusions-list');
     // Form elements
     const bookingForm = modal.querySelector('.booking-form');
-    const PACKAGE_PRODUCT_IDS = { basic: 'basic', comfort: 'comfort', luxury: 'luxe' };
     const formButtons = modal.querySelector('.form-buttons');
     // Clickable cards
     const clickableCards = document.querySelectorAll('.clickable-card');
@@ -3706,7 +3670,7 @@
     // Open modal function
     function openModal(packageType) {
       currentPackage = packageType;
-      const data = packageData[packageType];
+      const data = buildPackageData(packageType);
       if (data) {
         const productId = PACKAGE_PRODUCT_IDS[packageType] || '';
         bookingForm.dataset.productId = productId;
@@ -3804,7 +3768,7 @@
       }
       // Simulate booking submission (replace with actual API call)
       // Show success message
-      alert(`Thank you for your interest in our ${packageData[currentPackage].title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
+      alert(`Thank you for your interest in our ${buildPackageData(currentPackage).title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
       // Close modal and reset form
       closeModal();
       this.reset();

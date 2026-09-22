@@ -3,6 +3,7 @@ import test from 'node:test';
 import handleBooking, { buildBookingRecord } from '../api/booking-server.js';
 import { calculateTrustedTotal, resolveProduct, resolveServerProduct } from '../api/booking-catalog.js';
 import { setServerPriceOverride, resetServerPriceOverrides, clearServerCache, STABLE_SUPABASE_IDS } from '../api/server-product-data.js';
+import ProductData from '../js/product-data.js';
 
 function createResponse() {
   return {
@@ -119,7 +120,8 @@ test('dynamic pricing normalization and defaults pass audit checks', async () =>
       location: { pathname: '/en/packs.html', hostname: '127.0.0.1' },
       sessionStorage: { getItem: () => null, setItem: () => {} },
       localStorage: { getItem: () => null, setItem: () => {} },
-      addEventListener: () => {}
+      addEventListener: () => {},
+      ProductData
     },
     document: {
       documentElement: { lang: 'en' },
@@ -180,15 +182,12 @@ test('dynamic pricing normalization and defaults pass audit checks', async () =>
   assert.equal(defaults['package_Private+'].price, 119);
 
   // MAD Mappings
-  assert.equal(dp.CANONICAL_PRICES_MAD['package_Basic'], 450);
-  assert.equal(dp.CANONICAL_PRICES_MAD['package_Comfort'], 750);
-  assert.equal(dp.CANONICAL_PRICES_MAD['package_Luxe'], 1190);
-  assert.equal(dp.CANONICAL_PRICES_MAD['package_Buggy'], 1290);
   assert.equal(dp.CANONICAL_PRICES_MAD['activity_Buggy'], 1290);
-  assert.equal(dp.CANONICAL_PRICES_MAD['Standard'], 450);
-  assert.equal(dp.CANONICAL_PRICES_MAD['Private'], 750);
-  assert.equal(dp.CANONICAL_PRICES_MAD['Private+'], 1190);
-  assert.equal(dp.CANONICAL_PRICES_MAD['Buggy'], 1290);
+  assert.equal(dp.CANONICAL_PRICES_MAD['package_Basic'], undefined);
+  assert.equal(ProductData.getProduct('standard').priceMAD, 450);
+  assert.equal(ProductData.getProduct('private').priceMAD, 750);
+  assert.equal(ProductData.getProduct('private-plus').priceMAD, 1190);
+  assert.equal(ProductData.getProduct('buggy').priceMAD, 1290);
 
   // Dynamic Price Queries with Supabase Mock
   assert.equal(await dp.getDynamicPrice('pack', 'Standard'), 45);

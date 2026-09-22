@@ -2122,7 +2122,7 @@
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
             <div class="pkg-card-tag" data-product="standard" data-field="tag">STANDARD &middot; 45€ / guest</div>
-            <h3 class="pkg-card-title">Agafay Evening Experience</h3>
+            <h3 class="pkg-card-title" data-product="standard" data-field="title">Agafay Evening Experience</h3>
             <p class="pkg-card-desc" data-product="standard" data-field="card-summary">15:30 — 22:00 &middot; Shared Transfer &middot; 1h Quad &middot; 20min Camel &middot; Dinner &amp; Show</p>
             <div class="pkg-card-cta">View Standard Pack &#9658;</div>
           </div>
@@ -2136,7 +2136,7 @@
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
             <div class="pkg-card-tag" data-product="private" data-field="tag">PRIVATE &middot; 75€ / guest</div>
-            <h3 class="pkg-card-title">Private Agafay Evening</h3>
+            <h3 class="pkg-card-title" data-product="private" data-field="title">Private Agafay Evening</h3>
             <p class="pkg-card-desc" data-product="private" data-field="card-summary">15:30 — 22:00 &middot; Private Transfer &middot; 1h30 Quad &middot; 20min Camel &middot; Guide &middot; Dinner &amp; Show</p>
             <div class="pkg-card-cta">View Private Pack &#9658;</div>
           </div>
@@ -2149,7 +2149,7 @@
           <div class="pkg-card-gradient"></div>
           <div class="pkg-card-content">
             <div class="pkg-card-tag" data-product="private-plus" data-field="tag">PRIVATE+ &middot; 119€ / guest</div>
-            <h3 class="pkg-card-title">Agafay & Atlas — Full-Day Quad</h3>
+            <h3 class="pkg-card-title" data-product="private-plus" data-field="title">Agafay & Atlas — Full-Day Quad</h3>
             <p class="pkg-card-desc" data-product="private-plus" data-field="card-summary">09:00 — 22:00 &middot; Private Transfer &middot; 3h Quad &middot; Lunch &amp; Dinner &middot; 45min Camel &middot; Guide</p>
             <div class="pkg-card-cta">View Private+ Pack &#9658;</div>
           </div>
@@ -3637,62 +3637,27 @@
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Package data - easily customizable for future changes
-    const packageData = {
-      basic: {
-        title: 'Agafay Evening Experience',
-        link: 'packages/basic',
-        description: 'Essential all-inclusive Agafay evening package. Features shared Marrakech transfer, 1h quad biking, 20min camel ride, pool access, Moroccan mint tea, sunset photo pause, Moroccan dinner, and live fire and music show.',
-        image: '/images/packs/pack-basic.webp',
-        price: '45 €',
-        priceLabel: '/guest',
-        inclusions: [
-          'Shared hotel/riad pickup & return (15:30 — 22:00)',
-          '1h quad biking adventure with safety gear',
-          '20min camel ride & sunset photo pause',
-          'Pool access & Moroccan mint tea',
-          'Traditional Moroccan dinner',
-          'Live fire & music show',
-          'Bottled water & safety briefing'
-        ]
-      },
-      comfort: {
-        title: 'Private Agafay Evening',
-        link: 'packages/comfort',
-        description: 'Exclusive private evening in Agafay with dedicated private door-to-door transfer, 1h30 private quad biking, 20min camel ride, dedicated guide, desert scarf to wear & keep, Moroccan sweets, and full show dinner.',
-        image: '/images/packs/pack-comfort.webp',
-        price: '75 €',
-        priceLabel: '/guest',
-        inclusions: [
-          'Private round-trip transfer (15:30 — 22:00)',
-          '1h30 private quad biking session',
-          '20min camel ride & sunset pause',
-          'Pool access & Moroccan mint tea',
-          'Moroccan dinner + live fire & music show',
-          'Dedicated guide throughout the evening',
-          'Desert scarf to wear & keep',
-          'Bottled water + soft drink & Moroccan sweets'
-        ]
-      },
-      luxury: {
-        title: 'Agafay & Atlas — Full-Day Quad',
-        link: 'packages/luxe',
-        description: 'The premier full-day desert & mountain exploration from 09:00 to 22:00. Includes private transfer, 3h private quad exploration across Agafay & Atlas, Moroccan lunch, pool, 45min camel ride, sunset pause, dinner, live show, and dedicated full-day guide.',
-        image: '/images/packs/pack-luxury.webp',
-        price: '119 €',
-        priceLabel: '/guest',
-        inclusions: [
-          'Private round-trip transfer (09:00 — 22:00)',
-          '3h private quad exploration (Agafay & Atlas route)',
-          'Traditional Moroccan lunch & dinner + live show',
-          'Pool access & Moroccan mint tea',
-          '45min camel ride & sunset pause',
-          'Dedicated full-day guide & desert scarf',
-          'Bottled water + soft drink & Moroccan sweets',
-          'Full safety gear & briefing'
-        ]
-      }
-    };
+    // Package modal data resolves from the shared ProductData source at open time.
+    const PACKAGE_PRODUCT_IDS = { basic: 'standard', comfort: 'private', luxury: 'private-plus' };
+    const PACKAGE_PAGE_PATHS = { basic: 'packages/basic', comfort: 'packages/comfort', luxury: 'packages/luxe' };
+    function buildPackageData(packageType) {
+      const productId = PACKAGE_PRODUCT_IDS[packageType];
+      const product = window.ProductData && window.ProductData.getLocalizedProduct
+        ? window.ProductData.getLocalizedProduct(productId, document.documentElement.lang)
+        : null;
+      if (!product) return null;
+      const locale = (document.documentElement.lang || 'en').slice(0, 2);
+      const priceLabel = { en: '/guest', fr: '/pers', es: '/pers', ar: '/للشخص' }[locale] || '/guest';
+      return {
+        title: product.title || product.name,
+        link: PACKAGE_PAGE_PATHS[packageType],
+        description: (product.includes || []).join(' · '),
+        image: packageType === 'basic' ? '/images/packs/pack-basic.webp' : packageType === 'comfort' ? '/images/packs/pack-comfort.webp' : '/images/packs/pack-luxury.webp',
+        price: product.priceEUR + ' €',
+        priceLabel: priceLabel,
+        inclusions: product.includes || []
+      };
+    }
     // Modal elements
     const modal = document.getElementById('packageModal');
     const modalOverlay = modal.querySelector('.modal-overlay');
@@ -3706,7 +3671,6 @@
     const inclusionsList = modal.querySelector('.inclusions-list');
     // Form elements
     const bookingForm = modal.querySelector('.booking-form');
-    const PACKAGE_PRODUCT_IDS = { basic: 'basic', comfort: 'comfort', luxury: 'luxe' };
     const formButtons = modal.querySelector('.form-buttons');
     // Clickable cards
     const clickableCards = document.querySelectorAll('.clickable-card');
@@ -3715,7 +3679,7 @@
     // Open modal function
     function openModal(packageType) {
       currentPackage = packageType;
-      const data = packageData[packageType];
+      const data = buildPackageData(packageType);
       if (data) {
         const productId = PACKAGE_PRODUCT_IDS[packageType] || '';
         bookingForm.dataset.productId = productId;
@@ -3813,7 +3777,7 @@
       }
       // Simulate booking submission (replace with actual API call)
       // Show success message
-      alert(`Thank you for your interest in our ${packageData[currentPackage].title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
+      alert(`Thank you for your interest in our ${buildPackageData(currentPackage).title}!\n\nWe will contact you shortly at ${bookingInfo.phone} to confirm your booking details.`);
       // Close modal and reset form
       closeModal();
       this.reset();

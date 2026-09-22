@@ -25,7 +25,7 @@
 
 ```text
 marragafay.com/
-├── index.html            # Inert fallback; deployment redirect is configured in vercel.json
+├── en/index.html         # Canonical English homepage (root routes redirect here)
 ├── vercel.json           # Vercel deployment configuration & security headers
 ├── .gitignore            # Hardened git ignore (prevents secret leaks)
 │

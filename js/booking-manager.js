@@ -374,14 +374,20 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             itemName = 'Hot Air Balloon';
         }
 
-        // Canonical MAD price per person (e.g. 799 MAD for Paragliding, 800 MAD for Buggy, 350 MAD for Basic)
-        let canonicalPriceMAD = CANONICAL_PRICES_MAD[itemName] || 350;
+        // Package facts come from the shared ProductData store. Activity-only
+        // fallbacks remain available through DynamicPricing for legacy forms.
+        const canonicalProduct = window.ProductData && typeof window.ProductData.getProduct === 'function'
+            ? window.ProductData.getProduct(itemName)
+            : null;
+        let canonicalPriceMAD = canonicalProduct
+            ? canonicalProduct.priceMAD
+            : ((window.DynamicPricing && window.DynamicPricing.CANONICAL_PRICES_MAD && window.DynamicPricing.CANONICAL_PRICES_MAD[itemName]) || 350);
 
         // Try to fetch dynamic price override from Supabase pricing table if configured
         if (typeof window.getDynamicPrice === 'function') {
             try {
                 const apiPrice = await window.getDynamicPrice(itemType, itemName);
-                if (apiPrice && !isNaN(apiPrice)) {
+                if (!canonicalProduct && apiPrice && !isNaN(apiPrice)) {
                     // If the dynamic pricing API returns MAD price directly
                     if (apiPrice > 100) {
                         canonicalPriceMAD = apiPrice;

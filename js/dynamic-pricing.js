@@ -197,13 +197,8 @@
         return n;
     }
 
-    // Canonical single source of truth in Moroccan Dirhams (MAD)
+    // Activity display fallbacks. Package prices come from ProductData below.
     const CANONICAL_PRICES_MAD = {
-        // Canonical normalized keys
-        'package_standard': 450,
-        'package_private': 750,
-        'package_private-plus': 1190,
-        'package_buggy': 1290,
         'activity_buggy': 1290,
         'activity_quad-biking': 250,
         'activity_camel-ride': 100,
@@ -213,27 +208,6 @@
         'activity_horse-riding': 550,
         'activity_bike-tour': 300,
 
-        // New Supabase names (type="pack" or "package")
-        'pack_Standard': 450,
-        'pack_Private': 750,
-        'pack_Private+': 1190,
-        'pack_Buggy': 1290,
-        'package_Standard': 450,
-        'package_Private': 750,
-        'package_Private+': 1190,
-        'package_Buggy': 1290,
-        'Standard': 450,
-        'Private': 750,
-        'Private+': 1190,
-        'Buggy': 1290,
-
-        // Legacy keys (for backward compatibility)
-        'package_Basic': 450,
-        'package_Comfort': 750,
-        'package_Luxe': 1190,
-        'Basic': 450,
-        'Comfort': 750,
-        'Luxe': 1190,
         'activity_Quad Biking': 250,
         'activity_Buggy': 1290,
         'activity_Camel Ride': 100,
@@ -247,18 +221,27 @@
         'Paragliding': 799
     };
 
+    function getCanonicalProduct(name) {
+        if (typeof window === 'undefined' || !window.ProductData || typeof window.ProductData.getProduct !== 'function') {
+            return null;
+        }
+        var key = normalizeProductName(name);
+        return ['standard', 'private', 'private-plus', 'buggy'].indexOf(key) !== -1
+            ? window.ProductData.getProduct(key)
+            : null;
+    }
+
     /**
      * Calculate MAD equivalent for a EUR price or retrieve canonical MAD price.
      */
     function toMAD(eurValue, itemKey) {
         if (itemKey) {
+            var product = getCanonicalProduct(itemKey);
+            if (product && product.priceMAD != null) return product.priceMAD;
             if (CANONICAL_PRICES_MAD[itemKey]) {
                 return CANONICAL_PRICES_MAD[itemKey];
             }
             var norm = normalizeProductName(itemKey);
-            if (norm && CANONICAL_PRICES_MAD['package_' + norm]) {
-                return CANONICAL_PRICES_MAD['package_' + norm];
-            }
             if (norm && CANONICAL_PRICES_MAD['activity_' + norm]) {
                 return CANONICAL_PRICES_MAD['activity_' + norm];
             }
@@ -270,10 +253,10 @@
             if (path.includes('dinner-show')) return CANONICAL_PRICES_MAD['activity_dinner-show'];
             if (path.includes('quad-biking')) return CANONICAL_PRICES_MAD['activity_quad-biking'];
             if (path.includes('camel-ride')) return CANONICAL_PRICES_MAD['activity_camel-ride'];
-            if (path.includes('buggy')) return CANONICAL_PRICES_MAD['package_buggy'];
-            if (path.includes('/packages/basic') || path.includes('/packages/standard')) return CANONICAL_PRICES_MAD['package_standard'];
-            if (path.includes('/packages/comfort') || path.includes('/packages/private')) return CANONICAL_PRICES_MAD['package_private'];
-            if (path.includes('/packages/luxe') || path.includes('/packages/private-plus')) return CANONICAL_PRICES_MAD['package_private-plus'];
+            if (path.includes('buggy')) return (getCanonicalProduct('buggy') || {}).priceMAD || Math.round(eurValue * EUR_TO_MAD);
+            if (path.includes('/packages/basic') || path.includes('/packages/standard')) return (getCanonicalProduct('standard') || {}).priceMAD || Math.round(eurValue * EUR_TO_MAD);
+            if (path.includes('/packages/comfort') || path.includes('/packages/private')) return (getCanonicalProduct('private') || {}).priceMAD || Math.round(eurValue * EUR_TO_MAD);
+            if (path.includes('/packages/luxe') || path.includes('/packages/private-plus')) return (getCanonicalProduct('private-plus') || {}).priceMAD || Math.round(eurValue * EUR_TO_MAD);
         }
         return Math.round(eurValue * EUR_TO_MAD);
     }
@@ -565,12 +548,7 @@
      * Fallback prices if Supabase is unavailable
      */
     function getDefaultPrices() {
-        return {
-            // Canonical normalized keys
-            'package_standard': { price: 45, currency: '€' },
-            'package_private': { price: 75, currency: '€' },
-            'package_private-plus': { price: 119, currency: '€' },
-            'package_buggy': { price: 129, currency: '€' },
+        var defaults = {
             'activity_buggy': { price: 129, currency: '€' },
             'activity_quad-biking': { price: 25, currency: '€' },
             'activity_camel-ride': { price: 10, currency: '€' },
@@ -580,27 +558,6 @@
             'activity_horse-riding': { price: 55, currency: '€' },
             'activity_bike-tour': { price: 30, currency: '€' },
 
-            // New Supabase names (type="pack" or "package")
-            'pack_Standard': { price: 45, currency: '€' },
-            'pack_Private': { price: 75, currency: '€' },
-            'pack_Private+': { price: 119, currency: '€' },
-            'pack_Buggy': { price: 129, currency: '€' },
-            'package_Standard': { price: 45, currency: '€' },
-            'package_Private': { price: 75, currency: '€' },
-            'package_Private+': { price: 119, currency: '€' },
-            'package_Buggy': { price: 129, currency: '€' },
-            'Standard': { price: 45, currency: '€' },
-            'Private': { price: 75, currency: '€' },
-            'Private+': { price: 119, currency: '€' },
-            'Buggy': { price: 129, currency: '€' },
-
-            // Legacy keys (for backward compatibility)
-            'package_Basic': { price: 45, currency: '€' },
-            'package_Comfort': { price: 75, currency: '€' },
-            'package_Luxe': { price: 119, currency: '€' },
-            'Basic': { price: 45, currency: '€' },
-            'Comfort': { price: 75, currency: '€' },
-            'Luxe': { price: 119, currency: '€' },
             'activity_Quad Biking': { price: 25, currency: '€' },
             'activity_Buggy': { price: 129, currency: '€' },
             'activity_Camel Ride': { price: 10, currency: '€' },
@@ -613,6 +570,24 @@
             'Hot Air Balloon': { price: 175, currency: '€' },
             'Paragliding': { price: 80, currency: '€' }
         };
+
+        if (typeof window !== 'undefined' && window.ProductData && typeof window.ProductData.getProduct === 'function') {
+            var aliases = {
+                standard: ['package_standard', 'pack_Standard', 'package_Standard', 'Standard', 'package_Basic', 'Basic'],
+                private: ['package_private', 'pack_Private', 'package_Private', 'Private', 'package_Comfort', 'Comfort'],
+                'private-plus': ['package_private-plus', 'pack_Private+', 'package_Private+', 'Private+', 'package_Luxe', 'Luxe'],
+                buggy: ['package_buggy', 'pack_Buggy', 'package_Buggy', 'Buggy']
+            };
+            Object.keys(aliases).forEach(function (key) {
+                var product = window.ProductData.getProduct(key);
+                if (!product) return;
+                aliases[key].forEach(function (alias) {
+                    defaults[alias] = { price: product.priceEUR, currency: '€' };
+                });
+            });
+        }
+
+        return defaults;
     }
 
     /**
