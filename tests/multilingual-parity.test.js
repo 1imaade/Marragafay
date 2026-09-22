@@ -340,3 +340,25 @@ test('12. Product facts are not reintroduced by active homepage package literals
         assert.match(html, /function\s+buildPackageData\(packageType\)/, `${loc}/index.html must resolve modal products through ProductData`);
     });
 });
+
+test('13. All localized product booking bars share the restrained two-corner treatment', () => {
+    const productPages = [
+        'packages/basic.html',
+        'packages/comfort.html',
+        'packages/luxe.html',
+        'activities/buggy.html'
+    ];
+    const bookingStyles = fs.readFileSync(path.join(ROOT, 'css/custom-bundle.css'), 'utf-8');
+
+    LOCALES.forEach(loc => {
+        productPages.forEach(page => {
+            const html = fs.readFileSync(path.join(ROOT, loc, page), 'utf-8');
+            assert.ok(html.includes('id="booking-form"'), `${loc}/${page} must contain the product booking form`);
+            assert.ok(html.includes('href="/css/custom-bundle.css"'), `${loc}/${page} must load shared booking form styles`);
+        });
+    });
+
+    assert.match(bookingStyles, /form#booking-form:has\(\.booking-input-cell\)\s*\{[^}]*border-radius:\s*14px\s+0\s+14px\s+0/s);
+    assert.match(bookingStyles, /\.booking-input-cell:first-child\s*\{[^}]*border-radius:\s*14px\s+0\s+0\s+0/s);
+    assert.match(bookingStyles, />\s*button\s*\{[^}]*border-radius:\s*0\s+0\s+14px\s+0/s);
+});
