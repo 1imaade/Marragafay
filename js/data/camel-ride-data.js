@@ -79,7 +79,7 @@ const camelRideData = {
         'Complimentary Pool Access'
     ],
 
-    notIncluded: 'Marrakech Transport (Standard experience starts from the Agafay meeting point), Extended ride time beyond the standard 20 minutes (Longer rides available on request for an additional charge), Personal expenses & tips.',
+    notIncluded: 'Marrakech transport is not included for this standalone activity; the Standard package includes shared pickup from your Marrakech address. Extended ride time beyond 20 minutes (available on request for an additional charge), personal expenses and tips.',
 
     // Gallery
     galleryImages: [

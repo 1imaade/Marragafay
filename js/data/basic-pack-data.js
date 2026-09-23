@@ -44,7 +44,7 @@ const basicPackData = {
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>',
-            text: 'Transport: Shared Hotel/Riad Pickup & Return'
+            text: 'Transport: Shared round-trip pickup from your hotel, riad, or another address in Marrakech'
         }
     ],
 
@@ -53,7 +53,7 @@ const basicPackData = {
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>',
             title: '15:30 — Shared Pickup & Welcome',
-            description: 'Shared pickup from your hotel or riad in Marrakech and transfer to our desert camp in Agafay.'
+            description: 'Shared round-trip pickup from your hotel, riad, or another address in Marrakech and transfer to our desert camp in Agafay.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
@@ -84,7 +84,7 @@ const basicPackData = {
             if (p && Array.isArray(p.includes)) return p.includes;
         }
         return [
-            'Shared hotel/riad pickup & return',
+            'Shared round-trip pickup from your hotel, riad, or another address in Marrakech',
             '1h quad biking',
             '20min camel ride',
             'Pool access & Moroccan mint tea',

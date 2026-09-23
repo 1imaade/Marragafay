@@ -9,12 +9,12 @@ const buggyRidingData = {
     heroHighlight: 'Buggy Experience',
     breadcrumbParent: 'Packages',
     breadcrumbParentLink: '../packs.html',
-    breadcrumbCurrent: 'Private Agafay Buggy Experience',
+    breadcrumbCurrent: 'Buggy Experience from Marrakech',
     rating: '5.0',
     reviewCount: '180',
-    title: 'Private Agafay Buggy Experience',
+    title: 'Private Buggy Experience from Marrakech',
     label: 'BUGGY',
-    description: 'Private all-inclusive Agafay Buggy experience. 1h private buggy (2 guests per buggy, minimum 2 guests), private round-trip transfer, 20min camel ride, pool, mint tea, sunset pause, Moroccan dinner, live show, dedicated guide, and bottled water.',
+    description: 'A private Buggy experience starting in Marrakech with round-trip transfer, a 1-hour buggy session, a 20-minute camel ride, pool access and mint tea, dinner and live show, cold bottled water, a dedicated guide, and safety equipment with briefing. One 2-seat buggy serves two guests; minimum booking is two guests.',
     highlights: [
         { icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>', text: 'Schedule: Flexible departure (subject to availability)' },
         { icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>', text: 'Location: Agafay Desert' },
@@ -34,7 +34,7 @@ const buggyRidingData = {
             if (p && Array.isArray(p.includes)) return p.includes;
         }
         return [
-            'Private hotel / riad transfer',
+            'Private round-trip pickup from your Marrakech hotel, riad, or another address',
             '1h private buggy ride',
             'One buggy for two guests',
             '20min camel ride',

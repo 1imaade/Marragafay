@@ -24,25 +24,26 @@
             key: 'standard',
             type: 'package',
             name: 'Standard',
-            title: 'Agafay Evening Experience',
+            title: 'Standard Agafay Evening',
             priceEUR: 45,
-            priceMAD: 450,
-            duration: '15:30–22:00',
-            transport: 'Shared hotel / riad pickup & return',
+            priceMAD: 449,
+            duration: 'Quad 1 hour · Camel 20 minutes',
+            transport: 'Shared round-trip pickup from your hotel, riad, or another address in Marrakech',
             facts: { transportMode: 'shared', quadDuration: '1h', camelDuration: '20min' },
-            cardSummary: '15:30 — 22:00 · Shared Transfer · 1h Quad · 20min Camel · Dinner & Show',
+            cardSummary: '1h Quad · 20min Camel · Shared Marrakech pickup · Dinner & Show',
             includes: [
-                'Shared hotel / riad pickup & return',
-                '1h quad ride across Agafay',
-                '20min camel ride',
-                'Pool access & Moroccan mint tea',
+                'Shared round-trip pickup from your hotel, riad, or another address in Marrakech',
+                'Quad Adventure — 1 hour',
+                'Camel Ride — 20 minutes',
+                'Pool access and Moroccan mint tea',
                 'Sunset photo pause',
                 'Traditional Moroccan dinner',
-                'Live fire & music show',
-                'Bottled water included',
-                'Safety gear & briefing'
+                'Live dinner show',
+                'Cold bottled water',
+                'Safety equipment and briefing',
+                'Additional drinks not included'
             ],
-            description: 'Shared hotel / riad pickup & return + 1h quad ride across Agafay + 20min camel ride + pool access & Moroccan mint tea + sunset photo pause + traditional Moroccan dinner + live fire & music show + bottled water + safety gear & briefing',
+            description: 'Standard includes shared round-trip pickup from your hotel, riad, or another address in Marrakech; a 1-hour quad adventure; a 20-minute camel ride; pool access and Moroccan mint tea; a sunset photo pause; traditional dinner and live show; cold bottled water; and safety equipment with a briefing. Additional drinks are not included.',
             source: 'fallback'
         },
         'private': {
@@ -52,26 +53,26 @@
             name: 'Private',
             title: 'Private Agafay Evening',
             priceEUR: 75,
-            priceMAD: 750,
-            duration: '15:30–22:00',
-            transport: 'Private hotel / riad transfer',
+            priceMAD: 749,
+            duration: 'Quad 1 hour 30 minutes · Camel 20 minutes',
+            transport: 'Private round-trip pickup from your hotel, riad, or another address in Marrakech',
             facts: { transportMode: 'private', quadDuration: '1h30', camelDuration: '20min' },
-            cardSummary: '15:30 — 22:00 · Private Transfer · 1h30 Quad · 20min Camel · Guide · Dinner & Show',
+            cardSummary: '1h30 Private Quad · 20min Camel · Private Transfer · Water, gifts & sweets',
             includes: [
-                'Private hotel / riad transfer',
-                '1h30 private quad session',
-                '20min camel ride',
-                'Pool access & Moroccan mint tea',
+                'Private round-trip pickup from your hotel, riad, or another address in Marrakech',
+                '1 hour 30 minute private quad session',
+                'Dedicated guide for your group',
+                'Camel ride — 20 minutes',
+                'Pool access and Moroccan mint tea',
                 'Sunset photo pause',
-                'Traditional Moroccan dinner',
-                'Live fire & music show',
-                'Dedicated guide',
-                'Desert scarf to wear & keep',
-                'Bottled water + soft drink',
-                'Moroccan sweets',
-                'Safety gear & briefing'
+                'Traditional Moroccan dinner and live show',
+                'Cold bottled water and one soft drink',
+                'Cheche scarf to keep as a gift',
+                'Moroccan pastry gift',
+                'Safety equipment and briefing',
+                'Additional drinks not included'
             ],
-            description: 'Private hotel / riad transfer + 1h30 private quad session + 20min camel ride + pool access & Moroccan mint tea + sunset photo pause + traditional Moroccan dinner + live fire & music show + dedicated guide + desert scarf to wear & keep + bottled water & soft drink + Moroccan sweets + safety gear & briefing',
+            description: 'Private includes private round-trip pickup from your hotel, riad, or another address in Marrakech, a 1 hour 30 minute private quad session with a dedicated group guide, a 20-minute camel ride, pool access and Moroccan mint tea, a sunset photo pause, dinner and live show, cold bottled water, one soft drink, a cheche scarf gift, and a Moroccan pastry gift. Additional drinks are not included.',
             source: 'fallback'
         },
         'private-plus': {
@@ -79,29 +80,30 @@
             key: 'private-plus',
             type: 'package',
             name: 'Private+',
-            title: 'Agafay & Atlas — Full-Day Quad',
+            title: 'Private+ Full-Day Agafay Experience',
             priceEUR: 119,
             priceMAD: 1190,
-            duration: '09:00–22:00',
-            transport: 'Private hotel / riad transfer',
+            duration: 'Full day · Quad 3 hours · Camel 45 minutes',
+            transport: 'Private round-trip pickup from your hotel, riad, or another address in Marrakech for the full day',
             facts: { transportMode: 'private', quadDuration: '3h', camelDuration: '45min' },
-            cardSummary: '09:00 — 22:00 · Private Transfer · 3h Quad · Lunch & Dinner · 45min Camel · Guide',
+            cardSummary: 'Full day · 3h Private Quad · 45min Camel · Lunch & Dinner for your group',
             includes: [
-                'Private hotel / riad transfer',
-                '3h private quad exploration across Agafay & the Atlas',
-                'Traditional Moroccan lunch',
-                'Pool access & Moroccan mint tea',
-                '45min camel ride',
-                'Sunset pause',
-                'Traditional Moroccan dinner',
-                'Live fire & music show',
+                'Private round-trip pickup from your hotel, riad, or another address in Marrakech for the full day',
+                '3-hour private quad exploration',
+                'Moroccan lunch reserved for your group',
+                'Pool access and Moroccan mint tea',
+                'Camel ride — 45 minutes',
+                'Sunset photo pause',
+                'Moroccan dinner reserved for your group',
+                'Live dinner show',
                 'Dedicated full-day guide',
-                'Desert scarf to wear & keep',
-                'Bottled water + soft drink',
-                'Moroccan sweets',
-                'Safety gear & briefing'
+                'Cheche scarf to keep as a gift',
+                'Cold bottled water and one soft drink',
+                'Moroccan pastry gift',
+                'Safety equipment and briefing',
+                'Additional drinks not included'
             ],
-            description: 'Agafay & Atlas Discovery — Full Day Quad: private hotel / riad transfer + 3h private quad exploration across Agafay & the Atlas + traditional Moroccan lunch + pool access & Moroccan mint tea + 45min camel ride + sunset pause + traditional Moroccan dinner + live fire & music show + dedicated full-day guide + desert scarf to wear & keep + bottled water & soft drink + Moroccan sweets + safety gear & briefing',
+            description: 'Private+ is a full-day Agafay experience with private round-trip pickup from your hotel, riad, or another address in Marrakech, a 3-hour private quad exploration, lunch and dinner reserved for your group, pool access and Moroccan mint tea, a 45-minute camel ride, a sunset photo pause, a dedicated full-day guide, cold bottled water, one soft drink, a cheche scarf gift, and a Moroccan pastry gift. The exact route is confirmed before the experience.',
             source: 'fallback'
         },
         'buggy': {
@@ -109,27 +111,26 @@
             key: 'buggy',
             type: 'package',
             name: 'Buggy',
-            title: 'Private Agafay Buggy Experience',
+            title: 'Private Buggy Experience from Marrakech',
             priceEUR: 129,
             priceMAD: 1290,
-            duration: 'Flexible',
-            transport: 'Private hotel / riad transfer',
+            duration: 'Buggy 1 hour · Camel 20 minutes',
+            transport: 'Private round-trip pickup from your Marrakech hotel, riad, or another address',
             facts: { transportMode: 'private', quadDuration: '1h', camelDuration: '20min' },
-            cardSummary: 'Flexible Departure · Private Transfer · 1h Buggy (2 guests/buggy) · 20min Camel · Dinner & Show',
+            cardSummary: '1h Private Buggy · 20min Camel · Marrakech transfer · Dinner & Show',
             includes: [
-                'Private hotel / riad transfer',
-                '1h private buggy ride',
-                'One buggy for two guests',
-                '20min camel ride',
-                'Pool access & Moroccan mint tea',
+                'Private round-trip pickup from your Marrakech hotel, riad, or another address',
+                '1-hour private buggy experience',
+                'One 2-seat buggy per two guests (minimum booking: 2 guests)',
+                'Camel ride — 20 minutes',
+                'Pool access and Moroccan mint tea',
                 'Sunset photo pause',
-                'Traditional Moroccan dinner',
-                'Live fire & music show',
+                'Traditional Moroccan dinner and live show',
+                'Cold bottled water',
                 'Dedicated guide',
-                'Bottled water included',
-                'Safety gear & briefing'
+                'Safety equipment and briefing'
             ],
-            description: 'Private hotel / riad transfer + 1h private buggy ride + one buggy for two guests + 20min camel ride + pool access & Moroccan mint tea + sunset photo pause + traditional Moroccan dinner + live fire & music show + dedicated guide + bottled water + safety gear & briefing',
+            description: 'Buggy includes private round-trip pickup from your Marrakech hotel, riad, or another address, a 1-hour private buggy experience (one 2-seat buggy per two guests; minimum booking of two guests), a 20-minute camel ride, pool access and Moroccan mint tea, a sunset photo pause, traditional dinner and live show, cold bottled water, a dedicated guide, and safety equipment with a briefing.',
             source: 'fallback'
         }
     };
@@ -224,11 +225,15 @@
         } else {
             // currency is EUR
             priceEUR = Number(row.price);
-            priceMAD = row.price_eur != null ? Math.round(Number(row.price_eur) * 10) : (priceEUR * 10);
+            // Preserve the official Drive-listed MAD fare instead of
+            // converting the rounded public EUR price at a 10:1 rate.
+            priceMAD = fb.priceMAD;
         }
 
-        var includes = Array.isArray(row.includes) && row.includes.length > 0 ? row.includes : fb.includes;
-        var transport = extractTransport(includes, fb.transport);
+        // Supabase remains the live price source. Product facts stay in the
+        // reviewed local matrix so an outdated row cannot restore retired copy.
+        var includes = fb.includes.slice();
+        var transport = fb.transport;
 
         return {
             id: row.id || fb.id,
@@ -238,12 +243,12 @@
             title: fb.title,
             priceEUR: priceEUR,
             priceMAD: priceMAD,
-            duration: row.duration || fb.duration,
+            duration: fb.duration,
             transport: transport,
             facts: clone(fb.facts || {}),
             cardSummary: fb.cardSummary,
             includes: includes,
-            description: row.description || fb.description,
+            description: fb.description,
             source: 'supabase'
         };
     }

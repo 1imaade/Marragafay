@@ -7,17 +7,17 @@ test('1. Supabase product parsing produces valid canonical objects', () => {
         id: '9a233299-c908-4b91-92f2-789091a313e7',
         name: 'Standard',
         activity_name: 'Standard',
-        price: 450,
+        price: 449,
         currency: 'MAD',
         price_eur: 45.0,
-        duration: '15:30–22:00',
+        duration: 'Quad 1 hour · Camel 20 minutes',
         type: 'pack',
         includes: [
-            'Shared hotel / riad pickup & return',
-            '1h quad ride across Agafay',
-            '20min camel ride'
+            'Shared pickup from a hotel, riad, or another Marrakech address',
+            'Quad Adventure — 1 hour',
+            'Camel Ride — 20 minutes'
         ],
-        description: 'Standard pack description'
+        description: 'Standard package description'
     };
 
     const parsed = ProductData.parseSupabaseRow(rawSupabaseRow);
@@ -25,9 +25,9 @@ test('1. Supabase product parsing produces valid canonical objects', () => {
     assert.equal(parsed.key, 'standard');
     assert.equal(parsed.name, 'Standard');
     assert.equal(parsed.priceEUR, 45);
-    assert.equal(parsed.priceMAD, 450);
-    assert.equal(parsed.duration, '15:30–22:00');
-    assert.equal(parsed.transport, 'Shared hotel / riad pickup & return');
+    assert.equal(parsed.priceMAD, 449);
+    assert.equal(parsed.duration, 'Quad 1 hour · Camel 20 minutes');
+    assert.equal(parsed.transport, 'Shared round-trip pickup from your hotel, riad, or another address in Marrakech');
     assert.equal(parsed.source, 'supabase');
 });
 
@@ -72,26 +72,29 @@ test('3. Fallback behavior returns official matrix when offline or uninitialized
     assert.ok(fallback.buggy);
 
     const standard = ProductData.getProduct('standard');
+    assert.equal(standard.name, 'Standard');
     assert.equal(standard.priceEUR, 45);
-    assert.equal(standard.priceMAD, 450);
-    assert.equal(standard.duration, '15:30–22:00');
-    assert.ok(standard.includes.length >= 9);
+    assert.equal(standard.priceMAD, 449);
+    assert.equal(standard.duration, 'Quad 1 hour · Camel 20 minutes');
+    assert.equal(standard.includes.length, 10);
 
     const priv = ProductData.getProduct('private');
+    assert.equal(priv.name, 'Private');
     assert.equal(priv.priceEUR, 75);
-    assert.equal(priv.priceMAD, 750);
-    assert.equal(priv.duration, '15:30–22:00');
-    assert.ok(priv.includes.length >= 11);
+    assert.equal(priv.priceMAD, 749);
+    assert.equal(priv.duration, 'Quad 1 hour 30 minutes · Camel 20 minutes');
+    assert.equal(priv.includes.length, 12);
 
     const privPlus = ProductData.getProduct('private-plus');
+    assert.equal(privPlus.name, 'Private+');
     assert.equal(privPlus.priceEUR, 119);
     assert.equal(privPlus.priceMAD, 1190);
-    assert.equal(privPlus.duration, '09:00–22:00');
+    assert.equal(privPlus.duration, 'Full day · Quad 3 hours · Camel 45 minutes');
 
     const buggy = ProductData.getProduct('buggy');
     assert.equal(buggy.priceEUR, 129);
     assert.equal(buggy.priceMAD, 1290);
-    assert.equal(buggy.duration, 'Flexible');
+    assert.equal(buggy.duration, 'Buggy 1 hour · Camel 20 minutes');
 });
 
 test('4. Canonical product object shape contains all required attributes', () => {
@@ -112,10 +115,10 @@ test('4. Canonical product object shape contains all required attributes', () =>
 
 test('5. Correct EUR/MAD pricing values align across all 4 packages', () => {
     assert.equal(ProductData.getProduct('standard').priceEUR, 45);
-    assert.equal(ProductData.getProduct('standard').priceMAD, 450);
+    assert.equal(ProductData.getProduct('standard').priceMAD, 449);
 
     assert.equal(ProductData.getProduct('private').priceEUR, 75);
-    assert.equal(ProductData.getProduct('private').priceMAD, 750);
+    assert.equal(ProductData.getProduct('private').priceMAD, 749);
 
     assert.equal(ProductData.getProduct('private-plus').priceEUR, 119);
     assert.equal(ProductData.getProduct('private-plus').priceMAD, 1190);
@@ -170,9 +173,9 @@ test('6. DOM binding populates attributes correctly on mock DOM root', () => {
 
     assert.equal(elements[0].textContent, 'Standard');
     assert.equal(elements[1].textContent, '45 €');
-    assert.equal(elements[2].textContent, '(450 MAD)');
+    assert.equal(elements[2].textContent, '(449 MAD)');
     assert.equal(elements[3].textContent, 'STANDARD · 45€ / guest');
-    assert.equal(elements[4].textContent, '15:30–22:00');
+    assert.equal(elements[4].textContent, 'Quad 1 hour · Camel 20 minutes');
 });
 
 test('7. Simulated Supabase price change updates bound elements without modifying production DB', () => {
@@ -199,11 +202,11 @@ test('7. Simulated Supabase price change updates bound elements without modifyin
     };
 
     // Simulate price change: 45 EUR -> 46 EUR
-    ProductData.setProductOverride('standard', { priceEUR: 46 });
+    ProductData.setProductOverride('standard', { priceEUR: 36 });
     ProductData.bindElements(mockRoot);
 
-    assert.equal(elements[0].textContent, '46 €', 'Price EUR should update to simulated 46 €');
-    assert.equal(elements[1].textContent, 'STANDARD · 46€ / guest', 'Tag should update to simulated 46€');
+    assert.equal(elements[0].textContent, '36 €', 'Price EUR should update to simulated 36 €');
+    assert.equal(elements[1].textContent, 'STANDARD · 36€ / guest', 'Tag should update to simulated 36€');
 
     // Clean up simulation
     ProductData.resetOverrides();
@@ -223,8 +226,8 @@ test('8. Supabase failure simulation safely falls back without uncaught errors',
         const standard = ProductData.getProduct('standard');
         assert.ok(standard);
         assert.equal(standard.priceEUR, 45);
-        assert.equal(standard.priceMAD, 450);
-        assert.equal(standard.duration, '15:30–22:00');
+        assert.equal(standard.priceMAD, 449);
+        assert.equal(standard.duration, 'Quad 1 hour · Camel 20 minutes');
     } finally {
         globalThis.fetch = originalFetch;
     }

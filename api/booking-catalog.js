@@ -10,10 +10,10 @@
 // pricing drift during Supabase outages.
 // ============================================================================
 export const BOOKING_PRODUCTS = Object.freeze({
-  basic: Object.freeze({ id: 'basic', type: 'package', title: 'Agafay Evening Experience', unitPriceMad: 450, unitPriceEur: 45 }),
-  comfort: Object.freeze({ id: 'comfort', type: 'package', title: 'Private Agafay Evening', unitPriceMad: 750, unitPriceEur: 75 }),
-  luxe: Object.freeze({ id: 'luxe', type: 'package', title: 'Agafay & Atlas — Full-Day Quad', unitPriceMad: 1190, unitPriceEur: 119 }),
-  buggy: Object.freeze({ id: 'buggy', type: 'package', title: 'Private Agafay Buggy Experience', unitPriceMad: 1290, unitPriceEur: 129 }),
+  basic: Object.freeze({ id: 'basic', type: 'package', title: 'Standard', unitPriceMad: 449, unitPriceEur: 45 }),
+  comfort: Object.freeze({ id: 'comfort', type: 'package', title: 'Private', unitPriceMad: 749, unitPriceEur: 75 }),
+  luxe: Object.freeze({ id: 'luxe', type: 'package', title: 'Private+', unitPriceMad: 1190, unitPriceEur: 119 }),
+  buggy: Object.freeze({ id: 'buggy', type: 'package', title: 'Buggy', unitPriceMad: 1290, unitPriceEur: 129 }),
   quad: Object.freeze({ id: 'quad', type: 'activity', title: 'Quad Biking', unitPriceMad: 250, unitPriceEur: 25 }),
   camel: Object.freeze({ id: 'camel', type: 'activity', title: 'Camel Ride', unitPriceMad: 100, unitPriceEur: 10 }),
   paragliding: Object.freeze({ id: 'paragliding', type: 'activity', title: 'Paragliding', unitPriceMad: 799, unitPriceEur: 80 }),

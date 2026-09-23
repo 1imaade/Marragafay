@@ -85,7 +85,7 @@ const quadBikingData = {
         'Children under 16 can join free of charge as passengers with an accompanying adult (Max 1 per adult)'
     ],
 
-    notIncluded: 'Marrakech Transport (Standard experience starts from the Agafay meeting point), Personal expenses, Tips.',
+    notIncluded: 'Marrakech transport is not included for this standalone activity; the Standard package includes shared pickup from your Marrakech address. Personal expenses and tips.',
 
     // Gallery
     galleryImages: [

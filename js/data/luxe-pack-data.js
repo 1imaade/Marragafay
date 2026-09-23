@@ -19,14 +19,14 @@ const luxePackData = {
     heroHighlight: 'Private+ Pack',
     breadcrumbParent: 'Packs',
     breadcrumbParentLink: '../packs.html',
-    breadcrumbCurrent: 'Agafay & Atlas — Full-Day Quad',
+    breadcrumbCurrent: 'Private+ Full-Day Agafay Experience',
 
     // Header Info
     rating: '5.0',
     reviewCount: '78',
-    title: 'Agafay & Atlas — Full-Day Quad',
+    title: 'Private+ Full-Day Agafay Experience',
     label: 'PRIVATE+',
-    description: 'The ultimate full-day desert & mountain exploration. 09:00 to 22:00 full-day itinerary featuring private round-trip transfer, 3h private quad exploration across Agafay & Atlas route, Moroccan lunch, pool, 45min camel ride, sunset pause, dinner, live show, dedicated full-day guide, desert scarf, Moroccan sweets, and beverages.',
+    description: 'A full-day Agafay experience with private round-trip transfer, 3h private quad exploration, lunch and dinner reserved exclusively for your group, pool access, 45min camel ride, sunset pause, live show, a dedicated full-day guide, a cheche gift, Moroccan pastry gift, cold bottled water, and one soft drink. The route is confirmed before the experience.',
 
     // Highlights
     highlights: [
@@ -36,7 +36,7 @@ const luxePackData = {
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
-            text: 'Route: Agafay Desert & Atlas Foothills'
+            text: 'Location: Agafay Desert'
         },
         {
             icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
@@ -53,17 +53,17 @@ const luxePackData = {
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>',
             title: '09:00 — Private Morning Pickup',
-            description: 'Private round-trip transfer from your hotel/riad to begin your full-day expedition.'
+            description: 'Private round-trip pickup from your hotel, riad, or another address in Marrakech for your full-day experience.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
-            title: '3h Private Quad Exploration (Agafay & Atlas Route)',
-            description: 'Extensive 3-hour private quad adventure exploring remote Agafay canyons and Atlas mountain trails accompanied by your full-day guide.'
+            title: '3h Private Quad Exploration in Agafay',
+            description: 'A 3-hour private quad exploration in Agafay with your dedicated full-day guide. The exact route is confirmed before the experience.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
-            title: 'Moroccan Lunch & Pool Relaxation',
-            description: 'Authentic Moroccan lunch served at camp, followed by refreshing pool access and traditional mint tea.'
+            title: 'Group Lunch & Pool Relaxation',
+            description: 'Enjoy a Moroccan lunch reserved exclusively for your group, followed by pool access and traditional mint tea.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
@@ -72,8 +72,8 @@ const luxePackData = {
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
-            title: 'Dinner + Live Show & Return (22:00)',
-            description: 'Celebratory multi-course Moroccan dinner with live music and fire show, dessert sweets, and private transfer back to Marrakech.'
+            title: 'Group Dinner, Live Show & Return',
+            description: 'Enjoy a Moroccan dinner reserved exclusively for your group, followed by the live show and private transfer back to Marrakech.'
         }
     ],
 
@@ -84,13 +84,13 @@ const luxePackData = {
             if (p && Array.isArray(p.includes)) return p.includes;
         }
         return [
-            'Private hotel / riad transfer',
-            '3h private quad exploration across Agafay & the Atlas',
-            'Traditional Moroccan lunch',
+            'Private round-trip pickup from your hotel, riad, or another address in Marrakech',
+            '3h private quad exploration in Agafay',
+            'Moroccan lunch reserved exclusively for your group',
             'Pool access & Moroccan mint tea',
             '45min camel ride',
             'Sunset pause',
-            'Traditional Moroccan dinner',
+            'Moroccan dinner reserved exclusively for your group',
             'Live fire & music show',
             'Dedicated full-day guide',
             'Desert scarf to wear & keep',

@@ -25,9 +25,9 @@
       const dictionaries = {
         en: {
           experiencesPacks: [
-            { label: 'Agafay Evening Experience', href: 'packages/basic' },
-            { label: 'Private Agafay Evening', href: 'packages/comfort' },
-            { label: 'Agafay & Atlas — Full-Day Quad', href: 'packages/luxe' },
+            { label: 'Standard', href: 'packages/basic' },
+            { label: 'Private', href: 'packages/comfort' },
+            { label: 'Private+ — Full-Day Agafay', href: 'packages/luxe' },
           ],
           experiencesActivities: [
             { label: 'Marragafay Extreme Quad Biking Adventure', href: 'activities/quad-biking' },
@@ -45,9 +45,9 @@
             { label: 'FAQ', href: 'about' },
           ],
           packs: [
-            { label: 'Agafay Evening Experience (Standard)', href: 'packages/basic' },
-            { label: 'Private Agafay Evening', href: 'packages/comfort' },
-            { label: 'Agafay & Atlas — Full-Day Quad (Private+)', href: 'packages/luxe' },
+            { label: 'Standard', href: 'packages/basic' },
+            { label: 'Private', href: 'packages/comfort' },
+            { label: 'Private+ — Full-Day Agafay', href: 'packages/luxe' },
           ],
           booking: [
             { label: 'Book an Experience', href: 'packs', arrow: true },
@@ -56,9 +56,9 @@
         },
         fr: {
           experiencesPacks: [
-            { label: 'Expérience Soirée Agafay', href: 'packages/basic' },
-            { label: 'Soirée Privée à Agafay', href: 'packages/comfort' },
-            { label: 'Agafay & Atlas — Journée Complète Quad', href: 'packages/luxe' },
+            { label: 'Standard — Soirée Agafay', href: 'packages/basic' },
+            { label: 'Private — Soirée Agafay', href: 'packages/comfort' },
+            { label: 'Private+ — Agafay, journée complète', href: 'packages/luxe' },
           ],
           experiencesActivities: [
             { label: 'Aventure Extrême en Quad', href: 'activities/quad-biking' },
@@ -76,9 +76,9 @@
             { label: 'FAQ', href: 'about' },
           ],
           packs: [
-            { label: 'Expérience Soirée Agafay (Standard)', href: 'packages/basic' },
-            { label: 'Soirée Privée à Agafay', href: 'packages/comfort' },
-            { label: 'Agafay & Atlas — Journée Complète Quad (Private+)', href: 'packages/luxe' },
+            { label: 'Standard — Soirée Agafay', href: 'packages/basic' },
+            { label: 'Private — Soirée Agafay', href: 'packages/comfort' },
+            { label: 'Private+ — Agafay, journée complète', href: 'packages/luxe' },
           ],
           booking: [
             { label: 'Réserver une Expérience', href: 'packs', arrow: true },
@@ -87,9 +87,9 @@
         },
         es: {
           experiencesPacks: [
-            { label: 'Experiencia de Tarde en Agafay', href: 'packages/basic' },
-            { label: 'Tarde Privada en Agafay', href: 'packages/comfort' },
-            { label: 'Agafay y Atlas — Día Completo en Quad', href: 'packages/luxe' },
+            { label: 'Standard — Experiencia de tarde en Agafay', href: 'packages/basic' },
+            { label: 'Private — Experiencia privada en Agafay', href: 'packages/comfort' },
+            { label: 'Private+ — Agafay de día completo', href: 'packages/luxe' },
           ],
           experiencesActivities: [
             { label: 'Aventura Extrema en Quad', href: 'activities/quad-biking' },
@@ -107,9 +107,9 @@
             { label: 'Preguntas Frecuentes', href: 'about' },
           ],
           packs: [
-            { label: 'Experiencia de Tarde en Agafay (Standard)', href: 'packages/basic' },
-            { label: 'Tarde Privada en Agafay', href: 'packages/comfort' },
-            { label: 'Agafay y Atlas — Día Completo en Quad (Private+)', href: 'packages/luxe' },
+            { label: 'Standard — Experiencia de tarde en Agafay', href: 'packages/basic' },
+            { label: 'Private — Experiencia privada en Agafay', href: 'packages/comfort' },
+            { label: 'Private+ — Agafay de día completo', href: 'packages/luxe' },
           ],
           booking: [
             { label: 'Reservar una Experiencia', href: 'packs', arrow: true },
@@ -118,9 +118,9 @@
         },
         ar: {
           experiencesPacks: [
-            { label: 'تجربة أمسية أجافي', href: 'packages/basic' },
-            { label: 'أمسية أجافي الخاصة', href: 'packages/comfort' },
-            { label: 'أجافي والأطلس — يوم كامل كواد', href: 'packages/luxe' },
+            { label: 'Standard — أمسية أجافاي', href: 'packages/basic' },
+            { label: 'Private — أمسية خاصة في أجافاي', href: 'packages/comfort' },
+            { label: 'Private+ — يوم كامل في أجافاي', href: 'packages/luxe' },
           ],
           experiencesActivities: [
             { label: 'مغامرة الدراجات الرباعية', href: 'activities/quad-biking' },
@@ -138,9 +138,9 @@
             { label: 'الأسئلة الشائعة', href: 'about' },
           ],
           packs: [
-            { label: 'تجربة أمسية أجافي (قياسية)', href: 'packages/basic' },
-            { label: 'أمسية أجافي الخاصة', href: 'packages/comfort' },
-            { label: 'أجافي والأطلس — يوم كامل كواد (خاصة بلس)', href: 'packages/luxe' },
+            { label: 'Standard — أمسية أجافاي', href: 'packages/basic' },
+            { label: 'Private — أمسية خاصة في أجافاي', href: 'packages/comfort' },
+            { label: 'Private+ — يوم كامل في أجافاي', href: 'packages/luxe' },
           ],
           booking: [
             { label: 'احجز تجربة', href: 'packs', arrow: true },

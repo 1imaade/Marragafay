@@ -761,8 +761,8 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             guestsRequired: 'At least 1 adult guest is required.',
             nameRequired: 'Please enter your full name.',
             phoneRequired: 'Please enter a valid WhatsApp number with country code.',
-            meetingRequired: 'Please confirm that you can reach the central Marrakech meeting point.',
-            hotelRequired: 'Please enter your hotel or Riad name in Marrakech.',
+            meetingRequired: 'Please share your pickup address in Marrakech.',
+            hotelRequired: 'Please enter your pickup address in Marrakech.',
             checkingAvailability: 'Checking availability...'
         },
         fr: {
@@ -770,8 +770,8 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             guestsRequired: 'Au moins 1 adulte est requis.',
             nameRequired: 'Veuillez saisir votre nom et prénom.',
             phoneRequired: 'Veuillez entrer un numéro WhatsApp valide avec indicatif.',
-            meetingRequired: 'Veuillez confirmer que vous pouvez rejoindre le point de rencontre.',
-            hotelRequired: 'Veuillez indiquer le nom de votre hôtel ou Riad à Marrakech.',
+            meetingRequired: 'Veuillez indiquer votre adresse de prise en charge à Marrakech.',
+            hotelRequired: 'Veuillez indiquer votre adresse de prise en charge à Marrakech.',
             checkingAvailability: 'Vérification de la disponibilité...'
         },
         es: {
@@ -779,8 +779,8 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             guestsRequired: 'Se requiere al menos 1 adulto.',
             nameRequired: 'Por favor, introduce tu nombre completo.',
             phoneRequired: 'Por favor, introduce un número de WhatsApp válido con prefijo.',
-            meetingRequired: 'Por favor, confirma que puedes llegar al punto de encuentro.',
-            hotelRequired: 'Por favor, introduce el nombre de tu hotel o Riad.',
+            meetingRequired: 'Indica tu dirección de recogida en Marrakech, por favor.',
+            hotelRequired: 'Por favor, indica tu dirección de recogida en Marrakech.',
             checkingAvailability: 'Comprobando disponibilidad...'
         },
         ar: {
@@ -788,8 +788,8 @@ document.addEventListener('booking-legacy-submit', async function (e) {
             guestsRequired: 'يجب تحديد شخص بالغ واحد على الأقل.',
             nameRequired: 'يرجى إدخال الاسم الكامل.',
             phoneRequired: 'يرجى إدخال رقم واتساب صالح مع رمز الدولة.',
-            meetingRequired: 'يرجى تأكيد إمكانية الوصول إلى نقطة التجمع في مراكش.',
-            hotelRequired: 'يرجى إدخال اسم الفندق أو الرياض في مراكش.',
+            meetingRequired: 'يرجى إدخال عنوان الاستقبال في مراكش.',
+            hotelRequired: 'يرجى إدخال عنوان الاستقبال في مراكش.',
             checkingAvailability: 'جاري التحقق من التوفر...'
         }
     };
@@ -888,18 +888,10 @@ document.addEventListener('booking-legacy-submit', async function (e) {
         }
 
         // 5. Conditional Pickup Validation
-        const isBasic = productId === 'basic' || productId.includes('discovery');
         const isComfort = productId === 'comfort' || productId.includes('signature');
         const isLuxe = productId === 'luxe' || productId.includes('luxury');
 
-        if (isBasic) {
-            const meetingCheckbox = form.querySelector('input[name="meeting_point_confirmed"]');
-            if (meetingCheckbox && !meetingCheckbox.checked) {
-                isValid = false;
-                showFieldError(meetingCheckbox, t.meetingRequired);
-                if (!firstInvalidInput) firstInvalidInput = meetingCheckbox;
-            }
-        } else if (isComfort || isLuxe) {
+        if (isComfort || isLuxe) {
             const hotelInput = form.querySelector('input[name="pickup_location"], input[name="hotel"], input[name="hotel_name"]');
             if (hotelInput) {
                 clearFieldError(hotelInput);
@@ -981,26 +973,25 @@ document.addEventListener('booking-legacy-submit', async function (e) {
         const productId = productIdForForm(form, formData);
 
         const pickupLocation = firstValue(formData, ['pickup_location', 'hotel', 'hotel_name', 'hotel_or_riad']);
-        const meetingConfirmed = form.querySelector('input[name="meeting_point_confirmed"]')?.checked;
         const privateReqs = firstValue(formData, ['private_requirements', 'private_notes', 'requirements']);
 
         let pickupContext = '';
         if (productId === 'basic' || productId.includes('discovery')) {
             pickupContext = pickupLocation
-                ? `Hotel/Riad: ${pickupLocation} (shared hotel/riad pickup & return)`
-                : 'Shared hotel/riad pickup & return';
+                ? `Pickup address: ${pickupLocation} (shared round-trip pickup)`
+                : 'Shared round-trip pickup from your chosen Marrakech address (confirm the exact pickup address on WhatsApp)';
         } else if (productId === 'comfort' || productId.includes('signature')) {
             pickupContext = pickupLocation
-                ? `Hotel/Riad: ${pickupLocation} (private hotel/riad transfer)`
-                : 'Private hotel/riad transfer';
+                ? `Pickup address: ${pickupLocation} (private round-trip transfer)`
+                : 'Private round-trip pickup from your chosen address in Marrakech';
         } else if (productId === 'luxe' || productId.includes('luxury')) {
             pickupContext = pickupLocation
-                ? `Hotel/Riad: ${pickupLocation}${privateReqs ? ' | Private preferences to check: ' + privateReqs : ''}`
-                : (privateReqs ? `Private preferences to check: ${privateReqs}` : 'Private hotel/riad transfer');
+                ? `Pickup address: ${pickupLocation}${privateReqs ? ' | Private preferences to check: ' + privateReqs : ''}`
+                : (privateReqs ? `Private preferences to check: ${privateReqs}` : 'Private round-trip pickup from your chosen address in Marrakech');
         } else if (productId === 'buggy') {
             pickupContext = pickupLocation
-                ? `Hotel/Riad: ${pickupLocation} (private hotel/riad transfer)`
-                : 'Private hotel/riad transfer';
+                ? `Pickup address: ${pickupLocation} (private round-trip transfer)`
+                : 'Private round-trip pickup from your chosen address in Marrakech';
         } else if (pickupLocation) {
             pickupContext = pickupLocation;
         }

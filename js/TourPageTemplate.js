@@ -668,13 +668,13 @@ const TourPageTemplate = (function () {
               </thead>
               <tbody>
                 <tr><td>Timing</td><td>15:30 — 22:00</td><td class="col-signature">15:30 — 22:00</td><td>09:00 — 22:00 (Full-Day)</td></tr>
-                <tr><td>Transport</td><td>Shared pickup & return</td><td class="col-signature">Private round-trip transfer</td><td>Private round-trip transfer</td></tr>
-                <tr><td>Quad Biking</td><td>1 hour</td><td class="col-signature">1 hour 30 min (private)</td><td>3 hours exploration (Agafay & Atlas)</td></tr>
+                <tr><td>Transport</td><td>Shared pickup & return from your Marrakech address</td><td class="col-signature">Private round-trip transfer</td><td>Private round-trip transfer</td></tr>
+                <tr><td>Quad Biking</td><td>1 hour</td><td class="col-signature">1 hour 30 min (private)</td><td>3 hours private exploration in Agafay</td></tr>
                 <tr><td>Camel Ride</td><td>20 minutes</td><td class="col-signature">20 minutes</td><td>45 minutes</td></tr>
-                <tr><td>Meals</td><td>Moroccan dinner</td><td class="col-signature">Moroccan dinner + soft drink</td><td>Moroccan lunch + dinner + drinks</td></tr>
+                <tr><td>Meals</td><td>Moroccan dinner</td><td class="col-signature">Moroccan dinner + one soft drink</td><td>Moroccan lunch and dinner reserved for your group</td></tr>
                 <tr><td>Live Show</td><td>Fire & music show</td><td class="col-signature">Fire & music show</td><td>Fire & music show</td></tr>
                 <tr><td>Dedicated Guide</td><td>Shared</td><td class="col-signature">Yes, dedicated guide</td><td>Yes, dedicated full-day guide</td></tr>
-                <tr><td>Gifts & Extras</td><td>Bottled water</td><td class="col-signature">Desert scarf + Moroccan sweets</td><td>Desert scarf + Moroccan sweets</td></tr>
+                <tr><td>Gifts & Extras</td><td>Bottled water</td><td class="col-signature">Cheche gift, Moroccan pastry gift, bottled water</td><td>Cheche gift, Moroccan pastry gift, bottled water + one soft drink</td></tr>
                 <tr><td>Pool & Tea</td><td>Yes</td><td class="col-signature">Yes</td><td>Yes</td></tr>
               </tbody>
             </table>

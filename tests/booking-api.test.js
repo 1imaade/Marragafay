@@ -34,22 +34,22 @@ test.before(() => {
 
 test('catalog totals use authoritative pack pricing', () => {
   assert.deepEqual(calculateTrustedTotal(resolveProduct('basic'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 900, totalEur: 90
+    totalGuests: 2, billableGuests: 2, totalMad: 898, totalEur: 90
   });
   assert.deepEqual(calculateTrustedTotal(resolveProduct('standard'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 900, totalEur: 90
+    totalGuests: 2, billableGuests: 2, totalMad: 898, totalEur: 90
   });
   assert.deepEqual(calculateTrustedTotal(resolveProduct('discovery pack'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 900, totalEur: 90
+    totalGuests: 2, billableGuests: 2, totalMad: 898, totalEur: 90
   });
   assert.deepEqual(calculateTrustedTotal(resolveProduct('comfort'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 1500, totalEur: 150
+    totalGuests: 2, billableGuests: 2, totalMad: 1498, totalEur: 150
   });
   assert.deepEqual(calculateTrustedTotal(resolveProduct('private'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 1500, totalEur: 150
+    totalGuests: 2, billableGuests: 2, totalMad: 1498, totalEur: 150
   });
   assert.deepEqual(calculateTrustedTotal(resolveProduct('signature pack'), 2, 0), {
-    totalGuests: 2, billableGuests: 2, totalMad: 1500, totalEur: 150
+    totalGuests: 2, billableGuests: 2, totalMad: 1498, totalEur: 150
   });
   assert.deepEqual(calculateTrustedTotal(resolveProduct('luxe'), 2, 0), {
     totalGuests: 2, billableGuests: 2, totalMad: 2380, totalEur: 238
@@ -91,7 +91,7 @@ test('valid request completes the local dry-run flow with attribution', async ()
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.booking_success, true);
   assert.equal(res.body.dry_run, true);
-  assert.equal(res.body.trusted_total_mad, 1500);
+  assert.equal(res.body.trusted_total_mad, 1498);
   assert.equal(res.body.trusted_total_eur, 150);
   assert.match(res.body.booking_id, /^local-dry-run-/);
 });
@@ -184,8 +184,8 @@ test('dynamic pricing normalization and defaults pass audit checks', async () =>
   // MAD Mappings
   assert.equal(dp.CANONICAL_PRICES_MAD['activity_Buggy'], 1290);
   assert.equal(dp.CANONICAL_PRICES_MAD['package_Basic'], undefined);
-  assert.equal(ProductData.getProduct('standard').priceMAD, 450);
-  assert.equal(ProductData.getProduct('private').priceMAD, 750);
+  assert.equal(ProductData.getProduct('standard').priceMAD, 449);
+  assert.equal(ProductData.getProduct('private').priceMAD, 749);
   assert.equal(ProductData.getProduct('private-plus').priceMAD, 1190);
   assert.equal(ProductData.getProduct('buggy').priceMAD, 1290);
 
@@ -207,14 +207,14 @@ test('server product resolver resolves live Supabase products with stable UUIDs'
   assert.equal(standard.canonicalKey, 'standard');
   assert.equal(standard.supabaseId, STABLE_SUPABASE_IDS.standard);
   assert.equal(standard.unitPriceEur, 45);
-  assert.equal(standard.unitPriceMad, 450);
+  assert.equal(standard.unitPriceMad, 449);
 
   const priv = await resolveServerProduct('private');
   assert.ok(priv);
   assert.equal(priv.canonicalKey, 'private');
   assert.equal(priv.supabaseId, STABLE_SUPABASE_IDS.private);
   assert.equal(priv.unitPriceEur, 75);
-  assert.equal(priv.unitPriceMad, 750);
+  assert.equal(priv.unitPriceMad, 749);
 
   const privPlus = await resolveServerProduct('private-plus');
   assert.ok(privPlus);
@@ -274,15 +274,15 @@ test('client price tampering is completely ignored by the booking endpoint', asy
   const res = await request(tamperedPayload);
   assert.equal(res.statusCode, 200);
   assert.equal(res.body.booking_success, true);
-  // Trusted total must be 45 * 2 = 90 EUR / 900 MAD, not 1!
-  assert.equal(res.body.trusted_total_mad, 900, 'Server must calculate 900 MAD, ignoring client tampering');
+  // Trusted total must be 45 * 2 = 90 EUR / 898 MAD, not 1!
+  assert.equal(res.body.trusted_total_mad, 898, 'Server must calculate 898 MAD, ignoring client tampering');
   assert.equal(res.body.trusted_total_eur, 90, 'Server must calculate 90 EUR, ignoring client tampering');
 });
 
 test('dynamic server price simulation updates trusted calculation', async () => {
   const tomorrow = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
 
-  // Simulate price change: Standard 45 EUR -> 46 EUR (460 MAD)
+  // Simulate a current Standard price change: 45 EUR -> 46 EUR (460 MAD)
   setServerPriceOverride('standard', {
     unitPriceEur: 46,
     unitPriceMad: 460,
@@ -307,7 +307,7 @@ test('dynamic server price simulation updates trusted calculation', async () => 
     resetServerPriceOverrides();
   }
 
-  // After reset, pricing returns to standard 45€
+  // After reset, pricing returns to the current Standard price.
   const revertedRes = await request({
     product_id: 'standard',
     name: 'Standard User',
@@ -317,7 +317,7 @@ test('dynamic server price simulation updates trusted calculation', async () => 
     children: 0
   });
   assert.equal(revertedRes.body.trusted_total_eur, 90);
-  assert.equal(revertedRes.body.trusted_total_mad, 900);
+  assert.equal(revertedRes.body.trusted_total_mad, 898);
 });
 
 test('server fallback handles Supabase failures gracefully', async () => {
@@ -341,7 +341,7 @@ test('server fallback handles Supabase failures gracefully', async () => {
     assert.ok(fallbackProduct);
     assert.equal(fallbackProduct.source, 'fallback');
     assert.equal(fallbackProduct.unitPriceEur, 45);
-    assert.equal(fallbackProduct.unitPriceMad, 450);
+    assert.equal(fallbackProduct.unitPriceMad, 449);
 
     const tomorrow = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
     const res = await request({
@@ -356,7 +356,7 @@ test('server fallback handles Supabase failures gracefully', async () => {
     assert.equal(res.statusCode, 200);
     assert.equal(res.body.booking_success, true);
     assert.equal(res.body.trusted_total_eur, 90);
-    assert.equal(res.body.trusted_total_mad, 900);
+    assert.equal(res.body.trusted_total_mad, 898);
     assert.equal(res.body.pricing_source, 'fallback');
 
     // Verify operational warning was triggered

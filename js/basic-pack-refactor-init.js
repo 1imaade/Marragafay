@@ -64,10 +64,10 @@
 
   function renderBasic() {
     var data = {
-      title: "Agafay Discovery",
+      title: "Standard Agafay Evening",
       subTitle: "Packs",
-      price: "40 €",
-      description: "Experience the magic of the Agafay Desert with our essential adventure package. Combining thrill and tradition, this is the perfect introduction to Moroccan desert life.",
+      price: "45 €",
+      description: "The Standard Agafay experience includes shared round-trip pickup from your hotel, riad, or another address in Marrakech, a 1-hour quad adventure, a 20-minute camel ride, pool access and mint tea, dinner, a live show, bottled water, and safety equipment with briefing.",
       heroImages: [
         "../images/hotel-2.jpg",
         "../images/slide2.jpg",
@@ -86,10 +86,10 @@
         { icon: "clock", text: "Duration: 4 Hours" },
         { icon: "mapPin", text: "Location: Agafay Desert" },
         { icon: "user", text: "Guide: Included" },
-        { icon: "bus", text: "Transport: Optional" }
+        { icon: "bus", text: "Transport: Shared pickup from your Marrakech address" }
       ],
       timeline: [
-        { title: "Pickup & Welcome", text: "Your journey begins with a warm welcome and transfer to our luxury camp in the heart of Agafay (if transport selected).", icon: "bus" },
+        { title: "Shared Pickup & Welcome", text: "Shared round-trip pickup is arranged from your hotel, riad, or another address in Marrakech.", icon: "bus" },
         { title: "Quad Biking Adventure (1 Hour)", text: "Feel the adrenaline as you race across the lunar landscapes on our powerful 300cc quads. Safety gear and briefing included.", icon: "clock" },
         { title: "Camel Trek Sunset (20 Min)", text: "Slow down the pace with a traditional camel ride as the sun sets, painting the desert sky in hues of orange and purple.", icon: "star" },
         { title: "Dinner & Show", text: "Conclude your evening with a feast of Moroccan delicacies (Tajine, Couscous) accompanied by live Gnaoua music and fire eaters.", icon: "check" },
@@ -102,7 +102,7 @@
         "Live Cultural Show",
         "Safety Equipment",
         "Mineral Water",
-        "Shared Transport (Meeting Point)",
+        "Shared round-trip pickup from your hotel, riad, or another address in Marrakech",
         "Pool Access & Traditional Moroccan Tea"
       ],
       notIncluded: "Alcoholic Beverages.",

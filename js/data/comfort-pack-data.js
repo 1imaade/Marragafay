@@ -53,7 +53,7 @@ const comfortPackData = {
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>',
             title: '15:30 — Private Transfer & Desert Welcome',
-            description: 'Enjoy seamless, private round-trip transportation directly from your Marrakech hotel or riad to our desert camp.'
+            description: 'Enjoy private round-trip pickup from your hotel, riad, or another address in Marrakech, with private return transfer after the experience.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
@@ -68,7 +68,7 @@ const comfortPackData = {
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>',
             title: 'Pool Access, Mint Tea & Desert Scarf',
-            description: 'Relax by the pool with Moroccan mint tea, receive an authentic desert scarf (cheche) to wear and keep, and enjoy bottled water + soft drinks.'
+            description: 'Relax by the pool with Moroccan mint tea, receive a cheche scarf gift and Moroccan pastry gift, and enjoy cold bottled water and one soft drink.'
         },
         {
             icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
@@ -84,7 +84,7 @@ const comfortPackData = {
             if (p && Array.isArray(p.includes)) return p.includes;
         }
         return [
-            'Private hotel / riad transfer',
+            'Private round-trip pickup from your hotel, riad, or another address in Marrakech',
             '1h30 private quad session',
             '20min camel ride',
             'Pool access & Moroccan mint tea',
@@ -92,9 +92,9 @@ const comfortPackData = {
             'Traditional Moroccan dinner',
             'Live fire & music show',
             'Dedicated guide',
-            'Desert scarf to wear & keep',
-            'Bottled water + soft drink',
-            'Moroccan sweets',
+            'Cheche scarf gift',
+            'Cold bottled water and one soft drink',
+            'Moroccan pastry gift',
             'Safety gear & briefing'
         ];
     },

@@ -150,7 +150,9 @@ function validateAndBuildProduct(row, canonicalKey, fallbackProduct) {
   } else {
     // currency EUR
     priceEUR = Number(row.price);
-    priceMAD = row.price_eur != null ? Math.round(Number(row.price_eur) * 10) : (priceEUR * 10);
+    // Public EUR fares are rounded independently from the official MAD fare.
+    // Keep the reviewed local MAD price rather than applying a 10:1 estimate.
+    priceMAD = fallbackProduct?.unitPriceMad;
   }
 
   if (!Number.isFinite(priceMAD) || priceMAD <= 0) return null;
