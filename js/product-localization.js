@@ -130,17 +130,18 @@
         var words = WORDS[loc] || WORDS.en;
         var facts = (product && product.facts) || {};
         var values = { d: facts.quadDuration || '' };
-        var transport = facts.transportMode === 'shared' ? words.shared : words.private;
+        var inclusionTransport = facts.transportMode === 'shared' ? words.shared : words.private;
+        var transport = facts.transportMode === 'shared' ? words.transferShared : words.transferPrivate;
         var includes;
 
         if (canonicalKey === 'standard') {
-            includes = [transport, format(words.quad, values), format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.water, words.safety];
+            includes = [inclusionTransport, format(words.quad, values), format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.water, words.safety];
         } else if (canonicalKey === 'private') {
-            includes = [transport, format(words.quadPrivate, values), format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.guide, words.scarf, words.water, words.softDrink, words.sweets, words.safety];
+            includes = [inclusionTransport, format(words.quadPrivate, values), format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.guide, words.scarf, words.water, words.softDrink, words.sweets, words.safety];
         } else if (canonicalKey === 'private-plus') {
-            includes = [transport, format(words.quadPlus, values), words.groupLunch, words.pool, format(words.camel, { d: facts.camelDuration }), words.sunset, words.groupDinner, words.show, words.fullGuide, words.scarf, words.water, words.softDrink, words.sweets, words.safety];
+            includes = [inclusionTransport, format(words.quadPlus, values), words.groupLunch, words.pool, format(words.camel, { d: facts.camelDuration }), words.sunset, words.groupDinner, words.show, words.fullGuide, words.scarf, words.water, words.softDrink, words.sweets, words.safety];
         } else {
-            includes = [transport, format(words.buggy, values), words.twoGuests, format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.guide, words.water, words.safety];
+            includes = [inclusionTransport, format(words.buggy, values), words.twoGuests, format(words.camel, { d: facts.camelDuration }), words.pool, words.sunset, words.dinner, words.show, words.guide, words.water, words.safety];
         }
 
         var ui = UI_STRINGS[loc] || UI_STRINGS.en;
