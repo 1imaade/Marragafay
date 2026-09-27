@@ -158,6 +158,16 @@ function validateAndBuildProduct(row, canonicalKey, fallbackProduct) {
   if (!Number.isFinite(priceMAD) || priceMAD <= 0) return null;
   if (!Number.isFinite(priceEUR) || priceEUR <= 0) return null;
 
+  // Enforce catalog safety floor to guard against stale legacy rows in Supabase
+  if (fallbackProduct) {
+    if (priceMAD < fallbackProduct.unitPriceMad) {
+      priceMAD = fallbackProduct.unitPriceMad;
+    }
+    if (priceEUR < fallbackProduct.unitPriceEur) {
+      priceEUR = fallbackProduct.unitPriceEur;
+    }
+  }
+
   // Normalize type
   const rawType = String(row.type || '').toLowerCase();
   const type = (rawType === 'pack' || rawType === 'package' || rawType === 'packages' || rawType === 'packs')

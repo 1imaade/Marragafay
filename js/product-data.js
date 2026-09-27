@@ -230,6 +230,12 @@
             priceMAD = fb.priceMAD;
         }
 
+        // Enforce catalog safety floor to guard against stale legacy rows in Supabase
+        if (fb) {
+            if (priceMAD < fb.priceMAD) priceMAD = fb.priceMAD;
+            if (priceEUR < fb.priceEUR) priceEUR = fb.priceEUR;
+        }
+
         // Supabase remains the live price source. Product facts stay in the
         // reviewed local matrix so an outdated row cannot restore retired copy.
         var includes = fb.includes.slice();
