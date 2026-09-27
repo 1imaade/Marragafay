@@ -2573,7 +2573,14 @@ form#booking-form:has(.booking-input-cell) .booking-input-cell {
     min-height: 68px;
     padding-block: 8px;
     padding-inline: 16px;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
     border-bottom: 1px solid rgba(16, 16, 14, 0.15);
+}
+
+form#booking-form .booking-input-cell {
+    margin: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 form#booking-form:has(.booking-input-cell) .booking-input-cell:first-child {
@@ -2608,6 +2615,25 @@ form#booking-form:has(.booking-input-cell) > button {
 form#booking-form:has(.booking-input-cell) > button:focus-visible {
     outline: 2px solid #523225;
     outline-offset: -3px;
+}
+
+@media (max-width: 1279px) {
+    form#booking-form:has(.booking-input-cell),
+    form#booking-form {
+        border-radius: 0 0 24px 24px !important;
+    }
+
+    form#booking-form:has(.booking-input-cell) .booking-input-cell:first-child,
+    form#booking-form .booking-input-cell:first-child {
+        border-radius: 0 !important;
+    }
+
+    form#booking-form:has(.booking-input-cell) > button,
+    form#booking-form > button {
+        border: 0 !important;
+        border-radius: 0 0 24px 24px !important;
+        margin: 0 !important;
+    }
 }
 
 @media (min-width: 1280px) {
