@@ -2582,7 +2582,12 @@ section:has(form#booking-form .booking-input-cell) > div > div {
 }
 
 form#booking-form:has(.booking-input-cell) {
+    border: none !important;
     border-radius: 0 24px 24px 0;
+}
+
+form#booking-form.flex {
+    border: none !important;
 }
 
 html[dir="rtl"] form#booking-form:has(.booking-input-cell) {
@@ -2628,7 +2633,7 @@ form#booking-form:has(.booking-input-cell) .booking-input-cell:focus-within {
 form#booking-form:has(.booking-input-cell) > button {
     min-height: 68px;
     padding: 16px 24px;
-    border: 0;
+    border: 0 !important;
     border-radius: 0 24px 24px 0;
     line-height: 1.35;
 }
@@ -2644,7 +2649,9 @@ form#booking-form:has(.booking-input-cell) > button:focus-visible {
 
 @media (max-width: 1279px) {
     form#booking-form:has(.booking-input-cell),
+    form#booking-form.flex,
     form#booking-form {
+        border: none !important;
         border-radius: 0 0 24px 24px !important;
     }
 
@@ -2671,6 +2678,11 @@ form#booking-form:has(.booking-input-cell) > button:focus-visible {
         padding-inline: 14px;
         border-bottom: 0;
         border-right: 1px solid rgba(16, 16, 14, 0.15);
+    }
+
+    html[dir="rtl"] form#booking-form:has(.booking-input-cell) .booking-input-cell {
+        border-right: 0;
+        border-left: 1px solid rgba(16, 16, 14, 0.15);
     }
 }
 
