@@ -2530,21 +2530,36 @@ form#booking-form:has(.booking-input-cell) {
 }
 
 @media (min-width: 1280px) {
+    section:has(form#booking-form .booking-input-cell) > div > div {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+    }
+
+    section:has(form#booking-form .booking-input-cell) > div > div > div:first-child {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 540px;
+    }
+
+    section:has(form#booking-form .booking-input-cell) > div > div > div:last-child {
+        flex-shrink: 0;
+    }
+
     form#booking-form:has(.booking-input-cell) {
         min-width: 0;
-        max-width: 100%;
+        flex-shrink: 0;
     }
 
     form#booking-form:has(.booking-input-cell) .booking-input-cell {
-        flex: 1 1 0;
-        min-width: 0;
-        width: auto !important;
+        flex: 0 0 auto;
+        min-width: 110px;
+        width: auto;
     }
 
-    form#booking-form:has(.booking-input-cell) .booking-input-cell > span,
-    form#booking-form:has(.booking-input-cell) .booking-input-cell > input,
-    form#booking-form:has(.booking-input-cell) .booking-input-cell > div {
-        min-width: 0;
+    form#booking-form:has(.booking-input-cell) .booking-input-cell:first-child {
+        min-width: 140px;
     }
 
     form#booking-form:has(.booking-input-cell) .booking-input-cell > span {
@@ -2555,7 +2570,9 @@ form#booking-form:has(.booking-input-cell) {
 
     form#booking-form:has(.booking-input-cell) > button {
         flex: 0 0 auto;
-        min-width: max-content;
+        min-width: 175px;
+        padding-inline: 24px;
+        white-space: nowrap;
     }
 }
 
@@ -2565,7 +2582,11 @@ section:has(form#booking-form .booking-input-cell) > div > div {
 }
 
 form#booking-form:has(.booking-input-cell) {
-    border-radius: 14px 0 14px 0;
+    border-radius: 0 24px 24px 0;
+}
+
+html[dir="rtl"] form#booking-form:has(.booking-input-cell) {
+    border-radius: 24px 0 0 24px;
 }
 
 form#booking-form:has(.booking-input-cell) .booking-input-cell {
@@ -2584,7 +2605,7 @@ form#booking-form .booking-input-cell {
 }
 
 form#booking-form:has(.booking-input-cell) .booking-input-cell:first-child {
-    border-radius: 14px 0 0 0;
+    border-radius: 0;
 }
 
 form#booking-form:has(.booking-input-cell) .booking-input-cell > span {
@@ -2606,10 +2627,14 @@ form#booking-form:has(.booking-input-cell) .booking-input-cell:focus-within {
 
 form#booking-form:has(.booking-input-cell) > button {
     min-height: 68px;
-    padding: 16px 20px;
+    padding: 16px 24px;
     border: 0;
-    border-radius: 0 0 14px 0;
+    border-radius: 0 24px 24px 0;
     line-height: 1.35;
+}
+
+html[dir="rtl"] form#booking-form:has(.booking-input-cell) > button {
+    border-radius: 24px 0 0 24px;
 }
 
 form#booking-form:has(.booking-input-cell) > button:focus-visible {

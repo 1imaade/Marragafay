@@ -357,7 +357,7 @@ test('13. All localized product booking bars share the restrained two-corner tre
         });
     });
 
-    assert.match(bookingStyles, /form#booking-form:has\(\.booking-input-cell\)\s*\{[^}]*border-radius:\s*14px\s+0\s+14px\s+0/s);
-    assert.match(bookingStyles, /\.booking-input-cell:first-child\s*\{[^}]*border-radius:\s*14px\s+0\s+0\s+0/s);
-    assert.match(bookingStyles, />\s*button\s*\{[^}]*border-radius:\s*0\s+0\s+14px\s+0/s);
+    assert.match(bookingStyles, /form#booking-form:has\(\.booking-input-cell\)\s*\{[^}]*border-radius:\s*0\s+24px\s+24px\s+0/s);
+    assert.match(bookingStyles, /\.booking-input-cell:first-child\s*\{[^}]*border-radius:\s*0/s);
+    assert.match(bookingStyles, />\s*button\s*\{[^}]*border-radius:\s*0\s+24px\s+24px\s+0/s);
 });
